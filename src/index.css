@@ -1,0 +1,122 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent global scrollbar, app handles scrolling internally */
+}
+
+html, body {
+  overscroll-behavior: none;
+}
+
+html.dark, html.dark body {
+  background: #111827;
+}
+
+[data-app-scroll="main"] {
+  overflow-anchor: none;
+  overscroll-behavior: contain;
+}
+
+/* Disable transitions when switching themes to avoid cached changes */
+.notransition *, .notransition *::before, .notransition *::after {
+  transition: none !important;
+}
+
+/* Scanning animation for barcode scanner */
+@keyframes scan {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .barcode-scanner-container {
+    padding: 1rem;
+  }
+}
+/* Global utility classes moved from ToolsScreen */
+.sharp-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.sharp-image {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.print-optimized {
+  color: #000000 !important;
+  background: #ffffff !important;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .sharp-text {
+    font-weight: bolder !important;
+    letter-spacing: 0.025em !important;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  --scrollbar-track: #f8fafc;
+  --scrollbar-thumb: #94a3b8;
+  --input-bg: #ffffff;
+  --input-text: #0f172a;
+  --input-border: #cbd5e1;
+  --input-placeholder: #64748b;
+  --input-focus-ring: #3b82f6;
+  --accent: #4f46e5 !important;
+}
+
+html.dark {
+  --scrollbar-track: #111827;
+  --scrollbar-thumb: #64748b;
+  --input-bg: #1f2937;
+  --input-text: #e5e7eb;
+  --input-border: #475569;
+  --input-placeholder: #94a3b8;
+  --input-focus-ring: #3b82f6;
+  --accent: #4f46e5 !important;
+}
+
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}

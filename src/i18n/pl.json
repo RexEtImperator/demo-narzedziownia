@@ -1,0 +1,2692 @@
+{
+  "ErrorBoundary": {
+    "title": "Coś poszło nie tak",
+    "message": "Wystąpił nieoczekiwany błąd aplikacji. Spróbuj odświeżyć stronę.",
+    "refresh": "Odśwież stronę",
+    "screenError": {
+      "title": "Błąd w widoku:",
+      "message": "Wystąpił nieoczekiwany błąd podczas wyświetlania tego ekranu."
+    }
+  }, 
+  "onboardingtour": {
+    "quickIssue": {
+      "title": "Szybkie wydanie narzędzi",
+      "content": "Tutaj możesz szybko wydać narzędzie pracownikowi skanując kod QR lub wpisując nazwę, kod ręcznie."
+    },
+    "quickReturn": {
+      "title": "Szybki zwrot narzędzi",
+      "content": "W tym miejscu możesz szybko przyjąć zwrot narzędzia od pracownika, skanując kod lub wybierając z listy."
+    },
+    "search": {
+      "title": "Wyszukiwarka",
+      "content": "Wpisz frazę lub użyj skrótu Ctrl+K, aby błyskawicznie przeszukać zasoby systemu, narzędzia i pracowników."
+    },
+    "navigation": {
+      "title": "Nawigacja",
+      "content": "Pasek boczny umożliwia szybki dostęp do wszystkich modułów systemu: Narzędzia, Pracownicy, Raporty, BHP i Ustawienia."
+    },
+    "help": {
+      "title": "Centrum Pomocy",
+      "content": "Kliknij ikonę znaku zapytania, aby otworzyć panel pomocy z przewodnikami i odpowiedziami na częste pytania."
+    },
+    "skip": "Pomiń",
+    "prevStep": "Poprzedni krok",
+    "nextStep": "Następny krok",
+    "finish": "Zakończ"
+  },
+  "sidebar": {
+    "dashboard": "Strona główna",
+    "tools": "Narzędzia",
+    "bhp": "BHP",
+    "inventory": "Inwentaryzacja",
+    "employees": "Pracownicy",
+    "map": "Mapa zakładu",
+    "labels": "Etykiety",
+    "analytics": "Analityka",
+    "admin": "Ustawienia",
+    "audit": "Dziennik audytu",
+    "settings": "Ustawienia",
+    "userSettings": "Ustawienia użytkownika",
+    "report": "Zgłoszenia",
+    "dangerZone": "Danger Zone",
+    "menu": "Menu"
+  },
+  "screens": {
+    "dashboard": "Dashboard",
+    "tools": "Narzędzia",
+    "new": "Dodawanie narzędzia",
+    "edit": "Edycja narzędzia",
+    "bhp": "BHP",
+    "employees": "Pracownicy",
+    "map": "Mapa zakładu",
+    "analytics": "Analityka",
+    "labels": "Etykiety",
+    "kiosk": "Kiosk",
+    "admin": "Ustawienia",
+    "user-management": "Zarządzanie użytkownikami",
+    "config": "Konfiguracja",
+    "audit": "Dziennik audytu",
+    "user-settings": "Ustawienia użytkownika",
+    "report": "Zgłoszenia",
+    "db-viewer": "Bazy danych",
+    "defaultTitle": "Zarządzanie Narzędziami",
+    "settings": "Ustawienia",
+    "translations": "Tłumaczenia",
+    "general": "Ogólne",
+    "security": "Bezpieczeństwo",
+    "email": "Email",
+    "users": "Użytkownicy",
+    "rolesPermissions": "Role i uprawnienia",
+    "features": "Funkcje",
+    "notifications": "Powiadomienia",
+    "departments": "Działy",
+    "positions": "Stanowiska",
+    "categories": "Kategorie",
+    "codes": "Kody",
+    "backup": "Kopia zapasowa",
+    "database": "Baza danych",
+    "webhooks": "Webhooks",
+    "server": "Serwer",
+    "danger-zone": "Danger Zone"
+  },
+  "kiosk": {
+    "title": "Kiosk",
+    "disabled": "Kiosk jest wyłączony",
+    "back": "Wróć",
+    "layout": {
+      "grid": "Układ kafelkowy",
+      "list": "Układ listy"
+    },
+    "search": {
+      "placeholder": "Wyszukaj narzędzie / sprzęt BHP (SKU, nazwa, kod kreskowy, QR, NFC)...",
+      "button": "Wyszukaj",
+      "results": "Wyniki wyszukiwania ({count})",
+      "clear": "Wyczyść",
+      "quantity": "ilość: {count}"
+    },
+    "hint": {
+      "label": "Wskazówka:",
+      "text": "Użyj wyszukiwarki, aby szybciej znaleźć potrzebne narzędzie."
+    },
+    "itemType": {
+      "tool": "Narzędzie",
+      "bhp": "BHP"
+    },
+    "overdueBadge": "WYMAGA PRZEGLĄDU",
+    "subitems": {
+      "button": "Podpozycje",
+      "loading": "Ładowanie podpozycji...",
+      "empty": "Brak podpozycji",
+      "available": "dostępne: {count}",
+      "fetchError": "Błąd pobierania"
+    },
+    "subitemModal": {
+      "titleSlings": "Wydaj podpozycję (zawiesia)",
+      "titleSockets": "Wydaj podpozycję (nasadki)",
+      "employeePlaceholder": "Szukaj pracownika (imię, nazwisko, numer)...",
+      "noResults": "Brak wyników",
+      "quantity": "Ilość",
+      "available": "Dostępne: {count}"
+    },
+    "stats": {
+      "active": "Aktywne wydania",
+      "overdue": "Przeterminowany sprzęt"
+    },
+    "issued": {
+      "loading": "Ładowanie wydanych narzędzi...",
+      "empty": "Brak wydanych narzędzi/sprzętu"
+    },
+    "return": {
+      "processing": "Przetwarzanie...",
+      "immediate": "ZWRÓĆ NATYCHMIAST",
+      "button": "ZWRÓĆ",
+      "confirmTitle": "Potwierdzenie zwrotu",
+      "confirmMessage": "Czy na pewno chcesz zwrócić {name}?"
+    },
+    "toasts": {
+      "loadIssuedError": "Nie udało się załadować wydanych narzędzi/sprzętu",
+      "searchError": "Błąd wyszukiwania",
+      "overdueIssueBlocked": "Nie można wydać sprzętu wymagającego przeglądu",
+      "issueSuccess": "Wydano pomyślnie",
+      "issueError": "Nie udało się wydać",
+      "subitemIssueSuccess": "Wydano",
+      "subitemIssueError": "Nie udało się wydać podpozycji",
+      "selectEmployee": "Wybierz pracownika",
+      "returnSuccess": "Zwrócono pomyślnie",
+      "returnError": "Nie udało się zwrócić"
+    },
+    "fallbacks": {
+      "unknownTool": "Nieznane narzędzie",
+      "unknownBhp": "Nieznany sprzęt BHP",
+      "sling": "Zawiesie",
+      "sockets": "Nasadki"
+    }
+  },
+  "map": {
+    "title": "Mapa zakładu",
+    "hint": {
+      "manage": "Kliknij + aby dodać zgłoszenie, następnie wskaż miejsce na mapie.",
+      "view": "Masz dostęp tylko do podglądu mapy."
+    },
+    "permissions": {
+      "title": "Brak uprawnień",
+      "viewMapDenied": "Nie masz uprawnień do wyświetlania mapy zakładu (VIEW_MAP)."
+    }
+  },
+  "common": {
+    "browserNotSupported": "Ten przeglądarka nie jest obsługiwana. Proszę użyć innej przeglądarki.",
+    "help": {
+      "title": "Pomoc",
+      "helpMore": "Potrzebujesz więcej pomocy?",
+      "contactAdmin": "Skontaktuj się z administratorem"
+    },
+    "status": {
+      "available": "Dostępny",
+      "issued": "Wydane",
+      "partially_issued": "Częściowo wydane",
+      "permanent": "Wydane - na stałe",
+      "service": "Serwis",
+      "damaged": "Uszkodzone",
+      "unknown": "Nieznany"
+    },
+    "pasteJson": "Wklej JSON",
+    "selectAll": "Zaznacz wszystko",
+    "confirmDelete": "Czy na pewno chcesz usunąć ten element?",
+    "saved": "Zapisano",
+    "deleted": "Usunięto",
+    "of": "z",
+    "employee": "Pracownik",
+    "sendReminder": "Wyślij przypomnienie",
+    "issue": "Wydaj",
+    "return": "Zwróć",
+    "days": "dni",
+    "loading": "Ładowanie…",
+    "refresh": "Odśwież",
+    "retry": "Spróbuj ponownie",
+    "noData": "Brak danych.",
+    "selectEmployee": "Wybierz pracownika, aby wyświetlić dane.",
+    "error": "Wystąpił błąd.",
+    "search": "Szukaj",
+    "searchEmployee": "Wyszukaj pracownika...",
+    "print": "Drukuj",
+    "jumpTo": "Przejdź do",
+    "add": "Dodaj",
+    "confirm": "Potwierdź",
+    "cancel": "Anuluj",
+    "back": "Wróć",
+    "apply": "Zastosuj",
+    "update": "Aktualizuj",
+    "save": "Zapisz",
+    "close": "Zamknij",
+    "delete": "Usuń",
+    "remove": "Usuń",
+    "quantity": "Ilość",
+    "existing": "istniejąca",
+    "clearList": "Wyczyść listę",
+    "clearInput": "Wyczyść pole",
+    "saveChanges": "Zapisz zmiany",
+    "saving": "Zapisywanie...",
+    "updateSuccess": "Dane sprzętu zostały zaktualizowane",
+    "actions": "Akcje",
+    "details": "Szczegóły",
+    "edit": "Edytuj",
+    "select": "Wybierz",
+    "download": "Pobierz",
+    "sent": "Wysłano",
+    "read": "Przeczytano",
+    "user": "Użytkownik",
+    "nfcTag": "Tag NFC",
+    "scanNfc": "Skanuj tag NFC",
+    "noResults": "Brak wyników",
+    "noPermission": "Brak uprawnień do wykonania tej akcji",
+    "noPermissionsTitle": "Brak uprawnień",
+    "popupBlocked": "Wyskakujące okno zostało zablokowane przez przeglądarkę",
+    "copy": "KOPIUJ",
+    "copied": "Skopiowano do schowka",
+    "scanQr": "Skanuj kod QR/Kreskowy",
+    "scanSuccess": "Zeskanowano pomyślnie",
+    "time": {
+      "today": "Dzisiaj",
+      "yesterday": "Wczoraj",
+      "daysAgo": "dni temu",
+      "lastWeek": "Tydzień temu",
+      "weeksAgo": "tygodnie temu",
+      "unknownDate": "Nieznana data"
+    },
+    "export": {
+      "PDF": "Eksportuj jako PDF",
+      "EXCEL": "Eksportuj jako EXCEL"
+    },
+    "toastr": {
+      "searchError": "Błąd wyszukiwania narzędzia",
+      "errorDetails": "Błąd szczegółów",
+      "users": {
+        "fetchError": "Błąd podczas pobierania użytkowników",
+        "deletedSuccess": "Użytkownik został usunięty",
+        "deleteError": "Błąd podczas usuwania użytkownika",
+        "updatedSuccess": "Użytkownik został zaktualizowany",
+        "addedSuccess": "Użytkownik został dodany",
+        "saveError": "Błąd podczas zapisywania użytkownika",
+        "modalDescription": "Wypełnij dane użytkownika. Hasło musi spełnić konfigurowane polityki bezpiecznościowe."
+      },
+      "form": {
+        "requiredFields": "Wypełnij wszystkie wymagane pola",
+        "passwordMismatch": "Hasła nie są identyczne"
+      },
+      "audit": {
+        "deleteNoPermission": "Brak uprawnień administratora do usunięcia logów",
+        "deletedSuccess": "Logi audytu zostały usunięte",
+        "deleteError": "Błąd podczas usuwania logów audytu",
+        "addError": "Nie udało się dodać wpisu audytu"
+      },
+      "db": {
+        "tablesFetchError": "Błąd pobierania listy tabel bazy danych",
+        "tableDataFetchError": "Błąd pobierania danych z tabeli",
+        "noPrimaryKeyWarn": "Brak klucza głównego – edycja niewspierana",
+        "rowUpdatedSuccess": "Wiersz został zaktualizowany",
+        "rowSaveError": "Błąd zapisu wiersza",
+        "rowAddedSuccess": "Wiersz został dodany",
+        "rowAddError": "Błąd dodawania wiersza",
+        "tableCreateInvalid": "Uzupełnij poprawnie nazwę i kolumny",
+        "tableCreateSuccess": "Tabela {table} została utworzona",
+        "tableCreateError": "Błąd tworzenia tabeli",
+        "noPrimaryKeyDeleteWarn": "Brak klucza głównego – usuwanie niewspierane",
+        "rowDeletedSuccess": "Wiersz został usunięty",
+        "rowDeleteError": "Błąd usuwania wiersza",
+        "tableDeletedSuccess": "Tabela {table} została usunięta",
+        "tableDeleteError": "Błąd usuwania tabeli"
+      }
+    },
+    "pagination": {
+      "prev": "Poprzednia",
+      "page": "Strona",
+      "of": "z",
+      "next": "Następna",
+      "total": "Łącznie:",
+      "range": "{start}–{end} / {total}"
+    },
+    "typing": "pisze..."
+  },
+  "filters": {
+    "title": "Filtry",
+    "saveCurrent": "Zapisz filtr",
+    "clearAll": "Wyczyść wszystkie",
+    "savedFilters": "Zapisane filtry",
+    "addFilter": "Dodaj filtr",
+    "selectType": "Wybierz typ filtru",
+    "filterName": "Nazwa filtru..."
+  },
+  "search": {
+    "recent": "Ostatnie wyszukiwania"
+  },
+  "Theme": {
+    "useThemeProvider": "useTheme musi być używany w ramach ThemeProvider"
+  },
+  "errors": {
+    "server": "Błąd serwera",
+    "validation": "Nieprawidłowe dane",
+    "permission": "Brak uprawnień"
+  },
+  "loading": {
+    "tables": "Ładowanie tabel…",
+    "departments": "Ładowanie działów…",
+    "categories": "Ładowanie kategorii…",
+    "differences": "Ładowanie różnic…",
+    "history": "Ładowanie historii…",
+    "sessions": "Ładowanie sesji…",
+    "data": "Ładowanie danych…",
+    "issuedTools": "Ładowanie wydanych narzędzi…",
+    "employees": "Ładowanie pracowników…"
+  },
+  "noData": {
+    "categories": "Brak kategorii",
+    "sessions": "Brak sesji",
+    "tables": "Brak tabel",
+    "issuedTools": "Brak wydanych narzędzi"
+  },
+  "reports": {
+    "title": "Zgłoś nieprawidłowość",
+    "description": "Wybierz typ i uzupełnij szczegóły",
+    "tabs": {
+      "form": "Formularz",
+      "reported": "Zgłoszone",
+      "bhpIssued": "Wydane BHP"
+    },
+    "type": {
+      "label": "Typ zgłoszenia",
+      "employee": "Pracownik",
+      "tool": "Wydane narzędzie",
+      "bhpIssued": "Wydane BHP",
+      "bhp": "BHP",
+      "other": "Inne"
+    },
+    "employee": { "label": "Pracownik" },
+    "employeeManual": { "label": "Pracownik (podaj Imię i nazwisko)", "placeholder": "Imię i nazwisko osoby, której dotyczy zgłoszenie" },
+    "tool": { "label": "Wydane narzędzie:" },
+    "bhpIssued": { "label": "Wydany sprzęt BHP:" },
+    "bhp": { "label": "Kategoria BHP", "placeholder": "np. Ocena ryzyka, przegląd, wypadek" },
+    "other": { "label": "Temat", "placeholder": "Krótki temat" },
+    "details": { "label": "Opis", "placeholder": "Opisz szczegóły zdarzenia lub nieprawidłowości" },
+    "severity": {
+      "label": "Priorytet",
+      "low": "Niski",
+      "medium": "Średni",
+      "high": "Wysoki"
+    },
+    "attachments": {
+      "label": "Załączniki (zdjęcia)",
+      "hint": "Możesz dodać kilka zdjęć jako załączniki"
+    },
+    "issuedTools": {
+      "loading": "Ładowanie wydanych narzędzi…",
+      "selectEmployee": "Wybierz pracownika, aby zobaczyć wydane narzędzia.",
+      "none": "Brak wydanych narzędzi."
+    },
+    "issuedBhp": {
+      "loading": "Ładowanie wydanych BHP…",
+      "selectEmployee": "Wybierz pracownika, aby zobaczyć wydany sprzęt BHP.",
+      "none": "Brak wydanego sprzętu BHP."
+    },
+    "filters": {
+      "type": "Filtr: typ",
+      "severity": "Filtr: priorytet",
+      "status": "Filtr: status"
+    },
+    "list": {
+      "type": "Typ",
+      "subject": "Temat / Szczegóły",
+      "severity": "Priorytet",
+      "status": "Status",
+      "created": "Utworzono",
+      "attachments": "Załączniki",
+      "actions": "Akcje"
+    },
+    "status": {
+      "accepted": "Przyjęto",
+      "checking": "Sprawdzanie",
+      "resolved": "Rozwiązano"
+    },
+    "submit": "Wyślij zgłoszenie",
+    "delete": {
+      "title": "Usuń zgłoszenie",
+      "confirm": "Usuń",
+      "aria": "Usuń zgłoszenie",
+      "messageWithTarget": "Czy na pewno chcesz usunąć zgłoszenie \"{subject}\" (ID: {id})? Operacja jest nieodwracalna.",
+      "messageGeneric": "Czy na pewno chcesz usunąć to zgłoszenie? Operacja jest nieodwracalna."
+    },
+    "errors": {
+      "uploadNotAvailable": "Przesyłanie niedostępne",
+      "uploadError": "Błąd przesyłania",
+      "onlyImages": "Dozwolone są tylko pliki graficzne",
+      "fileTooLarge": "Plik jest zbyt duży (max 10MB)",
+      "requiredFields": "Typ, opis i priorytet są wymagane",
+      "invalidType": "Nieprawidłowy typ zgłoszenia",
+      "employeeNameRequired": "Podaj imię i nazwisko pracownika",
+      "createFailed": "Nie udało się utworzyć zgłoszenia",
+      "listFailed": "Nie udało się pobrać zgłoszeń",
+      "invalidStatus": "Nieprawidłowy status",
+      "updateFailed": "Nie udało się zaktualizować statusu",
+      "notFound": "Nie znaleziono zgłoszenia",
+      "deleteFailed": "Nie udało się usunąć zgłoszenia"
+    },
+    "toast": {
+      "success": "Zgłoszenie wysłane",
+      "error": "Nie udało się wysłać zgłoszenia",
+      "fetchError": "Błąd pobierania zgłoszeń",
+      "statusUpdated": "Status zgłoszenia zaktualizowany",
+      "statusError": "Nie udało się zaktualizować statusu",
+      "deleted": "Zgłoszenie zostało usunięte",
+      "deleteError": "Nie udało się usunąć zgłoszenia"
+    }
+  },
+  "inventory": {
+    "tabs": {
+      "sessions": "Sesje",
+      "reports": "Raporty"
+    },
+    "title": "Inwentaryzacja",
+    "subtitle": "Przegląd stanów, materiały zużywalne i sesje",
+    "permissions": {
+      "title": "Brak uprawnień",
+      "viewInventoryDenied": "Brak uprawnień do przeglądania inwentaryzacji (VIEW_INVENTORY)."
+    },
+    "sessions": {
+      "title": "Sesje inwentaryzacji",
+      "newNamePlaceholder": "Nazwa nowej sesji",
+      "notesPlaceholder": "Notatki (opcjonalnie)",
+      "creating": "Tworzenie…",
+      "createBtn": "Nowa sesja",
+      "headers": {
+        "name": "Nazwa",
+        "status": "Status",
+        "counted": "Zliczone pozycje",
+        "startedAt": "Data rozpoczęcia",
+        "finishedAt": "Data zakończenia"
+      },
+      "details": {
+        "status": "Status",
+        "counted": "Zliczone",
+        "start": "Start",
+        "end": "Koniec"
+      },
+      "statusValues": {
+        "active": "Aktywne",
+        "paused": "Wstrzymano",
+        "ended": "Zakończono"
+      },
+      "select": "Wybierz",
+      "pause": "Wstrzymaj",
+      "end": "Zakończ",
+      "resume": "Wznów",
+      "selected": "Wybrana sesja",
+      "errors": {
+        "onlyAdminCreate": "Tylko administrator może tworzyć sesje",
+        "nameRequired": "Podaj nazwę sesji",
+        "createFailed": "Nie udało się utworzyć sesji",
+        "onlyAdminStatus": "Tylko administrator może zmieniać status sesji",
+        "statusFailed": "Zmiana statusu nie powiodła się",
+        "onlyAdminDelete": "Tylko administrator może usuwać sesje",
+        "onlyEndedDelete": "Usunąć można tylko sesję zakończoną",
+        "fetchFailed": "Nie udało się pobrać sesji"
+      },
+      "delete": {
+        "title": "Usuń",
+        "confirm": "Czy na pewno chcesz trwale usunąć sesję \"{{name}}\"?",
+        "success": "Sesja została trwale usunięta.",
+        "failed": "Usuwanie sesji nie powiodło się"
+      }
+    },
+    "scan": {
+      "qtyPlaceholder": "Ilość",
+      "open": "Skanuj",
+      "last": "Ostatnio zliczono",
+      "errors": {
+        "noSession": "Brak wybranej sesji",
+        "failed": "Błąd skanowania"
+      },
+      "success": {
+        "counted": "Zliczono"
+      }
+    },
+    "diffs": {
+      "title": "Różnice stanów",
+      "filterPlaceholder": "Filtruj po nazwie lub SKU",
+      "minAbsPlaceholder": "Min. |różnica|",
+      "exporting": "Eksport…",
+      "exportCsv": "Eksport CSV",
+      "autoAcceptDisabled": "Nie zatwierdzaj automatycznie",
+      "headers": {
+        "name": "Nazwa",
+        "sku": "SKU",
+        "systemQty": "System ilość",
+        "countedQty": "Zliczona ilość",
+        "difference": "Różnica",
+        "exportDate": "Data eksportu",
+        "responsible": "Odpowiedzialny"
+      },
+      "addCorrection": "Dodaj korektę",
+      "empty": "Brak różnic do wyświetlenia",
+      "errors": {
+        "fetchFailed": "Nie udało się pobrać różnic"
+      },
+      "correctedTag": "Skorygowano"
+    },
+    "export": {
+      "errors": {
+        "noPermission": "Brak uprawnień do eksportu",
+        "failed": "Eksport CSV nie powiódł się"
+      }
+    },
+    "errors": {
+      "sessionNameRequired": "Podaj nazwę sesji",
+      "invalidAction": "Nieprawidłowa akcja",
+      "fetchSessionFailed": "Nie udało się pobrać sesji",
+      "sessionNotFound": "Sesja nie istnieje",
+      "sessionStatusInvalid": "Nieprawidłowy status sesji",
+      "deleteCountsFailed": "Nie udało się usunąć zliczeń",
+      "deleteCorrectionsFailed": "Nie udało się usunąć korekt",
+      "deleteSessionFailed": "Nie udało się usunąć sesji",
+      "codeRequired": "Kod jest wymagany",
+      "toolNotFound": "Nie znaleziono narzędzia dla podanego kodu",
+      "countFetchFailed": "Nie udało się pobrać zliczenia",
+      "countSetFailed": "Nie udało się zapisać zliczenia",
+      "listSessionsFailed": "Nie udało się pobrać sesji",
+      "fetchDifferencesFailed": "Nie udało się pobrać różnic",
+      "fetchHistoryFailed": "Nie udało się pobrać historii/korekt",
+      "correctionCreateFailed": "Nie udało się utworzyć korekty",
+      "correctionFetchFailed": "Nie udało się pobrać korekty",
+      "correctionAcceptFailed": "Nie udało się zatwierdzić korekty",
+      "correctionApplyFailed": "Nie udało się zastosować korekty",
+      "correctionDeleteFailed": "Nie udało się usunąć korekty"
+    },
+    "history": {
+      "title": "Historia korekt",
+      "pendingOnly": "Tylko oczekujące",
+      "headers": {
+        "name": "Nazwa",
+        "sku": "SKU",
+        "difference": "Różnica",
+        "reason": "Powód",
+        "status": "Status",
+        "created": "Utworzono",
+        "acceptedBy": "Kto zatwierdził",
+        "acceptedAt": "Kiedy zatwierdzono"
+      },
+      "status": {
+        "accepted": "Zatwierdzona",
+        "pending": "Oczekuje"
+      },
+      "accept": {
+        "title": "Zatwierdź korektę",
+        "aria": "Zatwierdź korektę",
+        "acceptedLabel": "Zatwierdzona"
+      },
+      "delete": {
+        "title": "Usuń korektę",
+        "aria": "Usuń korektę"
+      },
+      "empty": "Brak korekt do wyświetlenia",
+      "errors": {
+        "fetchFailed": "Nie udało się pobrać historii/korekt"
+      }
+    },
+    "toast": {
+      "onlyAdminApprove": "Tylko administrator może zatwierdzać korekty",
+      "approveSuccess": "Korekta zatwierdzona",
+      "approveFailed": "Nie udało się zatwierdzić korekty",
+      "onlyAdminDelete": "Tylko administrator może usuwać korekty",
+      "deleteSuccess": "Korekta usunięta",
+      "deleteFailed": "Nie udało się usunąć korekty"
+    },
+    "correction": {
+      "modal": {
+        "title": "Dodaj korektę",
+        "item": "Pozycja",
+        "systemQty": "System ilość",
+        "countedQty": "Zliczona ilość",
+        "difference": "Różnica",
+        "calculatedInfo": "🔒 Pole obliczane automatycznie",
+        "reasonLabel": "Powód (opcjonalnie)",
+        "reasonPlaceholder": "Np. błąd ewidencji, zmiana stanu",
+        "saving": "Zapisywanie…",
+        "save": "Zapisz korektę"
+      },
+      "errors": {
+        "noToolId": "Nie można ustalić ID narzędzia dla korekty (brak powiązania).",
+        "noSession": "Brak wybranej sesji — wybierz sesję przed zapisem.",
+        "noToolForCorrection": "Nie udało się ustalić narzędzia do korekty — spróbuj ponownie z panelu \"Różnice stanów\".",
+        "acceptFailed": "Nie udało się zatwierdzić korekty",
+        "addFailed": "Nie udało się dodać korekty"
+      },
+      "success": {
+        "savedAndAccepted": "Korekta została zapisana i zatwierdzona.",
+        "savedPending": "Korekta została zapisana (oczekuje zatwierdzenia)."
+      }
+    },
+    "stock": {
+      "title": "Stan magazynowy",
+      "searchLabel": "Wyszukaj",
+      "searchPlaceholder": "Nazwa, SKU lub nr ewidencyjny",
+      "searchScanTitle": "Skanuj kod do wyszukiwania",
+      "onlyConsumablesLabel": "Tylko materiały zużywalne",
+      "onlyBelowMinLabel": "Poniżej stanu minimalnego",
+      "headers": {
+        "name": "Nazwa",
+        "sku": "SKU",
+        "quantity": "Ilość",
+        "min": "Min",
+        "max": "Max",
+        "status": "Status"
+      },
+      "status": {
+        "missing": "Braki",
+        "ok": "OK"
+      },
+      "empty": "Brak pozycji do wyświetlenia"
+    },
+    "labels": {
+      "sku": "SKU",
+      "systemQty": "System",
+      "countedQty": "Zliczona",
+      "serialNumber": "Numer seryjny"
+    },
+    "modalDelete": {
+      "title": "Usuń korektę",
+      "message": "Czy na pewno chcesz usunąć tę korektę?",
+      "confirm": "Usuń"
+    },
+    "reports": {
+      "lowStock": "Niski stan magazynowy",
+      "reorder": "Wymagające zamówienia",
+      "toolName": "Nazwa narzędzia",
+      "sku": "SKU",
+      "currentStock": "Aktualny stan",
+      "minStock": "Minimalny stan",
+      "suggestedReorder": "Sugerowane zamówienie",
+      "status": "Status",
+      "noLowStock": "Brak narzędzi z niskim stanem magazynowym",
+      "noReorder": "Brak narzędzi wymagających zamówienia",
+      "statusBadge": {
+        "outOfStock": "Brak w magazynie",
+        "lowStock": "Niski stan",
+        "ok": "OK"
+      }
+    }
+  },
+  "labels": {
+    "serialNumber": "Numer seryjny"
+  },
+  "labelsManager": {
+    "title": "Etykiety",
+    "subtitle": "Generuj i drukuj etykiety dla narzędzi",
+    "tabs": {
+      "tools": "Narzędzia",
+      "bhp": "BHP",
+      "editor": "Edytor szablonów",
+      "editorSeparate": "Edytor osobnych szablonów"
+    },
+    "permissions": {
+      "title": "Brak uprawnień",
+      "viewLabelsDenied": "Brak uprawnień do przeglądania etykiet (VIEW_LABELS)."
+    },
+    "generator": {
+      "title": "Generator etykiet",
+      "description": "Wybierz narzędzia, dla których chcesz wygenerować etykiety."
+    },
+    "progress": {
+      "generating": "Generowanie etykiet..."
+    },
+    "errors": {
+      "loadingLabelConfiguration": "Błąd ładowania konfiguracji etykiet.",
+      "fetchToolsFailed": "Nie udało się pobrać narzędzi",
+      "generateQrFailed": "Błąd generowania etykiety QR",
+      "generateBarcodeFailed": "Błąd generowania etykiety kodu kreskowego",
+      "previewFailed": "Błąd generowania podglądu etykiet",
+      "printQrFailed": "Błąd wysyłania etykiety QR do drukarki",
+      "printBarcodeFailed": "Błąd wysyłania etykiety kodu kreskowego do drukarki",
+      "generateFailed": "Błąd generowania etykiety",
+      "downloadSelectedFailed": "Błąd pobierania wybranych etykiet"
+    },
+    "print": {
+      "sentQr": "Wysłano zadanie drukowania (QR)",
+      "sentBarcode": "Wysłano zadanie drukowania (Kod kreskowy)"
+    }
+  },
+  "labelManager": {
+    "errors": {
+      "loadingLabelConfiguration": "Błąd ładowania konfiguracji etykiet."
+    }
+  },
+  "auditLog": {
+    "header": {
+      "title": "Dziennik audytu",
+      "subtitle": "Historia wszystkich działań w systemie"
+    },
+    "delete": {
+      "button": "Usuń logi",
+      "title": "Usuń logi audytu",
+      "message": "Czy na pewno chcesz usunąć wszystkie logi audytu? Tej operacji nie można cofnąć.",
+      "confirm": "Usuń logi"
+    },
+    "filters": {
+      "action": "Akcja",
+      "user": "Użytkownik",
+      "usernamePlaceholder": "Nazwa użytkownika",
+      "startDate": "Data od",
+      "endDate": "Data do",
+      "actions": {
+        "all": "Wszystkie"
+      }
+    },
+    "loading": "Ładowanie dziennika audytu...",
+    "retry": "Spróbuj ponownie",
+    "errors": {
+      "fetchFailed": "Nie udało się pobrać dziennika audytu",
+      "writeFailed": "Nie udało się zapisać wpisu audytu"
+    },
+    "table": {
+      "headers": {
+        "date": "Data i czas",
+        "action": "Akcja",
+        "username": "Użytkownik",
+        "details": "Szczegóły",
+        "ip": "IP"
+      },
+      "mobile": {
+        "labels": {
+          "action": "Akcja",
+          "user": "Użytkownik",
+          "ip": "IP",
+          "details": "Szczegóły"
+        }
+      }
+    },
+    "pagination": {
+      "summary": "Strona {page} z {totalPages} ({total} rekordów)",
+      "prev": "Poprzednia",
+      "next": "Następna"
+    },
+    "toastr": {
+      "deleteSuccess": "Logi audytu zostały usunięte pomyślnie",
+      "deleteError": "Nie udało się usunąć logów audytu",
+      "errorFetchingAuditLog": "Błąd pobierania dziennika audytu"
+    }
+  },
+  "topbar": {
+    "openMenu": "Otwórz menu",
+    "notifications": "Powiadomienia",
+    "chat": "Czat",
+    "overdueInspections": "Przeglądy po terminie (BHP i Narzędzia)",
+    "markAllRead": "Oznacz wszystkie jako przeczytane",
+    "clearNotifications": "Wyczyść powiadomienia",
+    "noNotifications": "Brak nowych powiadomień",
+    "collapseSidebar": "Zwiń sidebar",
+    "expandSidebar": "Rozwiń sidebar",
+    "searchBar": {
+      "type": "Wpisz, aby wyszukać",
+      "navigate": "Nawiguj",
+      "close": "Zamknij",
+      "select": "Wybierz"
+    },
+    "tabs": {
+      "general": "Ogólne",
+      "overdue": "Po terminie"
+    },
+    "type": {
+      "bhp": "BHP",
+      "tools": "Narzędzia",
+      "admin": "Admin",
+      "broadcast": "Do wszystkich",
+      "custom": "Do wybranych"
+    },
+    "overdue": "Po terminie",
+    "read": "Przeczytano",
+    "receivedAt": "Otrzymano",
+    "markRead": "Oznacz jako przeczytane",
+    "markUnread": "Oznacz jako nieprzeczytane",
+    "userNotifications": "Powiadomienia użytkownika",
+    "returnRequest": "Prośba o zwrot",
+    "from": "od:",
+    "user": "Użytkownik",
+    "role": "Rola",
+    "settings": "Ustawienia",
+    "dbViewer": "Podgląd bazy danych",
+    "themeLight": "Tryb jasny",
+    "themeDark": "Tryb ciemny",
+    "logout": "Wyloguj się",
+    "roles": {
+      "administrator": "Administrator",
+      "manager": "Kierownik",
+      "toolsmaster": "Narzędziowiec",
+      "hr": "HR",
+      "supervisor": "Mistrz",
+      "engineer": "Inżynier",
+      "employee": "Pracownik",
+      "user": "Użytkownik",
+      "unknown": "Nieznana"
+    }
+  },
+  "login": {
+    "title": "Zaloguj się do systemu",
+    "subtitle": "System zarządzania narzędziownią",
+    "username": "Nazwa użytkownika",
+    "password": "Hasło",
+    "rememberMe": "Pamiętaj mnie",
+    "enterUsername": "Wprowadź nazwę użytkownika",
+    "enterPassword": "Wprowadź hasło",
+    "showPassword": "Pokaż hasło",
+    "hidePassword": "Ukryj hasło",
+    "capsLock": "Włączony CapsLock — hasło może być błędne.",
+    "submit": "Zaloguj się",
+    "loading": "Logowanie...",
+    "error": "Błąd logowania",
+    "invalidResponse": "Nieprawidłowa odpowiedź serwera",
+    "rememberedTitle": "Zapamiętane profile",
+    "rememberedEmpty": "Brak zapamiętanych profili",
+    "rememberedRemove": "Usuń profil",
+    "loginAs": "Zaloguj jako",
+    "passwordRequired": "Wprowadź hasło, aby się zalogować",
+    "invalidCredentials": "Nieprawidłowa nazwa użytkownika lub hasło"
+  },
+  "employees": {
+    "title": "Zarządzanie Pracownikami",
+    "addTitle": "Dodaj pracownika",
+    "editTitle": "Edytuj pracownika",
+    "cardGeneratedSuccess": "Karta pracownika wygenerowana",
+    "cardGenerationError": "Błąd generowania karty",
+    "subtitle": "Zarządzaj danymi pracowników w systemie",
+    "add": "Dodaj pracownika",
+    "search": "Wyszukaj",
+    "searchPlaceholder": "Imię, nazwisko, numer służbowy...",
+    "department": "Dział",
+    "position": "Stanowisko",
+    "allDepartments": "Wszystkie działy",
+    "allPositions": "Wszystkie stanowiska",
+    "clearFilters": "Wyczyść filtry",
+    "refresh": "Odśwież listę",
+    "none": "Brak pracowników",
+    "noneAdded": "Nie dodano jeszcze żadnych pracowników.",
+    "noneFound": "Nie znaleziono pracowników spełniających kryteria wyszukiwania.",
+    "actions": "Akcje",
+    "fullName": "Imię i nazwisko/Login",
+    "brandNumber": "Numer służbowy",
+    "phone": "Telefon",
+    "departmentCol": "Dział",
+    "positionCol": "Stanowisko",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "unknownDept": "Nieznany",
+    "unknownPos": "Nieznana",
+    "mobilePhone": "Telefon:",
+    "mobileDepartment": "Dział:",
+    "mobilePosition": "Stanowisko:",
+    "addedSuccess": "Pracownik został dodany pomyślnie",
+    "addError": "Błąd podczas dodawania pracownika",
+    "updatedSuccess": "Dane pracownika zostały zaktualizowane",
+    "updateError": "Błąd podczas aktualizacji danych pracownika",
+    "deletedSuccess": "Pracownik został usunięty",
+    "deleteError": "Błąd podczas usuwania pracownika",
+    "toast": {
+      "noEmail": "Brak adresu e-mail pracownika",
+      "loginCreatedAndEmailSent": "Utworzono login i wysłano e‑mail",
+      "emailSent": "E‑mail został wysłany",
+      "loginCreatedEmailNotSent": "Utworzono login, e‑mail nie wysłany",
+      "emailNotSent": "E‑mail nie został wysłany",
+      "smtpNotConfigured": "Błąd wysyłania e-mail. Nie skonfigurowano SMTP.",
+      "sendError": "Nie udało się wysłać danych logowania",
+    "errors": {
+      "notFound": "Nie znaleziono pracownika",
+      "invalidId": "Nieprawidłowy identyfikator pracownika",
+      "invalidRfid": "Nieprawidłowy UID RFID"
+    }
+    },
+    "confirmDelete": "Czy na pewno chcesz usunąć pracownika",
+    "modal": {
+      "title": { "add": "Dodaj nowego pracownika", "edit": "Edytuj pracownika" },
+      "labels": {
+        "firstName": "Imię *",
+        "lastName": "Nazwisko *",
+        "phone": "Telefon",
+        "email": "E-mail",
+        "brandNumber": "Numer służbowy",
+        "rfidUid": "Tag NFC / RFID",
+        "department": "Dział *",
+        "position": "Stanowisko *",
+        "status": "Status"
+      },
+      "placeholders": {
+        "firstName": "np. Jan",
+        "lastName": "np. Kowalski",
+        "phone": "np. 500 600 700",
+        "email": "np. jan.kowalski@example.com",
+        "brandNumber": "np. ID-1234",
+        "rfidUid": "np. 000123ABCD"
+      },
+      "select": { "department": "Wybierz dział", "position": "Wybierz stanowisko" },
+      "buttons": { "save": "Zapisz", "saving": "Zapisywanie...", "cancel": "Anuluj", "regenerateLogin": "Regeneruj login" },
+      "errors": {
+        "firstNameRequired": "Imię jest wymagane",
+        "lastNameRequired": "Nazwisko jest wymagane",
+        "departmentRequired": "Dział jest wymagany",
+        "positionRequired": "Stanowisko jest wymagane",
+        "submitFailed": "Wystąpił błąd podczas zapisywania"
+      }
+    },
+    "status": { 
+      "active": "Aktywny",
+      "inactive": "Nieaktywny",
+      "suspended": "Zawieszony"
+    },
+    "tooltip": {
+      "title": "Wydane pozycje",
+      "loading": "Ładowanie…",
+      "none": "Brak wydanych pozycji",
+      "inventoryLabel": "Nr inw.",
+      "unknown": "Nieznany",
+      "toolsTitle": "Narzędzia",
+      "categoryLabel": "Kategoria",
+      "bhpTitle": "Sprzęt BHP",
+      "issuedLabel": "Wydano",
+      "qtyLabel": "Ilość",
+      "skuLabel": "SKU",
+      "issuedByLabel": "Wydał"
+    }
+  },
+  "departments": {
+    "status": { "active": "Aktywny", "inactive": "Nieaktywny" },
+    "list": { "managerPrefix": "Kierownik działu: ", "missingBadge": "Brak w bazie" },
+    "header": {
+      "title": "Zarządzanie działami",
+      "subtitle": "Dodawaj, edytuj i porządkuj działy"
+    },
+    "actions": {
+      "add": "Dodaj dział"
+    },
+    "modal": {
+      "title": { "add": "Dodaj dział", "edit": "Edytuj dział" },
+      "titles": { "add": "Dodaj dział", "edit": "Edytuj dział" },
+      "labels": {
+        "name": "Nazwa *",
+        "description": "Opis",
+        "manager": "Kierownik działu",
+        "status": "Status"
+      },
+      "placeholders": {
+        "name": "np. Sprzedaż",
+        "description": "Krótki opis działu"
+      },
+      "buttons": { "save": "Zapisz", "cancel": "Anuluj" },
+      "errors": { "nameRequired": "Nazwa jest wymagana", "submit": "Wystąpił błąd podczas zapisywania" },
+      "options": { "unassigned": "Nieprzypisany" }
+    },
+    "toast": {
+      "deleted": "Dział został usunięty",
+      "deleteError": "Nie udało się usunąć działu",
+      "saveError": "Nie udało się zapisać działu",
+      "saved": "Dział został zapisany"
+    },
+    "errors": {
+      "notFound": "Nie znaleziono działu",
+      "invalidManager": "Nieprawidłowy kierownik",
+      "nameExists": "Dział o tej nazwie już istnieje",
+      "detachFailed": "Błąd odczepiania pracowników od działu"
+    }
+  },
+  "positions": {
+    "header": {
+      "title": "Zarządzanie stanowiskami",
+      "subtitle": "Dodawaj, edytuj i porządkuj stanowiska"
+    },
+    "actions": { "add": "Dodaj stanowisko" },
+    "status": { "active": "Aktywne", "inactive": "Nieaktywne" },
+    "list": {
+      "statusMissing": "Brak w bazie",
+      "departmentPrefix": "Dział: "
+    },
+    "delete": {
+      "title": "Usuń stanowisko",
+      "message": "Czy na pewno chcesz usunąć stanowisko",
+      "confirmText": "Usuń"
+    },
+    "modal": {
+      "title": { "add": "Dodaj stanowisko", "edit": "Edytuj stanowisko" },
+      "titles": { "add": "Dodaj stanowisko", "edit": "Edytuj stanowisko" },
+      "labels": { "name": "Nazwa *", "department": "Departament", "description": "Opis", "requirements": "Wymagania", "status": "Status" },
+      "select": { "department": "Wybierz departament" },
+      "placeholders": { "name": "np. Magazynier", "description": "Krótki opis stanowiska", "requirements": "Np. uprawnienia SEP, UDT…" },
+      "buttons": { "save": "Zapisz", "cancel": "Anuluj" },
+      "errors": { "nameRequired": "Nazwa jest wymagana", "departmentRequired": "Departament jest wymagany" }
+    },
+    "toastr": {
+      "positionDeleted": "Stanowisko zostało usunięte",
+      "positionUpdated": "Stanowisko zostało zaktualizowane",
+      "positionCreated": "Stanowisko zostało utworzone",
+      "errors": {
+        "save": "Błąd podczas zapisywania pozycji",
+        "refreshError": "Błąd podczas odświeżania listy stanowisk",
+        "positionDeleteError": "Nie udało się usunąć stanowiska",
+        "invalidDepartment": "Nieprawidłowy departament",
+        "categoryNameRequired": "Podaj nazwę kategorii",
+        "categoryAdded": "Dodano kategorię",
+        "categoryNameEmpty": "Nazwa nie może być pusta",
+        "categoryUpdated": "Zaktualizowano kategorię",
+        "categoryDeleted": "Usunięto kategorię"
+      }
+    },
+    "errors": {
+      "notFound": "Nie znaleziono stanowiska",
+      "nameExists": "Stanowisko o tej nazwie już istnieje",
+      "detachFailed": "Błąd odczepiania pracowników od stanowiska"
+    }
+  },
+  "auth": { 
+    "invalid": "Nieprawidłowe zdarzenie uwierzytelniania: {reason}",
+    "refreshSession": "Odśwież sesję",
+    "sessionRefreshed": "Sesja została odświeżona",
+    "errors": {
+      "refreshFailed": "Nie udało się odświeżyć sesji"
+    }
+  },
+  "appConfig": {
+    "header": {
+      "title": "Konfiguracja aplikacji",
+      "subtitle": "Zarządzaj ustawieniami systemu"
+    },
+    "validation": {
+      "errorsFound": "Znaleziono błędy w formularzu."
+    },
+    "tabs": {
+      "general": "Ustawienia ogólne",
+      "security": "Bezpieczeństwo",
+      "email": "E-mail",
+      "users": "Użytkownicy",
+      "rolesPermissions": "Role i uprawnienia",
+      "features": "Funkcje",
+      "notifications": "Powiadomienia",
+      "departments": "Działy",
+      "positions": "Stanowiska",
+      "categories": "Kategorie",
+      "codes": "Prefiksy kodów",
+      "translations": "Tłumaczenia",
+      "backup": "Kopie zapasowe",
+      "database": "Baza danych",
+      "webhooks": "Webhooks",
+      "server": "Serwer",
+      "dangerZone": "Danger Zone"
+    },
+    "database": {
+      "source": "Źródło danych",
+      "sources": {
+        "local": "Lokalna (SQLite)",
+        "supabase": "Supabase (Chmura)"
+      },
+      "supabaseUrl": "Adres URL Supabase",
+      "supabaseKey": "Supabase Public Key",
+      "supabaseServiceKey": "Supabase Service Role Key",
+      "connectionInfo": "Wybierz źródło danych. Zmiana wymaga restartu aplikacji.",
+      "validation": {
+        "urlInvalid": "Adres URL bazy danych jest nieprawidłowy",
+        "keyInvalid": "Klucz API jest nieprawidłowy"
+      }
+    },
+    "rolesPermissions": {
+      "tabs": {
+        "users": "Użytkownicy",
+        "roles": "Uprawnienia ról"
+      },
+      "addRole": {
+        "title": "Dodaj rolę",
+        "keyLabel": "Klucz roli",
+        "nameLabel": "Nazwa roli",
+        "keyPlaceholder": "np. kierownik-produkcji",
+        "namePlaceholder": "np. Kierownik produkcji",
+        "errorExists": "Taka rola już istnieje"
+      },
+      "deleteRole": {
+        "title": "Usuń rolę",
+        "message": "Czy na pewno chcesz usunąć rolę: {role}?",
+        "success": "Rola została usunięta",
+        "error": "Nie udało się usunąć roli"
+      },
+      "roleEdit": {
+        "nameLabel": "Nazwa roli",
+        "namePlaceholder": "np. Kierownik produkcji",
+        "descriptionLabel": "Opis roli",
+        "descriptionPlaceholder": "Krótki opis roli",
+        "permissionsShow": "Pokaż uprawnienia",
+        "permissionsHide": "Ukryj uprawnienia",
+        "priorityLabel": "Priorytet roli",
+        "colorLabel": "Klasa koloru roli",
+        "colorPlaceholder": "np. bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
+        "saveMeta": "Zapisz ustawienia roli",
+        "saved": "Ustawienia roli zapisane",
+        "saveError": "Nie udało się zapisać ustawień roli"
+      }
+    },
+    "save": {
+      "success": "Konfiguracja zapisana",
+      "error": "Nie udało się zapisać konfiguracji"
+    },
+    "load": {
+      "error": "Nie udało się załadować konfiguracji"
+    },
+    "general": {
+      "appName": "Nazwa aplikacji",
+      "companyName": "Nazwa firmy",
+      "timezone": "Strefa czasowa",
+      "timezones": {
+        "warsaw": "Warszawa",
+        "london": "Londyn",
+        "newYork": "Nowy Jork",
+        "tokyo": "Tokio"
+      },
+      "language": "Język interfejsu",
+      "language_pl": "Polski",
+      "language_en": "Angielski",
+      "language_cz": "Czeski",
+      "language_de": "Niemiecki",
+      "dateFormat": "Format daty",
+      "validation": {
+        "appNameRequired": "Nazwa aplikacji jest wymagana",
+        "companyNameRequired": "Nazwa firmy jest wymagana"
+      }
+    },
+    "logo": {
+      "title": "Logo aplikacji",
+      "currentAlt": "Aktualne logo",
+      "dimensionsHint": "Dopuszczalny rozmiar: {minW}x{minH}–{maxW}x{maxH}px",
+      "uploadLabel": "Prześlij logo (PNG)",
+      "saveNew": "Zapisz nowe logo",
+      "historyTitle": "Historia logo",
+      "historyEmpty": "Brak historii logo",
+      "apply": "Zastosuj",
+      "onlyPng": "Dozwolone są tylko pliki PNG",
+      "fileTooLarge": "Plik jest zbyt duży",
+      "dimensionsOutOfRange": "Wymiary obrazu poza zakresem",
+      "invalidImageFile": "Nieprawidłowy plik obrazu",
+      "selectPng": "Wybierz plik PNG",
+      "updated": "Logo zaktualizowane",
+      "uploadError": "Błąd przesyłania logo",
+      "rollbackSuccess": "Przywrócono poprzednie logo",
+      "rollbackError": "Błąd przywracania poprzedniego logo",
+      "deleteSuccess": "Logo usunięte",
+      "deleteError": "Nie udało się usunąć logo",
+      "deleteTitle": "Usuń logo",
+      "deleteMessagePrefix": "Usunąć plik",
+      "deleteMessage": "Usunąć logo?"
+    },
+    "security": {
+      "title": "Bezpieczeństwo",
+      "sessionTimeout": "Limit czasu sesji (minuty)",
+      "passwordMinLength": "Minimalna długość hasła",
+      "maxLoginAttempts": "Maks. liczba prób logowania",
+      "lockoutDuration": "Czas blokady (minuty)",
+      "requireSpecialChars": "Wymagaj znaków specjalnych",
+      "requireNumbers": "Wymagaj cyfr",
+      "requireUppercase": "Wymagaj wielkich liter",
+      "requireLowercase": "Wymagaj małych liter",
+      "historyLength": "Długość historii haseł",
+      "blacklist": {
+        "title": "Blacklist haseł",
+        "placeholder": "np. admin, password, 123456",
+        "hint": "Wpisz hasła rozdzielone przecinkami; duplikaty będą pomijane"
+      },
+      "validation": {
+        "sessionTimeout": "Limit czasu sesji musi wynosić od 1 do 1440 minut",
+        "passwordMinLength": "Minimalna długość hasła musi wynosić od 4 do 128 znaków",
+        "maxLoginAttempts": "Maksymalna liczba prób logowania musi być dodatnia",
+        "lockoutDuration": "Czas blokady musi być dodatni",
+        "historyLength": "Długość historii haseł musi być nieujemna"
+      }
+    },
+    "email": {
+      "title": "E-mail",
+      "host": "Serwer SMTP",
+      "port": "Port",
+      "secure": "Szyfrowanie",
+      "yes": "TAK",
+      "no": "NIE",
+      "user": "Użytkownik",
+      "pass": "Hasło",
+      "from": "Adres nadawcy",
+      "description": "Ustawienia wysyłki wiadomości e-mail",
+      "loadError": "Nie udało się załadować konfiguracji e-mail",
+      "fixConfig": "Uzupełnij konfigurację e-mail",
+      "test": {
+        "title": "Test wysyłki",
+        "description": "Wyślij wiadomość testową na wybrany adres",
+        "recipient": "Adres odbiorcy",
+        "recipientPlaceholder": "np. jan.kowalski@example.com",
+        "fixConfig": "Uzupełnij konfigurację e-mail",
+        "invalidRecipient": "Nieprawidłowy adres odbiorcy",
+        "success": "Wiadomość testowa wysłana",
+        "error": "Błąd wysyłki",
+        "sending": "Wysyłanie…",
+        "send": "Wyślij test"
+      },
+      "validation": {
+        "hostRequired": "Podaj host SMTP",
+        "portInvalid": "Nieprawidłowy port",
+        "fromInvalid": "Nieprawidłowy adres nadawcy"
+      }
+    },
+    "toolsCategories": {
+      "fetchError": "Błąd pobierania kategorii narzędzi",
+      "addNameError": "Nazwa kategorii jest wymagana",
+      "addSuccess": "Kategoria narzędzi dodana",
+      "addError": "Nie udało się dodać kategorii",
+      "updateError": "Nie udało się zaktualizować kategorii",
+      "deleteError": "Nie udało się usunąć kategorii"
+    },
+    "notifications": {
+      "title": "Powiadomienia",
+      "email": "E-mail",
+      "sms": "SMS",
+      "push": "Push"
+    },
+    "notificationsSend": {
+      "tabs": { "all": "Do wszystkich", "selected": "Do wybranych" },
+      "senderLabel": "Kto wysyła",
+      "subjectLabel": "Temat wiadomości",
+      "urlLabel": "Ścieżka (URL) po kliknięciu",
+      "urlPlaceholder": "np. /tools albo URL",
+      "messageLabel": "Treść powiadomienia",
+      "usersListTitle": "Wybierz użytkowników",
+      "send": "Wyślij",
+      "fanoutLabel": "Wyślij do centrum powiadomień użytkownika",
+      "pushAllLabel": "Wyślij powiadomienie push do wszystkich",
+      "fanoutAllLabel": "Dodaj do centrum powiadomień wszystkich użytkowników",
+      "pushSelectedLabel": "Wyślij jako powiadomienie push",
+      "confirmBroadcast": {
+        "title": "Potwierdź wysyłkę do wszystkich",
+        "message": "Ta operacja spowoduje dodanie powiadomień dla wszystkich użytkowników. Czy na pewno chcesz kontynuować?",
+        "confirm": "Wyślij",
+        "cancel": "Anuluj"
+      },
+      "fetchUsersError": "Nie udało się pobrać użytkowników",
+      "fetchHistoryError": "Nie udało się pobrać historii powiadomień",
+      "validationMissing": "Uzupełnij nadawcę, temat, treść i wybór odbiorców",
+      "sentAll": "Powiadomienie wysłane do wszystkich",
+      "sentSelected": "Powiadomienie wysłane do wybranych",
+      "sendError": "Nie udało się wysłać powiadomienia",
+      "history": {
+        "title": "Historia wysyłania",
+        "titleAll": "Historia: do wszystkich",
+        "titleSelected": "Historia: do wybranych",
+        "empty": "Brak powiadomień",
+        "sentAt": "Wysłano",
+        "sender": "Nadawca",
+        "subject": "Temat",
+        "message": "Treść",
+        "recipients": "Odbiorcy",
+        "searchPlaceholder": "Wyszukaj w historii",
+        "filterPlaceholder": "Filtruj po nadawcy lub treści",
+        "paginationSummary": "Strona {page} z {totalPages} ({total} wpisów)",
+        "prev": "Poprzednia",
+        "next": "Następna",
+        "perPage": "na stronę",
+        "deleteAllButton": "Usuń całą historię wysyłania",
+        "deleteAllConfirm": {
+          "title": "Usuń całą historię wysyłania",
+          "message": "Czy na pewno chcesz usunąć całą historię wysyłania dla zakładki: {{tab}}? Operacja jest nieodwracalna.",
+          "confirm": "Usuń"
+        },
+        "deleteAllSuccess": "Historia wysyłania została usunięta",
+        "deleteAllSuccessCounts": "Usunięto: historia {{history}}, powiadomienia {{notifications}}",
+        "deleteAllError": "Nie udało się usunąć historii wysyłania"
+      },
+      "general": {
+        "title": "Powiadomienia ogólne",
+        "typeLabel": "Typ powiadomienia",
+        "types": {
+          "any": "— dowolny —",
+          "return_request": "Prośba o zwrot",
+          "admin_message": "Wiadomość administratora",
+          "overdue_inspection": "Przegląd zaległy",
+          "custom": "Wiadomość do wybranych",
+          "broadcast": "Wiadomość do wszystkich"
+        },
+        "itemTypeLabel": "Typ obiektu",
+        "itemTypes": {
+          "any": "— dowolny —",
+          "tool": "Narzędzie",
+          "bhp": "BHP",
+          "admin": "Administracyjne"
+        },
+        "deleteButton": "Usuń powiadomienia",
+        "deleteSuccess": "Usunięto {count} powiadomień",
+        "deleteError": "Nie udało się usunąć powiadomień",
+        "previewCount": "Do usunięcia: {total} rekordów",
+        "selectAll": "Zaznacz wszystkie",
+        "deleteSelected": "Usuń zaznaczone",
+        "meta": "Typ: {type}, Obiekt: {itemType}, Utworzone: {created}",
+        "recipient": "Adresat: {name}",
+        "readStatus": "Status: {status}",
+        "readStatuses": { "read": "przeczytane", "unread": "nieprzeczytane" },
+        "readAt": "Oznaczone przeczytanie: {date}",
+        "loadError": "Nie udało się załadować listy powiadomień"
+      }
+    },
+    "features": {
+      "title": "Funkcje",
+      "auditLog": "Dziennik audytu",
+      "auditLogDesc": "Rejestruj istotne działania użytkowników",
+      "reports": "Raporty",
+      "reportsDesc": "Generuj raporty i zestawienia",
+      "mobileApp": "Aplikacja mobilna",
+      "mobileAppDesc": "Korzystaj z aplikacji w terenie",
+      "apiAccess": "Dostęp API",
+      "apiAccessDesc": "Integruj system z zewnętrznymi narzędziami",
+      "dataExport": "Eksport danych",
+      "dataExportDesc": "Eksportuj dane do plików",
+      "otherSettings": "Pozostałe ustawienia",
+      "chatTitle": "Czat",
+      "realtimeChat": "Czat w czasie rzeczywistym",
+      "realtimeChatDesc": "Wiadomości, pliki, powiadomienia — na żywo",
+      "kioskTitle": "Kiosk",
+      "kiosk": "Kiosk",
+      "kioskDesc": "Włącz lub wyłącz ekran kiosku (wydawanie/zwroty na stanowisku)",
+      "helpTitle": "Pomoc",
+      "help": "Pomoc",
+      "helpDesc": "Włącz lub wyłącz przycisk Pomoc w górnym pasku",
+      "deleteAllChats": "Usuń wszystkie czaty",
+      "deleteAllChatsConfirm": "Na pewno usunąć wszystkie konwersacje? Operacja nieodwracalna.",
+      "deleteAllChatsError": "Nie udało się usunąć czatów",
+      "auditRetention": "Retencja dziennika audytu (dni)",
+      "backupFrequency": "Częstotliwość kopii zapasowych",
+      "frequency": {
+        "daily": "codziennie",
+        "weekly": "co tydzień",
+        "monthly": "co miesiąc"
+      },
+      "autoSaveNote": "Zmiany ustawień są zapisywane automatycznie."
+    },
+    "codes": {
+      "toolsPrefix": "Prefiks kodów narzędzi",
+      "toolsPrefixPlaceholder": "np. NR",
+      "bhpPrefix": "Prefiks kodów BHP",
+      "bhpPrefixPlaceholder": "np. BHP",
+      "categoryPrefixesTitle": "Prefiksy kategorii narzędzi",
+      "categoryPrefixesDesc": "Zdefiniuj prefiksy dla poszczególnych kategorii",
+      "categoryPrefixPlaceholder": "np. ML",
+      "toolsCountSuffix": "narzędzi",
+      "categoryPrefixNote": "Zmiana prefiksu nie modyfikuje istniejących numerów"
+    },
+    "translations": {
+      "title": "Tłumaczenia",
+      "addTranslation": "Dodaj tłumaczenie",
+      "searchPlaceholder": "Szukaj po kluczu",
+      "loading": "Ładowanie tłumaczeń…",
+      "empty": "Brak tłumaczeń",
+      "key": "Klucz",
+      "keyPlaceholder": "np. appConfig.header.title",
+      "keyExists": "Taki klucz już istnieje",
+      "saved": "Tłumaczenia zapisane",
+      "saveError": "Nie udało się zapisać tłumaczeń",
+      "loadError": "Nie udało się pobrać tłumaczeń",
+      "addDescription": "Wpisz klucz i wartości tłumaczeń dla wybranych języków.",
+      "added": "Tłumaczenie dodane",
+      "addError": "Nie udało się dodać tłumaczenia"
+    },
+    "backup": {
+      "history": "Historia kopii zapasowych",
+      "backupRetentionDays":"Retencja kopii zapasowych (dni)",
+      "backupFrequency":"Częstotliwość kopii zapasowych",
+      "frequencyDaily": "codziennie",
+      "frequencyWeekly": "co tydzień",
+      "frequencyMonthly": "co miesiąc",
+      "lastFromConfig": "Ostatnia z konfiguracji",
+      "lastFile": "Ostatni plik",
+      "running": "Tworzenie kopii…",
+      "createNow": "Utwórz kopię",
+      "adminRequired": "Wymagane uprawnienia administratora",
+      "listTitle": "Wszystkie kopie zapasowe",
+      "listError": "Nie udało się pobrać listy backupów",
+      "runError": "Nie udało się wykonać kopii zapasowej",
+      "headers": {
+        "file": "Plik",
+        "createdAt": "Utworzono",
+        "size": "Rozmiar",
+        "actions": "Akcje"
+      },
+      "restore": "Przywróć",
+      "restored": "Baza danych została przywrócona z kopii",
+      "restoreError": "Nie udało się przywrócić kopii zapasowej",
+      "noBackups": "Brak kopii zapasowych",
+      "latest": "Najnowsza kopia",
+      "validation": {
+        "retentionDays": "Liczba dni przechowywania musi być dodatnia"
+      }
+    },
+    "webhooks": {
+      "title": "Webhooks",
+      "description": "Webhooks umożliwiają automatyczne powiadomienia o zdarzeniach w systemie.",
+      "editTitle": "Edytuj webhook",
+      "addTitle": "Dodaj nowy webhook",
+      "deleteConfirm": "Czy na pewno chcesz usunąć ten webhook?",
+      "fields": {
+        "name": "Nazwa",
+        "url": "URL endpointu",
+        "secret": "Secret Key (do podpisywania)",
+        "events": "Zdarzenia",
+        "active": "Aktywny"
+      },
+      "listTitle": "Lista Webhooków",
+      "headers": {
+        "name": "Nazwa",
+        "url": "URL endpointu",
+        "secret": "Secret Key",
+        "status": "Status",
+        "events": "Zdarzenia",
+        "active": "Aktywny"
+      },
+      "noWebhooks": "Brak zdefiniowanych webhooków",
+      "events": {
+        "lowStock": "Niski stan magazynowy",
+        "toolStatusChange": "Zmiana statusu narzędzia",
+        "toolIssue": "Wydanie narzędzia",
+        "toolReturn": "Zwrot narzędzia",
+        "inventoryCorrection": "Korekta inwentaryzacji"
+      },
+      "actions": {
+        "cancel": "Anuluj",
+        "update": "Zaktualizuj",
+        "create": "Utwórz",
+        "test": "Testuj",
+        "logs": "Logi",
+        "edit": "Edytuj",
+        "delete": "Usuń"
+      },
+      "list": {
+        "title": "Lista Webhooków",
+        "noWebhooks": "Brak zdefiniowanych webhooków"
+      },
+      "logs": {
+        "title": "Historia wywołań",
+        "noLogs": "Brak logów dla tego webhooka",
+        "status": "Status",
+        "event": "Zdarzenie",
+        "date": "Data",
+        "response": "Odpowiedź",
+        "close": "Zamknij"
+      },
+      "success": {
+        "updated": "Webhook zaktualizowany",
+        "created": "Webhook utworzony",
+        "deleted": "Webhook usunięty",
+        "testSent": "Test webhooka wysłany"
+      },
+      "errors": {
+        "saveFailed": "Nie udało się zapisać webhooka",
+        "deleteFailed": "Nie udało się usunąć webhooka",
+        "testFailed": "Test webhooka nie powiódł się",
+        "fetchFailed": "Nie udało się załadować webhooków"
+      }
+    },
+    "server": {
+      "logs": {
+        "title": "Dziennik Systemowy",
+        "level": "Poziom",
+        "allLevels": "Wszystkie poziomy",
+        "info": "INFO",
+        "warn": "WARN",
+        "error": "ERROR",
+        "category": "Kategoria",
+        "system": "SYSTEM",
+        "auth": "AUTH",
+        "performance": "PERFORMANCE",
+        "backup": "BACKUP",
+        "allCategories": "Wszystkie kategorie",
+        "confirmDelete": "Czy na pewno chcesz usunąć wszystkie logi systemowe?",
+        "deleteSuccess": "Logi zostały usunięte",
+        "deleteError": "Błąd podczas usuwania logów",
+        "errorLoad": "Nie udało się załadować logów systemu"
+      },
+      "frontend": {
+        "title": "Frontend",
+        "restart": "Restart",
+        "stop": "Wyłącz",
+        "check": "Sprawdź status",
+        "restartStarted": "Restart frontend został rozpoczęty",
+        "restartError": "Nie udało się zrestartować frontend",
+        "stopStarted": "Wyłączanie frontend został rozpoczęte",
+        "stopError": "Nie udało się wyłączyć frontend",
+        "healthOk": "Frontend działa",
+        "healthError": "Frontend niedostępny"
+      },
+      "backend": {
+        "title": "Backend",
+        "restart": "Restart",
+        "stop": "Wyłącz",
+        "check": "Sprawdź status",
+        "apiCheck": "Sprawdź API/DB",
+        "restartTitle": "Restart backendu",
+        "restartMessage": "Po przywróceniu kopii wymagany jest restart backendu. Kontynuować?",
+        "restartNow": "Restartuj teraz",
+        "restartStarted": "Restart backend został rozpoczęty",
+        "restartError": "Nie udało się zrestartować backend",
+        "stopStarted": "Wyłączanie backend został rozpoczęte",
+        "stopError": "Nie udało się wyłączyć backend",
+        "healthOk": "Backend działa",
+        "healthError": "Backend niedostępny"
+      },
+      "status": "Status:",
+      "uptime": "Uptime:",
+      "generatedAt": "Znacznik czasu:",
+      "database": "Baza danych:",
+      "restartTitle": "Restart backendu",
+      "restartMessage": "Po przywróceniu kopii wymagany jest restart backendu. Kontynuować?",
+      "restartNow": "Restartuj teraz"
+    },
+    "categories": {
+      "title": "Kategorie narzędzi",
+      "newCategory": "Nowa kategoria",
+      "newCategoryPlaceholder": "np. Młotki",
+      "add": "Dodaj",
+      "edit": "Edytuj"
+    },
+    "users": {
+      "title": { "add": "Dodaj użytkownika", "edit": "Edytuj użytkownika" },
+      "username": "Nazwa użytkownika",
+      "fullName": "Imię i nazwisko",
+      "role": "Rola",
+      "password": "Hasło",
+      "newPasswordOptional": "Nowe hasło (opcjonalne)",
+      "confirmPassword": "Potwierdź hasło",
+      "submitAdd": "Dodaj",
+      "submitUpdate": "Zaktualizuj",
+      "modalDescription": "Wypełnij dane użytkownika. Hasło musi spełniać zasady bezpieczeństwa.",
+      "search": "Szukaj użytkowników",
+      "searchPlaceholder": "Szukaj użytkowników...",
+      "confirmDelete": "Czy na pewno chcesz usunąć użytkownika \"{username}\"?"
+    }
+  },
+  "dashboard": {
+    "title": "Strona główna",
+    "welcome": "Zalogowano pomyślnie.",
+    "stats": {
+      "tools": "Narzędzia w systemie",
+      "bhp": "Sprzęt BHP",
+      "employees": "Pracownicy",
+      "overdueInspections": "Przeglądy przeterminowane",
+      "tooltip": { "tools": "Narzędzia:", "bhp": "BHP:" }
+    },
+    "quick": {
+      "title": "Szybkie akcje",
+      "createEmployeeTitle": "Dodaj pracownika",
+      "createEmployee": "Utwórz nowy profil pracownika",
+      "issue": {
+        "title": "Szybkie wydanie",
+        "tabs": {
+          "list": "Wyszukaj z listy",
+          "scan": "Wyszukaj skanując"
+        },
+        "searchLabel": "Wyszukaj",
+        "searchPlaceholder": "Nazwa, SKU lub nr ewidencyjny",
+        "employeeLabel": "Pracownik:",
+        "selectEmployee": "Wybierz pracownika:",
+        "permanent": "Wydać na stałe?",
+        "scanInstructions": "Instrukcja skanowania:",
+        "scanStep1": "Skanuj kod narzędzia na ekranie.",
+        "scanStep2": "Narzędzie zostanie dodane do listy.",
+        "scanStep3": "Wydaj narzędzia.",
+        "subtitle": "Skanuj kod narzędzia",
+        "modalTitle": "Szybkie wydanie narzędzia",
+        "itemsList": "Lista pozycji do wydania",
+        "scanCodeLabel": "Kod narzędzia:",
+        "scanCodePlaceholder": "Wprowadź kod narzędzia",
+        "submitButton": "Wydaj pozycje",
+        "batchError": "Błąd podczas wydawania narzędzi",
+        "successSingle": "Pomyślnie wydano narzędzie \"{tool}\" pracownikowi: {employee}",
+        "successBatch": "Wydano {ok}/{total} pozycji {employee}",
+        "errorGeneral": "Błąd podczas wydawania narzędzia",
+        "errorItem": "Błąd wydania: {name}",
+        "errors": {
+          "toolNotFound": "Nie znaleziono narzędzia o podanym kodzie",
+          "toolNotFoundWithCode": "Nie znaleziono narzędzia dla kodu: {code}",
+          "toolNotAvailable": "Narzędzie nie jest dostępne do wydania",
+          "toolNotAvailableSimple": "Narzędzie nie jest dostępne",
+          "alreadyIssuedOrPermanent": "Narzędzia o statusie \"Wydane\" lub \"Wydane - na stałe\" nie można wydać ponownie.",
+          "toolUnavailableDetails": "Niedostępne: {name} (SKU: {sku})",
+          "addByCode": "Błąd dodawania po kodzie",
+          "noEmployeeSelected": "Wybierz pracownika, któremu chcesz wydać narzędzie",
+          "emptyList": "Lista pozycji jest pusta"
+        },
+        "noItemsScanned": "Nie zeskanowano żadnych narzędzi",
+        "noResults": "Brak wyników"
+      },
+      "return": {
+        "section": {
+          "issued": "Wydane",
+          "permanent": "Wydane - na stałe"
+        },
+        "title": "Szybki zwrot",
+        "subtitle": "Zwróć wydane narzędzia",
+        "listTitle": "Lista narzędzi wydanych pracownikom:",
+        "submitReturn": "Zwróć",
+        "success": "Narzędzie zwrócone pomyślnie",
+        "successSingle": "Pomyślnie zwrócono narzędzie \"{tool}\" od pracownika: {employee}",
+        "errorGeneral": "Błąd podczas zwracania narzędzia",
+        "errors": {
+          "noToolData": "Błąd: Brak danych narzędzia",
+          "noIssuedTools": "Brak wydanych narzędzi do zwrotu",
+          "noPermanentTools": "Brak narzędzi wydanych na stałe"
+        }
+      },
+      "employee": {
+        "addSuccess": "Pracownik został dodany pomyślnie",
+        "addError": "Błąd podczas dodawania pracownika"
+      },
+      "toastr": {
+        "errorDownloadData": "Błąd podczas pobierania danych z pulpitu nawigacyjnego",
+        "employeesFetchError": "Błąd podczas pobierania listy pracowników",
+        "departmentsFetchError": "Błąd podczas pobierania listy działów",
+        "positionsFetchError": "Błąd podczas pobierania listy stanowisk",
+        "issuedToolsFetchError": "Błąd podczas pobierania listy wydanych narzędzi",
+        "employeeFilterFetchError": "Błąd podczas pobierania danych pracownika do filtrowania",
+        "toolHistoryFetchError": "Błąd podczas pobierania historii narzędzi",
+        "bhpHistoryFetchError": "Błąd podczas pobierania historii BHP",
+        "toolsInspectionsFetchError": "Błąd podczas pobierania danych o przeglądach narzędzi",
+        "bhpInspectionsFetchError": "Błąd podczas pobierania danych o przeglądach BHP"
+      }
+    },
+    "search": {
+      "label": "Kod kreskowy / QR narzędzia",
+      "labelCode": "Kod (SKU, Kod kreskowy, QR)",
+      "placeholder": "Zeskanuj lub wpisz kod narzędzia...",
+      "placeholderName": "Nazwa lub numer fabryczny...",
+      "placeholderCode": "Zeskanuj lub wpisz kod...",
+      "searching": "Wyszukiwanie...",
+      "add": "Dodaj",
+      "sku": "SKU",
+      "status": "Status",
+      "available": "Ilość dostępna",
+      "location": "Lokalizacja",
+      "notFound": "Nie znaleziono narzędzi",
+      "notFoundCode": "Nie znaleziono narzędzi o kodzie: {code}"
+    },
+    "quickIssue": {
+      "itemsLabel": "Pozycje do wydania"
+    },
+    "labels": {
+      "employee": "Pracownik:",
+      "quantity": "Ilość",
+      "issuedAt": "Wydane",
+      "tool": "Narzędzie",
+      "date": "Data wydania",
+      "sku": "SKU",
+      "employeeFallback": "pracownikowi",
+      "serialNumber": "Numer fabryczny"
+    },
+    "history": {
+      "tools": {
+        "title": "Historia wydań/zwrotów narzędzi",
+        "noPermissions": "Nie masz uprawnień, aby przeglądać historię narzędzi.",
+        "noData": "Nie ma jeszcze żadnych wydań lub zwrotów narzędzi."
+      },
+      "bhp": {
+        "title": "Historia wydań/zwrotów BHP",
+        "noPermissions": "Nie masz uprawnień, aby przeglądać historię BHP.",
+        "noData": "Nie ma jeszcze żadnych wydań lub zwrotów sprzętu BHP."
+      },
+      "recentCount": "Ostatnie {count}",
+      "noDataTitle": "Brak historii",
+      "labels": {
+        "tool": "narzędzie",
+        "bhp": "sprzęt BHP",
+        "issuedBy": "Wydał",
+        "quantity": "Ilość"
+      }
+    },
+    "action": { "issued": "Wydano", "returned": "Zwrócono" }
+  },
+  "users": {
+    "roles": {
+      "administrator": "Administrator",
+      "manager": "Kierownik",
+      "toolsmaster": "Narzędziowiec",
+      "hr": "HR",
+      "supervisor": "Mistrz",
+      "engineer": "Inżynier",
+      "employee": "Pracownik",
+      "user": "Użytkownik"
+    },
+    "descriptions": {
+      "administrator": "Pełny dostęp do wszystkich funkcji systemu",
+      "manager": "Zarządzanie narzędziami, pracownikami i analityka",
+      "toolsmaster": "Zarządzanie narzędziownią",
+      "hr": "Zarządzanie pracownikami i działami",
+      "supervisor": "Zarządzanie podwładnymi",
+      "engineer": "Zarządzanie projektami",
+      "employee": "Podstawowe informacje z systemu"
+    }
+  },
+  "permissions": {
+    "saving": "Zapisywanie...",
+    "save": "Zapisz",
+    "close": "Zamknij",
+    "roleSelectLabel": "Wybierz rolę",
+    "selfRoleChangeWarning": "Nie możesz zmienić własnej roli",
+    "toast": {
+      "fetchUsersError": "Błąd podczas pobierania użytkowników",
+      "fetchRolePermsError": "Błąd podczas pobierania uprawnień ról",
+      "fetchAvailablePermsError": "Błąd podczas pobierania dostępnych uprawnień",
+      "savePermsSuccess": "Uprawnienia dla roli {role} zostały zaktualizowane",
+      "savePermsError": "Błąd podczas zapisywania uprawnień",
+      "userNotFound": "Nie znaleziono użytkownika do aktualizacji",
+      "updateRoleSuccess": "Rola użytkownika została zaktualizowana",
+      "updateRoleError": "Błąd podczas aktualizacji roli użytkownika"
+    },
+    "labels": {
+      "VIEW_USERS": "Użytkownicy - przeglądanie",
+      "CREATE_USERS": "Użytkownicy - tworzenie",
+      "MANAGE_USERS": "Użytkownicy - zarządzanie",
+      "EDIT_USERS": "Użytkownicy - edycja",
+      "DELETE_USERS": "Użytkownicy - usuwanie",
+      "VIEW_EMPLOYEES": "Pracownicy - przeglądanie",
+      "MANAGE_EMPLOYEES": "Pracownicy - zarządzanie",
+      "EXPORT_EMPLOYEES": "Pracownicy - eksport",
+      "VIEW_ANALYTICS": "Analityka - przeglądanie",
+      "VIEW_MAP": "Mapa zakładu - przeglądanie",
+      "MANAGE_MAP": "Mapa zakładu - zarządzanie",
+      "VIEW_ALL_TOOLS": "Wszystkie narzędzia - przeglądanie",
+      "VIEW_TOOLS": "Narzędzia - przeglądanie",
+      "MANAGE_TOOLS": "Narzędzia - zarządzanie",
+      "VIEW_TOOL_HISTORY": "Historia wydań/zwrotów narzędzi - przeglądanie",
+      "MANAGE_DEPARTMENTS": "Działy - zarządzanie",
+      "MANAGE_POSITIONS": "Stanowiska - zarządzanie",
+      "SYSTEM_SETTINGS": "Ustawienia systemowe",
+      "VIEW_ADMIN": "Panel administracyjny",
+      "VIEW_AUDIT_LOG": "Dziennik audytu - przeglądanie",
+      "VIEW_BHP": "BHP - przeglądanie",
+      "VIEW_BHP_HISTORY": "Historia wydań/zwrotów BHP - przeglądanie",
+      "MANAGE_BHP": "BHP - zarządzanie",
+      "VIEW_QUICK_ACTIONS": "Szybkie akcje - przeglądanie",
+      "DELETE_ISSUE_HISTORY": "Usuwanie historii wydań",
+      "DELETE_RETURN_HISTORY": "Usuwanie historii zwrotów",
+      "DELETE_SERVICE_HISTORY": "Usuwanie historii serwisowania",
+      "MANAGE_DATABASE": "Baza danych - zarządzanie",
+      "VIEW_DATABASE": "Baza danych - przeglądanie",
+      "VIEW_INVENTORY": "Inwentaryzacja - przeglądanie",
+      "INVENTORY_MANAGE_SESSIONS": "Inwentaryzacja - zarządzanie sesjami",
+      "INVENTORY_SCAN": "Inwentaryzacja - skanowanie",
+      "INVENTORY_ACCEPT_CORRECTION": "Inwentaryzacja - zatwierdzanie korekt",
+      "INVENTORY_DELETE_CORRECTION": "Inwentaryzacja - usuwanie korekt",
+      "INVENTORY_EXPORT_CSV": "Inwentaryzacja - eksport CSV",
+      "VIEW_LABELS": "Etykiety - przeglądanie",
+      "EXPORT_TOOLS": "Narzędzia - eksport narzędzi",
+      "EXPORT_BHP": "BHP - eksport BHP",
+      "NOTIFY": "Powiadomienia nie dla roli Pracownik"
+    }
+  },
+  "admin": {
+    "settings": {
+      "title": "Ustawienia",
+      "subtitle": "Zarządzaj systemem i konfiguracją"
+    },
+    "appConfig": {
+      "card": {
+        "title": "Konfiguracja aplikacji",
+        "subtitle": "Zarządzaj ustawieniami i tłumaczeniami",
+        "open": "Otwórz"
+      }
+    },
+    "audit": {
+      "card": {
+        "title": "Dziennik audytu",
+        "subtitle": "Przeglądaj historię operacji",
+        "open": "Zobacz dziennik"
+      }
+    },
+    "roles": {
+      "card": {
+        "title": "Role i uprawnienia",
+        "subtitle": "Konfiguruj role użytkowników"
+      },
+      "manage": "Zarządzaj uprawnieniami"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "subtitle": "Bezpowrotne usunięcie danych",
+      "tools": {
+        "title": "Narzędzia",
+        "subtitle": "Wyczyść bazę danych narzędzi"
+      },
+      "bhp": {
+        "title": "Sprzęt BHP",
+        "subtitle": "Wyczyść bazę danych sprzętu BHP"
+      },
+      
+      "service": {
+        "title": "Serwisowanie",
+        "subtitle": "Wyczyść bazę danych serwisowania"
+      },
+      "employees": {
+        "title": "Pracownicy",
+        "subtitle": "Wyczyść bazę danych pracowników"
+      }
+    },
+    "actions": {
+      "deleteIssues": "Usuń historię wydań",
+      "deleteReturns": "Usuń historię zwrotów",
+      "deleteServiceHistory": "Usuń historię serwisowania",
+      "deleteEmployees": "Usuń dane pracowników"
+    },
+    "toast": {
+      "historyDeleted": "Historia wydań została usunięta",
+      "historyDeleteError": "Błąd podczas usuwania historii",
+      "employeesDeleted": "Usunięto wszystkich pracowników",
+      "employeesDeleteError": "Błąd podczas usuwania pracowników",
+      "serviceHistoryDeleted": "Historia serwisowania została usunięta",
+      "serviceHistoryDeleteError": "Błąd podczas usuwania historii serwisowania",
+      "toolIssuesHistoryDeleted": "Historia WYDAŃ narzędzi została usunięta",
+      "toolIssuesHistoryDeleteError": "Błąd podczas usuwania historii wydań narzędzi",
+      "toolReturnsHistoryDeleted": "Historia ZWROTÓW narzędzi została usunięta",
+      "toolReturnsHistoryDeleteError": "Błąd podczas usuwania historii zwrotów narzędzi",
+      "bhpIssuesHistoryDeleted": "Historia WYDAŃ BHP została usunięta",
+      "bhpIssuesHistoryDeleteError": "Błąd podczas usuwania historii wydań BHP",
+      "bhpReturnsHistoryDeleted": "Historia ZWROTÓW BHP została usunięta",
+      "bhpReturnsHistoryDeleteError": "Błąd podczas usuwania historii zwrotów BHP"
+    },
+    "modals": {
+      "deleteAllIssues": {
+        "title": "Usuń historię wszystkich wydań",
+        "message": "Czy na pewno chcesz usunąć całą historię wydawania narzędzi? Ta operacja jest nieodwracalna i usunie wszystkie dane o wydaniach i zwrotach narzędzi.",
+        "confirm": "Usuń historię"
+      },
+      "deleteServiceHistory": {
+        "title": "Usuń historię serwisowania",
+        "message": "Czy na pewno chcesz usunąć całą historię serwisowania narzędzi? Ta operacja jest nieodwracalna i usunie wszystkie powiązane wpisy.",
+        "confirm": "Usuń historię serwisowania"
+      },
+      "deleteToolIssues": {
+        "title": "Usuń historię wydań narzędzi",
+        "message": "Czy na pewno chcesz usunąć wszystkie wpisy o WYDANIACH narzędzi? Operacja jest nieodwracalna.",
+        "confirm": "Usuń historię wydań"
+      },
+      "deleteToolReturns": {
+        "title": "Usuń historię zwrotów narzędzi",
+        "message": "Czy na pewno chcesz usunąć wszystkie wpisy o ZWROTACH narzędzi? Operacja jest nieodwracalna.",
+        "confirm": "Usuń historię zwrotów"
+      },
+      "deleteBhpIssues": {
+        "title": "Usuń historię wydań sprzętu BHP",
+        "message": "Czy na pewno chcesz usunąć wszystkie wpisy o WYDANIACH sprzętu BHP? Operacja jest nieodwracalna.",
+        "confirm": "Usuń historię wydań"
+      },
+      "deleteBhpReturns": {
+        "title": "Usuń historię zwrotów sprzętu BHP",
+        "message": "Czy na pewno chcesz usunąć wszystkie wpisy o ZWROTACH sprzętu BHP? Operacja jest nieodwracalna.",
+        "confirm": "Usuń historię zwrotów"
+      },
+      "deleteEmployees": {
+        "title": "Usuń wszystkich pracowników",
+        "message": "Czy na pewno chcesz usunąć wszystkich pracowników z bazy danych? Ta operacja jest nieodwracalna i usunie wszystkie dane pracowników.",
+        "confirm": "Usuń pracowników"
+      }
+    }
+  },
+  "BHP": {
+    "title": "Sprzęt BHP",
+    "subtitle": "Wyczyść bazę danych sprzętu BHP",
+    "manageDescription": "Zarządzaj wyposażeniem BHP (wydania, zwroty, przeglądy)",
+    "actions": {
+      "addEquipment": "Dodaj sprzęt",
+      "edit": "Edytuj",
+      "delete": "Usuń",
+      "issue": "Wydaj",
+      "return": "Zwrot",
+      "notifyReturn": "Powiadom o zwrocie",
+      "noPermission": "Brak uprawnień do akcji"
+    },
+    "filters": {
+      "search": "Wyszukaj BHP",
+      "searchPlaceholder": "nr ewid., producent, model, seryjny...",
+      "status": "Status",
+      "all": "Wszystkie",
+      "sort": "Sortowanie",
+      "reviews": "Przeglądy",
+      "nearestReview": "Najbliższy przegląd",
+      "farthestReview": "Najdalszy przegląd"
+    },
+    "sort": {
+      "inspectionDate": "Data przeglądu",
+      "inventoryNumber": "Nr ewidencyjny"
+    },
+    "table": {
+      "inventoryShort": "Nr. ew.",
+      "manufacturerModel": "Producent / Model",
+      "serialCatalog": "Seryjny / Katalogowy",
+      "inspection": "Przegląd",
+      "status": "Status",
+      "actions": "Akcje"
+    },
+    "set": {
+      "label": "Zestaw",
+      "shock": "amortyzator",
+      "srd": "Urządzenie samohamowne"
+    },
+    "labels": {
+      "assignedLabel": "Przypisano",
+      "catalogAbbrev": "Kat.",
+      "numberAbbrev": "nr",
+      "inventoryLabel": "Nr ewidencyjny",
+      "serialLabel": "Seryjny",
+      "catalogLabel": "Katalogowy",
+      "inspectionLabel": "Przegląd",
+      "inventoryNumber": "Nr ewidencyjny",
+      "manufacturer": "Producent",
+      "model": "Model",
+      "serialNumber": "Nr seryjny",
+      "catalogNumber": "Nr katalogowy",
+      "productionDate": "Data produkcji",
+      "inspectionDate": "Data przeglądu",
+      "status": "Status",
+      "assignedFirstName": "Przypisany (imię)",
+      "assignedLastName": "Przypisany (nazwisko)",
+      "assigned": "Przypisany",
+      "manufacturerAbbrev": "Prod.",
+      "modelAbbrev": "Model",
+      "snAbbrev": "S/N",
+      "productionShort": "Prod. data"
+    },
+    "status": {
+      "available": "Dostępne",
+      "issued": "Wydane",
+      "unknown": "Nieznany"
+    },
+    "notify": {
+      "sent": "Powiadomienie o zwrocie wysłane",
+      "error": "Nie udało się wysłać powiadomienia",
+      "upcoming7Days": "Przegląd w ciągu 7 dni: {number} (za {days} {unit})",
+      "upcoming30Days": "Przegląd w ciągu 30 dni: {number} (za {days} {unit})"
+    },
+    "modal": {
+      "editTitle": "Edytuj pozycję BHP",
+      "addTitle": "Dodaj pozycję BHP"
+    },
+    "form": {
+      "inventoryNumberRequired": "Nr ewidencyjny *",
+      "scanCode": "Skanuj kod",
+      "generateWithPrefix": "Generuj kod z prefiksem",
+      "manufacturer": "Producent",
+      "model": "Model",
+      "serialNumber": "Numer seryjny",
+      "catalogNumber": "Numer katalogowy",
+      "productionDateHarness": "Data produkcji (szelek)",
+      "harnessStartDate": "Data rozpoczęcia użytkowania",
+      "set": "Zestaw",
+      "shock": "Amortyzator",
+      "srd": "Urządzenie samohamowne"
+    },
+    "shock": {
+      "manufacturerLabel": "Amortyzator: Producent",
+      "modelLabel": "Amortyzator: Model",
+      "snLabel": "Amortyzator: S/N",
+      "catalogAbbrevLabel": "Amortyzator: Kat.",
+      "productionShortLabel": "Amortyzator: Data prod.",
+      "catalogLabel": "Amortyzator: Nr katalogowy",
+      "productionLabel": "Amortyzator: Data produkcji"
+    },
+    "srd": {
+      "manufacturerLabel": "SRD: Producent",
+      "modelLabel": "SRD: Model",
+      "snLabel": "SRD: S/N",
+      "catalogAbbrevLabel": "SRD: Kat.",
+      "productionShortLabel": "SRD: Data prod.",
+      "catalogLabel": "SRD: Nr katalogowy",
+      "productionLabel": "SRD: Data produkcji"
+    },
+    "export": {
+      "field": "Pole",
+      "value": "Wartość",
+      "detailsTitle": "Eksport BHP — szczegóły",
+      "detailsHeader": "Szczegóły BHP",
+      "generatedAt": "Wygenerowano",
+      "sheetName": "Szczegóły"
+    },
+    "errors": {
+      "notFound": "Nie znaleziono pozycji BHP",
+      "popupBlocked": "Pop-up zablokowany — zezwól na otwieranie nowych okien",
+      "qrGenerateFailed": "Wystąpił błąd podczas generowania etykiety (QR)",
+      "barcodeGenerateFailed": "Wystąpił błąd podczas generowania etykiety (kod kreskowy)",
+      "setMutualExclusive": "Nie można zaznaczyć jednocześnie „Amortyzator” i „Urządzenie samohamowne”. Wybierz jedno.",
+      "saveFailed": "Wystąpił błąd podczas zapisywania wpisu",
+      "detailsFetchFailed": "Nie udało się pobrać szczegółów",
+      "issueFailed": "Nie udało się wydać",
+      "returnDataFetchFailed": "Nie udało się pobrać danych zwrotu",
+      "returnFailed": "Nie udało się zwrócić",
+      "noActiveIssue": "Brak aktywnego wydania",
+      "deleteFailed": "Nie udało się usunąć wpisu BHP",
+      "notifyFailed": "Nie udało się wysłać powiadomienia",
+      "fethingFailed": "Nie udało się pobrać danych",
+      "loadingConfig": "Błąd podczas ładowania konfiguracji",
+      "generic": "Wystąpił błąd: {message}",
+      "overdueIssueBlocked": "Nie można wydać tej pozycji, ponieważ wymaga przeglądu."
+    }
+  },
+  "confirmation": {
+    "title": "Potwierdź działanie",
+    "message": "Czy na pewno chcesz wykonać tę operację?",
+    "confirm": "Potwierdź",
+    "cancel": "Anuluj"
+  },
+  "userSettings": {
+    "title": "Ustawienia użytkownika",
+    "subtitle": "Zarządzaj bezpieczeństwem swojego konta",
+    "tabs": {
+      "profile": "Dane pracownika",
+      "security": "Bezpieczeństwo",
+      "notifications": "Powiadomienia"
+    },
+    "profile": {
+      "title": "Informacje osobowe",
+      "labels": {
+        "username": "Login",
+        "firstName": "Imię",
+        "lastName": "Nazwisko",
+        "phone": "Telefon",
+        "email": "E‑mail",
+        "department": "Dział",
+        "position": "Stanowisko",
+        "status": "Status",
+        "createdAt": "Przyjęty",
+        "brandNumber": "Numer służbowy",
+        "rfidUid": "UID karty RFID"
+      },
+      "statusLabels": {
+        "active": "Aktywny",
+        "inactive": "Nieaktywny",
+        "suspended": "Zawieszony"
+      },
+      "validation": {
+        "phoneInvalid": "Nieprawidłowy format telefonu",
+        "emailInvalid": "Nieprawidłowy format e‑mail"
+      }
+    },
+    "changePassword": {
+      "title": "Zmień hasło",
+      "username": "Nazwa użytkownika",
+      "current": "Aktualne hasło",
+      "new": "Nowe hasło",
+      "confirm": "Potwierdź nowe hasło",
+      "notice": "Hasło będzie aktualizowane dla Twojego konta"
+    },
+    "toast": {
+      "passwordSaved": "Hasło zostało zapisane pomyślnie!",
+      "passwordChanged": "Hasło zostało zmienione"
+    },
+    "errors": {
+      "fillAllFields": "Wypełnij wszystkie pola",
+      "passwordTooShort": "Nowe hasło musi mieć co najmniej 6 znaków",
+      "passwordMismatch": "Nowe hasło i potwierdzenie nie są zgodne",
+      "changeFailed": "Nie udało się zmienić hasła"
+    },
+    "notifications": {
+      "title": "Powiadomienia",
+      "enableSound": "Dźwięk powiadomień",
+      "playTest": "Test odtworzenia",
+      "saved": "Zapisano ustawienia powiadomień",
+      "playFailed": "Nie udało się odtworzyć dźwięku",
+      "errors": {
+        "invalidType": "Nieprawidłowy typ",
+        "invalidItemType": "Nieprawidłowy typ elementu",
+        "missingFilters": "Brak filtrów",
+        "deleteFailed": "Nie udało się usunąć powiadomień",
+        "missingIds": "Brak identyfikatorów",
+        "historyInvalidType": "Nieprawidłowy typ historii",
+        "invalidId": "Nieprawidłowe ID powiadomienia",
+        "notFound": "Nie znaleziono powiadomienia",
+        "subscribeInvalid": "Nieprawidłowa subskrypcja",
+        "subscribeFailed": "Nie udało się zapisać subskrypcji",
+        "fetchFailed": "Nie udało się pobrać powiadomień",
+        "updateFailed": "Nie udało się zaktualizować powiadomienia",
+        "requiredFields": "Wypełnij wymagane pola",
+        "pushConfigFailed": "Konfiguracja push nie powiodła się"
+      }
+    }
+  },
+  "analytics": {
+    "title": "Analityka",
+    "subtitle": "Przegląd statystyk i raportów systemu",
+    "permissions": {
+      "title": "Brak uprawnień",
+      "viewAnalyticsDenied": "Brak uprawnień do przeglądania analityki (VIEW_ANALYTICS)."
+    },
+    "utilization": {
+      "title": "Wykorzystanie zasobów",
+      "tools": "Narzędzia",
+      "bhp": "BHP",
+      "inService": "W serwisie",
+      "total": "Ogółem",
+      "issued": "Wydane"
+    },
+    "topEmployees": {
+      "title": "Top 5 Pracowników (Aktywne Narzędzia)",
+      "activeTools": "Aktywne narzędzia"
+    },
+    "popularTools": {
+      "title": "Najpopularniejsze narzędzia",
+      "uses": "Wydań"
+    },
+    "trends": {
+      "title": "Trendy użycia (ostatnie 30 dni)",
+      "count": "Liczba wydań"
+    },
+    "categories": {
+      "title": "Narzędzia wg kategorii",
+      "count": "Liczba narzędzi"
+    },
+    "upcomingInspections": "Nadchodzące przeglądy",
+    "overdue": "Przeterminowane",
+    "upcomingUnder30": "Nadchodzące (<30 dni)",
+    "bhpPermissionDenied": "Brak uprawnień do sekcji BHP (VIEW_BHP). Wyświetlamy tylko dane z modułu Narzędzia.",
+    "loadingInspections": "Ładowanie danych przeglądów...",
+    "loadingService": "Ładowanie danych serwisu...",
+    "overdueTools": "Przeterminowane (Narzędzia)",
+    "noOverdueTools": "Brak przeterminowanych przeglądów narzędzi.",
+    "overdueBhp": "Przeterminowane (BHP)",
+    "noOverdueBhp": "Brak przeterminowanych przeglądów BHP.",
+    "upcoming": "Nadchodzące (<30 dni)",
+    "noUpcoming": "Brak nadchodzących przeglądów w ciągu 30 dni.",
+    "chip": { "tools": "Narzędzia", "bhp": "BHP" },
+    "phrases": {
+      "daysOverdue": "{count} dni po terminie",
+      "inDays": "za {count} dni"
+    },
+    "serviceHistory": {
+      "title": "Historia serwisowania",
+      "inService": "Aktualnie w serwisie",
+      "recentEvents": "Ostatnie zdarzenia",
+      "generatedAt": "Wygenerowano",
+      "exportPDF": "Eksportuj PDF",
+      "exportXLSX": "Eksportuj XLSX",
+      "rowsCount": "Liczba wierszy",
+      "total": "Łącznie: {count}",
+      "headers": {
+        "tool": "Narzędzie",
+        "sku": "SKU",
+        "action": "Akcja",
+        "quantity": "Ilość",
+        "orderNumber": "Nr zlecenia",
+        "date": "Data",
+        "sent": "Wysłano"
+      },
+      "action": {
+        "sent": "Wysłano",
+        "received": "Odebrano"
+      },
+      "noInService": "Brak narzędzi w serwisie.",
+      "noRecentEvents": "Brak ostatnich zdarzeń.",
+      "noData": "Brak danych"
+    },
+    "pagination": {
+      "prev": "Poprzednia",
+      "page": "Strona",
+      "of": "z",
+      "next": "Następna",
+      "total": "Łącznie:",
+      "range": "{start}–{end} / {total}"
+    }
+  },
+  "scanner": {
+    "title": "Skanuj kod kreskowy",
+    "close": "Zamknij",
+    "permissionDenied": "Brak dostępu do kamery. Zezwól na dostęp do kamery w ustawieniach przeglądarki.",
+    "browserNotSupported": {
+      "title": "Przeglądarka nie obsługuje kamery",
+      "desc": "Twoja przeglądarka nie obsługuje skanowania kodów.",
+      "message": "Twoja przeglądarka nie obsługuje skanowania kodów.",
+      "tipsIntro": "Spróbuj:",
+      "tipsTitle": "Spróbuj:",
+      "tips": {
+        "update": "Użyć nowszej wersji przeglądarki",
+        "switch": "Przełączyć się na Chrome, Firefox lub Safari",
+        "https": "Sprawdzić czy używasz HTTPS (wymagane dla kamery)",
+        "manual": "Wprowadzić kod ręcznie",
+        "useNewer": "Użyj nowszej wersji przeglądarki",
+        "switchBrowser": "Przełącz się na Chrome, Firefox lub Safari",
+        "useHttps": "Upewnij się, że używasz HTTPS (wymagane dla kamery)",
+        "enterManually": "Wprowadź kod ręcznie"
+      }
+    },
+    "permissionsDenied": {
+      "desc": "Brak dostępu do kamery. Proszę zezwolić na dostęp do kamery w ustawieniach przeglądarki."
+    },
+    "buttons": {
+      "cancel": "Anuluj"
+    },
+    "overlay": {
+      "scanning": "Skanowanie...",
+      "ready": "Gotowy do skanowania"
+    },
+    "lastCode": "Ostatni kod:",
+    "quantity": "Ilość:",
+    "torch": { "enable": "Włącz latarkę", "disable": "Wyłącz latarkę", "on": "Włącz latarkę", "off": "Wyłącz latarkę" },
+    "tipsHeader": "Wskazówki skanowania",
+    "tipsGeneral": {
+      "stable": "• Trzymaj telefon stabilnie nad kodem",
+      "light": "• Upewnij się, że kod jest dobrze oświetlony",
+      "frame": "• Kod powinien wypełniać ramkę skanowania",
+      "wait": "• Poczekaj na automatyczne rozpoznanie"
+    },
+    "tipsLabels": {
+      "title": "Naklejki z drukarki etykiet",
+      "avoidReflections": "• Unikaj odbić światła - nachyl telefon lekko",
+      "distance": "• Trzymaj telefon bliżej (5-10 cm od naklejki)",
+      "torch": "• Włącz latarkę dla lepszego kontrastu",
+      "recognize": "• Poczekaj 2-3 sekundy na rozpoznanie",
+      "checkDamage": "• Sprawdź czy naklejka nie jest uszkodzona"
+    },
+    "cta": "Skieruj kamerę na kod kreskowy lub kod QR",
+    "errors": {
+      "NotAllowedError": "Brak dostępu do kamery. Proszę zezwolić na dostęp do kamery w ustawieniach przeglądarki.",
+      "NotFoundError": "Nie znaleziono kamery. Upewnij się, że urządzenie ma kamerę.",
+      "NotSupportedError": "Przeglądarka nie obsługuje dostępu do kamery. Spróbuj użyć innej przeglądarki.",
+      "NotReadableError": "Kamera jest używana przez inną aplikację. Zamknij inne aplikacje używające kamery.",
+      "OverconstrainedError": "Nie można uruchomić kamery z wybranymi ustawieniami. Spróbuj ponownie.",
+      "Generic": "Wystąpił błąd podczas uruchamiania kamery: {message}",
+      "generic": "Wystąpił błąd: {message}",
+      "permissionDenied": "Brak dostępu do kamery. Proszę zezwolić na dostęp do kamery w ustawieniach przeglądarki.",
+      "notFound": "Nie znaleziono kamery. Upewnij się, że urządzenie ma kamerę.",
+      "notSupported": "Przeglądarka nie obsługuje dostępu do kamery. Spróbuj użyć innej przeglądarki.",
+      "notReadable": "Kamera jest używana przez inną aplikację. Zamknij inne aplikacje używające kamery.",
+      "overconstrained": "Nie można uruchomić kamery z wybranymi ustawieniami. Spróbuj ponownie."
+    }
+    ,
+    "tips": {
+      "title": "Wskazówki skanowania",
+      "holdSteady": "Trzymaj telefon stabilnie nad kodem",
+      "wellLit": "Upewnij się, że kod jest dobrze oświetlony",
+      "fillFrame": "Kod powinien wypełniać ramkę skanowania",
+      "waitRecognition": "Poczekaj na automatyczne rozpoznanie",
+      "labels": {
+        "title": "Naklejki z drukarki etykiet",
+        "avoidGlare": "Unikaj odbić światła — lekko nachyl telefon",
+        "closerDistance": "Trzymaj telefon bliżej (5–10 cm od naklejki)",
+        "useTorch": "Włącz latarkę dla lepszego kontrastu",
+        "waitSeconds": "Poczekaj 2–3 sekundy na rozpoznanie",
+        "checkSticker": "Sprawdź, czy naklejka nie jest uszkodzona"
+      },
+      "finalInstruction": "Skieruj kamerę na kod kreskowy lub kod QR"
+    },
+    "noRecognition": {
+      "title": "Brak rozpoznania — spróbuj ponownie",
+      "attempts": "Próby: {count}"
+    },
+    "notFound": {
+      "message": "Nie znaleziono w bazie: {code}"
+    }
+  },
+  "tools": {
+    "errors": {
+      "noManagePermission": "Brak uprawnień do zarządzania narzędziami (MANAGE_TOOLS)",
+      "deleteFailed": "Wystąpił błąd podczas usuwania narzędzia",
+      "notFound": "Nie znaleziono narzędzia",
+      "invalidCode": "Nieprawidłowy kod narzędzia",
+      "copyFailed": "Nie udało się skopiować",
+      "indexTaken": "Ten indeks jest już w użyciu",
+      "taken": "Ten numer ewidencyjny jest już w użyciu"
+    },
+    "actions": {
+      "return": "Zwróć",
+      "generateSku": "Generuj SKU",
+      "notifyReturn": "Powiadom o zwrocie",
+      "notifyReturnDesc": "Wyślij przypomnienie do pracownika.",
+      "add": "Dodaj narzędzie",
+      "edit": "Edytuj narzędzie",
+      "delete": "Usuń",
+      "service": "Serwis",
+      "receiveFromService": "Odbierz z serwisu",
+      "serviceReceived": "Odebrano"
+    },
+   "issues": {
+      "success": "Pomyślnie wydano narzędzie.",
+      "error": "Wystąpił błąd podczas wydawania narzędzia."
+   },
+    "return": {
+      "success": "Pomyślnie zwrócono narzędzie.",
+      "error": "Wystąpił błąd podczas zwracania narzędzia."
+    },
+    "issueModal":{
+      "title": "Wydaj narzędzie",
+      "selectEmployee": "Wybierz pracownika",
+      "searchPlaceholder": "Szukaj pracownika (imię, nazwisko, numer)...",
+      "available": "Dostępne",
+      "permanent": "Wydać na stałe?"
+    },
+    "returnModal":{
+      "title": "Zwróć narzędzie",
+      "selectEmployee": "Wybierz pracownika",
+      "noActiveIssues": "Brak aktywnych wydań dla tego narzędzia."
+    },
+    "confirm": {
+      "deleteTool": "Czy na pewno chcesz usunąć to narzędzie?"
+    },
+    "suggestions": { "loadFailed": "Nie udało się pobrać sugestii z backendu, używam danych lokalnych" },
+    "prefix": { "loadFailed": "Nie udało się załadować prefiksu narzędzi" },
+    "service": {
+      "chooseQty": "Wybierz ilość od 1 do",
+      "sendSuccess": "Wysłano narzędzia na serwis",
+      "sendFailed": "Nie udało się wysłać na serwis",
+      "receiveNone": "Brak sztuk w serwisie do odebrania",
+      "receiveSuccess": "Odebrano z serwisu",
+      "receiveFailed": "Nie udało się odebrać z serwisu",
+      "modal": { "title": "Wyślij na serwis" },
+      "modalDescription": "Wyślij narzędzie na serwis: wybierz ilość i podaj numer zlecenia.",
+      "available": "Dostępne do serwisu",
+      "quantityLabel": "Ilość do serwisu",
+      "orderNumberLabel": "Numer zlecenia serwisowego",
+      "orderNumberPlaceholder": "Np. SER-2025-00123",
+      "sendButton": "Wyślij",
+      "markAsDamagedWarning": "Oznaczyć jako uszkodzone? (Wskazówka: jeśli narzędzie jest uszkodzone, to powinno być oznaczone jako uszkodzone.)"
+    },
+    "labels": {
+      "employee": "Pracownik",
+      "productionYear": "Rok produkcji",
+      "productionDate": "Data produkcji",
+      "generateError": "Wystąpił błąd podczas generowania etykiety",
+      "generateQrError": "Wystąpił błąd podczas generowania etykiety (QR)",
+      "generateBarcodeError": "Wystąpił błąd podczas generowania etykiety (kod kreskowy)",
+      "sku": "SKU",
+      "scanPrompt": "Zeskanuj kod aby sprawdzić status",
+      "filenameLabel": "etykieta",
+      "filenameQr": "etykieta-qr",
+      "filenameBarcode": "etykieta-kreskowy"
+    },
+    "validation": {
+      "duplicate": "Narzędzie o takim kodzie już istnieje",
+      "nameRequired": "Nazwa jest wymagana",
+      "categoryRequired": "Kategoria jest wymagana",
+      "quantityMin": "Ilość musi być większa od 0",
+      "inventoryInUse": "Numer ewidencyjny jest już używany",
+      "skuExists": "Narzędzie o tym SKU już istnieje",
+      "minStockInvalid": "Nieprawidłowy minimalny stan (liczba ≥ 0)",
+      "maxStockInvalid": "Nieprawidłowy maksymalny stan (liczba ≥ 0)",
+      "maxLessThanMin": "Maksymalny stan nie może być mniejszy niż minimalny"
+    },
+    "save": {
+      "updateSuccess": "Pomyślnie zaktualizowano dane narzędzia",
+      "error": "Wystąpił błąd podczas zapisywania narzędzia"
+    },
+    "weldInspection": {
+      "title": "Przegląd spawarki: ",
+      "in": " za ",
+      "days": " dni",
+      "lessEqual30": " (<=30 dni)"
+    },
+    "notify": {
+      "sent": "Powiadomienie o zwrocie wysłane",
+      "deleted": "Usunięto pomyślnie",
+      "deleteError": "Błąd usuwania",
+      "error": "Nie udało się wysłać powiadomienia",
+      "modalDescription": "Wyślij przypomnienie o zwrocie dla wybranego narzędzia."
+    },
+    "notifications": {
+      "updateSuccess": "Zaktualizowano pomyślnie",
+      "addSuccess": "Dodano pomyślnie",
+      "error": "Wystąpił błąd"
+    },
+    "edit": {
+      "modalDescription": "Uzupełnij dane narzędzia; pola wymagane są oznaczone."
+    },
+    "common": {
+      "tool": "Narzędzie",
+      "toolIssued": "Narzędzie wydane"
+    },
+    "header": {
+      "title": "Zarządzanie narzędziami",
+      "subtitle": "Dodawaj, edytuj i śledź narzędzia w systemie"
+    },
+    "search": {
+      "label": "Wyszukaj narzędzie",
+      "placeholder": "Nazwa, SKU, kategoria, numer ewidencyjny..."
+    },
+    "filters": {
+      "category": { "label": "Kategoria" },
+      "status": { "label": "Status" },
+      "allCategories": "Wszystkie kategorie",
+      "allStatuses": "Wszystkie statusy",
+      "saved": {
+        "available": "Dostępne",
+        "issued": "Wydane",
+        "partially_issued": "Wydane - częściowo",
+        "permanent": "Wydane - na stałe",
+        "service": "Serwis",
+        "damaged": "Uszkodzone"
+      }
+    },
+    "export": {
+      "pdf": "Eksportuj jako PDF",
+      "xlsx": "Eksportuj jako EXCEL"
+    },
+    "loading": {
+      "title": "Ładowanie narzędzi...",
+      "subtitle": "Proszę czekać..."
+    },
+    "empty": {
+      "title": "Brak narzędzi",
+      "descDefault": "Dodaj pierwsze narzędzie, aby rozpocząć zarządzanie.",
+      "descFiltered": "Nie znaleziono narzędzi spełniających kryteria wyszukiwania."
+    },
+    "table": {
+      "headers": {
+        "inventoryNumberShort": "Nr. ew.",
+        "name": "Nazwa",
+        "serialNumber": "Numer fabryczny",
+        "category": "Kategoria",
+        "location": "Lokalizacja",
+        "sku": "SKU",
+        "actions": "Akcje",
+        "status": "Status"
+      },
+      "unreadableSerial": "nieczytelny"
+    },
+    "mobile": {
+      "labels": {
+        "inventoryNumber": "Numer ewidencyjny",
+        "serialNumber": "Numer fabryczny",
+        "category": "Kategoria",
+        "location": "Lokalizacja"
+      }
+    },
+    "qr": {
+      "title": "Kod QR",
+      "generating": "Generowanie kodu QR...",
+      "downloadLabel": "Pobierz etykietę (tylko QR)",
+      "generateError": "Błąd generowania kodu QR"
+    },
+    "barcode": {
+      "title": "Kod kreskowy",
+      "generating": "Generowanie kodu kreskowego...",
+      "downloadLabel": "Pobierz etykietę (tylko kod kreskowy)",
+      "generateError": "Błąd generowania kodu kreskowego"
+    },
+    "details": {
+      "title": "Szczegóły narzędzia",
+      "infoTitle": "Informacje o narzędziu",
+      "name": "Nazwa",
+      "inventoryNumber": "Numer ewidencyjny",
+      "serialNumber": "Numer fabryczny",
+      "unreadable": "nieczytelny",
+      "sku": "SKU",
+      "category": "Kategoria",
+      "techData": "Dane techniczne",
+      "manufacturer": "Producent",
+      "model": "Model",
+      "productionYear": "Rok produkcji",
+      "inspectionDate": "Data przeglądu",
+      "overdue": "Po terminie",
+      "inspectionDueIn": "Przegląd za",
+      "location": "Lokalizacja",
+      "status": "Status",
+      "unknown": "nieznany",
+      "quantity": "Ilość",
+      "description": "Opis",
+      "serviceTitle": "Serwis",
+      "inService": "W serwisie",
+      "pieces": "szt.",
+      "orderNumber": "Nr zlecenia",
+      "sentDate": "Data wysłania",
+      "issuesTitle": "Wydania",
+      "issued": "Wydane",
+      "unknownUser": "Nieznany",
+      "consumable": "Narzędzie zużywalne?",
+      "stockLimits": "Ustaw min/max aby śledzić braki materiałów.",
+      "minStock": "Minimalna ilość",
+      "maxStock": "Maksymalna ilość",
+      "placeholders": {
+        "name": "Nazwa narzędzia",
+        "SKU": "Wpisz index SKU narzędzia lub wygeneruj",
+        "inventoryNumber": "Wpisz numer ewidencyjny narzędzia Np. NE-000123",
+        "category": "Wybierz kategorię narzędzia",
+        "location": "Wpisz lokalizację narzędzia",
+        "selectCategory": "Wybierz kategorię narzędzia",
+        "description": "Opis narzędzia"
+      }
+    },
+    "returnRequests": {
+      "title": "Historia wysyłania prośby zwrotu",
+      "empty": "Brak historii"
+    }
+  },
+  "chat": {
+    "title": "Czat",
+    "search": "Szukaj konwersacji",
+    "noConversations": "Brak konwersacji",
+    "me": "Ty",
+    "startConversation": "Nowa konwersacja",
+    "messagePlaceholder": "Napisz wiadomość…",
+    "emojiInsert": "Emoji",
+    "emojiInsertTooltip": "Wstaw ikonę emoji",
+    "fileTypeNotAllowed": "Niedozwolony typ pliku",
+    "fileTooLarge": "Plik jest za duży (max 25 MB)",
+    "noValidFiles": "Brak poprawnych plików do wysłania",
+    "markUnread": "Oznacz jako nieprzeczytane",
+    "block": "Zablokuj",
+    "mute": "Wycisz",
+    "archive": "Archiwizuj",
+    "delete": "Usuń czat",
+    "deleted": "Konwersacja usunięta",
+    "readAt": "Wyświetlono",
+    "unavailable": "Konwersacja niedostępna",
+    "jumpToFirstUnread": "Skocz do pierwszej nieprzeczytanej",
+    "attachTooltip": "Wstaw załącznik",
+    "send": "Wyślij",
+    "sendTooltip": "Wyślij",
+    "defaultPrompt": "Wybierz konwersację lub rozpocznij nową",
+    "deleteError": "Nie udało się usunąć konwersacji",
+    "reply": "Odpowiedz",
+    "more": "Więcej",
+    "edit": "Edytuj",
+    "unsend": "Cofnij wysłanie",
+    "confirmDelete": "Czy na pewno chcesz usunąć tę wiadomość?",
+    "deleteMessageError": "Błąd usuwania wiadomości",
+    "editing": "Edytujesz wiadomość",
+    "replyingTo": "Odpowiadasz na"
+  },
+  "slings": {
+    "foundItems": "Znaleziono: {count} podpozycji",
+    "editor": {
+      "title": "Podpozycje (Ewidencja szczegółowa)",
+      "kind": "Rodzaj",
+      "serialNumber": "Numer fabryczny",
+      "sku": "SKU",
+      "productionDate": "Data produkcji",
+      "productionYear": "Rok",
+      "productionMonth": "Miesiąc",
+      "add": "Dodaj pozycję",
+      "addTitle": "Dodaj podpozycję",
+      "remove": "Usuń",
+      "generateSku": "Generuj SKU",
+      "generateSkuAll": "Generuj SKU dla wszystkich",
+      "kindPlaceholder": "np. 3m 2t",
+      "validation": {
+        "kindRequired": "Rodzaj jest wymagany",
+        "skuRequired": "SKU jest wymagane",
+        "dateRequired": "Data produkcji jest wymagana"
+      }
+    },
+    "details": {
+      "slingsItemsTable": "Edytuj szczegółowe informacje o podpozycjach dla tego narzędzia.",
+      "slingsEditor": "Identyfikacja zawiesi odbywa się na poziomie podpozycji. SKU główne jest generowane automatycznie i niewykorzystywane operacyjnie."
+    },
+    "validation": {
+      "minItems": "Dodaj przynajmniej jeden element do podpozycji"
+    },
+    "issue": {
+      "title": "Wydaj zaznaczone",
+      "confirm": "Czy na pewno chcesz wydać zaznaczone pozycje ({count})?",
+      "success": "Wydano pomyślnie"
+    },
+    "return": {
+      "title": "Zwróć zaznaczone",
+      "confirm": "Czy na pewno chcesz zwrócić zaznaczone pozycje ({count})?",
+      "success": "Zwrócono pomyślnie"
+    },
+    "table": {
+      "sku": "SKU",
+      "kind": "Rodzaj",
+      "serialNumber": "Nr fabryczny",
+      "production": "Data prod.",
+      "status": "Status",
+      "location": "Lokalizacja",
+      "employee": "Pracownik"
+    },
+    "errors": {
+      "noItems": "Brak podpozycji",
+      "itemsFailed": "Narzędzie utworzono, ale wystąpił błąd przy dodawaniu podpozycji."
+    }
+  },
+  "sockets": {
+    "foundItems": "Znaleziono: {count} podpozycji (nasadki)",
+    "editor": {
+      "title": "Podpozycje (nasadki udarowe)",
+      "sku": "SKU",
+      "kind": "Rodzaj",
+      "size": "Rozmiar",
+      "quantity": "Ilość",
+      "kindPlaceholder": "np. 6-kątna, długa",
+      "sizePlaceholder": "np. 24mm",
+      "generateSkuAll": "Generuj SKU dla wszystkich",
+      "jsonModalTitle": "Edycja / wklejanie JSON (nasadki)",
+      "jsonModalHint": "Możesz wkleić lub edytować dane w formacie JSON. Obsługiwany jest format tablicy lub obiektu z polem \"items\".",
+      "jsonModalError": "Błąd JSON",
+      "empty": "Brak podpozycji. Dodaj wiersz.",
+      "add": "Dodaj nasadkę"
+    },
+    "add": {
+      "title": "Dodaj podpozycje (nasadki)"
+    },
+    "details": {
+      "itemsTable": "Edytuj szczegółowe informacje o podpozycjach dla tego narzędzia.",
+      "editor": "Identyfikacja nasadek odbywa się na poziomie podpozycji. Ilość jest liczona z podpozycji."
+    },
+    "actions": {
+      "addItems": "Dodaj podpozycje"
+    },
+    "issue": {
+      "title": "Wydaj zaznaczone nasadki"
+    },
+    "return": {
+      "title": "Zwróć zaznaczone nasadki"
+    },
+    "table": {
+      "sku": "SKU",
+      "kind": "Rodzaj",
+      "size": "Rozmiar",
+      "quantity": "Ilość",
+      "issued": "Wydane",
+      "available": "Dostępne"
+    },
+    "modal": {
+      "qty": "Ilość"
+    },
+    "errors": {
+      "noItems": "Brak podpozycji (nasadek)"
+    }
+  },
+  "detectors": {
+    "foundItems": "Znaleziono: {count} podpozycji (detektory)",
+    "editor": {
+      "title": "Podpozycje (detektory)",
+      "addTitle": "Dodaj podpozycje (detektory)",
+      "sku": "SKU",
+      "type": "Typ",
+      "inventoryNumber": "Nr ewidencyjny",
+      "serialNumber": "Nr fabryczny",
+      "calibrationDate": "Data kalibracji",
+      "nextCalibrationDate": "Data następnej kalibracji",
+      "generateSku": "Generuj SKU",
+      "generateSkuAll": "Generuj SKU dla wszystkich",
+      "empty": "Brak podpozycji. Dodaj wiersz.",
+      "add": "Dodaj detektor"
+    },
+    "details": {
+      "itemsTable": "Edytuj szczegółowe informacje o podpozycjach dla tego narzędzia.",
+      "editor": "Identyfikacja detektorów odbywa się na poziomie podpozycji. Wydanie/zwrot odbywa się na poziomie podpozycji."
+    },
+    "issue": {
+      "title": "Wydaj zaznaczone detektory",
+      "success": "Wydano pomyślnie"
+    },
+    "return": {
+      "title": "Zwróć zaznaczone detektory",
+      "confirm": "Czy na pewno chcesz zwrócić zaznaczone pozycje ({count})?",
+      "success": "Zwrócono pomyślnie"
+    },
+    "table": {
+      "sku": "SKU",
+      "type": "Typ",
+      "inventoryNumber": "Nr ewidencyjny",
+      "serialNumber": "Nr fabryczny",
+      "calibrationDate": "Kalibracja",
+      "nextCalibrationDate": "Następna kalibracja",
+      "status": "Status",
+      "employee": "Pracownik"
+    },
+    "errors": {
+      "noItems": "Brak podpozycji (detektory)"
+    }
+  }
+}

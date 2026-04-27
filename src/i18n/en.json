@@ -1,0 +1,2801 @@
+{
+  "ErrorBoundary": {
+    "title": "Something went wrong",
+    "message": "An unexpected application error occurred. Please refresh the page.",
+    "refresh": "Refresh page",
+    "screenError": {
+      "title": "Error in screen:",
+      "message": "An unexpected error occurred while displaying this screen. Please refresh the page."
+    }
+  },
+  "onboardingtour": {
+    "quickIssue": {
+      "title": "Quick Tool Issue",
+      "content": "Here you can quickly issue a tool to an employee by scanning a QR code or entering the name/code manually."
+    },
+    "quickReturn": {
+      "title": "Quick Tool Return",
+      "content": "Here you can quickly accept a tool return from an employee by scanning a code or selecting from the list."
+    },
+    "search": {
+      "title": "Search",
+      "content": "Type a phrase or use Ctrl+K shortcut to instantly search system resources, tools, and employees."
+    },
+    "navigation": {
+      "title": "Navigation",
+      "content": "The sidebar provides quick access to all system modules: Tools, Employees, Reports, BHP, and Settings."
+    },
+    "help": {
+      "title": "Help Center",
+      "content": "Click the question mark icon to open the help panel with guides and FAQs."
+    },
+    "skip": "Skip",
+    "prevStep": "Previous step",
+    "nextStep": "Next step",
+    "finish": "Finish"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "tools": "Tools",
+    "bhp": "BHP",
+    "inventory": "Inventory",
+    "employees": "Employees",
+    "map": "Plant map",
+    "labels": "Labels",
+    "analytics": "Analytics",
+    "admin": "Settings",
+    "audit": "Audit Log",
+    "settings": "Settings",
+    "userSettings": "User Settings",
+    "report": "Submissions",
+    "dangerZone": "Danger Zone",
+    "menu": "Menu"
+  },
+  "screens": {
+    "dashboard": "Dashboard",
+    "tools": "Tools",
+    "new": "Dodawanie narzędzia",
+    "edit": "Edycja narzędzia",
+    "bhp": "BHP",
+    "employees": "Employees",
+    "map": "Plant map",
+    "analytics": "Analytics",
+    "labels": "Labels",
+    "kiosk": "Kiosk",
+    "admin": "Settings",
+    "user-management": "User Management",
+    "config": "Configuration",
+    "audit": "Audit Log",
+    "user-settings": "User Settings",
+    "report": "Submissions",
+    "db-viewer": "Database Viewer",
+    "defaultTitle": "Tool Management System",
+    "settings": "Settings",
+    "translations": "Translations",
+    "general": "General",
+    "security": "Security",
+    "email": "Email",
+    "users": "Users",
+    "rolesPermissions": "Roles and Permissions",
+    "features": "Features",
+    "notifications": "Notifications",
+    "departments": "Departments",
+    "positions": "Positions",
+    "categories": "Categories",
+    "codes": "Codes",
+    "backup": "Backup",
+    "database": "Database",
+    "webhooks": "Webhooks",
+    "server": "Server",
+    "danger-zone": "Danger Zone"
+  },
+  "kiosk": {
+    "title": "Kiosk",
+    "disabled": "Kiosk is disabled",
+    "back": "Back",
+    "layout": {
+      "grid": "Grid layout",
+      "list": "List layout"
+    },
+    "search": {
+      "placeholder": "Search tool / equipment BHP (SKU, name, barcode code, QR, NFC)...",
+      "button": "Search",
+      "results": "Search results ({count})",
+      "clear": "Clear",
+      "quantity": "Quantity: {count}"
+    },
+    "hint": {
+      "label": "Tip:",
+      "text": "Use the search engine to find the tool you need faster."
+    },
+    "itemType": {
+      "tool": "Tool",
+      "bhp": "BHP"
+    },
+    "overdueBadge": "Requires Review",
+    "subitems": {
+      "button": "Subitems",
+      "loading": "Loading subitems...",
+      "empty": "No subitems found",
+      "available": "Available: {count}",
+      "fetchError": "Fetching error"
+    },
+    "subitemModal": {
+      "titleSlings": "Issue subitem (sling)",
+      "titleSockets": "Issue subitem (sockets)",
+      "employeePlaceholder": "Search employee (name, last name, number)...",
+      "noResults": "No results found",
+      "quantity": "Quantity",
+      "available": "Available: {count}"
+    },
+    "stats": {
+      "active": "Active issues",
+      "overdue": "Overdue equipment"
+    },
+    "issued": {
+      "loading": "Loading issued items...",
+      "empty": "No issued items found"
+    },
+    "return": {
+      "processing": "Processing...",
+      "immediate": "Immediate Return",
+      "button": "Return",
+      "confirmTitle": "Return Confirmation",
+      "confirmMessage": "Are you sure you want to return {name}?"
+    },
+    "toasts": {
+      "loadIssuedError": "Failed to load issued items",
+      "searchError": "Search error",
+      "overdueIssueBlocked": "Overdue equipment cannot be issued. Please review it first.",
+      "issueSuccess": "Issued successfully",
+      "issueError": "Failed to issue",
+      "subitemIssueSuccess": "Issued successfully",
+      "subitemIssueError": "Failed to issue subitem",
+      "selectEmployee": "Select employee",
+      "returnSuccess": "Returned successfully",
+      "returnError": "Failed to return"
+    },
+    "fallbacks": {
+      "unknownTool": "Unknown tool",
+      "unknownBhp": "Unknown BHP",
+      "sling": "Sling",
+      "sockets": "Sockets"
+    }
+  },
+  "map": {
+    "title": "Plant map",
+    "hint": {
+      "manage": "Click + to add a report, then click on the map to place a pin.",
+      "view": "You only have view access to the map."
+    },
+    "permissions": {
+      "title": "No permissions",
+      "viewMapDenied": "You do not have permission to view the plant map (VIEW_MAP)."
+    }
+  },
+  "common": {
+    "browserNotSupported": "This browser is not supported. Please use a different browser.",
+    "help": {
+      "title": "Help",
+      "helpMore": "Need more help?",
+      "contactAdmin": "Contact admin"
+    },
+    "status": {
+      "available": "Available",
+      "issued": "Issued",
+      "partially_issued": "Partially issued",
+      "permanent": "Issued - permanent",
+      "service": "Service",
+      "damaged": "Damaged",
+      "unknown": "Unknown"
+    },
+    "pasteJson": "Paste JSON",
+    "selectAll": "Select all",
+    "confirmDelete": "Are you sure you want to delete this item?",
+    "saved": "Saved",
+    "deleted": "Deleted",
+    "of": "of",
+    "employee": "Employee",
+    "sendReminder": "Send Reminder",
+    "issue": "Issue",
+    "return": "Return",
+    "days": "days",
+    "loading": "Loading…",
+    "refresh": "Refresh",
+    "retry": "Retry",
+    "noData": "No data.",
+    "selectEmployee": "Select an employee to view data.",
+    "error": "An error occurred.",
+    "search": "Search",
+    "searchEmployee": "Search employee...",
+    "print": "Print",
+    "jumpTo": "Jump to",
+    "add": "Add",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "back": "Back",
+    "apply": "Apply",
+    "update": "Update",
+    "save": "Save",
+    "close": "Close",
+    "delete": "Delete",
+    "remove": "Remove",
+    "quantity": "Quantity",
+    "existing": "existing",
+    "clearList": "Clear list",
+    "clearInput": "Clear input",
+    "saveChanges": "Save changes",
+    "saving": "Saving...",
+    "updateSuccess": "Data has been updated",
+    "actions": "Actions",
+    "details": "Details",
+    "edit": "Edit",
+    "select": "Wybierz",
+    "download": "Download",
+    "sent": "Sent",
+    "read": "Read",
+    "user": "User",
+    "nfcTag": "NFC Tag",
+    "scanNfc": "Scan NFC Tag",
+    "noResults": "No results found",
+    "noPermission": "No permission to perform this action",
+    "noPermissionsTitle": "No permission",
+    "popupBlocked": "Popup blocked by the browser",
+    "copy": "COPY",
+    "copied": "Copied to clipboard",
+    "scanQr": "Scan QR/Barcode",
+    "scanSuccess": "Scanned successfully",
+    "time": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "daysAgo": "days ago",
+      "lastWeek": "Last week",
+      "weeksAgo": "weeks ago",
+      "unknownDate": "Unknown date"
+    },
+    "export": {
+      "PDF": "Export as PDF",
+      "EXCEL": "Export as Excel"
+    },
+    "toastr": {
+      "searchError": "Error searching tool",
+      "errorDetails": "Error details",
+      "users": {
+        "fetchError": "Failed to fetch users",
+        "deletedSuccess": "User has been deleted",
+        "deleteError": "Failed to delete user",
+        "updatedSuccess": "User has been updated",
+        "addedSuccess": "User has been added",
+        "saveError": "Failed to save user",
+        "modalDescription": "Fill in user details. Password must comply with the configured security policy."
+      },
+      "form": {
+        "requiredFields": "Fill in all required fields",
+        "passwordMismatch": "Passwords do not match"
+      },
+      "audit": {
+        "deleteNoPermission": "No admin permission to delete logs",
+        "deletedSuccess": "Audit logs have been deleted",
+        "deleteError": "Failed to delete audit logs",
+        "addError": "Failed to add audit entry"
+      },
+      "db": {
+        "tablesFetchError": "Failed to fetch database tables",
+        "tableDataFetchError": "Failed to fetch table data",
+        "noPrimaryKeyWarn": "No primary key — editing unsupported",
+        "rowUpdatedSuccess": "Row has been updated",
+        "rowSaveError": "Failed to save row",
+        "rowAddedSuccess": "Row has been added",
+        "rowAddError": "Failed to add row",
+        "tableCreateInvalid": "Provide a valid name and columns",
+        "tableCreateSuccess": "Table {table} has been created",
+        "tableCreateError": "Failed to create table",
+        "noPrimaryKeyDeleteWarn": "No primary key — deletion unsupported",
+        "rowDeletedSuccess": "Row has been deleted",
+        "rowDeleteError": "Failed to delete row",
+        "tableDeletedSuccess": "Table {table} has been deleted",
+        "tableDeleteError": "Failed to delete table"
+      }
+    },
+    "pagination": {
+      "prev": "Previous",
+      "page": "Page",
+      "of": "of",
+      "next": "Next",
+      "total": "Total:",
+      "range": "{start}-{end} / {total}"
+    },
+    "typing": "typing..."
+  },
+  "filters": {
+    "title": "Filters",
+    "saveCurrent": "Save filter",
+    "clearAll": "Clear all filters",
+    "savedFilters": "Saved filters",
+    "addFilter": "Add filter",
+    "selectType": "Select filter type",
+    "filterName": "Filter name..."
+  },
+  "search": {
+    "recent": "Recent searches"
+  },
+  "Theme": {
+    "useThemeProvider": "useTheme must be used within ThemeProvider"
+  },
+  "errors": {
+    "server": "Server error",
+    "validation": "Invalid data",
+    "permission": "No permission"
+  },
+  "loading": {
+    "tables": "Loading tables…",
+    "departments": "Loading departments…",
+    "categories": "Loading categories…",
+    "differences": "Loading differences…",
+    "history": "Loading history…",
+    "sessions": "Loading sessions…",
+    "data": "Loading data…",
+    "issuedTools": "Loading issued tools…",
+    "employees": "Loading employees…"
+  },
+  "noData": {
+    "categories": "No categories",
+    "sessions": "No sessions",
+    "tables": "No tables",
+    "issuedTools": "No issued tools"
+  },
+  "reports": {
+    "title": "Report an issue",
+    "description": "Choose type and fill in details",
+    "tabs": {
+      "form": "Form",
+      "reported": "Reported",
+      "bhpIssued": "Issued BHP"
+    },
+    "type": {
+      "label": "Report type",
+      "employee": "Employee",
+      "tool": "Issued tool",
+      "bhpIssued": "Issued BHP",
+      "bhp": "BHP",
+      "other": "Other"
+    },
+    "employee": {
+      "label": "Employee"
+    },
+    "employeeManual": {
+      "label": "Employee (enter name)",
+      "placeholder": "Full name of the person the report concerns"
+    },
+    "tool": {
+      "label": "Tool"
+    },
+    "bhpIssued": {
+      "label": "Issued BHP equipment:"
+    },
+    "bhp": {
+      "label": "BHP category",
+      "placeholder": "e.g. Risk assessment, inspection, accident"
+    },
+    "other": {
+      "label": "Subject",
+      "placeholder": "Short subject"
+    },
+    "details": {
+      "label": "Description",
+      "placeholder": "Describe event or irregularity details"
+    },
+    "severity": {
+      "label": "Priority",
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "attachments": {
+      "label": "Attachments (photos)",
+      "hint": "You can add several photos as attachments"
+    },
+    "issuedTools": {
+      "loading": "Loading issued tools…",
+      "selectEmployee": "Select an employee to see issued tools.",
+      "none": "No issued tools."
+    },
+    "issuedBhp": {
+      "loading": "Loading issued BHP equipment…",
+      "selectEmployee": "Select an employee to see issued BHP equipment.",
+      "none": "No issued BHP equipment."
+    },
+    "filters": {
+      "type": "Filter: type",
+      "severity": "Filter: priority",
+      "status": "Filter: status"
+    },
+    "list": {
+      "type": "Type",
+      "subject": "Subject / Details",
+      "severity": "Priority",
+      "status": "Status",
+      "created": "Created",
+      "attachments": "Attachments",
+      "actions": "Actions"
+    },
+    "status": {
+      "accepted": "Accepted",
+      "checking": "Checking",
+      "resolved": "Resolved"
+    },
+    "submit": "Submit report",
+    "delete": {
+      "title": "Delete report",
+      "confirm": "Delete",
+      "aria": "Delete report",
+      "messageWithTarget": "Are you sure you want to delete the report \"{subject}\" (ID: {id})? This operation is irreversible.",
+      "messageGeneric": "Are you sure you want to delete this report? This operation is irreversible."
+    },
+    "errors": {
+      "uploadNotAvailable": "Upload not available",
+      "uploadError": "Upload error",
+      "onlyImages": "Only image files are allowed",
+      "fileTooLarge": "File is too large (max 10MB)",
+      "requiredFields": "Type, description and priority are required",
+      "invalidType": "Invalid report type",
+      "employeeNameRequired": "Provide employee full name",
+      "createFailed": "Failed to create report",
+      "listFailed": "Failed to fetch reports",
+      "invalidStatus": "Invalid status",
+      "updateFailed": "Failed to update status",
+      "notFound": "Report not found",
+      "deleteFailed": "Failed to delete report"
+    },
+    "toast": {
+      "success": "Report submitted",
+      "error": "Failed to submit report",
+      "fetchError": "Failed to fetch reports",
+      "statusUpdated": "Report status updated",
+      "statusError": "Failed to update status",
+      "deleted": "Report deleted",
+      "deleteError": "Failed to delete report"
+    }
+  },
+  "inventory": {
+    "tabs": {
+      "sessions": "Sessions",
+      "reports": "Reports"
+    },
+    "title": "Inventory",
+    "subtitle": "Stock overview, consumables, and sessions",
+    "permissions": {
+      "title": "No permissions",
+      "viewInventoryDenied": "You do not have permission to view inventory (VIEW_INVENTORY)."
+    },
+    "sessions": {
+      "title": "Inventory sessions",
+      "newNamePlaceholder": "New session name",
+      "notesPlaceholder": "Notes (optional)",
+      "creating": "Creating…",
+      "createBtn": "New session",
+      "headers": {
+        "name": "Name",
+        "status": "Status",
+        "counted": "Counted items",
+        "startedAt": "Start date",
+        "finishedAt": "End date"
+      },
+      "details": {
+        "status": "Status",
+        "counted": "Counted",
+        "start": "Start",
+        "end": "End"
+      },
+      "statusValues": {
+        "active": "Active",
+        "paused": "Paused",
+        "ended": "Ended"
+      },
+      "select": "Select",
+      "pause": "Pause",
+      "end": "End",
+      "resume": "Resume",
+      "selected": "Selected session",
+      "errors": {
+        "onlyAdminCreate": "Only administrators can create sessions",
+        "nameRequired": "Enter a session name",
+        "createFailed": "Failed to create session",
+        "onlyAdminStatus": "Only administrators can change session status",
+        "statusFailed": "Changing status failed",
+        "onlyAdminDelete": "Only administrators can delete sessions",
+        "onlyEndedDelete": "Only ended sessions can be deleted",
+        "fetchFailed": "Failed to fetch sessions"
+      },
+      "delete": {
+        "title": "Delete",
+        "confirm": "Are you sure you want to permanently delete session \"{{name}}\"?",
+        "success": "Session was permanently deleted.",
+        "failed": "Deleting session failed"
+      }
+    },
+    "scan": {
+      "qtyPlaceholder": "Quantity",
+      "open": "Scan",
+      "last": "Last counted",
+      "errors": {
+        "noSession": "No selected session",
+        "failed": "Scan error"
+      },
+      "success": {
+        "counted": "Counted"
+      }
+    },
+    "diffs": {
+      "title": "Stock differences",
+      "filterPlaceholder": "Filter by name or SKU",
+      "minAbsPlaceholder": "Min. |difference|",
+      "exporting": "Exporting…",
+      "exportCsv": "Export CSV",
+      "autoAcceptDisabled": "Do not auto-accept",
+      "headers": {
+        "name": "Name",
+        "sku": "SKU",
+        "systemQty": "System qty",
+        "countedQty": "Counted qty",
+        "difference": "Difference",
+        "exportDate": "Export date",
+        "responsible": "Responsible"
+      },
+      "addCorrection": "Add correction",
+      "empty": "No differences to display",
+      "errors": {
+        "fetchFailed": "Failed to fetch differences"
+      },
+      "correctedTag": "Corrected"
+    },
+    "export": {
+      "errors": {
+        "noPermission": "No permission to export",
+        "failed": "Export CSV failed"
+      }
+    },
+    "errors": {
+      "sessionNameRequired": "Enter a session name",
+      "invalidAction": "Invalid action",
+      "fetchSessionFailed": "Failed to fetch session",
+      "sessionNotFound": "Session does not exist",
+      "sessionStatusInvalid": "Invalid session status",
+      "deleteCountsFailed": "Failed to delete counts",
+      "deleteCorrectionsFailed": "Failed to delete corrections",
+      "deleteSessionFailed": "Failed to delete session",
+      "codeRequired": "Code is required",
+      "toolNotFound": "No tool found for the provided code",
+      "countFetchFailed": "Failed to fetch count",
+      "countSetFailed": "Failed to save count",
+      "listSessionsFailed": "Failed to list sessions",
+      "fetchDifferencesFailed": "Failed to fetch differences",
+      "fetchHistoryFailed": "Failed to fetch history/corrections",
+      "correctionCreateFailed": "Failed to create correction",
+      "correctionFetchFailed": "Failed to fetch correction",
+      "correctionAcceptFailed": "Failed to approve correction",
+      "correctionApplyFailed": "Failed to apply correction",
+      "correctionDeleteFailed": "Failed to delete correction"
+    },
+    "history": {
+      "title": "Corrections history",
+      "pendingOnly": "Pending only",
+      "headers": {
+        "name": "Name",
+        "sku": "SKU",
+        "difference": "Difference",
+        "reason": "Reason",
+        "status": "Status",
+        "created": "Created",
+        "acceptedBy": "Approved by",
+        "acceptedAt": "Approved at"
+      },
+      "status": {
+        "accepted": "Accepted",
+        "pending": "Pending"
+      },
+      "accept": {
+        "title": "Approve correction",
+        "aria": "Approve correction",
+        "acceptedLabel": "Accepted"
+      },
+      "delete": {
+        "title": "Delete correction",
+        "aria": "Delete correction"
+      },
+      "empty": "No corrections to display",
+      "errors": {
+        "fetchFailed": "Failed to fetch history/corrections"
+      }
+    },
+    "toast": {
+      "onlyAdminApprove": "Only administrators can approve corrections",
+      "approveSuccess": "Correction approved",
+      "approveFailed": "Failed to approve correction",
+      "onlyAdminDelete": "Only administrators can delete corrections",
+      "deleteSuccess": "Correction deleted",
+      "deleteFailed": "Failed to delete correction"
+    },
+    "correction": {
+      "modal": {
+        "title": "Add correction",
+        "item": "Item",
+        "systemQty": "System qty",
+        "countedQty": "Counted qty",
+        "difference": "Difference",
+        "calculatedInfo": "🔒 Field calculated automatically",
+        "reasonLabel": "Reason (optional)",
+        "reasonPlaceholder": "e.g. registry error, stock change",
+        "saving": "Saving…",
+        "save": "Save correction"
+      },
+      "errors": {
+        "noToolId": "Cannot determine tool ID for correction (no association).",
+        "noSession": "No selected session — choose a session before saving.",
+        "noToolForCorrection": "Cannot determine tool for correction — try again from the \"Stock differences\" panel.",
+        "acceptFailed": "Failed to approve correction",
+        "addFailed": "Failed to add correction"
+      },
+      "success": {
+        "savedAndAccepted": "Correction has been saved and approved.",
+        "savedPending": "Correction has been saved (awaiting approval)."
+      }
+    },
+    "stock": {
+      "title": "Stock",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Name, SKU or inventory number",
+      "searchScanTitle": "Scan code to search",
+      "onlyConsumablesLabel": "Only consumables",
+      "onlyBelowMinLabel": "Below minimum stock",
+      "headers": {
+        "name": "Name",
+        "sku": "SKU",
+        "quantity": "Quantity",
+        "min": "Min",
+        "max": "Max",
+        "status": "Status"
+      },
+      "status": {
+        "missing": "Low",
+        "ok": "OK"
+      },
+      "empty": "No items to display"
+    },
+    "labels": {
+      "sku": "SKU",
+      "systemQty": "System",
+      "countedQty": "Counted",
+      "serialNumber": "Serial Number"
+    },
+    "modalDelete": {
+      "title": "Delete correction",
+      "message": "Are you sure you want to delete this correction?",
+      "confirm": "Delete"
+    },
+    "reports": {
+      "lowStock": "Low stock",
+      "reorder": "Reorder",
+      "toolName": "Tool name",
+      "sku": "SKU",
+      "currentStock": "Current stock",
+      "minStock": "Minimum stock",
+      "suggestedReorder": "Suggested reorder",
+      "status": "Status",
+      "noLowStock": "No tools with low stock",
+      "noReorder": "No tools requiring reorder",
+      "statusBadge": {
+        "outOfStock": "Out of stock",
+        "lowStock": "Low stock",
+        "ok": "OK"
+      }
+    }
+  },
+  "labels": {
+    "serialNumber": "Serial Number"
+  },
+  "labelsManager": {
+    "title": "Labels",
+    "subtitle": "Generate and print labels for tools",
+    "tabs": {
+      "tools": "Tools",
+      "bhp": "BHP",
+      "editor": "Template editor",
+      "editorSeparate": "Separate templates editor"
+    },
+    "permissions": {
+      "title": "No permissions",
+      "viewLabelsDenied": "You do not have permission to view labels (VIEW_LABELS)."
+    },
+    "generator": {
+      "title": "Label generator",
+      "description": "Select tools for which you want to generate labels."
+    },
+    "progress": {
+      "generating": "Generating labels..."
+    },
+    "errors": {
+      "loadingLabelConfiguration": "Error loading label configuration.",
+      "fetchToolsFailed": "Failed to fetch tools",
+      "generateQrFailed": "Failed to generate QR label",
+      "generateBarcodeFailed": "Failed to generate barcode label",
+      "previewFailed": "Failed to generate label previews",
+      "printQrFailed": "Failed to send QR label to printer",
+      "printBarcodeFailed": "Failed to send barcode label to printer",
+      "generateFailed": "Failed to generate label",
+      "downloadSelectedFailed": "Failed to download selected labels"
+    },
+    "print": {
+      "sentQr": "Print job sent (QR)",
+      "sentBarcode": "Print job sent (Barcode)"
+    }
+  },
+  "labelManager": {
+    "errors": {
+      "loadingLabelConfiguration": "Error loading label configuration."
+    }
+  },
+  "auditLog": {
+    "header": {
+      "title": "Audit log",
+      "subtitle": "History of all actions in the system"
+    },
+    "delete": {
+      "button": "Delete logs",
+      "title": "Delete audit logs",
+      "message": "Are you sure you want to delete all audit logs? This action cannot be undone.",
+      "confirm": "Delete logs"
+    },
+    "filters": {
+      "action": "Action",
+      "user": "User",
+      "usernamePlaceholder": "Username",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "actions": {
+        "all": "All"
+      }
+    },
+    "loading": "Loading audit log...",
+    "retry": "Try again",
+    "errors": {
+      "fetchFailed": "Failed to fetch audit log",
+      "writeFailed": "Failed to write audit log entry"
+    },
+    "table": {
+      "headers": {
+        "date": "Date and time",
+        "action": "Action",
+        "username": "User",
+        "details": "Details",
+        "ip": "IP"
+      },
+      "mobile": {
+        "labels": {
+          "action": "Action",
+          "user": "User",
+          "ip": "IP",
+          "details": "Details"
+        }
+      }
+    },
+    "pagination": {
+      "summary": "Page {page} of {totalPages} ({total} records)",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "toastr": {
+      "deleteSuccess": "Audit logs deleted successfully",
+      "deleteError": "Failed to delete audit logs",
+      "errorFetchingAuditLog": "Failed to fetch audit log"
+    }
+  },
+  "topbar": {
+    "openMenu": "Open menu",
+    "notifications": "Notifications",
+    "chat": "Chat",
+    "overdueInspections": "Overdue inspections (BHP and Tools)",
+    "markAllRead": "Mark all as read",
+    "clearNotifications": "Clear notifications",
+    "noNotifications": "No new notifications",
+    "collapseSidebar": "Collapse sidebar",
+    "expandSidebar": "Expand sidebar",
+    "searchBar": {
+      "type": "Type to search",
+      "navigate": "Navigate",
+      "close": "Close",
+      "select": "Select"
+    },
+    "tabs": {
+      "general": "General",
+      "overdue": "Overdue"
+    },
+    "type": {
+      "bhp": "BHP",
+      "tools": "Tools",
+      "admin": "Admin",
+      "broadcast": "Broadcast",
+      "custom": "Custom"
+    },
+    "overdue": "Overdue",
+    "read": "Read",
+    "receivedAt": "Received",
+    "markRead": "Mark as read",
+    "markUnread": "Mark as unread",
+    "userNotifications": "User notifications",
+    "returnRequest": "Return request",
+    "from": "from:",
+    "user": "User",
+    "role": "Role",
+    "settings": "Settings",
+    "dbViewer": "Database Viewer",
+    "themeLight": "Light mode",
+    "themeDark": "Dark mode",
+    "logout": "Log out",
+    "roles": {
+      "administrator": "Administrator",
+      "manager": "Manager",
+      "toolsmaster": "Toolsmaster",
+      "hr": "HR",
+      "supervisor": "Supervisor",
+      "engineer": "Engineer",
+      "employee": "Employee",
+      "user": "User",
+      "unknown": "Unknown"
+    }
+  },
+  "login": {
+    "title": "Sign in to the system",
+    "subtitle": "Tool management system",
+    "username": "Username",
+    "password": "Password",
+    "rememberMe": "Remember me",
+    "enterUsername": "Enter username",
+    "enterPassword": "Enter password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "capsLock": "Caps Lock is on — password may be wrong.",
+    "submit": "Sign in",
+    "loading": "Signing in...",
+    "error": "Login error",
+    "invalidResponse": "Invalid server response",
+    "rememberedTitle": "Remembered profiles",
+    "rememberedEmpty": "No remembered profiles",
+    "rememberedRemove": "Remove profile",
+    "loginAs": "Login as",
+    "passwordRequired": "Enter password to sign in",
+    "invalidCredentials": "Nieprawidłowa nazwa użytkownika lub hasło"
+  },
+  "employees": {
+    "title": "Employee Management",
+    "addTitle": "Dodaj pracownika",
+    "editTitle": "Edytuj pracownika",
+    "cardGeneratedSuccess": "Karta pracownika wygenerowana",
+    "cardGenerationError": "Błąd generowania karty",
+    "subtitle": "Manage employee data in the system",
+    "add": "Add employee",
+    "search": "Search",
+    "searchPlaceholder": "First name, last name, brand number...",
+    "department": "Department",
+    "position": "Position",
+    "allDepartments": "All departments",
+    "allPositions": "All positions",
+    "clearFilters": "Clear filters",
+    "refresh": "Refresh list",
+    "none": "No employees",
+    "noneAdded": "No employees added yet.",
+    "noneFound": "No employees match the search criteria.",
+    "actions": "Actions",
+    "fullName": "Full name",
+    "brandNumber": "Brand number",
+    "phone": "Phone",
+    "departmentCol": "Department",
+    "positionCol": "Position",
+    "edit": "Edit",
+    "delete": "Delete",
+    "unknownDept": "Unknown",
+    "unknownPos": "Unknown",
+    "mobilePhone": "Phone:",
+    "mobileDepartment": "Department:",
+    "mobilePosition": "Position:",
+    "addedSuccess": "Employee added successfully",
+    "addError": "Error adding employee",
+    "updatedSuccess": "Employee data updated",
+    "updateError": "Error updating employee",
+    "deletedSuccess": "Employee deleted",
+    "deleteError": "Error deleting employee",
+    "toast": {
+      "noEmail": "Employee has no email address",
+      "loginCreatedAndEmailSent": "Login created and email sent",
+      "emailSent": "Email has been sent",
+      "loginCreatedEmailNotSent": "Login created, email not sent",
+      "emailNotSent": "Email was not sent",
+      "smtpNotConfigured": "SMTP not configured. Please configure SMTP settings.",
+      "sendError": "Failed to send login credentials",
+      "errors": {
+        "notFound": "Nie znaleziono pracownika",
+        "invalidId": "Nieprawidłowy identyfikator pracownika",
+        "invalidRfid": "Nieprawidłowy UID RFID"
+      }
+    },
+    "confirmDelete": "Are you sure you want to delete employee",
+    "modal": {
+      "title": {
+        "add": "Add New Employee",
+        "edit": "Edit Employee"
+      },
+      "labels": {
+        "firstName": "First Name *",
+        "lastName": "Last Name *",
+        "phone": "Phone",
+        "email": "Email",
+        "brandNumber": "Badge Number",
+        "rfidUid": "NFC-Tag / RFID",
+        "department": "Department *",
+        "position": "Position *",
+        "status": "Status"
+      },
+      "placeholders": {
+        "firstName": "e.g. John",
+        "lastName": "e.g. Doe",
+        "phone": "e.g. 500 600 700",
+        "email": "e.g. john.doe@example.com",
+        "brandNumber": "e.g. ID-1234",
+        "rfidUid": "e.g. 000123ABCD"
+      },
+      "select": {
+        "department": "Select department",
+        "position": "Select position"
+      },
+      "buttons": {
+        "save": "Save",
+        "saving": "Saving...",
+        "cancel": "Cancel",
+        "regenerateLogin": "Regenerate login"
+      },
+      "errors": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "departmentRequired": "Department is required",
+        "positionRequired": "Position is required",
+        "submitFailed": "An error occurred while saving"
+      }
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "suspended": "Suspended"
+    },
+    "tooltip": {
+      "title": "Issued items",
+      "loading": "Loading…",
+      "none": "No issued items",
+      "inventoryLabel": "Inv. no.",
+      "unknown": "Unknown",
+      "toolsTitle": "Tools",
+      "categoryLabel": "Category",
+      "bhpTitle": "BHP equipment",
+      "issuedLabel": "Issued",
+      "qtyLabel": "Qty",
+      "skuLabel": "SKU",
+      "issuedByLabel": "Issued by"
+    }
+  },
+  "departments": {
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "list": {
+      "managerPrefix": "Manager: ",
+      "missingBadge": "Missing in database"
+    },
+    "header": {
+      "title": "Departments Management",
+      "subtitle": "Add, edit and organize departments"
+    },
+    "actions": {
+      "add": "Add department"
+    },
+    "modal": {
+      "title": {
+        "add": "Add Department",
+        "edit": "Edit Department"
+      },
+      "titles": {
+        "add": "Add Department",
+        "edit": "Edit Department"
+      },
+      "labels": {
+        "name": "Name *",
+        "description": "Description",
+        "manager": "Department Manager",
+        "status": "Status"
+      },
+      "placeholders": {
+        "name": "e.g. Sales",
+        "description": "Short department description"
+      },
+      "buttons": {
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "errors": {
+        "nameRequired": "Name is required",
+        "submit": "An error occurred while saving"
+      },
+      "options": {
+        "unassigned": "Unassigned"
+      }
+    },
+    "toast": {
+      "deleted": "Department has been deleted",
+      "deleteError": "Failed to delete department",
+      "saveError": "Failed to save department",
+      "saved": "Department has been saved"
+    },
+    "errors": {
+      "notFound": "Department not found",
+      "invalidManager": "Invalid manager",
+      "nameExists": "A department with this name already exists",
+      "detachFailed": "Failed to detach employees from department"
+    }
+  },
+  "positions": {
+    "header": {
+      "title": "Positions Management",
+      "subtitle": "Add, edit and organize positions"
+    },
+    "actions": {
+      "add": "Add position"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "list": {
+      "statusMissing": "Missing in database",
+      "departmentPrefix": "Department: "
+    },
+    "delete": {
+      "title": "Delete Position",
+      "message": "Are you sure you want to delete the position",
+      "confirmText": "Delete"
+    },
+    "modal": {
+      "title": {
+        "add": "Add Position",
+        "edit": "Edit Position"
+      },
+      "titles": {
+        "add": "Add Position",
+        "edit": "Edit Position"
+      },
+      "labels": {
+        "name": "Name *",
+        "department": "Department",
+        "description": "Description",
+        "requirements": "Requirements",
+        "status": "Status"
+      },
+      "select": {
+        "department": "Select department"
+      },
+      "placeholders": {
+        "name": "e.g. Warehouse worker",
+        "description": "Short position description",
+        "requirements": "e.g., SEP, UDT certifications…"
+      },
+      "buttons": {
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "errors": {
+        "nameRequired": "Name is required",
+        "departmentRequired": "Department is required"
+      }
+    },
+    "toastr": {
+      "positionDeleted": "Position deleted",
+      "positionUpdated": "Position updated",
+      "positionCreated": "Position created",
+      "errors": {
+        "save": "Error saving position",
+        "refreshError": "Error refreshing position list",
+        "positionDeleteError": "Error deleting position",
+        "invalidDepartment": "Invalid department",
+        "categoryNameRequired": "Category name is required",
+        "categoryAdded": "Category added",
+        "categoryNameEmpty": "Category name cannot be empty",
+        "categoryUpdated": "Category updated",
+        "categoryDeleted": "Category deleted"
+      }
+    },
+    "errors": {
+      "notFound": "Position not found",
+      "nameExists": "A position with this name already exists",
+      "detachFailed": "Failed to detach employees from position"
+    }
+  },
+  "auth": {
+    "invalid": "Invalid authentication event: {reason}",
+    "refreshSession": "Refresh session",
+    "sessionRefreshed": "Session refreshed",
+    "errors": {
+      "refreshFailed": "Failed to refresh session"
+    }
+  },
+  "appConfig": {
+    "header": {
+      "title": "Application Configuration",
+      "subtitle": "Manage system settings"
+    },
+    "validation": {
+      "errorsFound": "Znaleziono błędy w formularzu."
+    },
+    "tabs": {
+      "general": "General settings",
+      "security": "Security",
+      "email": "Email",
+      "users": "Users",
+      "rolesPermissions": "Roles & Permissions",
+      "features": "Features",
+      "notifications": "Notifications",
+      "departments": "Departments",
+      "positions": "Positions",
+      "categories": "Categories",
+      "codes": "Code prefixes",
+      "translations": "Translations",
+      "backup": "Backups",
+      "database": "Databse",
+      "webhooks": "Webhooks",
+      "server": "Server",
+      "dangerZone": "Danger Zone"
+    },
+    "database": {
+      "source": "Data source",
+      "sources": {
+        "local": "Local (SQLite)",
+        "supabase": "Supabase (Cloud)"
+      },
+      "supabaseUrl": "Supabase URL",
+      "supabaseKey": "Supabase Public Key",
+      "supabaseServiceKey": "Supabase Service Role Key",
+      "connectionInfo": "Select data source. Change requires application restart.",
+      "validation": {
+        "urlInvalid": "Adres URL bazy danych jest nieprawidłowy",
+        "keyInvalid": "Klucz API jest nieprawidłowy"
+      }
+    },
+    "rolesPermissions": {
+      "tabs": {
+        "users": "Users",
+        "roles": "Role permissions"
+      },
+      "addRole": {
+        "title": "Add role",
+        "keyLabel": "Role key",
+        "nameLabel": "Role name",
+        "keyPlaceholder": "e.g. production-manager",
+        "namePlaceholder": "e.g. Production Manager",
+        "errorExists": "Such role already exists"
+      },
+      "deleteRole": {
+        "title": "Delete role",
+        "message": "Are you sure you want to delete role: {role}?",
+        "success": "Role deleted",
+        "error": "Failed to delete role"
+      },
+      "roleEdit": {
+        "nameLabel": "Role name",
+        "namePlaceholder": "e.g. Production Manager",
+        "descriptionLabel": "Role description",
+        "descriptionPlaceholder": "Short role description",
+        "permissionsShow": "Show permissions",
+        "permissionsHide": "Hide permissions",
+        "priorityLabel": "Role priority (higher shows first)",
+        "colorLabel": "Role color class",
+        "colorPlaceholder": "e.g. bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
+        "saveMeta": "Save role settings",
+        "saved": "Role settings saved",
+        "saveError": "Failed to save role settings"
+      }
+    },
+    "save": {
+      "success": "Configuration saved",
+      "error": "Failed to save configuration"
+    },
+    "load": {
+      "error": "Failed to load configuration"
+    },
+    "general": {
+      "appName": "Application name",
+      "companyName": "Company name",
+      "timezone": "Time zone",
+      "timezones": {
+        "warsaw": "Warsaw",
+        "london": "London",
+        "newYork": "New York",
+        "tokyo": "Tokyo"
+      },
+      "language": "Interface language",
+      "language_pl": "Polish",
+      "language_en": "English",
+      "language_cz": "Czeski",
+      "language_de": "German",
+      "dateFormat": "Date format",
+      "validation": {
+        "appNameRequired": "Nazwa aplikacji jest wymagana",
+        "companyNameRequired": "Nazwa firmy jest wymagana"
+      }
+    },
+    "logo": {
+      "title": "Application logo",
+      "currentAlt": "Current logo",
+      "dimensionsHint": "Allowed size: {minW}x{minH}–{maxW}x{maxH}px",
+      "uploadLabel": "Upload logo (PNG)",
+      "saveNew": "Save new logo",
+      "historyTitle": "Logo history",
+      "historyEmpty": "No logo history",
+      "apply": "Apply",
+      "onlyPng": "Only PNG files are allowed",
+      "fileTooLarge": "File is too large",
+      "dimensionsOutOfRange": "Image dimensions out of range",
+      "invalidImageFile": "Invalid image file",
+      "selectPng": "Select a PNG file",
+      "updated": "Logo updated",
+      "uploadError": "Logo upload error",
+      "rollbackSuccess": "Previous logo restored",
+      "rollbackError": "Error restoring previous logo",
+      "deleteSuccess": "Logo deleted",
+      "deleteError": "Failed to delete logo",
+      "deleteTitle": "Delete logo",
+      "deleteMessagePrefix": "Delete file",
+      "deleteMessage": "Delete logo?"
+    },
+    "security": {
+      "title": "Security",
+      "sessionTimeout": "Session timeout (minutes)",
+      "passwordMinLength": "Minimum password length",
+      "maxLoginAttempts": "Max login attempts",
+      "lockoutDuration": "Lockout duration (minutes)",
+      "requireSpecialChars": "Require special characters",
+      "requireNumbers": "Require digits",
+      "requireUppercase": "Require uppercase letters",
+      "requireLowercase": "Require lowercase letters",
+      "historyLength": "Password history length",
+      "blacklist": {
+        "title": "Password blacklist",
+        "placeholder": "e.g. admin, password, 123456",
+        "hint": "Enter comma-separated passwords; duplicates will be removed"
+      },
+      "validation": {
+        "sessionTimeout": "Limit czasu sesji musi wynosić od 1 do 1440 minut",
+        "passwordMinLength": "Minimalna długość hasła musi wynosić od 4 do 128 znaków",
+        "maxLoginAttempts": "Maksymalna liczba prób logowania musi być dodatnia",
+        "lockoutDuration": "Czas blokady musi być dodatni",
+        "historyLength": "Długość historii haseł musi być nieujemna"
+      }
+    },
+    "email": {
+      "title": "Email",
+      "host": "SMTP host",
+      "port": "Port",
+      "secure": "Encryption",
+      "yes": "YES",
+      "no": "NO",
+      "user": "User",
+      "pass": "Password",
+      "from": "Sender address",
+      "description": "Email sending settings",
+      "loadError": "Failed to load email configuration",
+      "fixConfig": "Complete email configuration",
+      "test": {
+        "title": "Sending test",
+        "description": "Send a test message to a chosen address",
+        "recipient": "Recipient address",
+        "recipientPlaceholder": "e.g. john.doe@example.com",
+        "fixConfig": "Complete email configuration",
+        "invalidRecipient": "Invalid recipient address",
+        "success": "Test message sent",
+        "error": "Sending error",
+        "sending": "Sending…",
+        "send": "Send test"
+      },
+      "validation": {
+        "hostRequired": "Enter SMTP host",
+        "portInvalid": "Invalid port",
+        "fromInvalid": "Invalid sender address"
+      }
+    },
+    "toolsCategories": {
+      "fetchError": "Failed to fetch tool categories",
+      "addNameError": "Category name is required",
+      "addSuccess": "Tool category added",
+      "addError": "Nie udało się dodać kategorii",
+      "updateError": "Nie udało się zaktualizować kategorii",
+      "deleteError": "Nie udało się usunąć kategorii"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "email": "E-mail",
+      "sms": "SMS",
+      "push": "Push"
+    },
+    "notificationsSend": {
+      "tabs": {
+        "all": "To all",
+        "selected": "Selected users"
+      },
+      "senderLabel": "Sender",
+      "subjectLabel": "Subject",
+      "urlLabel": "Target path (URL) on click",
+      "urlPlaceholder": "e.g. /tools or URL",
+      "messageLabel": "Notification text",
+      "usersListTitle": "Choose users",
+      "send": "Send",
+      "fanoutLabel": "Also send to notifications center",
+      "pushAllLabel": "Send push notification to all",
+      "fanoutAllLabel": "Add to notifications center for all users",
+      "pushSelectedLabel": "Send as push notification",
+      "confirmBroadcast": {
+        "title": "Confirm broadcast",
+        "message": "This will add notifications for all users. Are you sure?",
+        "confirm": "Send",
+        "cancel": "Cancel"
+      },
+      "fetchUsersError": "Failed to fetch users",
+      "fetchHistoryError": "Failed to fetch notifications history",
+      "validationMissing": "Fill sender, subject, message and recipients",
+      "sentAll": "Notification sent to all users",
+      "sentSelected": "Notification sent to selected users",
+      "sendError": "Failed to send notification",
+      "history": {
+        "title": "Sending history",
+        "titleAll": "History: to all",
+        "titleSelected": "History: selected",
+        "empty": "No notifications",
+        "sentAt": "Sent at",
+        "sender": "Sender",
+        "subject": "Subject",
+        "message": "Message",
+        "recipients": "Recipients",
+        "searchPlaceholder": "Search in history",
+        "filterPlaceholder": "Filter by sender or text",
+        "paginationSummary": "Page {page} of {totalPages} ({total} records)",
+        "prev": "Previous",
+        "next": "Next",
+        "perPage": "na stronę",
+        "deleteAllButton": "Delete entire sending history",
+        "deleteAllConfirm": {
+          "title": "Delete entire sending history",
+          "message": "Are you sure you want to delete the entire sending history for tab: {{tab}}? This action is irreversible.",
+          "confirm": "Delete"
+        },
+        "deleteAllSuccess": "Sending history has been deleted",
+        "deleteAllSuccessCounts": "Deleted: history {{history}}, notifications {{notifications}}",
+        "deleteAllError": "Failed to delete sending history"
+      },
+      "general": {
+        "title": "General notifications",
+        "typeLabel": "Notification type",
+        "types": {
+          "any": "— any —",
+          "return_request": "Return request",
+          "admin_message": "Administrator message",
+          "overdue_inspection": "Overdue inspection",
+          "custom": "Message to selected",
+          "broadcast": "Message to all"
+        },
+        "itemTypeLabel": "Item type",
+        "itemTypes": {
+          "any": "— any —",
+          "tool": "Tool",
+          "bhp": "BHP",
+          "admin": "Admin"
+        },
+        "deleteButton": "Delete notifications",
+        "deleteSuccess": "Deleted {count} notifications",
+        "deleteError": "Failed to delete notifications",
+        "previewCount": "To delete: {total} records",
+        "selectAll": "Select all",
+        "deleteSelected": "Delete selected",
+        "meta": "Type: {type}, Item: {itemType}, Created: {created}",
+        "recipient": "Recipient: {name}",
+        "readStatus": "Status: {status}",
+        "readStatuses": {
+          "read": "read",
+          "unread": "unread"
+        },
+        "readAt": "Marked as read at: {date}",
+        "loadError": "Failed to load notifications list"
+      }
+    },
+    "features": {
+      "title": "Features",
+      "auditLog": "Audit log",
+      "auditLogDesc": "Record important user actions",
+      "reports": "Reports",
+      "reportsDesc": "Generate reports and summaries",
+      "mobileApp": "Mobile app",
+      "mobileAppDesc": "Use the app in the field",
+      "apiAccess": "API access",
+      "apiAccessDesc": "Integrate with external tools",
+      "dataExport": "Data export",
+      "dataExportDesc": "Export data to files",
+      "otherSettings": "Other settings",
+      "chatTitle": "Chat",
+      "realtimeChat": "Real-time chat",
+      "realtimeChatDesc": "Messages, files, notifications — live",
+      "kioskTitle": "Kiosk",
+      "kiosk": "Kiosk",
+      "kioskDesc": "Enable or disable the kiosk screen (issuing/returns at the station)",
+      "helpTitle": "Help",
+      "help": "Help",
+      "helpDesc": "Enable or disable the Help button in the top bar",
+      "deleteAllChats": "Delete all chats",
+      "deleteAllChatsConfirm": "Are you sure you want to delete all conversations? This action is irreversible.",
+      "deleteAllChatsError": "Failed to delete chats",
+      "auditRetention": "Audit log retention (days)",
+      "backupFrequency": "Backup frequency",
+      "frequency": {
+        "daily": "daily",
+        "weekly": "weekly",
+        "monthly": "monthly"
+      },
+      "autoSaveNote": "Changes are saved automatically."
+    },
+    "codes": {
+      "toolsPrefix": "Tools code prefix",
+      "toolsPrefixPlaceholder": "e.g. TL",
+      "bhpPrefix": "BHP code prefix",
+      "bhpPrefixPlaceholder": "e.g. BHP",
+      "categoryPrefixesTitle": "Tool category prefixes",
+      "categoryPrefixesDesc": "Define prefixes for individual categories",
+      "categoryPrefixPlaceholder": "e.g. HM",
+      "toolsCountSuffix": "tools",
+      "categoryPrefixNote": "Changing prefix does not modify existing numbers"
+    },
+    "translations": {
+      "title": "Translations",
+      "addTranslation": "Add translation",
+      "searchPlaceholder": "Search by key",
+      "loading": "Loading translations…",
+      "empty": "No translations",
+      "key": "Key",
+      "keyPlaceholder": "e.g. appConfig.header.title",
+      "keyExists": "Such key already exists",
+      "saved": "Translations saved",
+      "saveError": "Failed to save translations",
+      "loadError": "Failed to load translations",
+      "addDescription": "Enter the translation key and values for selected languages.",
+      "added": "Translation added",
+      "addError": "Failed to add translation"
+    },
+    "backup": {
+      "history": "Backup history",
+      "backupRetentionDays": "Backup retention (days)",
+      "backupFrequency": "Backup frequency",
+      "frequencyDaily": "daily",
+      "frequencyWeekly": "weekly",
+      "frequencyMonthly": "monthly",
+      "lastFromConfig": "Last from configuration",
+      "lastFile": "Last file",
+      "running": "Creating backup...",
+      "createNow": "Utwórz kopię",
+      "adminRequired": "Administrator privileges required",
+      "listTitle": "All backups",
+      "listError": "Failed to load backups list",
+      "runError": "Backup creation failed",
+      "headers": {
+        "file": "File",
+        "createdAt": "Created at",
+        "size": "Size",
+        "actions": "Actions"
+      },
+      "restore": "Restore",
+      "restored": "Database has been restored from backup",
+      "restoreError": "Backup restore failed",
+      "noBackups": "Brak kopii zapasowych",
+      "latest": "Najnowsza kopia",
+      "validation": {
+        "retentionDays": "Liczba dni przechowywania musi być dodatnia"
+      }
+    },
+    "webhooks": {
+      "title": "Webhooks",
+      "description": "Webhooks allow automatic notifications about events in the system.",
+      "editTitle": "Edit Webhook",
+      "addTitle": "Add New Webhook",
+      "deleteConfirm": "Are you sure you want to delete this webhook?",
+      "fields": {
+        "name": "Name",
+        "url": "Endpoint URL",
+        "secret": "Secret Key (for signing)",
+        "events": "Events",
+        "active": "Active"
+      },
+      "listTitle": "Webhook List",
+      "headers": {
+        "name": "Name",
+        "url": "Endpoint URL",
+        "secret": "Secret Key",
+        "status": "Status",
+        "events": "Events",
+        "active": "Active"
+      },
+      "noWebhooks": "No webhooks defined",
+      "events": {
+        "lowStock": "Low stock alert",
+        "toolStatusChange": "Tool status change",
+        "toolIssue": "Tool issue",
+        "toolReturn": "Tool return",
+        "inventoryCorrection": "Inventory correction"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "update": "Update",
+        "create": "Create",
+        "test": "Test",
+        "logs": "Logs",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "list": {
+        "title": "Webhooks List",
+        "noWebhooks": "No webhooks defined"
+      },
+      "logs": {
+        "title": "Invocation History",
+        "noLogs": "No logs for this webhook",
+        "status": "Status",
+        "event": "Event",
+        "date": "Date",
+        "response": "Response",
+        "close": "Close"
+      },
+      "success": {
+        "updated": "Webhook updated",
+        "created": "Webhook created",
+        "deleted": "Webhook deleted",
+        "testSent": "Webhook test sent"
+      },
+      "errors": {
+        "saveFailed": "Failed to save webhook",
+        "deleteFailed": "Failed to delete webhook",
+        "testFailed": "Webhook test failed",
+        "fetchFailed": "Failed to load webhooks"
+      }
+    },
+    "server": {
+      "logs": {
+        "title": "System Logs",
+        "level": "Level",
+        "allLevels": "All levels",
+        "info": "INFO",
+        "warn": "WARN",
+        "error": "ERROR",
+        "category": "Category",
+        "system": "SYSTEM",
+        "auth": "AUTH",
+        "performance": "PERFORMANCE",
+        "backup": "BACKUP",
+        "allCategories": "All categories",
+        "confirmDelete": "Are you sure you want to delete all system logs?",
+        "deleteSuccess": "System logs have been deleted",
+        "deleteError": "Failed to delete system logs",
+        "errorLoad": "Failed to load system logs"
+      },
+      "frontend": {
+        "title": "Frontend",
+        "restart": "Restart",
+        "stop": "Stop",
+        "check": "Check status",
+        "restartStarted": "Frontend restart initiated",
+        "restartError": "Failed to restart frontend",
+        "stopStarted": "Frontend stop initiated",
+        "stopError": "Failed to stop frontend",
+        "healthOk": "Frontend is running",
+        "healthError": "Frontend unavailable"
+      },
+      "backend": {
+        "title": "Backend",
+        "restart": "Restart",
+        "stop": "Turn off",
+        "check": "Check status",
+        "apiCheck": "Check API/DB",
+        "restartTitle": "Backend restart",
+        "restartMessage": "After restore, backend restart is required. Proceed?",
+        "restartNow": "Restart now",
+        "restartStarted": "Backend restart has been started",
+        "restartError": "Failed to restart backend",
+        "stopStarted": "Backend stop initiated",
+        "stopError": "Failed to stop backend",
+        "healthOk": "Backend is running",
+        "healthError": "Backend unavailable"
+      },
+      "status": "Status:",
+      "uptime": "Uptime:",
+      "generatedAt": "Timestamp:",
+      "database": "Database:",
+      "restartTitle": "Backend restart",
+      "restartMessage": "After restore, backend restart is required. Proceed?",
+      "restartNow": "Restart now"
+    },
+    "categories": {
+      "title": "Tool categories",
+      "newCategory": "New category",
+      "newCategoryPlaceholder": "e.g. Hammers",
+      "add": "Add",
+      "edit": "Edit"
+    },
+    "users": {
+      "title": {
+        "add": "Add user",
+        "edit": "Edit user"
+      },
+      "username": "Username",
+      "fullName": "Full name",
+      "role": "Role",
+      "password": "Password",
+      "newPasswordOptional": "New password (optional)",
+      "confirmPassword": "Confirm password",
+      "submitAdd": "Add",
+      "submitUpdate": "Update",
+      "modalDescription": "Fill in user details. Password must comply with the configured security policy.",
+      "search": "Search users",
+      "searchPlaceholder": "Search users...",
+      "confirmDelete": "Are you sure you want to delete user \"{username}\"?"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Successfully logged in",
+    "stats": {
+      "tools": "Tools in the system",
+      "bhp": "BHP equipment",
+      "employees": "Employees",
+      "overdueInspections": "Overdue inspections",
+      "tooltip": {
+        "tools": "Tools:",
+        "bhp": "BHP:"
+      }
+    },
+    "quick": {
+      "title": "Quick actions",
+      "createEmployeeTitle": "Add employee",
+      "createEmployee": "Create new employee profile",
+      "issue": {
+        "title": "Quick issue",
+        "tabs": {
+          "list": "Wyszukaj z listy",
+          "scan": "Wyszukaj skanując"
+        },
+        "searchLabel": "Wyszukaj",
+        "searchPlaceholder": "Nazwa, SKU lub nr ewidencyjny",
+        "employeeLabel": "Pracownik:",
+        "selectEmployee": "Wybierz pracownika:",
+        "permanent": "Wydać na stałe?",
+        "scanInstructions": "Instrukcja skanowania:",
+        "scanStep1": "Skanuj kod narzędzia na ekranie.",
+        "scanStep2": "Narzędzie zostanie dodane do listy.",
+        "scanStep3": "Wydaj narzędzia.",
+        "subtitle": "Scan tool code",
+        "modalTitle": "Quick tool issue",
+        "itemsList": "Lista pozycji do wydania",
+        "scanCodeLabel": "Kod narzędzia:",
+        "scanCodePlaceholder": "Wprowadź kod narzędzia",
+        "submitButton": "Wydaj pozycje",
+        "batchError": "Error issuing tools",
+        "successSingle": "Successfully issued tool \"{tool}\" to: {employee}",
+        "successBatch": "Issued {ok}/{total} items to {employee}",
+        "errorGeneral": "Error issuing tool",
+        "errorItem": "Issue error: {name}",
+        "errors": {
+          "toolNotFound": "Tool not found for provided code",
+          "toolNotFoundWithCode": "No tool found with code: {code}",
+          "toolNotAvailable": "Tool is not available for issuing",
+          "toolNotAvailableSimple": "Tool is not available",
+          "alreadyIssuedOrPermanent": "Tools with status \"Issued\" or \"Issued permanently\" cannot be issued again.",
+          "toolUnavailableDetails": "Unavailable: {name} (SKU: {sku})",
+          "addByCode": "Error adding by code",
+          "noEmployeeSelected": "Select an employee to issue the tool",
+          "emptyList": "The item list is empty"
+        },
+        "noItemsScanned": "Nie zeskanowano żadnych narzędzi",
+        "noResults": "Brak wyników"
+      },
+      "return": {
+        "section": {
+          "issued": "Issued",
+          "permanent": "Issued - permanent"
+        },
+        "title": "Quick tool return",
+        "subtitle": "Return issued tools",
+        "listTitle": "List of tools issued to employees:",
+        "submitReturn": "Return",
+        "success": "Tool returned successfully",
+        "successSingle": "Successfully returned tool \"{tool}\" from employee: {employee}",
+        "errorGeneral": "Error returning tool",
+        "errors": {
+          "noToolData": "Error: Missing tool data",
+          "noIssuedTools": "Error: No issued tools to return",
+          "noPermanentTools": "Error: No issued permanent tools to return"
+        }
+      },
+      "employee": {
+        "addSuccess": "Employee added successfully",
+        "addError": "Error adding employee"
+      },
+      "toastr": {
+        "errorDownloadData": "Error fetching dashboard data",
+        "employeesFetchError": "Error fetching employees list",
+        "departmentsFetchError": "Error fetching departments list",
+        "positionsFetchError": "Error fetching positions list",
+        "issuedToolsFetchError": "Error fetching issued tools list",
+        "employeeFilterFetchError": "Error fetching employee data for filtering",
+        "toolHistoryFetchError": "Error fetching tools history",
+        "bhpHistoryFetchError": "Error fetching BHP history",
+        "toolsInspectionsFetchError": "Error fetching tools inspections data",
+        "bhpInspectionsFetchError": "Error fetching BHP inspections data"
+      }
+    },
+    "search": {
+      "label": "Tool barcode / QR",
+      "labelCode": "Code (SKU, Barcode, QR)",
+      "placeholder": "Scan or enter tool code...",
+      "placeholderName": "Enter name, serial number...",
+      "placeholderCode": "Scan or enter code...",
+      "searching": "Searching...",
+      "add": "Add",
+      "sku": "SKU",
+      "status": "Status",
+      "available": "Available quantity",
+      "location": "Location",
+      "notFound": "No tools found",
+      "notFoundCode": "No tool found with code: {code}"
+    },
+    "quickIssue": {
+      "itemsLabel": "Items to issue"
+    },
+    "labels": {
+      "employee": "Employee:",
+      "quantity": "Quantity",
+      "issuedAt": "Issued",
+      "tool": "Tool",
+      "date": "Data wydania",
+      "sku": "SKU",
+      "employeeFallback": "employee",
+      "serialNumber": "Serial Number"
+    },
+    "history": {
+      "tools": {
+        "title": "Tool issue/return history",
+        "noPermissions": "You do not have permission to view tool history.",
+        "noData": "There are no tool issues or returns yet."
+      },
+      "bhp": {
+        "title": "BHP issue/return history",
+        "noPermissions": "You do not have permission to view BHP history.",
+        "noData": "There are no BHP issues or returns yet."
+      },
+      "recentCount": "Recent {count}",
+      "noDataTitle": "No history",
+      "labels": {
+        "tool": "Tool",
+        "bhp": "BHP equipment",
+        "issuedBy": "Issued by",
+        "quantity": "Quantity"
+      }
+    },
+    "action": {
+      "issued": "Issued",
+      "returned": "Returned"
+    }
+  },
+  "users": {
+    "roles": {
+      "administrator": "Administrator",
+      "manager": "Manager",
+      "toolsmaster": "Toolsmaster",
+      "hr": "Human Resources",
+      "supervisor": "Supervisor",
+      "engineer": "Engineer",
+      "employee": "Employee",
+      "user": "User"
+    },
+    "descriptions": {
+      "administrator": "Full access to all system features",
+      "manager": "Manage tools, employees and analytics",
+      "toolsmaster": "Manage tools and tools history",
+      "hr": "Manage employees and departments",
+      "supervisor": "Manage employees and tools",
+      "engineer": "Manage projects",
+      "employee": "Basic operations on tools"
+    }
+  },
+  "permissions": {
+    "saving": "Saving...",
+    "save": "Save",
+    "close": "Close",
+    "roleSelectLabel": "Wybierz rolę",
+    "selfRoleChangeWarning": "You cannot change your own role",
+    "toast": {
+      "fetchUsersError": "Error fetching users",
+      "fetchRolePermsError": "Error fetching role permissions",
+      "fetchAvailablePermsError": "Error fetching available permissions",
+      "savePermsSuccess": "Permissions for role {role} have been updated",
+      "savePermsError": "Error saving permissions",
+      "userNotFound": "User not found for update",
+      "updateRoleSuccess": "User role has been updated",
+      "updateRoleError": "Error updating user role"
+    },
+    "labels": {
+      "VIEW_USERS": "Users - view",
+      "CREATE_USERS": "Users - create",
+      "MANAGE_USERS": "Users - manage",
+      "EDIT_USERS": "Users - edit",
+      "DELETE_USERS": "Users - delete",
+      "VIEW_EMPLOYEES": "Employees - view",
+      "MANAGE_EMPLOYEES": "Employees - manage",
+      "EXPORT_EMPLOYEES": "Employees - export",
+      "VIEW_ANALYTICS": "Analytics - view",
+      "VIEW_MAP": "Map tab - view",
+      "MANAGE_MAP": "Map tab - manage",
+      "VIEW_ALL_TOOLS": "All tools - view",
+      "VIEW_TOOLS": "Tools - view",
+      "MANAGE_TOOLS": "Tools - manage",
+      "VIEW_TOOL_HISTORY": "Tool issue/return history - view",
+      "MANAGE_DEPARTMENTS": "Departments - manage",
+      "MANAGE_POSITIONS": "Positions - manage",
+      "SYSTEM_SETTINGS": "System settings",
+      "VIEW_ADMIN": "Admin panel",
+      "VIEW_AUDIT_LOG": "Audit log - view",
+      "VIEW_BHP": "BHP - view",
+      "VIEW_BHP_HISTORY": "BHP issue/return history - view",
+      "MANAGE_BHP": "BHP - manage",
+      "VIEW_QUICK_ACTIONS": "Actions - view",
+      "DELETE_ISSUE_HISTORY": "Delete issue history",
+      "DELETE_RETURN_HISTORY": "Delete return history",
+      "DELETE_SERVICE_HISTORY": "Delete service history",
+      "MANAGE_DATABASE": "Database - manage",
+      "VIEW_DATABASE": "Database - view",
+      "VIEW_INVENTORY": "Inventory - view",
+      "INVENTORY_MANAGE_SESSIONS": "Inventory - manage sessions",
+      "INVENTORY_SCAN": "Inventory - scan",
+      "INVENTORY_ACCEPT_CORRECTION": "Inventory - accept corrections",
+      "INVENTORY_DELETE_CORRECTION": "Inventory - delete corrections",
+      "INVENTORY_EXPORT_CSV": "Inventory - export CSV",
+      "VIEW_LABELS": "Labels - view",
+      "EXPORT_TOOLS": "Tools - export tools",
+      "EXPORT_BHP": "BHP - export BHP",
+      "NOTIFY": "Powiadomienia nie dla roli Pracownik"
+    }
+  },
+  "admin": {
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Manage system and configuration"
+    },
+    "appConfig": {
+      "card": {
+        "title": "Application configuration",
+        "subtitle": "Manage settings and translations",
+        "open": "Open"
+      }
+    },
+    "audit": {
+      "card": {
+        "title": "Audit log",
+        "subtitle": "Browse operation history",
+        "open": "View log"
+      }
+    },
+    "roles": {
+      "card": {
+        "title": "Roles and permissions",
+        "subtitle": "Configure user roles"
+      },
+      "manage": "Manage permissions"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "subtitle": "Irreversible data deletion",
+      "tools": {
+        "title": "Tools",
+        "subtitle": "Clear tools database"
+      },
+      "bhp": {
+        "title": "BHP equipment",
+        "subtitle": "Clear BHP equipment database"
+      },
+      "service": {
+        "title": "Servicing",
+        "subtitle": "Clear servicing database"
+      },
+      "employees": {
+        "title": "Employees",
+        "subtitle": "Clear employees database"
+      }
+    },
+    "actions": {
+      "deleteIssues": "Delete issue history",
+      "deleteReturns": "Delete return history",
+      "deleteServiceHistory": "Delete servicing history",
+      "deleteEmployees": "Delete employee data"
+    },
+    "toast": {
+      "historyDeleted": "Issue history deleted",
+      "historyDeleteError": "Error deleting history",
+      "employeesDeleted": "All employees deleted",
+      "employeesDeleteError": "Error deleting employees",
+      "serviceHistoryDeleted": "Servicing history deleted",
+      "serviceHistoryDeleteError": "Error deleting servicing history",
+      "toolIssuesHistoryDeleted": "Tool ISSUE history deleted",
+      "toolIssuesHistoryDeleteError": "Error deleting tool issue history",
+      "toolReturnsHistoryDeleted": "Tool RETURN history deleted",
+      "toolReturnsHistoryDeleteError": "Error deleting tool return history",
+      "bhpIssuesHistoryDeleted": "BHP ISSUE history deleted",
+      "bhpIssuesHistoryDeleteError": "Error deleting BHP issue history",
+      "bhpReturnsHistoryDeleted": "BHP RETURN history deleted",
+      "bhpReturnsHistoryDeleteError": "Error deleting BHP return history"
+    },
+    "modals": {
+      "deleteAllIssues": {
+        "title": "Delete all issue history",
+        "message": "Are you sure you want to delete the entire tool issuing history? This operation is irreversible and will remove all issue and return records.",
+        "confirm": "Delete history"
+      },
+      "deleteServiceHistory": {
+        "title": "Delete servicing history",
+        "message": "Are you sure you want to delete all tool servicing history? This operation is irreversible and will remove all related entries.",
+        "confirm": "Delete servicing history"
+      },
+      "deleteToolIssues": {
+        "title": "Delete tool issue history",
+        "message": "Are you sure you want to delete all tool ISSUE entries? This operation is irreversible.",
+        "confirm": "Delete issue history"
+      },
+      "deleteToolReturns": {
+        "title": "Delete tool return history",
+        "message": "Are you sure you want to delete all tool RETURN entries? This operation is irreversible.",
+        "confirm": "Delete return history"
+      },
+      "deleteBhpIssues": {
+        "title": "Delete BHP equipment issue history",
+        "message": "Are you sure you want to delete all BHP equipment ISSUE entries? This operation is irreversible.",
+        "confirm": "Delete issue history"
+      },
+      "deleteBhpReturns": {
+        "title": "Delete BHP equipment return history",
+        "message": "Are you sure you want to delete all BHP equipment RETURN entries? This operation is irreversible.",
+        "confirm": "Delete return history"
+      },
+      "deleteEmployees": {
+        "title": "Delete all employees",
+        "message": "Are you sure you want to delete all employees from the database? This operation is irreversible and will remove all employee data.",
+        "confirm": "Delete employees"
+      }
+    }
+  },
+  "BHP": {
+    "title": "BHP Equipment",
+    "subtitle": "Clear BHP equipment database",
+    "manageDescription": "Manage BHP equipment (issues, returns, inspections)",
+    "actions": {
+      "addEquipment": "Add equipment",
+      "edit": "Edit",
+      "delete": "Delete",
+      "issue": "Issue",
+      "return": "Return",
+      "notifyReturn": "Notify return",
+      "noPermission": "No permission for actions"
+    },
+    "filters": {
+      "search": "Search BHP",
+      "searchPlaceholder": "inventory no., manufacturer, model, serial...",
+      "status": "Status",
+      "all": "All",
+      "sort": "Sort",
+      "reviews": "Reviews",
+      "nearestReview": "Nearest inspection",
+      "farthestReview": "Farthest inspection"
+    },
+    "sort": {
+      "inspectionDate": "Inspection date",
+      "inventoryNumber": "Inventory number"
+    },
+    "table": {
+      "inventoryShort": "Inv. no.",
+      "manufacturerModel": "Manufacturer / Model",
+      "serialCatalog": "Serial / Catalog",
+      "inspection": "Inspection",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "set": {
+      "label": "Set",
+      "shock": "shock absorber",
+      "srd": "Self-retracting device"
+    },
+    "labels": {
+      "assignedLabel": "Assigned",
+      "catalogAbbrev": "Cat.",
+      "numberAbbrev": "no.",
+      "inventoryLabel": "Inventory number",
+      "serialLabel": "Serial",
+      "catalogLabel": "Catalog",
+      "inspectionLabel": "Inspection",
+      "inventoryNumber": "Inventory number",
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "serialNumber": "Serial number",
+      "catalogNumber": "Catalog number",
+      "productionDate": "Production date",
+      "inspectionDate": "Inspection date",
+      "status": "Status",
+      "assignedFirstName": "Assigned (first name)",
+      "assignedLastName": "Assigned (last name)",
+      "assigned": "Assigned",
+      "manufacturerAbbrev": "Manuf.",
+      "modelAbbrev": "Model",
+      "snAbbrev": "S/N",
+      "productionShort": "Prod. date"
+    },
+    "status": {
+      "available": "Available",
+      "issued": "Issued",
+      "unknown": "Unknown"
+    },
+    "notify": {
+      "sent": "Return notification sent",
+      "error": "Failed to send notification",
+      "upcoming7Days": "Inspection in 7 days: {number} (in {days} {unit})",
+      "upcoming30Days": "Inspection in 30 days: {number} (in {days} {unit})"
+    },
+    "modal": {
+      "editTitle": "Edit BHP item",
+      "addTitle": "Add BHP item"
+    },
+    "form": {
+      "inventoryNumberRequired": "Inventory number *",
+      "scanCode": "Scan code",
+      "generateWithPrefix": "Generate code with prefix",
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "serialNumber": "Serial number",
+      "catalogNumber": "Catalog number",
+      "productionDateHarness": "Production date (harness)",
+      "harnessStartDate": "Harness start date",
+      "set": "Set",
+      "shock": "Shock absorber",
+      "srd": "Self-retracting device"
+    },
+    "shock": {
+      "manufacturerLabel": "Shock absorber: Manufacturer",
+      "modelLabel": "Shock absorber: Model",
+      "snLabel": "Shock absorber: S/N",
+      "catalogAbbrevLabel": "Shock absorber: Cat.",
+      "productionShortLabel": "Shock absorber: Prod. date",
+      "catalogLabel": "Shock absorber: Catalog number",
+      "productionLabel": "Shock absorber: Production date"
+    },
+    "srd": {
+      "manufacturerLabel": "SRD: Manufacturer",
+      "modelLabel": "SRD: Model",
+      "snLabel": "SRD: S/N",
+      "catalogAbbrevLabel": "SRD: Cat.",
+      "productionShortLabel": "SRD: Prod. date",
+      "catalogLabel": "SRD: Catalog number",
+      "productionLabel": "SRD: Production date"
+    },
+    "export": {
+      "field": "Field",
+      "value": "Value",
+      "detailsTitle": "BHP export — details",
+      "detailsHeader": "BHP details",
+      "generatedAt": "Generated",
+      "sheetName": "Details"
+    },
+    "errors": {
+      "notFound": "BHP item not found",
+      "popupBlocked": "Popup blocked — allow opening new windows",
+      "qrGenerateFailed": "Failed to generate label (QR)",
+      "barcodeGenerateFailed": "Failed to generate label (barcode)",
+      "setMutualExclusive": "Cannot select both Shock Absorber and SRD. Choose one.",
+      "saveFailed": "Failed to save entry",
+      "detailsFetchFailed": "Failed to fetch details",
+      "issueFailed": "Failed to issue",
+      "returnDataFetchFailed": "Failed to fetch return data",
+      "returnFailed": "Failed to return item",
+      "noActiveIssue": "No active issue",
+      "deleteFailed": "Failed to delete BHP entry",
+      "notifyFailed": "Nie udało się wysłać powiadomienia",
+      "fethingFailed": "Failed to fetch data",
+      "loadingConfig": "Error loading configuration",
+      "generic": "Wystąpił błąd: {message}",
+      "overdueIssueBlocked": "This item cannot be released because it requires review."
+    }
+  },
+  "confirmation": {
+    "title": "Confirm action",
+    "message": "Are you sure you want to perform this operation?",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "userSettings": {
+    "title": "User settings",
+    "subtitle": "Manage your account security",
+    "tabs": {
+      "profile": "Employee data",
+      "security": "Security",
+      "notifications": "Notifications"
+    },
+    "profile": {
+      "title": "Personal information",
+      "labels": {
+        "username": "Login",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "phone": "Phone",
+        "email": "Email",
+        "department": "Department",
+        "position": "Position",
+        "status": "Status",
+        "createdAt": "Joined",
+        "brandNumber": "Badge number",
+        "rfidUid": "RFID card UID"
+      },
+      "statusLabels": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "suspended": "Suspended"
+      },
+      "validation": {
+        "phoneInvalid": "Invalid phone format",
+        "emailInvalid": "Invalid email format"
+      }
+    },
+    "changePassword": {
+      "title": "Change password",
+      "username": "Username",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "notice": "The password will be updated for your account"
+    },
+    "toast": {
+      "passwordSaved": "Password saved successfully!",
+      "passwordChanged": "Password has been changed"
+    },
+    "errors": {
+      "fillAllFields": "Fill in all fields",
+      "passwordTooShort": "New password must be at least 6 characters",
+      "passwordMismatch": "New password and confirmation do not match",
+      "changeFailed": "Failed to change password"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "enableSound": "Notification sound",
+      "playTest": "Play test",
+      "saved": "Notification settings saved",
+      "playFailed": "Failed to play sound",
+      "errors": {
+        "invalidType": "Invalid type",
+        "invalidItemType": "Invalid item type",
+        "missingFilters": "Missing filters",
+        "deleteFailed": "Failed to delete notifications",
+        "missingIds": "Missing identifiers",
+        "historyInvalidType": "Invalid history type",
+        "invalidId": "Invalid notification ID",
+        "notFound": "Notification not found",
+        "subscribeInvalid": "Invalid subscription",
+        "subscribeFailed": "Failed to save subscription",
+        "fetchFailed": "Failed to fetch notifications",
+        "updateFailed": "Failed to update notification",
+        "requiredFields": "Fill in required fields",
+        "pushConfigFailed": "Push configuration failed"
+      }
+    }
+  },
+  "analytics": {
+    "title": "Analytics",
+    "subtitle": "Overview of system statistics and reports",
+    "permissions": {
+      "title": "No permission",
+      "viewAnalyticsDenied": "No permission for analytics (VIEW_ANALYTICS)."
+    },
+    "utilization": {
+      "title": "Resource Utilization",
+      "tools": "Tools",
+      "bhp": "BHP",
+      "inService": "In service",
+      "total": "Total",
+      "issued": "Issued"
+    },
+    "topEmployees": {
+      "title": "Top 5 Employees (Active Tools)",
+      "activeTools": "Active Tools"
+    },
+    "popularTools": {
+      "title": "Popular Tools",
+      "uses": "Editions"
+    },
+    "trends": {
+      "title": "Usage Trends (last 30 days)",
+      "count": "Issues count"
+    },
+    "categories": {
+      "title": "Tools by Category",
+      "count": "Tool count"
+    },
+    "upcomingInspections": "Upcoming inspections",
+    "overdue": "Overdue",
+    "upcomingUnder30": "Upcoming (<30 days)",
+    "bhpPermissionDenied": "No permission for BHP section (VIEW_BHP). Showing only Tools data.",
+    "loadingInspections": "Loading inspection data...",
+    "loadingService": "Loading service data...",
+    "overdueTools": "Overdue (Tools)",
+    "noOverdueTools": "No overdue tool inspections.",
+    "overdueBhp": "Overdue (BHP)",
+    "noOverdueBhp": "No overdue BHP inspections.",
+    "upcoming": "Upcoming (<30 days)",
+    "noUpcoming": "No upcoming inspections within 30 days.",
+    "chip": {
+      "tools": "Tools",
+      "bhp": "BHP"
+    },
+    "phrases": {
+      "daysOverdue": "{count} days overdue",
+      "inDays": "in {count} days"
+    },
+    "serviceHistory": {
+      "title": "Service history",
+      "inService": "Currently in service",
+      "recentEvents": "Recent events",
+      "generatedAt": "Generated at",
+      "exportPDF": "Export PDF",
+      "exportXLSX": "Export XLSX",
+      "rowsCount": "Rows",
+      "total": "Total: {count}",
+      "headers": {
+        "tool": "Tool",
+        "sku": "SKU",
+        "action": "Action",
+        "quantity": "Quantity",
+        "orderNumber": "Order number",
+        "date": "Date",
+        "sent": "Sent"
+      },
+      "action": {
+        "sent": "Sent",
+        "received": "Received"
+      },
+      "noInService": "No items in service.",
+      "noRecentEvents": "No recent events.",
+      "noData": "No data"
+    },
+    "pagination": {
+      "prev": "Previous",
+      "page": "Page",
+      "of": "of",
+      "next": "Next",
+      "total": "Łącznie:",
+      "range": "{start}–{end} / {total}"
+    }
+  },
+  "scanner": {
+    "title": "Scan barcode",
+    "close": "Close",
+    "permissionDenied": "No access to camera. Please allow camera access in browser settings.",
+    "browserNotSupported": {
+      "title": "Browser does not support camera",
+      "desc": "Your browser does not support scanning codes.",
+      "message": "Your browser does not support scanning codes.",
+      "tipsIntro": "Try:",
+      "tipsTitle": "Try:",
+      "tips": {
+        "update": "Use a newer browser version",
+        "switch": "Switch to Chrome, Firefox or Safari",
+        "https": "Ensure you use HTTPS (required for camera)",
+        "manual": "Enter the code manually",
+        "useNewer": "Use a newer browser version",
+        "switchBrowser": "Switch to Chrome, Firefox or Safari",
+        "useHttps": "Ensure you use HTTPS (required for camera)",
+        "enterManually": "Enter the code manually"
+      }
+    },
+    "permissionsDenied": {
+      "desc": "No access to camera. Please allow camera access in browser settings."
+    },
+    "buttons": {
+      "cancel": "Cancel"
+    },
+    "overlay": {
+      "scanning": "Scanning...",
+      "ready": "Ready to scan"
+    },
+    "lastCode": "Last code:",
+    "quantity": "Quantity:",
+    "torch": {
+      "enable": "Turn on torch",
+      "disable": "Turn off torch",
+      "on": "Turn on torch",
+      "off": "Turn off torch"
+    },
+    "tipsHeader": "Scanning tips",
+    "tipsGeneral": {
+      "stable": "• Hold the phone steady over the code",
+      "light": "• Ensure the code is well lit",
+      "frame": "• The code should fill the scanning frame",
+      "wait": "• Wait for automatic recognition"
+    },
+    "tipsLabels": {
+      "title": "Label printer stickers",
+      "avoidReflections": "• Avoid light reflections — tilt the phone slightly",
+      "distance": "• Hold the phone closer (5–10 cm from sticker)",
+      "torch": "• Turn on the torch for better contrast",
+      "recognize": "• Wait 2–3 seconds for recognition",
+      "checkDamage": "• Check if the sticker is not damaged"
+    },
+    "cta": "Point the camera at a barcode or QR code",
+    "errors": {
+      "NotAllowedError": "No access to camera. Please allow camera access in browser settings.",
+      "NotFoundError": "Camera not found. Ensure the device has a camera.",
+      "NotSupportedError": "Browser does not support camera access. Try another browser.",
+      "NotReadableError": "Camera is used by another application. Close other apps using the camera.",
+      "OverconstrainedError": "Cannot start camera with selected settings. Try again.",
+      "Generic": "An error occurred while starting the camera: {message}",
+      "generic": "An error occurred: {message}",
+      "permissionDenied": "No access to camera. Please allow camera access in browser settings.",
+      "notFound": "Camera not found. Ensure the device has a camera.",
+      "notSupported": "Browser does not support camera access. Try another browser.",
+      "notReadable": "Camera is used by another application. Close other apps using the camera.",
+      "overconstrained": "Cannot start camera with selected settings. Try again."
+    },
+    "tips": {
+      "title": "Scanning tips",
+      "holdSteady": "Hold the phone steady over the code",
+      "wellLit": "Ensure the code is well lit",
+      "fillFrame": "The code should fill the scanning frame",
+      "waitRecognition": "Wait for automatic recognition",
+      "labels": {
+        "title": "Label printer stickers",
+        "avoidGlare": "Avoid light reflections — tilt the phone slightly",
+        "closerDistance": "Hold the phone closer (5–10 cm from sticker)",
+        "useTorch": "Turn on the torch for better contrast",
+        "waitSeconds": "Wait 2–3 seconds for recognition",
+        "checkSticker": "Check if the sticker is not damaged"
+      },
+      "finalInstruction": "Point the camera at a barcode or QR code"
+    },
+    "noRecognition": {
+      "title": "No recognition — try again",
+      "attempts": "Attempts: {count}"
+    },
+    "notFound": {
+      "message": "Not found in database: {code}"
+    }
+  },
+  "tools": {
+    "errors": {
+      "noManagePermission": "No permission to manage tools (MANAGE_TOOLS)",
+      "deleteFailed": "An error occurred while deleting the tool",
+      "notFound": "Tool not found",
+      "invalidCode": "Invalid tool code",
+      "copyFailed": "Could not copy",
+      "indexTaken": "This index is already in use",
+      "taken": "This inventory number is already in use"
+    },
+    "actions": {
+      "return": "Return",
+      "generateSku": "Generate SKU",
+      "notifyReturn": "Notify return",
+      "notifyReturnDesc": "Send a reminder to the employee.",
+      "add": "Add tool",
+      "edit": "Edit tool",
+      "delete": "Delete",
+      "service": "Service",
+      "receiveFromService": "Receive from service",
+      "serviceReceived": "Received"
+    },
+    "issues": {
+      "success": "Successfully issued tool.",
+      "error": "An error occurred while issuing the tool."
+    },
+    "return": {
+      "success": "The tool was returned successfully.",
+      "error": "An error occurred while returning the tool."
+    },
+    "issueModal": {
+      "title": "Issue tool",
+      "selectEmployee": "Select employee",
+      "searchPlaceholder": "Search employee (name, last name, number)...",
+      "available": "Available",
+      "permanent": "Permanent?"
+    },
+    "returnModal": {
+      "title": "Return tool",
+      "selectEmployee": "Select employee",
+      "noActiveIssues": "No active issues found for this tool."
+    },
+    "confirm": {
+      "deleteTool": "Are you sure you want to delete this tool?"
+    },
+    "suggestions": {
+      "loadFailed": "Failed to fetch suggestions from backend, using local data"
+    },
+    "prefix": {
+      "loadFailed": "Failed to load tool code prefix"
+    },
+    "service": {
+      "chooseQty": "Choose quantity from 1 to",
+      "sendSuccess": "Sent tools to service",
+      "sendFailed": "Failed to send to service",
+      "receiveNone": "No items in service to receive",
+      "receiveSuccess": "Received from service",
+      "receiveFailed": "Failed to receive from service",
+      "modal": {
+        "title": "Send to service"
+      },
+      "modalDescription": "Send the tool to service: choose quantity and enter the order number.",
+      "available": "Available for service",
+      "quantityLabel": "Quantity for service",
+      "orderNumberLabel": "Service order number",
+      "orderNumberPlaceholder": "e.g. SER-2025-00123",
+      "sendButton": "Send",
+      "markAsDamagedWarning": "Mark as damaged? (Hint: If the tool is damaged, it should be marked as damaged.)"
+    },
+    "labels": {
+      "employee": "Employee",
+      "productionYear": "Production year",
+      "productionDate": "Production date",
+      "generateError": "Error while generating label",
+      "generateQrError": "Error while generating label (QR)",
+      "generateBarcodeError": "Error while generating label (barcode)",
+      "sku": "SKU",
+      "scanPrompt": "Scan the code to check status",
+      "filenameLabel": "label",
+      "filenameQr": "label-qr",
+      "filenameBarcode": "label-barcode"
+    },
+    "validation": {
+      "duplicate": "Narzędzie o takim kodzie już istnieje",
+      "nameRequired": "Name is required",
+      "categoryRequired": "Category is required",
+      "quantityMin": "Quantity must be greater than 0",
+      "inventoryInUse": "Inventory number is already in use",
+      "skuExists": "A tool with this SKU already exists",
+      "minStockInvalid": "Invalid minimum stock (number ≥ 0)",
+      "maxStockInvalid": "Invalid maximum stock (number ≥ 0)",
+      "maxLessThanMin": "Maximum stock cannot be less than minimum"
+    },
+    "save": {
+      "updateSuccess": "Tool data updated successfully",
+      "error": "An error occurred while saving the tool"
+    },
+    "weldInspection": {
+      "title": "Welding inspection: ",
+      "in": " in ",
+      "days": " days",
+      "lessEqual30": " (<=30 days)"
+    },
+    "notify": {
+      "sent": "Return notification sent",
+      "deleted": "Usunięto pomyślnie",
+      "deleteError": "Błąd usuwania",
+      "error": "Failed to send notification",
+      "modalDescription": "Send a return reminder for the selected tool."
+    },
+    "notifications": {
+      "updateSuccess": "Zaktualizowano pomyślnie",
+      "addSuccess": "Dodano pomyślnie",
+      "error": "Wystąpił błąd"
+    },
+    "edit": {
+      "modalDescription": "Fill in tool details; required fields are marked."
+    },
+    "common": {
+      "tool": "Tool",
+      "toolIssued": "Tool issued"
+    },
+    "header": {
+      "title": "Tools Management",
+      "subtitle": "Add, edit and track tools in the system"
+    },
+    "search": {
+      "label": "Search tool",
+      "placeholder": "Name, SKU, category, inventory number..."
+    },
+    "filters": {
+      "category": {
+        "label": "Category"
+      },
+      "status": {
+        "label": "Status"
+      },
+      "allCategories": "All categories",
+      "allStatuses": "All statuses",
+      "saved": {
+        "available": "Accessible",
+        "issued": "Issued",
+        "partially_issued": "Issued - partially",
+        "permanent": "Issued - permanent",
+        "service": "Service",
+        "damaged": "Damaged"
+      }
+    },
+    "export": {
+      "pdf": "Export as PDF",
+      "xlsx": "Export as Excel"
+    },
+    "loading": {
+      "title": "Loading tools...",
+      "subtitle": "Please wait..."
+    },
+    "empty": {
+      "title": "No tools",
+      "descDefault": "Add the first tool to start managing.",
+      "descFiltered": "No tools found matching the search criteria."
+    },
+    "table": {
+      "headers": {
+        "inventoryNumberShort": "Inv. no.",
+        "name": "Name",
+        "serialNumber": "Serial number",
+        "category": "Category",
+        "location": "Location",
+        "sku": "SKU",
+        "actions": "Actions",
+        "status": "Status"
+      },
+      "unreadableSerial": "unreadable"
+    },
+    "mobile": {
+      "labels": {
+        "inventoryNumber": "Inventory number",
+        "serialNumber": "Serial number",
+        "category": "Category",
+        "location": "Location"
+      }
+    },
+    "qr": {
+      "title": "QR code",
+      "generating": "Generating QR code...",
+      "downloadLabel": "Download label (QR only)",
+      "generateError": "Error while generating QR code"
+    },
+    "barcode": {
+      "title": "Barcode",
+      "generating": "Generating barcode...",
+      "downloadLabel": "Download label (barcode only)",
+      "generateError": "Error while generating barcode"
+    },
+    "details": {
+      "title": "Tool Details",
+      "infoTitle": "Tool Information",
+      "name": "Name",
+      "inventoryNumber": "Inventory Number",
+      "serialNumber": "Serial Number",
+      "unreadable": "unreadable",
+      "sku": "SKU",
+      "category": "Category",
+      "techData": "Technical Data",
+      "manufacturer": "Manufacturer",
+      "model": "Model",
+      "productionYear": "Production Year",
+      "inspectionDate": "Inspection Date",
+      "overdue": "Overdue",
+      "inspectionDueIn": "Inspection in",
+      "location": "Location",
+      "status": "Status",
+      "unknown": "unknown",
+      "quantity": "Quantity",
+      "description": "Description",
+      "serviceTitle": "Service",
+      "inService": "In Service",
+      "pieces": "pcs.",
+      "orderNumber": "Order Number",
+      "sentDate": "Sent Date",
+      "issuesTitle": "Issues",
+      "issued": "Issued",
+      "unknownUser": "Unknown",
+      "consumable": "Consumable tool?",
+      "stockLimits": "Set min/max to track material shortages.",
+      "minStock": "Minimum quantity",
+      "maxStock": "Maximum quantity",
+      "placeholders": {
+        "name": "Enter the name of the tool",
+        "SKU": "Enter the SKU of the tool or generate",
+        "inventoryNumber": "Enter the inventory number of the tool Np. NE-000123",
+        "category": "Select the category of the tool",
+        "location": "Enter the location of the tool",
+        "selectCategory": "Select the category of the tool",
+        "description": "Enter the description of the tool"
+      }
+    },
+    "returnRequests": {
+      "title": "Return request history",
+      "empty": "No history"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "search": "Search conversations",
+    "noConversations": "No conversations",
+    "me": "You",
+    "startConversation": "New conversation",
+    "messagePlaceholder": "Type a message…",
+    "emojiInsert": "Emoji",
+    "emojiInsertTooltip": "Insert emoji",
+    "fileTypeNotAllowed": "File type not allowed",
+    "fileTooLarge": "File is too large (max 25 MB)",
+    "noValidFiles": "No valid files to send",
+    "markUnread": "Mark as unread",
+    "block": "Block",
+    "mute": "Mute",
+    "archive": "Archive",
+    "delete": "Delete chat",
+    "deleted": "Conversation deleted",
+    "readAt": "Read at",
+    "unavailable": "Conversation unavailable",
+    "jumpToFirstUnread": "Jump to first unread",
+    "attachTooltip": "Insert attachment",
+    "send": "Send",
+    "sendTooltip": "Send",
+    "defaultPrompt": "Select a conversation or start a new one",
+    "deleteError": "Failed to delete conversation",
+    "reply": "Reply",
+    "more": "More",
+    "edit": "Edit",
+    "unsend": "Unsend",
+    "confirmDelete": "Are you sure you want to delete this message?",
+    "deleteMessageError": "Error deleting message",
+    "editing": "Editing message",
+    "replyingTo": "Replying to"
+  },
+  "slings": {
+    "foundItems": "Found: {count} sub-items",
+    "editor": {
+      "title": "Slings (Detailed Inventory)",
+      "kind": "Kind",
+      "serialNumber": "Serial Number",
+      "sku": "SKU",
+      "productionDate": "Production Date",
+      "productionYear": "Year",
+      "productionMonth": "Month",
+      "add": "Add Item",
+      "addTitle": "Add Sub-item",
+      "remove": "Remove",
+      "generateSku": "Generate SKU",
+      "generateSkuAll": "Generate SKU for all items",
+      "kindPlaceholder": "np. 3m 2t",
+      "validation": {
+        "kindRequired": "Kind is required",
+        "skuRequired": "SKU is required",
+        "dateRequired": "Production date is required"
+      }
+    },
+    "details": {
+      "slingsItemsTable": "Edit detailed information for sub-items of this tool.",
+      "slingsEditor": "Slings identification is done at the sub-item level. The main SKU is automatically generated and not used operationally."
+    },
+    "validation": {
+      "minItems": "Add at least one sub-item"
+    },
+    "issue": {
+      "title": "Issue selected items",
+      "confirm": "Are you sure you want to issue the selected items ({count})?",
+      "success": "Issued successfully"
+    },
+    "return": {
+      "title": "Return selected items",
+      "confirm": "Are you sure you want to return the selected items ({count})?",
+      "success": "Returned successfully"
+    },
+    "table": {
+      "sku": "SKU",
+      "kind": "Kind",
+      "serialNumber": "Serial Number",
+      "production": "Production Date",
+      "status": "Status",
+      "location": "Location",
+      "employee": "Employee"
+    },
+    "errors": {
+      "noItems": "No items selected",
+      "itemsFailed": "Tool created, but failed to add sub-items."
+    }
+  },
+  "sockets": {
+    "foundItems": "Found: {count} sub-items (sockets)",
+    "editor": {
+      "title": "Impact sockets (Sub-items)",
+      "sku": "SKU",
+      "kind": "Kind",
+      "size": "Size",
+      "quantity": "Quantity",
+      "kindPlaceholder": "e.g. hex, deep",
+      "sizePlaceholder": "e.g. 24mm",
+      "generateSkuAll": "Generate SKU for all items",
+      "jsonModalTitle": "Edit / Paste JSON (sockets)",
+      "jsonModalHint": "You can paste or edit data in JSON format. Supported: array or an object with an \"items\" field.",
+      "jsonModalError": "JSON error",
+      "empty": "No sub-items. Add a row.",
+      "add": "Add socket"
+    },
+    "add": {
+      "title": "Add sub-items (sockets)"
+    },
+    "details": {
+      "itemsTable": "Edit detailed information for sub-items of this tool.",
+      "editor": "Socket identification is done at the sub-item level. Quantity is calculated from sub-items."
+    },
+    "actions": {
+      "addItems": "Add sub-items"
+    },
+    "issue": {
+      "title": "Issue selected sockets"
+    },
+    "return": {
+      "title": "Return selected sockets"
+    },
+    "table": {
+      "sku": "SKU",
+      "kind": "Kind",
+      "size": "Size",
+      "quantity": "Quantity",
+      "issued": "Issued",
+      "available": "Available"
+    },
+    "modal": {
+      "qty": "Quantity"
+    },
+    "errors": {
+      "noItems": "No sub-items (sockets)"
+    }
+  },
+  "detectors": {
+    "foundItems": "Found: {count} sub-items (detectors)",
+    "editor": {
+      "title": "Detectors (Sub-items)",
+      "addTitle": "Add sub-items (detectors)",
+      "sku": "SKU",
+      "type": "Type",
+      "inventoryNumber": "Inventory number",
+      "serialNumber": "Serial number",
+      "calibrationDate": "Calibration date",
+      "nextCalibrationDate": "Next calibration date",
+      "generateSku": "Generate SKU",
+      "generateSkuAll": "Generate SKU for all items",
+      "empty": "No sub-items. Add a row.",
+      "add": "Add detector"
+    },
+    "details": {
+      "itemsTable": "Edit detailed information for sub-items of this tool.",
+      "editor": "Detectors identification is done at the sub-item level. Issue/return is handled at the sub-item level."
+    },
+    "issue": {
+      "title": "Issue selected detectors",
+      "success": "Issued successfully"
+    },
+    "return": {
+      "title": "Return selected detectors",
+      "confirm": "Are you sure you want to return the selected items ({count})?",
+      "success": "Returned successfully"
+    },
+    "table": {
+      "sku": "SKU",
+      "type": "Type",
+      "inventoryNumber": "Inventory number",
+      "serialNumber": "Serial number",
+      "calibrationDate": "Calibration",
+      "nextCalibrationDate": "Next calibration",
+      "status": "Status",
+      "employee": "Employee"
+    },
+    "errors": {
+      "noItems": "No sub-items (detectors)"
+    }
+  }
+}

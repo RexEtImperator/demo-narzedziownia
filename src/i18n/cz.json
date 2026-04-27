@@ -1,0 +1,2801 @@
+{
+  "ErrorBoundary": {
+    "title": "Něco se pokazilo",
+    "message": "Došlo k neočekávané chybě aplikace. Zkuste obnovit stránku.",
+    "refresh": "Obnovit stránku",
+    "screenError": {
+      "title": "Chyba v zobrazení:",
+      "message": "Došlo k neočekávané chybě při zobrazení této obrazovky."
+    }
+  },
+  "onboardingtour": {
+    "quickIssue": {
+      "title": "Rychlé vydání nástrojů",
+      "content": "Zde můžete rychle vydat nástroj zaměstnanci naskenováním QR kódu nebo ručním zadáním názvu či kódu."
+    },
+    "quickReturn": {
+      "title": "Rychlý návrat nástrojů",
+      "content": "Na tomto místě můžete rychle přijmout vrácení nástroje od zaměstnance naskenováním kódu nebo výběrem ze seznamu."
+    },
+    "search": {
+      "title": "Vyhledávání",
+      "content": "Zadejte frázi nebo použijte zkratku Ctrl+K pro rychlé prohledání zdrojů systému, nástrojů a zaměstnanců."
+    },
+    "navigation": {
+      "title": "Navigace",
+      "content": "Boční panel umožňuje rychlý přístup ke všem modulům systému: Nástroje, Zaměstnanci, Reporty, BOZP a Nastavení."
+    },
+    "help": {
+      "title": "Centrum nápovědy",
+      "content": "Klikněte na ikonu otazníku pro otevření panelu nápovědy s průvodci a odpověďmi na časté otázky."
+    },
+    "skip": "Přeskočit",
+    "prevStep": "Předchozí krok",
+    "nextStep": "Další krok",
+    "finish": "Dokončit"
+  },
+  "sidebar": {
+    "dashboard": "Domovská stránka",
+    "tools": "Nástroje",
+    "bhp": "BOZP",
+    "inventory": "Inventura",
+    "employees": "Zaměstnanci",
+    "map": "Mapa závodu",
+    "labels": "Štítky",
+    "analytics": "Analytika",
+    "admin": "Nastavení",
+    "audit": "Auditní deník",
+    "settings": "Nastavení",
+    "userSettings": "Nastavení uživatele",
+    "report": "Hlášení",
+    "dangerZone": "Danger Zone",
+    "menu": "Menu"
+  },
+  "screens": {
+    "dashboard": "Dashboard",
+    "tools": "Nástroje",
+    "new": "Přidání nástroje",
+    "edit": "Úprava nástroje",
+    "bhp": "BOZP",
+    "employees": "Zaměstnanci",
+    "map": "Mapa závodu",
+    "analytics": "Analytika",
+    "labels": "Štítky",
+    "kiosk": "Kiosk",
+    "admin": "Nastavení",
+    "user-management": "Správa uživatelů",
+    "config": "Konfigurace",
+    "audit": "Auditní deník",
+    "user-settings": "Nastavení uživatele",
+    "report": "Hlášení",
+    "db-viewer": "Databáze",
+    "defaultTitle": "Správa nástrojů",
+    "settings": "Nastavení",
+    "translations": "Překlady",
+    "general": "Obecné",
+    "security": "Bezpečnost",
+    "email": "E-mail",
+    "users": "Uživatelé",
+    "rolesPermissions": "Role a oprávnění",
+    "features": "Funkce",
+    "notifications": "Oznámení",
+    "departments": "Oddělení",
+    "positions": "Pozice",
+    "categories": "Kategorie",
+    "codes": "Kódy",
+    "backup": "Záloha",
+    "database": "Databáze",
+    "webhooks": "Webhooky",
+    "server": "Server",
+    "danger-zone": "Danger Zone"
+  },
+  "kiosk": {
+    "title": "Kiosk",
+    "disabled": "Kiosk je vypnutý",
+    "back": "Zpět",
+    "layout": {
+      "grid": "Mřížka",
+      "list": "Seznam"
+    },
+    "search": {
+      "placeholder": "Vyhledat nástroj / vybavení BOZP (SKU, název, čárový kód, QR, NFC)...",
+      "button": "Vyhledat",
+      "results": "Výsledky vyhledávání ({count})",
+      "clear": "Vymazat",
+      "quantity": "množství: {count}"
+    },
+    "hint": {
+      "label": "Tip:",
+      "text": "Pro rychlejší nalezení potřebného nástroje použijte vyhledávač."
+    },
+    "itemType": {
+      "tool": "Nástroj",
+      "bhp": "BOZP"
+    },
+    "overdueBadge": "VYŽADUJE PŘEZKOUŠENÍ",
+    "subitems": {
+      "button": "Podpoložky",
+      "loading": "Načítání podpoložek...",
+      "empty": "Žádné podpoložky",
+      "available": "dostupné: {count}",
+      "fetchError": "Chyba načítání"
+    },
+    "subitemModal": {
+      "titleSlings": "Vydat podpoložku (závěsy)",
+      "titleSockets": "Vydat podpoložku (nástavce)",
+      "employeePlaceholder": "Hledat zaměstnance (jméno, příjmení, číslo)...",
+      "noResults": "Žádné výsledky",
+      "quantity": "Množství",
+      "available": "Dostupné: {count}"
+    },
+    "stats": {
+      "active": "Aktivní vydání",
+      "overdue": "Prosklé vybavení"
+    },
+    "issued": {
+      "loading": "Načítání vydaných nástrojů...",
+      "empty": "Žádné vydané nástroje/vybavení"
+    },
+    "return": {
+      "processing": "Zpracování...",
+      "immediate": "VRÁTIT OKAMŽITĚ",
+      "button": "VRÁTIT",
+      "confirmTitle": "Potvrzení vrácení",
+      "confirmMessage": "Opravdu chcete vrátit {name}?"
+    },
+    "toasts": {
+      "loadIssuedError": "Nepodařilo se načíst vydané nástroje/vybavení",
+      "searchError": "Chyba vyhledávání",
+      "overdueIssueBlocked": "Nelze vydat vybavení vyžadující přezkoušení",
+      "issueSuccess": "Úspěšně vydáno",
+      "issueError": "Nepodařilo se vydat",
+      "subitemIssueSuccess": "Vydáno",
+      "subitemIssueError": "Nepodařilo se vydat podpoložku",
+      "selectEmployee": "Vyberte zaměstnance",
+      "returnSuccess": "Úspěšně vráceno",
+      "returnError": "Nepodařilo se vrátit"
+    },
+    "fallbacks": {
+      "unknownTool": "Neznámý nástroj",
+      "unknownBhp": "Neznámé vybavení BOZP",
+      "sling": "Závěs",
+      "sockets": "Nástavce"
+    }
+  },
+  "map": {
+    "title": "Mapa závodu",
+    "hint": {
+      "manage": "Klikněte na + pro přidání hlášení, poté označte místo na mapě.",
+      "view": "Máte přístup pouze k zobrazení mapy."
+    },
+    "permissions": {
+      "title": "Žádná oprávnění",
+      "viewMapDenied": "Nemáte oprávnění k zobrazení mapy závodu (VIEW_MAP)."
+    }
+  },
+  "common": {
+    "browserNotSupported": "Tento prohlížeč není podporován. Prosím použijte jiný prohlížeč.",
+    "help": {
+      "title": "Nápověda",
+      "helpMore": "Potřebujete více pomoci?",
+      "contactAdmin": "Kontaktujte správce"
+    },
+    "status": {
+      "available": "Dostupný",
+      "issued": "Vydáno",
+      "partially_issued": "Částečně vydáno",
+      "permanent": "Vydáno - trvale",
+      "service": "Servis",
+      "damaged": "Poškozeno",
+      "unknown": "Neznámý"
+    },
+    "pasteJson": "Vložit JSON",
+    "selectAll": "Vybrat vše",
+    "confirmDelete": "Opravdu chcete smazat tento prvek?",
+    "saved": "Uloženo",
+    "deleted": "Smazáno",
+    "of": "z",
+    "employee": "Zaměstnanec",
+    "sendReminder": "Odeslat připomínku",
+    "issue": "Vydat",
+    "return": "Vrátit",
+    "days": "dní",
+    "loading": "Načítání…",
+    "refresh": "Obnovit",
+    "retry": "Zkusit znovu",
+    "noData": "Žádná data.",
+    "selectEmployee": "Vyberte zaměstnance pro zobrazení dat.",
+    "error": "Došlo k chybě.",
+    "search": "Hledat",
+    "searchEmployee": "Hledat zaměstnance...",
+    "print": "Tisk",
+    "jumpTo": "Přejít na",
+    "add": "Přidat",
+    "confirm": "Potvrdit",
+    "cancel": "Zrušit",
+    "back": "Zpět",
+    "apply": "Použít",
+    "update": "Aktualizovat",
+    "save": "Uložit",
+    "close": "Zavřít",
+    "delete": "Smazat",
+    "remove": "Odebrat",
+    "quantity": "Množství",
+    "existing": "existující",
+    "clearList": "Vymazat seznam",
+    "clearInput": "Vymazat pole",
+    "saveChanges": "Uložit změny",
+    "saving": "Ukládání...",
+    "updateSuccess": "Data vybavení byla aktualizována",
+    "actions": "Akce",
+    "details": "Podrobnosti",
+    "edit": "Upravit",
+    "select": "Vybrat",
+    "download": "Stáhnout",
+    "sent": "Odesláno",
+    "read": "Přečteno",
+    "user": "Uživatel",
+    "nfcTag": "NFC štítek",
+    "scanNfc": "Skenovat NFC štítek",
+    "noResults": "Žádné výsledky",
+    "noPermission": "Nemáte oprávnění k provedení této akce",
+    "noPermissionsTitle": "Žádná oprávnění",
+    "popupBlocked": "Vyskakovací okno bylo zablokováno prohlížečem",
+    "copy": "KOPÍROVAT",
+    "copied": "Zkopírováno do schránky",
+    "scanQr": "Skenovat QR/čárový kód",
+    "scanSuccess": "Úspěšně naskenováno",
+    "time": {
+      "today": "Dnes",
+      "yesterday": "Včera",
+      "daysAgo": "dní zpět",
+      "lastWeek": "Minulý týden",
+      "weeksAgo": "týdny zpět",
+      "unknownDate": "Neznámé datum"
+    },
+    "export": {
+      "PDF": "Exportovat jako PDF",
+      "EXCEL": "Exportovat jako EXCEL"
+    },
+    "toastr": {
+      "searchError": "Chyba vyhledávání nástroje",
+      "errorDetails": "Chyba podrobností",
+      "users": {
+        "fetchError": "Chyba při načítání uživatelů",
+        "deletedSuccess": "Uživatel byl smazán",
+        "deleteError": "Chyba při mazání uživatele",
+        "updatedSuccess": "Uživatel byl aktualizován",
+        "addedSuccess": "Uživatel byl přidán",
+        "saveError": "Chyba při ukládání uživatele",
+        "modalDescription": "Vyplňte uživatelské údaje. Heslo musí splňovat nakonfigurované bezpečnostní zásady."
+      },
+      "form": {
+        "requiredFields": "Vyplňte všechna povinná pole",
+        "passwordMismatch": "Hesla nejsou shodná"
+      },
+      "audit": {
+        "deleteNoPermission": "Chybí oprávnění správce pro smazání logů",
+        "deletedSuccess": "Auditní záznamy byly smazány",
+        "deleteError": "Chyba při mazání auditních záznamů",
+        "addError": "Nepodařilo se přidat auditní záznam"
+      },
+      "db": {
+        "tablesFetchError": "Chyba načítání seznamu databázových tabulek",
+        "tableDataFetchError": "Chyba načítání dat z tabulky",
+        "noPrimaryKeyWarn": "Chybí primární klíč – úprava není podporována",
+        "rowUpdatedSuccess": "Řádek byl aktualizován",
+        "rowSaveError": "Chyba ukládání řádku",
+        "rowAddedSuccess": "Řádek byl přidán",
+        "rowAddError": "Chyba přidávání řádku",
+        "tableCreateInvalid": "Správně vyplňte název a sloupce",
+        "tableCreateSuccess": "Tabulka {table} byla vytvořena",
+        "tableCreateError": "Chyba vytváření tabulky",
+        "noPrimaryKeyDeleteWarn": "Chybí primární klíč – mazání není podporováno",
+        "rowDeletedSuccess": "Řádek byl smazán",
+        "rowDeleteError": "Chyba mazání řádku",
+        "tableDeletedSuccess": "Tabulka {table} byla smazána",
+        "tableDeleteError": "Chyba mazání tabulky"
+      }
+    },
+    "pagination": {
+      "prev": "Předchozí",
+      "page": "Stránka",
+      "of": "z",
+      "next": "Další",
+      "total": "Celkem:",
+      "range": "{start}–{end} / {total}"
+    },
+    "typing": "píše..."
+  },
+  "filters": {
+    "title": "Filtry",
+    "saveCurrent": "Uložit filtr",
+    "clearAll": "Vymazat vše",
+    "savedFilters": "Uložené filtry",
+    "addFilter": "Přidat filtr",
+    "selectType": "Vyberte typ filtru",
+    "filterName": "Název filtru..."
+  },
+  "search": {
+    "recent": "Nedávná vyhledávání"
+  },
+  "Theme": {
+    "useThemeProvider": "useTheme musí být použit v rámci ThemeProvider"
+  },
+  "errors": {
+    "server": "Chyba serveru",
+    "validation": "Neplatná data",
+    "permission": "Žádná oprávnění"
+  },
+  "loading": {
+    "tables": "Načítání tabulek…",
+    "departments": "Načítání oddělení…",
+    "categories": "Načítání kategorií…",
+    "differences": "Načítání rozdílů…",
+    "history": "Načítání historie…",
+    "sessions": "Načítání relací…",
+    "data": "Načítání dat…",
+    "issuedTools": "Načítání vydaných nástrojů…",
+    "employees": "Načítání zaměstnanců…"
+  },
+  "noData": {
+    "categories": "Žádné kategorie",
+    "sessions": "Žádné relace",
+    "tables": "Žádné tabulky",
+    "issuedTools": "Žádné vydané nástroje"
+  },
+  "reports": {
+    "title": "Nahlásit nesrovnalost",
+    "description": "Vyberte typ a vyplňte podrobnosti",
+    "tabs": {
+      "form": "Formulář",
+      "reported": "Nahlášeno",
+      "bhpIssued": "Vydané BOZP"
+    },
+    "type": {
+      "label": "Typ hlášení",
+      "employee": "Zaměstnanec",
+      "tool": "Vydaný nástroj",
+      "bhpIssued": "Vydané BOZP",
+      "bhp": "BOZP",
+      "other": "Jiné"
+    },
+    "employee": {
+      "label": "Zaměstnanec"
+    },
+    "employeeManual": {
+      "label": "Zaměstnanec (zadejte jméno a příjmení)",
+      "placeholder": "Jméno a příjmení osoby, které se hlášení týká"
+    },
+    "tool": {
+      "label": "Vydaný nástroj:"
+    },
+    "bhpIssued": {
+      "label": "Vydané vybavení BOZP:"
+    },
+    "bhp": {
+      "label": "Kategorie BOZP",
+      "placeholder": "např. Hodnocení rizik, přezkum, nehoda"
+    },
+    "other": {
+      "label": "Téma",
+      "placeholder": "Krátké téma"
+    },
+    "details": {
+      "label": "Popis",
+      "placeholder": "Popište podrobnosti události nebo nesrovnalosti"
+    },
+    "severity": {
+      "label": "Priorita",
+      "low": "Nízká",
+      "medium": "Střední",
+      "high": "Vysoká"
+    },
+    "attachments": {
+      "label": "Přílohy (fotografie)",
+      "hint": "Můžete přidat několik fotografií jako přílohy"
+    },
+    "issuedTools": {
+      "loading": "Načítání vydaných nástrojů…",
+      "selectEmployee": "Vyberte zaměstnance pro zobrazení vydaných nástrojů.",
+      "none": "Žádné vydané nástroje."
+    },
+    "issuedBhp": {
+      "loading": "Načítání vydaného BOZP…",
+      "selectEmployee": "Vyberte zaměstnance pro zobrazení vydaného vybavení BOZP.",
+      "none": "Žádné vydané vybavení BOZP."
+    },
+    "filters": {
+      "type": "Filtr: typ",
+      "severity": "Filtr: priorita",
+      "status": "Filtr: stav"
+    },
+    "list": {
+      "type": "Typ",
+      "subject": "Téma / Podrobnosti",
+      "severity": "Priorita",
+      "status": "Stav",
+      "created": "Vytvořeno",
+      "attachments": "Přílohy",
+      "actions": "Akce"
+    },
+    "status": {
+      "accepted": "Přijato",
+      "checking": "Prověřování",
+      "resolved": "Vyřešeno"
+    },
+    "submit": "Odeslat hlášení",
+    "delete": {
+      "title": "Smazat hlášení",
+      "confirm": "Smazat",
+      "aria": "Smazat hlášení",
+      "messageWithTarget": "Opravdu chcete smazat hlášení \"{subject}\" (ID: {id})? Operace je nevratná.",
+      "messageGeneric": "Opravdu chcete smazat toto hlášení? Operace je nevratná."
+    },
+    "errors": {
+      "uploadNotAvailable": "Nahrávání nedostupné",
+      "uploadError": "Chyba nahrávání",
+      "onlyImages": "Povoleny jsou pouze grafické soubory",
+      "fileTooLarge": "Soubor je příliš velký (max 10 MB)",
+      "requiredFields": "Typ, popis a priorita jsou povinné",
+      "invalidType": "Neplatný typ hlášení",
+      "employeeNameRequired": "Zadejte jméno a příjmení zaměstnance",
+      "createFailed": "Nepodařilo se vytvořit hlášení",
+      "listFailed": "Nepodařilo se načíst hlášení",
+      "invalidStatus": "Neplatný stav",
+      "updateFailed": "Nepodařilo se aktualizovat stav",
+      "notFound": "Hlášení nenalezeno",
+      "deleteFailed": "Nepodařilo se smazat hlášení"
+    },
+    "toast": {
+      "success": "Hlášení odesláno",
+      "error": "Nepodařilo se odeslat hlášení",
+      "fetchError": "Chyba načítání hlášení",
+      "statusUpdated": "Stav hlášení aktualizován",
+      "statusError": "Nepodařilo se aktualizovat stav",
+      "deleted": "Hlášení bylo smazáno",
+      "deleteError": "Nepodařilo se smazat hlášení"
+    }
+  },
+  "inventory": {
+    "tabs": {
+      "sessions": "Relace",
+      "reports": "Reporty"
+    },
+    "title": "Inventura",
+    "subtitle": "Přehled stavu, spotřební materiál a relace",
+    "permissions": {
+      "title": "Žádná oprávnění",
+      "viewInventoryDenied": "Nemáte oprávnění k prohlížení inventury (VIEW_INVENTORY)."
+    },
+    "sessions": {
+      "title": "Inventurní relace",
+      "newNamePlaceholder": "Název nové relace",
+      "notesPlaceholder": "Poznámky (volitelně)",
+      "creating": "Vytváření…",
+      "createBtn": "Nová relace",
+      "headers": {
+        "name": "Název",
+        "status": "Stav",
+        "counted": "Spočítané položky",
+        "startedAt": "Datum zahájení",
+        "finishedAt": "Datum ukončení"
+      },
+      "details": {
+        "status": "Stav",
+        "counted": "Spočítáno",
+        "start": "Start",
+        "end": "Konec"
+      },
+      "statusValues": {
+        "active": "Aktivní",
+        "paused": "Pozastaveno",
+        "ended": "Ukončeno"
+      },
+      "select": "Vybrat",
+      "pause": "Pozastavit",
+      "end": "Ukončit",
+      "resume": "Obnovit",
+      "selected": "Vybraná relace",
+      "errors": {
+        "onlyAdminCreate": "Pouze správce může vytvářet relace",
+        "nameRequired": "Zadejte název relace",
+        "createFailed": "Nepodařilo se vytvořit relaci",
+        "onlyAdminStatus": "Pouze správce může měnit stav relace",
+        "statusFailed": "Změna stavu se nezdařila",
+        "onlyAdminDelete": "Pouze správce může mazat relace",
+        "onlyEndedDelete": "Smazat lze pouze ukončenou relaci",
+        "fetchFailed": "Nepodařilo se načíst relace"
+      },
+      "delete": {
+        "title": "Smazat",
+        "confirm": "Opravdu chcete trvale smazat relaci \"{{name}}\"?",
+        "success": "Relace byla trvale smazána.",
+        "failed": "Mazání relace se nezdařilo"
+      }
+    },
+    "scan": {
+      "qtyPlaceholder": "Množství",
+      "open": "Skenovat",
+      "last": "Naposledy spočítáno",
+      "errors": {
+        "noSession": "Žádná vybraná relace",
+        "failed": "Chyba skenování"
+      },
+      "success": {
+        "counted": "Spočítáno"
+      }
+    },
+    "diffs": {
+      "title": "Rozdíly stavu",
+      "filterPlaceholder": "Filtrovat podle názvu nebo SKU",
+      "minAbsPlaceholder": "Min. |rozdíl|",
+      "exporting": "Exportování…",
+      "exportCsv": "Export CSV",
+      "autoAcceptDisabled": "Automaticky nepotvrzovat",
+      "headers": {
+        "name": "Název",
+        "sku": "SKU",
+        "systemQty": "Množství v systému",
+        "countedQty": "Spočítané množství",
+        "difference": "Rozdíl",
+        "exportDate": "Datum exportu",
+        "responsible": "Odpovědný"
+      },
+      "addCorrection": "Přidat opravu",
+      "empty": "Žádné rozdíly k zobrazení",
+      "errors": {
+        "fetchFailed": "Nepodařilo se načíst rozdíly"
+      },
+      "correctedTag": "Opraveno"
+    },
+    "export": {
+      "errors": {
+        "noPermission": "Žádná oprávnění k exportu",
+        "failed": "Export CSV se nezdařil"
+      }
+    },
+    "errors": {
+      "sessionNameRequired": "Zadejte název relace",
+      "invalidAction": "Neplatná akce",
+      "fetchSessionFailed": "Nepodařilo se načíst relaci",
+      "sessionNotFound": "Relace neexistuje",
+      "sessionStatusInvalid": "Neplatný stav relace",
+      "deleteCountsFailed": "Nepodařilo se smazat počty",
+      "deleteCorrectionsFailed": "Nepodařilo se smazat opravy",
+      "deleteSessionFailed": "Nepodařilo se smazat relaci",
+      "codeRequired": "Kód je povinný",
+      "toolNotFound": "Nástroj pro zadaný kód nebyl nalezen",
+      "countFetchFailed": "Nepodařilo se načíst počet",
+      "countSetFailed": "Nepodařilo se uložit počet",
+      "listSessionsFailed": "Nepodařilo se načíst relace",
+      "fetchDifferencesFailed": "Nepodařilo se načíst rozdíly",
+      "fetchHistoryFailed": "Nepodařilo se načíst historii/opravy",
+      "correctionCreateFailed": "Nepodařilo se vytvořit opravu",
+      "correctionFetchFailed": "Nepodařilo se načíst opravu",
+      "correctionAcceptFailed": "Nepodařilo se potvrdit opravu",
+      "correctionApplyFailed": "Nepodařilo se použít opravu",
+      "correctionDeleteFailed": "Nepodařilo se smazat opravu"
+    },
+    "history": {
+      "title": "Historie oprav",
+      "pendingOnly": "Pouze čekající",
+      "headers": {
+        "name": "Název",
+        "sku": "SKU",
+        "difference": "Rozdíl",
+        "reason": "Důvod",
+        "status": "Stav",
+        "created": "Vytvořeno",
+        "acceptedBy": "Kdo potvrdil",
+        "acceptedAt": "Kdy potvrzeno"
+      },
+      "status": {
+        "accepted": "Potvrzeno",
+        "pending": "Čeká"
+      },
+      "accept": {
+        "title": "Potvrdit opravu",
+        "aria": "Potvrdit opravu",
+        "acceptedLabel": "Potvrzeno"
+      },
+      "delete": {
+        "title": "Smazat opravu",
+        "aria": "Smazat opravu"
+      },
+      "empty": "Žádné opravy k zobrazení",
+      "errors": {
+        "fetchFailed": "Nepodařilo se načíst historii/opravy"
+      }
+    },
+    "toast": {
+      "onlyAdminApprove": "Pouze správce může potvrzovat opravy",
+      "approveSuccess": "Oprava potvrzena",
+      "approveFailed": "Nepodařilo se potvrdit opravu",
+      "onlyAdminDelete": "Pouze správce může mazat opravy",
+      "deleteSuccess": "Oprava smazána",
+      "deleteFailed": "Nepodařilo se smazat opravu"
+    },
+    "correction": {
+      "modal": {
+        "title": "Přidat opravu",
+        "item": "Položka",
+        "systemQty": "Množství v systému",
+        "countedQty": "Spočítané množství",
+        "difference": "Rozdíl",
+        "calculatedInfo": "🔒 Pole se vypočítává automaticky",
+        "reasonLabel": "Důvod (volitelně)",
+        "reasonPlaceholder": "Např. chyba evidence, změna stavu",
+        "saving": "Ukládání…",
+        "save": "Uložit opravu"
+      },
+      "errors": {
+        "noToolId": "Nelze určit ID nástroje pro opravu (chybí vazba).",
+        "noSession": "Žádná vybraná relace — vyberte relaci před uložením.",
+        "noToolForCorrection": "Nepodařilo se určit nástroj pro opravu — zkuste znovu z panelu \"Rozdíly stavu\".",
+        "acceptFailed": "Nepodařilo se potvrdit opravu",
+        "addFailed": "Nepodařilo se přidat opravu"
+      },
+      "success": {
+        "savedAndAccepted": "Oprava byla uložena a potvrzena.",
+        "savedPending": "Oprava byla uložena (čeká na potvrzení)."
+      }
+    },
+    "stock": {
+      "title": "Stav skladu",
+      "searchLabel": "Hledat",
+      "searchPlaceholder": "Název, SKU nebo evidenční číslo",
+      "searchScanTitle": "Skenovat kód pro vyhledávání",
+      "onlyConsumablesLabel": "Pouze spotřební materiál",
+      "onlyBelowMinLabel": "Pod minimálním stavem",
+      "headers": {
+        "name": "Název",
+        "sku": "SKU",
+        "quantity": "Množství",
+        "min": "Min",
+        "max": "Max",
+        "status": "Stav"
+      },
+      "status": {
+        "missing": "Chybí",
+        "ok": "OK"
+      },
+      "empty": "Žádné položky k zobrazení"
+    },
+    "labels": {
+      "sku": "SKU",
+      "systemQty": "Systém",
+      "countedQty": "Spočítáno",
+      "serialNumber": "Sériové číslo"
+    },
+    "modalDelete": {
+      "title": "Smazat opravu",
+      "message": "Opravdu chcete smazat tuto opravu?",
+      "confirm": "Smazat"
+    },
+    "reports": {
+      "lowStock": "Nízký stav skladu",
+      "reorder": "Vyžadující objednávku",
+      "toolName": "Název nástroje",
+      "sku": "SKU",
+      "currentStock": "Aktuální stav",
+      "minStock": "Minimální stav",
+      "suggestedReorder": "Doporučená objednávka",
+      "status": "Stav",
+      "noLowStock": "Žádné nástroje s nízkým stavem skladu",
+      "noReorder": "Žádné nástroje vyžadující objednávku",
+      "statusBadge": {
+        "outOfStock": "Není skladem",
+        "lowStock": "Nízký stav",
+        "ok": "OK"
+      }
+    }
+  },
+  "labels": {
+    "serialNumber": "Sériové číslo"
+  },
+  "labelsManager": {
+    "title": "Štítky",
+    "subtitle": "Generovat a tisknout štítky pro nástroje",
+    "tabs": {
+      "tools": "Nástroje",
+      "bhp": "BOZP",
+      "editor": "Editor šablon",
+      "editorSeparate": "Editor samostatných šablon"
+    },
+    "permissions": {
+      "title": "Žádná oprávnění",
+      "viewLabelsDenied": "Nemáte oprávnění k prohlížení štítků (VIEW_LABELS)."
+    },
+    "generator": {
+      "title": "Generátor štítků",
+      "description": "Vyberte nástroje, pro které chcete generovat štítky."
+    },
+    "progress": {
+      "generating": "Generování štítků..."
+    },
+    "errors": {
+      "loadingLabelConfiguration": "Chyba načítání konfigurace štítků.",
+      "fetchToolsFailed": "Nepodařilo se načíst nástroje",
+      "generateQrFailed": "Chyba generování QR štítku",
+      "generateBarcodeFailed": "Chyba generování čárového kódu štítku",
+      "previewFailed": "Chyba generování náhledu štítků",
+      "printQrFailed": "Chyba odeslání QR štítku na tiskárnu",
+      "printBarcodeFailed": "Chyba odeslání štítku s čárovým kódem na tiskárnu",
+      "generateFailed": "Chyba generování štítku",
+      "downloadSelectedFailed": "Chyba stahování vybraných štítků"
+    },
+    "print": {
+      "sentQr": "Tisková úloha odeslána (QR)",
+      "sentBarcode": "Tisková úloha odeslána (čárový kód)"
+    }
+  },
+  "labelManager": {
+    "errors": {
+      "loadingLabelConfiguration": "Chyba načítání konfigurace štítků."
+    }
+  },
+  "auditLog": {
+    "header": {
+      "title": "Auditní deník",
+      "subtitle": "Historie všech akcí v systému"
+    },
+    "delete": {
+      "button": "Smazat záznamy",
+      "title": "Smazat auditní záznamy",
+      "message": "Opravdu chcete smazat všechny auditní záznamy? Tuto operaci nelze vrátit.",
+      "confirm": "Smazat záznamy"
+    },
+    "filters": {
+      "action": "Akce",
+      "user": "Uživatel",
+      "usernamePlaceholder": "Uživatelské jméno",
+      "startDate": "Datum od",
+      "endDate": "Datum do",
+      "actions": {
+        "all": "Vše"
+      }
+    },
+    "loading": "Načítání auditního deníku...",
+    "retry": "Zkusit znovu",
+    "errors": {
+      "fetchFailed": "Nepodařilo se načíst auditní deník",
+      "writeFailed": "Nepodařilo se uložit auditní záznam"
+    },
+    "table": {
+      "headers": {
+        "date": "Datum a čas",
+        "action": "Akce",
+        "username": "Uživatel",
+        "details": "Podrobnosti",
+        "ip": "IP"
+      },
+      "mobile": {
+        "labels": {
+          "action": "Akce",
+          "user": "Uživatel",
+          "ip": "IP",
+          "details": "Podrobnosti"
+        }
+      }
+    },
+    "pagination": {
+      "summary": "Stránka {page} z {totalPages} ({total} záznamů)",
+      "prev": "Předchozí",
+      "next": "Další"
+    },
+    "toastr": {
+      "deleteSuccess": "Auditní záznamy byly úspěšně smazány",
+      "deleteError": "Nepodařilo se smazat auditní záznamy",
+      "errorFetchingAuditLog": "Chyba načítání auditního deníku"
+    }
+  },
+  "topbar": {
+    "openMenu": "Otevřít menu",
+    "notifications": "Oznámení",
+    "chat": "Chat",
+    "overdueInspections": "Přezkoušení po termínu (BOZP a nástroje)",
+    "markAllRead": "Označit vše jako přečtené",
+    "clearNotifications": "Vymazat oznámení",
+    "noNotifications": "Žádná nová oznámení",
+    "collapseSidebar": "Sbalit postranní panel",
+    "expandSidebar": "Rozbalit postranní panel",
+    "searchBar": {
+      "type": "Zadejte pro vyhledávání",
+      "navigate": "Navigovat",
+      "close": "Zavřít",
+      "select": "Vybrat"
+    },
+    "tabs": {
+      "general": "Obecné",
+      "overdue": "Po termínu"
+    },
+    "type": {
+      "bhp": "BOZP",
+      "tools": "Nástroje",
+      "admin": "Admin",
+      "broadcast": "Pro všechny",
+      "custom": "Pro vybrané"
+    },
+    "overdue": "Po termínu",
+    "read": "Přečteno",
+    "receivedAt": "Přijato",
+    "markRead": "Označit jako přečtené",
+    "markUnread": "Označit jako nepřečtené",
+    "userNotifications": "Oznámení uživatele",
+    "returnRequest": "Žádost o vrácení",
+    "from": "od:",
+    "user": "Uživatel",
+    "role": "Role",
+    "settings": "Nastavení",
+    "dbViewer": "Náhled databáze",
+    "themeLight": "Světlý režim",
+    "themeDark": "Tmavý režim",
+    "logout": "Odhlásit se",
+    "roles": {
+      "administrator": "Správce",
+      "manager": "Vedoucí",
+      "toolsmaster": "Nástrojař",
+      "hr": "HR",
+      "supervisor": "Mistr",
+      "engineer": "Inženýr",
+      "employee": "Zaměstnanec",
+      "user": "Uživatel",
+      "unknown": "Neznámá"
+    }
+  },
+  "login": {
+    "title": "Přihlaste se do systému",
+    "subtitle": "Systém správy nástrojárny",
+    "username": "Uživatelské jméno",
+    "password": "Heslo",
+    "rememberMe": "Zapamatovat mě",
+    "enterUsername": "Zadejte uživatelské jméno",
+    "enterPassword": "Zadejte heslo",
+    "showPassword": "Zobrazit heslo",
+    "hidePassword": "Skrýt heslo",
+    "capsLock": "CapsLock je zapnutý — heslo může být nesprávné.",
+    "submit": "Přihlásit se",
+    "loading": "Přihlašování...",
+    "error": "Chyba přihlášení",
+    "invalidResponse": "Neplatná odpověď serveru",
+    "rememberedTitle": "Zapamatované profily",
+    "rememberedEmpty": "Žádné zapamatované profily",
+    "rememberedRemove": "Odebrat profil",
+    "loginAs": "Přihlásit jako",
+    "passwordRequired": "Zadejte heslo pro přihlášení",
+    "invalidCredentials": "Neplatné uživatelské jméno nebo heslo"
+  },
+  "employees": {
+    "title": "Správa zaměstnanců",
+    "addTitle": "Přidat zaměstnance",
+    "editTitle": "Upravit zaměstnance",
+    "cardGeneratedSuccess": "Karta zaměstnance vygenerována",
+    "cardGenerationError": "Chyba generování karty",
+    "subtitle": "Spravujte data zaměstnanců v systému",
+    "add": "Přidat zaměstnance",
+    "search": "Hledat",
+    "searchPlaceholder": "Jméno, příjmení, služební číslo...",
+    "department": "Oddělení",
+    "position": "Pozice",
+    "allDepartments": "Všechna oddělení",
+    "allPositions": "Všechny pozice",
+    "clearFilters": "Vymazat filtry",
+    "refresh": "Obnovit seznam",
+    "none": "Žádní zaměstnanci",
+    "noneAdded": "Zatím nebyli přidáni žádní zaměstnanci.",
+    "noneFound": "Nebyli nalezeni zaměstnanci splňující kritéria vyhledávání.",
+    "actions": "Akce",
+    "fullName": "Jméno a příjmení/Login",
+    "brandNumber": "Služební číslo",
+    "phone": "Telefon",
+    "departmentCol": "Oddělení",
+    "positionCol": "Pozice",
+    "edit": "Upravit",
+    "delete": "Smazat",
+    "unknownDept": "Neznámé",
+    "unknownPos": "Neznámá",
+    "mobilePhone": "Telefon:",
+    "mobileDepartment": "Oddělení:",
+    "mobilePosition": "Pozice:",
+    "addedSuccess": "Zaměstnanec byl úspěšně přidán",
+    "addError": "Chyba při přidávání zaměstnance",
+    "updatedSuccess": "Data zaměstnance byla aktualizována",
+    "updateError": "Chyba při aktualizaci dat zaměstnance",
+    "deletedSuccess": "Zaměstnanec byl smazán",
+    "deleteError": "Chyba při mazání zaměstnance",
+    "toast": {
+      "noEmail": "Zaměstnanec nemá e-mailovou adresu",
+      "loginCreatedAndEmailSent": "Přihlášení vytvořeno a e-mail odeslán",
+      "emailSent": "E-mail byl odeslán",
+      "loginCreatedEmailNotSent": "Přihlášení vytvořeno, e-mail nebyl odeslán",
+      "emailNotSent": "E-mail nebyl odeslán",
+      "smtpNotConfigured": "Chyba odeslání e-mailu. Nebyonfigurovaný SMTP.",
+      "sendError": "Nepodařilo se odeslat přihlašovací údaje",
+      "errors": {
+        "notFound": "Zaměstnanec nebyl nalezen",
+        "invalidId": "Neplatný identifikátor zaměstnance",
+        "invalidRfid": "Neplatný UID RFID"
+      }
+    },
+    "confirmDelete": "Opravdu chcete smazat zaměstnance",
+    "modal": {
+      "title": {
+        "add": "Přidat nového zaměstnance",
+        "edit": "Upravit zaměstnance"
+      },
+      "labels": {
+        "firstName": "Jméno *",
+        "lastName": "Příjmení *",
+        "phone": "Telefon",
+        "email": "E-mail",
+        "brandNumber": "Služební číslo",
+        "rfidUid": "NFC / RFID štítek",
+        "department": "Oddělení *",
+        "position": "Pozice *",
+        "status": "Stav"
+      },
+      "placeholders": {
+        "firstName": "např. Jan",
+        "lastName": "např. Novák",
+        "phone": "např. 500 600 700",
+        "email": "např. jan.novak@example.com",
+        "brandNumber": "např. ID-1234",
+        "rfidUid": "např. 000123ABCD"
+      },
+      "select": {
+        "department": "Vyberte oddělení",
+        "position": "Vyberte pozici"
+      },
+      "buttons": {
+        "save": "Uložit",
+        "saving": "Ukládání...",
+        "cancel": "Zrušit",
+        "regenerateLogin": "Obnovit přihlášení"
+      },
+      "errors": {
+        "firstNameRequired": "Jméno je povinné",
+        "lastNameRequired": "Příjmení je povinné",
+        "departmentRequired": "Oddělení je povinné",
+        "positionRequired": "Pozice je povinná",
+        "submitFailed": "Při ukládání došlo k chybě"
+      }
+    },
+    "status": {
+      "active": "Aktivní",
+      "inactive": "Neaktivní",
+      "suspended": "Pozastavený"
+    },
+    "tooltip": {
+      "title": "Vydané položky",
+      "loading": "Načítání…",
+      "none": "Žádné vydané položky",
+      "inventoryLabel": "Inv. č.",
+      "unknown": "Neznámý",
+      "toolsTitle": "Nástroje",
+      "categoryLabel": "Kategorie",
+      "bhpTitle": "Vybavení BOZP",
+      "issuedLabel": "Vydáno",
+      "qtyLabel": "Množství",
+      "skuLabel": "SKU",
+      "issuedByLabel": "Vydal"
+    }
+  },
+  "departments": {
+    "status": {
+      "active": "Aktivní",
+      "inactive": "Neaktivní"
+    },
+    "list": {
+      "managerPrefix": "Vedoucí oddělení: ",
+      "missingBadge": "Chybí v databázi"
+    },
+    "header": {
+      "title": "Správa oddělení",
+      "subtitle": "Přidávejte, upravujte a organizujte oddělení"
+    },
+    "actions": {
+      "add": "Přidat oddělení"
+    },
+    "modal": {
+      "title": {
+        "add": "Přidat oddělení",
+        "edit": "Upravit oddělení"
+      },
+      "titles": {
+        "add": "Přidat oddělení",
+        "edit": "Upravit oddělení"
+      },
+      "labels": {
+        "name": "Název *",
+        "description": "Popis",
+        "manager": "Vedoucí oddělení",
+        "status": "Stav"
+      },
+      "placeholders": {
+        "name": "např. Prodej",
+        "description": "Krátký popis oddělení"
+      },
+      "buttons": {
+        "save": "Uložit",
+        "cancel": "Zrušit"
+      },
+      "errors": {
+        "nameRequired": "Název je povinný",
+        "submit": "Při ukládání došlo k chybě"
+      },
+      "options": {
+        "unassigned": "Nepřiřazeno"
+      }
+    },
+    "toast": {
+      "deleted": "Oddělení bylo smazáno",
+      "deleteError": "Nepodařilo se smazat oddělení",
+      "saveError": "Nepodařilo se uložit oddělení",
+      "saved": "Oddělení bylo uloženo"
+    },
+    "errors": {
+      "notFound": "Oddělení nenalezeno",
+      "invalidManager": "Neplatný vedoucí",
+      "nameExists": "Oddělení s tímto názvem již existuje",
+      "detachFailed": "Chyba odpojování zaměstnanců od oddělení"
+    }
+  },
+  "positions": {
+    "header": {
+      "title": "Správa pozic",
+      "subtitle": "Přidávejte, upravujte a organizujte pozice"
+    },
+    "actions": {
+      "add": "Přidat pozici"
+    },
+    "status": {
+      "active": "Aktivní",
+      "inactive": "Neaktivní"
+    },
+    "list": {
+      "statusMissing": "Chybí v databázi",
+      "departmentPrefix": "Oddělení: "
+    },
+    "delete": {
+      "title": "Smazat pozici",
+      "message": "Opravdu chcete smazat pozici",
+      "confirmText": "Smazat"
+    },
+    "modal": {
+      "title": {
+        "add": "Přidat pozici",
+        "edit": "Upravit pozici"
+      },
+      "titles": {
+        "add": "Přidat pozici",
+        "edit": "Upravit pozici"
+      },
+      "labels": {
+        "name": "Název *",
+        "department": "Oddělení",
+        "description": "Popis",
+        "requirements": "Požadavky",
+        "status": "Stav"
+      },
+      "select": {
+        "department": "Vyberte oddělení"
+      },
+      "placeholders": {
+        "name": "např. Skladník",
+        "description": "Krátký popis pozice",
+        "requirements": "Např. oprávnění SEP, TDT…"
+      },
+      "buttons": {
+        "save": "Uložit",
+        "cancel": "Zrušit"
+      },
+      "errors": {
+        "nameRequired": "Název je povinný",
+        "departmentRequired": "Oddělení je povinné"
+      }
+    },
+    "toastr": {
+      "positionDeleted": "Pozice byla smazána",
+      "positionUpdated": "Pozice byla aktualizována",
+      "positionCreated": "Pozice byla vytvořena",
+      "errors": {
+        "save": "Chyba při ukládání pozice",
+        "refreshError": "Chyba při obnovování seznamu pozic",
+        "positionDeleteError": "Nepodařilo se smazat pozici",
+        "invalidDepartment": "Neplatné oddělení",
+        "categoryNameRequired": "Zadejte název kategorie",
+        "categoryAdded": "Kategorie přidána",
+        "categoryNameEmpty": "Název nemůže být prázdný",
+        "categoryUpdated": "Kategorie aktualizována",
+        "categoryDeleted": "Kategorie smazána"
+      }
+    },
+    "errors": {
+      "notFound": "Pozice nenalezena",
+      "nameExists": "Pozice s tímto názvem již existuje",
+      "detachFailed": "Chyba odpojování zaměstnanců od pozice"
+    }
+  },
+  "auth": {
+    "invalid": "Neplatná autentizační událost: {reason}",
+    "refreshSession": "Obnovit relaci",
+    "sessionRefreshed": "Relace byla obnovena",
+    "errors": {
+      "refreshFailed": "Nepodařilo se obnovit relaci"
+    }
+  },
+  "appConfig": {
+    "header": {
+      "title": "Konfigurace aplikace",
+      "subtitle": "Spravujte nastavení systému"
+    },
+    "validation": {
+      "errorsFound": "Ve formuláři byly nalezeny chyby"
+    },
+    "tabs": {
+      "general": "Obecná nastavení",
+      "security": "Bezpečnost",
+      "email": "E-mail",
+      "users": "Uživatelé",
+      "rolesPermissions": "Role a oprávnění",
+      "features": "Funkce",
+      "notifications": "Oznámení",
+      "departments": "Oddělení",
+      "positions": "Pozice",
+      "categories": "Kategorie",
+      "codes": "Předpony kódů",
+      "translations": "Překlady",
+      "backup": "Zálohy",
+      "database": "Databáze",
+      "webhooks": "Webhooky",
+      "server": "Server",
+      "dangerZone": "Danger Zone"
+    },
+    "database": {
+      "source": "Zdroj dat",
+      "sources": {
+        "local": "Lokální (SQLite)",
+        "supabase": "Supabase (Cloud)"
+      },
+      "supabaseUrl": "URL adresa Supabase",
+      "supabaseKey": "Supabase veřejný klíč",
+      "supabaseServiceKey": "Supabase Service Role klíč",
+      "connectionInfo": "Vyberte zdroj dat. Změna vyžaduje restart aplikace.",
+      "validation": {
+        "urlInvalid": "URL adresa databáze je neplatná",
+        "keyInvalid": "API klíč je neplatný"
+      }
+    },
+    "rolesPermissions": {
+      "tabs": {
+        "users": "Uživatelé",
+        "roles": "Oprávnění rolí"
+      },
+      "addRole": {
+        "title": "Přidat roli",
+        "keyLabel": "Klíč role",
+        "nameLabel": "Název role",
+        "keyPlaceholder": "např. vedouci-vyroby",
+        "namePlaceholder": "např. Vedoucí výroby",
+        "errorExists": "Taková role již existuje"
+      },
+      "deleteRole": {
+        "title": "Smazat roli",
+        "message": "Opravdu chcete smazat roli: {role}?",
+        "success": "Role byla smazána",
+        "error": "Nepodařilo se smazat roli"
+      },
+      "roleEdit": {
+        "nameLabel": "Název role",
+        "namePlaceholder": "např. Vedoucí výroby",
+        "descriptionLabel": "Popis role",
+        "descriptionPlaceholder": "Krátký popis role",
+        "permissionsShow": "Zobrazit oprávnění",
+        "permissionsHide": "Skrýt oprávnění",
+        "priorityLabel": "Priorita role",
+        "colorLabel": "Třída barvy role",
+        "colorPlaceholder": "např. bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
+        "saveMeta": "Uložit nastavení role",
+        "saved": "Nastavení role uloženo",
+        "saveError": "Nepodařilo se uložit nastavení role"
+      }
+    },
+    "save": {
+      "success": "Konfigurace uložena",
+      "error": "Nepodařilo se uložit konfiguraci"
+    },
+    "load": {
+      "error": "Nepodařilo se načíst konfiguraci"
+    },
+    "general": {
+      "appName": "Název aplikace",
+      "companyName": "Název společnosti",
+      "timezone": "Časové pásmo",
+      "timezones": {
+        "warsaw": "Varšava",
+        "london": "Londýn",
+        "newYork": "New York",
+        "tokyo": "Tokio"
+      },
+      "language": "Jazyk rozhraní",
+      "language_pl": "Polský",
+      "language_en": "Anglický",
+      "language_cz": "Český",
+      "language_de": "Německý",
+      "dateFormat": "Formát data",
+      "validation": {
+        "appNameRequired": "Název aplikace je povinný",
+        "companyNameRequired": "Název společnosti je povinný"
+      }
+    },
+    "logo": {
+      "title": "Logo aplikace",
+      "currentAlt": "Aktuální logo",
+      "dimensionsHint": "Přípustná velikost: {minW}x{minH}–{maxW}x{maxH}px",
+      "uploadLabel": "Nahrát logo (PNG)",
+      "saveNew": "Uložit nové logo",
+      "historyTitle": "Historie loga",
+      "historyEmpty": "Žádná historie loga",
+      "apply": "Použít",
+      "onlyPng": "Povoleny jsou pouze soubory PNG",
+      "fileTooLarge": "Soubor je příliš velký",
+      "dimensionsOutOfRange": "Rozměry obrázku jsou mimo rozsah",
+      "invalidImageFile": "Neplatný soubor obrázku",
+      "selectPng": "Vyberte soubor PNG",
+      "updated": "Logo aktualizováno",
+      "uploadError": "Chyba nahrávání loga",
+      "rollbackSuccess": "Předchozí logo obnoveno",
+      "rollbackError": "Chyba obnovování předchozího loga",
+      "deleteSuccess": "Logo smazáno",
+      "deleteError": "Nepodařilo se smazat logo",
+      "deleteTitle": "Smazat logo",
+      "deleteMessagePrefix": "Smazat soubor",
+      "deleteMessage": "Smazat logo?"
+    },
+    "security": {
+      "title": "Bezpečnost",
+      "sessionTimeout": "Časový limit relace (minuty)",
+      "passwordMinLength": "Minimální délka hesla",
+      "maxLoginAttempts": "Max. počet pokusů o přihlášení",
+      "lockoutDuration": "Doba blokování (minuty)",
+      "requireSpecialChars": "Vyžadovat speciální znaky",
+      "requireNumbers": "Vyžadovat číslice",
+      "requireUppercase": "Vyžadovat velká písmena",
+      "requireLowercase": "Vyžadovat malá písmena",
+      "historyLength": "Délka historie hesel",
+      "blacklist": {
+        "title": "Blacklist hesel",
+        "placeholder": "např. admin, password, 123456",
+        "hint": "Zadejte hesla oddělená čárkami; duplicity budou ignorovány"
+      },
+      "validation": {
+        "sessionTimeout": "Časový limit relace musí být od 1 do 1440 minut",
+        "passwordMinLength": "Minimální délka hesla musí být od 4 do 128 znaků",
+        "maxLoginAttempts": "Maximální počet pokusů o přihlášení musí být kladný",
+        "lockoutDuration": "Doba blokování musí být kladná",
+        "historyLength": "Délka historie hesel musí být nezáporná"
+      }
+    },
+    "email": {
+      "title": "E-mail",
+      "host": "SMTP server",
+      "port": "Port",
+      "secure": "Šifrování",
+      "yes": "ANO",
+      "no": "NE",
+      "user": "Uživatel",
+      "pass": "Heslo",
+      "from": "Adresa odesílatele",
+      "description": "Nastavení odesílání e-mailů",
+      "loadError": "Nepodařilo se načíst konfiguraci e-mailu",
+      "fixConfig": "Doplňte konfiguraci e-mailu",
+      "test": {
+        "title": "Test odesílání",
+        "description": "Odešlete testovací zprávu na vybranou adresu",
+        "recipient": "Adresa příjemce",
+        "recipientPlaceholder": "např. jan.novak@example.com",
+        "fixConfig": "Doplňte konfiguraci e-mailu",
+        "invalidRecipient": "Neplatná adresa příjemce",
+        "success": "Testovací zpráva odeslána",
+        "error": "Chyba odesílání",
+        "sending": "Odesílání…",
+        "send": "Odeslat test"
+      },
+      "validation": {
+        "hostRequired": "Zadejte SMTP hostitele",
+        "portInvalid": "Neplatný port",
+        "fromInvalid": "Neplatná adresa odesílatele"
+      }
+    },
+    "toolsCategories": {
+      "fetchError": "Chyba načítání kategorií nástrojů",
+      "addNameError": "Název kategorie je povinný",
+      "addSuccess": "Kategorie nástrojů přidána",
+      "addError": "Nepodařilo se přidat kategorii",
+      "updateError": "Nepodařilo se aktualizovat kategorii",
+      "deleteError": "Nepodařilo se smazat kategorii"
+    },
+    "notifications": {
+      "title": "Oznámení",
+      "email": "E-mail",
+      "sms": "SMS",
+      "push": "Push"
+    },
+    "notificationsSend": {
+      "tabs": {
+        "all": "Pro všechny",
+        "selected": "Pro vybrané"
+      },
+      "senderLabel": "Kdo odesílá",
+      "subjectLabel": "Předmět zprávy",
+      "urlLabel": "Cesta (URL) po kliknutí",
+      "urlPlaceholder": "např. /tools nebo URL",
+      "messageLabel": "Obsah oznámení",
+      "usersListTitle": "Vyberte uživatele",
+      "send": "Odeslat",
+      "fanoutLabel": "Odeslat do centra oznámení uživatele",
+      "pushAllLabel": "Odeslat push oznámení všem",
+      "fanoutAllLabel": "Přidat do centra oznámení všech uživatelů",
+      "pushSelectedLabel": "Odeslat jako push oznámení",
+      "confirmBroadcast": {
+        "title": "Potvrdit odeslání všem",
+        "message": "Tato operace přidá oznámení pro všechny uživatele. Opravdu chcete pokračovat?",
+        "confirm": "Odeslat",
+        "cancel": "Zrušit"
+      },
+      "fetchUsersError": "Nepodařilo se načíst uživatele",
+      "fetchHistoryError": "Nepodařilo se načíst historii oznámení",
+      "validationMissing": "Doplňte odesílatele, předmět, obsah a výběr příjemců",
+      "sentAll": "Oznámení odesláno všem",
+      "sentSelected": "Oznámení odesláno vybraným",
+      "sendError": "Nepodařilo se odeslat oznámení",
+      "history": {
+        "title": "Historie odesílání",
+        "titleAll": "Historie: pro všechny",
+        "titleSelected": "Historie: pro vybrané",
+        "empty": "Žádná oznámení",
+        "sentAt": "Odesláno",
+        "sender": "Odesílatel",
+        "subject": "Předmět",
+        "message": "Obsah",
+        "recipients": "Příjemci",
+        "searchPlaceholder": "Hledat v historii",
+        "filterPlaceholder": "Filtrovat podle odesílatele nebo obsahu",
+        "paginationSummary": "Stránka {page} z {totalPages} ({total} záznamů)",
+        "prev": "Předchozí",
+        "next": "Další",
+        "perPage": "na stránku",
+        "deleteAllButton": "Smazat celou historii odesílání",
+        "deleteAllConfirm": {
+          "title": "Smazat celou historii odesílání",
+          "message": "Opravdu chcete smazat celou historii odesílání pro záložku: {{tab}}? Operace je nevratná.",
+          "confirm": "Smazat"
+        },
+        "deleteAllSuccess": "Historie odesílání byla smazána",
+        "deleteAllSuccessCounts": "Smazáno: historie {{history}}, oznámení {{notifications}}",
+        "deleteAllError": "Nepodařilo se smazat historii odesílání"
+      },
+      "general": {
+        "title": "Obecná oznámení",
+        "typeLabel": "Typ oznámení",
+        "types": {
+          "any": "— libovolný —",
+          "return_request": "Žádost o vrácení",
+          "admin_message": "Zpráva správce",
+          "overdue_inspection": "Přezkoušení po termínu",
+          "custom": "Zpráva vybraným",
+          "broadcast": "Zpráva všem"
+        },
+        "itemTypeLabel": "Typ objektu",
+        "itemTypes": {
+          "any": "— libovolný —",
+          "tool": "Nástroj",
+          "bhp": "BOZP",
+          "admin": "Administrační"
+        },
+        "deleteButton": "Smazat oznámení",
+        "deleteSuccess": "Smazáno {count} oznámení",
+        "deleteError": "Nepodařilo se smazat oznámení",
+        "previewCount": "Ke smazání: {total} záznamů",
+        "selectAll": "Vybrat vše",
+        "deleteSelected": "Smazat vybrané",
+        "meta": "Typ: {type}, Objekt: {itemType}, Vytvořeno: {created}",
+        "recipient": "Adresát: {name}",
+        "readStatus": "Stav: {status}",
+        "readStatuses": {
+          "read": "přečteno",
+          "unread": "nepřečteno"
+        },
+        "readAt": "Označeno jako přečtené: {date}",
+        "loadError": "Nepodařilo se načíst seznam oznámení"
+      }
+    },
+    "features": {
+      "title": "Funkce",
+      "auditLog": "Auditní deník",
+      "auditLogDesc": "Zaznamenávat důležité akce uživatelů",
+      "reports": "Reporty",
+      "reportsDesc": "Generovat reporty a přehledy",
+      "mobileApp": "Mobilní aplikace",
+      "mobileAppDesc": "Používat aplikaci v terénu",
+      "apiAccess": "Přístup k API",
+      "apiAccessDesc": "Integrovat systém s externími nástroji",
+      "dataExport": "Export dat",
+      "dataExportDesc": "Exportovat data do souborů",
+      "otherSettings": "Ostatní nastavení",
+      "chatTitle": "Chat",
+      "realtimeChat": "Chat v reálném čase",
+      "realtimeChatDesc": "Zprávy, soubory, oznámení — živě",
+      "kioskTitle": "Kiosk",
+      "kiosk": "Kiosk",
+      "kioskDesc": "Zapnout nebo vypnout obrazovku kiosku (vydávání/vracení na pracovišti)",
+      "helpTitle": "Nápověda",
+      "help": "Nápověda",
+      "helpDesc": "Zapnout nebo vypnout tlačítko Nápověda v horním panelu",
+      "deleteAllChats": "Smazat všechny chaty",
+      "deleteAllChatsConfirm": "Opravdu smazat všechny konverzace? Operace je nevratná.",
+      "deleteAllChatsError": "Nepodařilo se smazat chaty",
+      "auditRetention": "Doba uchování auditního deníku (dní)",
+      "backupFrequency": "Frekvence zálohování",
+      "frequency": {
+        "daily": "denně",
+        "weekly": "týdně",
+        "monthly": "měsíčně"
+      },
+      "autoSaveNote": "Změny nastavení se ukládají automaticky."
+    },
+    "codes": {
+      "toolsPrefix": "Předpona kódů nástrojů",
+      "toolsPrefixPlaceholder": "např. NR",
+      "bhpPrefix": "Předpona kódů BOZP",
+      "bhpPrefixPlaceholder": "např. BOZP",
+      "categoryPrefixesTitle": "Předpony kategorií nástrojů",
+      "categoryPrefixesDesc": "Definujte předpony pro jednotlivé kategorie",
+      "categoryPrefixPlaceholder": "např. ML",
+      "toolsCountSuffix": "nástrojů",
+      "categoryPrefixNote": "Změna předpony neupravuje stávající čísla"
+    },
+    "translations": {
+      "title": "Překlady",
+      "addTranslation": "Přidat překlad",
+      "searchPlaceholder": "Hledat podle klíče",
+      "loading": "Načítání překladů…",
+      "empty": "Žádné překlady",
+      "key": "Klíč",
+      "keyPlaceholder": "např. appConfig.header.title",
+      "keyExists": "Takový klíč již existuje",
+      "saved": "Překlady uloženy",
+      "saveError": "Nepodařilo se uložit překlady",
+      "loadError": "Nepodařilo se načíst překlady",
+      "addDescription": "Zadejte klíč a hodnoty překladů pro vybrané jazyky.",
+      "added": "Překlad přidán",
+      "addError": "Nepodařilo se přidat překlad"
+    },
+    "backup": {
+      "history": "Historie záloh",
+      "backupRetentionDays": "Doba uchování záloh (dní)",
+      "backupFrequency": "Frekvence zálohování",
+      "frequencyDaily": "denně",
+      "frequencyWeekly": "týdně",
+      "frequencyMonthly": "měsíčně",
+      "lastFromConfig": "Poslední z konfigurace",
+      "lastFile": "Poslední soubor",
+      "running": "Vytváření zálohy…",
+      "createNow": "Vytvořit zálohu",
+      "adminRequired": "Vyžadována oprávnění správce",
+      "listTitle": "Všechny zálohy",
+      "listError": "Nepodařilo se načíst seznam záloh",
+      "runError": "Nepodařilo se vytvořit zálohu",
+      "headers": {
+        "file": "Soubor",
+        "createdAt": "Vytvořeno",
+        "size": "Velikost",
+        "actions": "Akce"
+      },
+      "restore": "Obnovit",
+      "restored": "Databáze byla obnovena ze zálohy",
+      "restoreError": "Nepodařilo se obnovit zálohu",
+      "noBackups": "Žádné zálohy",
+      "latest": "Nejnovější záloha",
+      "validation": {
+        "retentionDays": "Počet dní uchování musí být kladný"
+      }
+    },
+    "webhooks": {
+      "title": "Webhooky",
+      "description": "Webhooky umožňují automatická oznámení o událostech v systému.",
+      "editTitle": "Upravit webhook",
+      "addTitle": "Přidat nový webhook",
+      "deleteConfirm": "Opravdu chcete smazat tento webhook?",
+      "fields": {
+        "name": "Název",
+        "url": "URL endpointu",
+        "secret": "Tajný klíč (pro podepisování)",
+        "events": "Události",
+        "active": "Aktivní"
+      },
+      "listTitle": "Seznam webhooků",
+      "headers": {
+        "name": "Název",
+        "url": "URL endpointu",
+        "secret": "Tajný klíč",
+        "status": "Stav",
+        "events": "Události",
+        "active": "Aktivní"
+      },
+      "noWebhooks": "Žádné definované webhooky",
+      "events": {
+        "lowStock": "Nízký stav skladu",
+        "toolStatusChange": "Změna stavu nástroje",
+        "toolIssue": "Vydání nástroje",
+        "toolReturn": "Vrácení nástroje",
+        "inventoryCorrection": "Oprava inventury"
+      },
+      "actions": {
+        "cancel": "Zrušit",
+        "update": "Aktualizovat",
+        "create": "Vytvořit",
+        "test": "Testovat",
+        "logs": "Záznamy",
+        "edit": "Upravit",
+        "delete": "Smazat"
+      },
+      "list": {
+        "title": "Seznam webhooků",
+        "noWebhooks": "Žádné definované webhooky"
+      },
+      "logs": {
+        "title": "Historie volání",
+        "noLogs": "Žádné záznamy pro tento webhook",
+        "status": "Stav",
+        "event": "Událost",
+        "date": "Datum",
+        "response": "Odpověď",
+        "close": "Zavřít"
+      },
+      "success": {
+        "updated": "Webhook aktualizován",
+        "created": "Webhook vytvořen",
+        "deleted": "Webhook smazán",
+        "testSent": "Test webhooku odeslán"
+      },
+      "errors": {
+        "saveFailed": "Nepodařilo se uložit webhook",
+        "deleteFailed": "Nepodařilo se smazat webhook",
+        "testFailed": "Test webhooku se nezdařil",
+        "fetchFailed": "Nepodařilo se načíst webhooky"
+      }
+    },
+    "server": {
+      "logs": {
+        "title": "Systémový deník",
+        "level": "Úroveň",
+        "allLevels": "Všechny úrovně",
+        "info": "INFO",
+        "warn": "WARN",
+        "error": "ERROR",
+        "category": "Kategorie",
+        "system": "SYSTÉM",
+        "auth": "AUTH",
+        "performance": "VÝKON",
+        "backup": "ZÁLOHA",
+        "allCategories": "Všechny kategorie",
+        "confirmDelete": "Opravdu chcete smazat všechny systémové záznamy?",
+        "deleteSuccess": "Záznamy byly smazány",
+        "deleteError": "Chyba při mazání záznamů",
+        "errorLoad": "Nepodařilo se načíst systémové záznamy"
+      },
+      "frontend": {
+        "title": "Frontend",
+        "restart": "Restart",
+        "stop": "Vypnout",
+        "check": "Zkontrolovat stav",
+        "restartStarted": "Restart frontendu byl zahájen",
+        "restartError": "Nepodařilo se restartovat frontend",
+        "stopStarted": "Vypínání frontendu bylo zahájeno",
+        "stopError": "Nepodařilo se vypnout frontend",
+        "healthOk": "Frontend funguje",
+        "healthError": "Frontend nedostupný"
+      },
+      "backend": {
+        "title": "Backend",
+        "restart": "Restart",
+        "stop": "Vypnout",
+        "check": "Zkontrolovat stav",
+        "apiCheck": "Zkontrolovat API/DB",
+        "restartTitle": "Restart backendu",
+        "restartMessage": "Po obnovení zálohy je vyžadován restart backendu. Pokračovat?",
+        "restartNow": "Restartovat nyní",
+        "restartStarted": "Restart backendu byl zahájen",
+        "restartError": "Nepodařilo se restartovat backend",
+        "stopStarted": "Vypínání backendu bylo zahájeno",
+        "stopError": "Nepodařilo se vypnout backend",
+        "healthOk": "Backend funguje",
+        "healthError": "Backend nedostupný"
+      },
+      "status": "Stav:",
+      "uptime": "Provozní doba:",
+      "generatedAt": "Časové razítko:",
+      "database": "Databáze:",
+      "restartTitle": "Restart backendu",
+      "restartMessage": "Po obnovení zálohy je vyžadován restart backendu. Pokračovat?",
+      "restartNow": "Restartovat nyní"
+    },
+    "categories": {
+      "title": "Kategorie nástrojů",
+      "newCategory": "Nová kategorie",
+      "newCategoryPlaceholder": "např. Kladiva",
+      "add": "Přidat",
+      "edit": "Upravit"
+    },
+    "users": {
+      "title": {
+        "add": "Přidat uživatele",
+        "edit": "Upravit uživatele"
+      },
+      "username": "Uživatelské jméno",
+      "fullName": "Jméno a příjmení",
+      "role": "Role",
+      "password": "Heslo",
+      "newPasswordOptional": "Nové heslo (volitelně)",
+      "confirmPassword": "Potvrdit heslo",
+      "submitAdd": "Přidat",
+      "submitUpdate": "Aktualizovat",
+      "modalDescription": "Vyplňte údaje uživatele. Heslo musí splňovat bezpečnostní zásady.",
+      "search": "Hledat uživatele",
+      "searchPlaceholder": "Hledat uživatele...",
+      "confirmDelete": "Opravdu chcete smazat uživatele \"{username}\"?"
+    }
+  },
+  "dashboard": {
+    "title": "Domovská stránka",
+    "welcome": "Přihlášení proběhlo úspěšně.",
+    "stats": {
+      "tools": "Nástroje v systému",
+      "bhp": "Vybavení BOZP",
+      "employees": "Zaměstnanci",
+      "overdueInspections": "Přezkoušení po termínu",
+      "tooltip": {
+        "tools": "Nástroje:",
+        "bhp": "BOZP:"
+      }
+    },
+    "quick": {
+      "title": "Rychlé akce",
+      "createEmployeeTitle": "Přidat zaměstnance",
+      "createEmployee": "Vytvořit nový profil zaměstnance",
+      "issue": {
+        "title": "Rychlé vydání",
+        "tabs": {
+          "list": "Hledat ze seznamu",
+          "scan": "Hledat skenováním"
+        },
+        "searchLabel": "Hledat",
+        "searchPlaceholder": "Název, SKU nebo evidenční číslo",
+        "employeeLabel": "Zaměstnanec:",
+        "selectEmployee": "Vyberte zaměstnance:",
+        "permanent": "Vydat trvale?",
+        "scanInstructions": "Pokyny ke skenování:",
+        "scanStep1": "Naskenujte kód nástroje na obrazovce.",
+        "scanStep2": "Nástroj bude přidán do seznamu.",
+        "scanStep3": "Vydejte nástroje.",
+        "subtitle": "Naskenujte kód nástroje",
+        "modalTitle": "Rychlé vydání nástroje",
+        "itemsList": "Seznam položek k vydání",
+        "scanCodeLabel": "Kód nástroje:",
+        "scanCodePlaceholder": "Zadejte kód nástroje",
+        "submitButton": "Vydat položky",
+        "batchError": "Chyba při vydávání nástrojů",
+        "successSingle": "Nástroj \"{tool}\" byl úspěšně vydán zaměstnanci: {employee}",
+        "successBatch": "Vydáno {ok}/{total} položek {employee}",
+        "errorGeneral": "Chyba při vydávání nástroje",
+        "errorItem": "Chyba vydání: {name}",
+        "errors": {
+          "toolNotFound": "Nástroj se zadaným kódem nebyl nalezen",
+          "toolNotFoundWithCode": "Nástroj pro kód: {code} nebyl nalezen",
+          "toolNotAvailable": "Nástroj není dostupný k vydání",
+          "toolNotAvailableSimple": "Nástroj není dostupný",
+          "alreadyIssuedOrPermanent": "Nástroj se stavem \"Vydáno\" nebo \"Vydáno - trvale\" nelze vydat znovu.",
+          "toolUnavailableDetails": "Nedostupné: {name} (SKU: {sku})",
+          "addByCode": "Chyba přidávání podle kódu",
+          "noEmployeeSelected": "Vyberte zaměstnance, kterému chcete vydat nástroj",
+          "emptyList": "Seznam položek je prázdný"
+        },
+        "noItemsScanned": "Nebyly naskenovány žádné nástroje",
+        "noResults": "Žádné výsledky"
+      },
+      "return": {
+        "section": {
+          "issued": "Vydáno",
+          "permanent": "Vydáno - trvale"
+        },
+        "title": "Rychlé vrácení",
+        "subtitle": "Vrátit vydané nástroje",
+        "listTitle": "Seznam nástrojů vydaných zaměstnancům:",
+        "submitReturn": "Vrátit",
+        "success": "Nástroj úspěšně vrácen",
+        "successSingle": "Nástroj \"{tool}\" byl úspěšně vrácen od zaměstnance: {employee}",
+        "errorGeneral": "Chyba při vracení nástroje",
+        "errors": {
+          "noToolData": "Chyba: Chybí data nástroje",
+          "noIssuedTools": "Žádné vydané nástroje k vrácení",
+          "noPermanentTools": "Žádné trvale vydané nástroje"
+        }
+      },
+      "employee": {
+        "addSuccess": "Zaměstnanec byl úspěšně přidán",
+        "addError": "Chyba při přidávání zaměstnance"
+      },
+      "toastr": {
+        "errorDownloadData": "Chyba při načítání dat z řídicího panelu",
+        "employeesFetchError": "Chyba při načítání seznamu zaměstnanců",
+        "departmentsFetchError": "Chyba při načítání seznamu oddělení",
+        "positionsFetchError": "Chyba při načítání seznamu pozic",
+        "issuedToolsFetchError": "Chyba při načítání seznamu vydaných nástrojů",
+        "employeeFilterFetchError": "Chyba při načítání dat zaměstnance pro filtrování",
+        "toolHistoryFetchError": "Chyba při načítání historie nástrojů",
+        "bhpHistoryFetchError": "Chyba při načítání historie BOZP",
+        "toolsInspectionsFetchError": "Chyba při načítání dat o přezkoušeních nástrojů",
+        "bhpInspectionsFetchError": "Chyba při načítání dat o přezkoušeních BOZP"
+      }
+    },
+    "search": {
+      "label": "Čárový kód / QR nástroje",
+      "labelCode": "Kód (SKU, čárový kód, QR)",
+      "placeholder": "Naskenujte nebo zadejte kód nástroje...",
+      "placeholderName": "Název nebo výrobní číslo...",
+      "placeholderCode": "Naskenujte nebo zadejte kód...",
+      "searching": "Vyhledávání...",
+      "add": "Přidat",
+      "sku": "SKU",
+      "status": "Stav",
+      "available": "Dostupné množství",
+      "location": "Umístění",
+      "notFound": "Nástroje nenalezeny",
+      "notFoundCode": "Nástroje s kódem: {code} nenalezeny"
+    },
+    "quickIssue": {
+      "itemsLabel": "Položky k vydání"
+    },
+    "labels": {
+      "employee": "Zaměstnanec:",
+      "quantity": "Množství",
+      "issuedAt": "Vydáno",
+      "tool": "Nástroj",
+      "date": "Datum vydání",
+      "sku": "SKU",
+      "employeeFallback": "zaměstnanci",
+      "serialNumber": "Výrobní číslo"
+    },
+    "history": {
+      "tools": {
+        "title": "Historie vydání/vrácení nástrojů",
+        "noPermissions": "Nemáte oprávnění k prohlížení historie nástrojů.",
+        "noData": "Zatím nebyly zaznamenány žádné výdeje ani vrácení nástrojů."
+      },
+      "bhp": {
+        "title": "Historie vydání/vrácení BOZP",
+        "noPermissions": "Nemáte oprávnění k prohlížení historie BOZP.",
+        "noData": "Zatím nebyly zaznamenány žádné výdeje ani vrácení vybavení BOZP."
+      },
+      "recentCount": "Poslední {count}",
+      "noDataTitle": "Žádná historie",
+      "labels": {
+        "tool": "nástroj",
+        "bhp": "vybavení BOZP",
+        "issuedBy": "Vydal",
+        "quantity": "Množství"
+      }
+    },
+    "action": {
+      "issued": "Vydáno",
+      "returned": "Vráceno"
+    }
+  },
+  "users": {
+    "roles": {
+      "administrator": "Správce",
+      "manager": "Vedoucí",
+      "toolsmaster": "Nástrojař",
+      "hr": "HR",
+      "supervisor": "Mistr",
+      "engineer": "Inženýr",
+      "employee": "Zaměstnanec",
+      "user": "Uživatel"
+    },
+    "descriptions": {
+      "administrator": "Plný přístup ke všem funkcím systému",
+      "manager": "Správa nástrojů, zaměstnanců a analytika",
+      "toolsmaster": "Správa nástrojárny",
+      "hr": "Správa zaměstnanců a oddělení",
+      "supervisor": "Správa podřízených",
+      "engineer": "Správa projektů",
+      "employee": "Základní informace ze systému"
+    }
+  },
+  "permissions": {
+    "saving": "Ukládání...",
+    "save": "Uložit",
+    "close": "Zavřít",
+    "roleSelectLabel": "Vyberte roli",
+    "selfRoleChangeWarning": "Nemůžete změnit vlastní roli",
+    "toast": {
+      "fetchUsersError": "Chyba při načítání uživatelů",
+      "fetchRolePermsError": "Chyba při načítání oprávnění rolí",
+      "fetchAvailablePermsError": "Chyba při načítání dostupných oprávnění",
+      "savePermsSuccess": "Oprávnění pro roli {role} byla aktualizována",
+      "savePermsError": "Chyba při ukládání oprávnění",
+      "userNotFound": "Uživatel pro aktualizaci nebyl nalezen",
+      "updateRoleSuccess": "Role uživatele byla aktualizována",
+      "updateRoleError": "Chyba při aktualizaci role uživatele"
+    },
+    "labels": {
+      "VIEW_USERS": "Uživatelé - prohlížení",
+      "CREATE_USERS": "Uživatelé - vytváření",
+      "MANAGE_USERS": "Uživatelé - správa",
+      "EDIT_USERS": "Uživatelé - úprava",
+      "DELETE_USERS": "Uživatelé - mazání",
+      "VIEW_EMPLOYEES": "Zaměstnanci - prohlížení",
+      "MANAGE_EMPLOYEES": "Zaměstnanci - správa",
+      "EXPORT_EMPLOYEES": "Zaměstnanci - export",
+      "VIEW_ANALYTICS": "Analytika - prohlížení",
+      "VIEW_MAP": "Mapa závodu - prohlížení",
+      "MANAGE_MAP": "Mapa závodu - správa",
+      "VIEW_ALL_TOOLS": "Všechny nástroje - prohlížení",
+      "VIEW_TOOLS": "Nástroje - prohlížení",
+      "MANAGE_TOOLS": "Nástroje - správa",
+      "VIEW_TOOL_HISTORY": "Historie vydání/vrácení nástrojů - prohlížení",
+      "MANAGE_DEPARTMENTS": "Oddělení - správa",
+      "MANAGE_POSITIONS": "Pozice - správa",
+      "SYSTEM_SETTINGS": "Systémová nastavení",
+      "VIEW_ADMIN": "Administrační panel",
+      "VIEW_AUDIT_LOG": "Auditní deník - prohlížení",
+      "VIEW_BHP": "BOZP - prohlížení",
+      "VIEW_BHP_HISTORY": "Historie vydání/vrácení BOZP - prohlížení",
+      "MANAGE_BHP": "BOZP - správa",
+      "VIEW_QUICK_ACTIONS": "Rychlé akce - prohlížení",
+      "DELETE_ISSUE_HISTORY": "Mazání historie vydání",
+      "DELETE_RETURN_HISTORY": "Mazání historie vrácení",
+      "DELETE_SERVICE_HISTORY": "Mazání historie servisu",
+      "MANAGE_DATABASE": "Databáze - správa",
+      "VIEW_DATABASE": "Databáze - prohlížení",
+      "VIEW_INVENTORY": "Inventura - prohlížení",
+      "INVENTORY_MANAGE_SESSIONS": "Inventura - správa relací",
+      "INVENTORY_SCAN": "Inventura - skenování",
+      "INVENTORY_ACCEPT_CORRECTION": "Inventura - potvrzování oprav",
+      "INVENTORY_DELETE_CORRECTION": "Inventura - mazání oprav",
+      "INVENTORY_EXPORT_CSV": "Inventura - export CSV",
+      "VIEW_LABELS": "Štítky - prohlížení",
+      "EXPORT_TOOLS": "Nástroje - export nástrojů",
+      "EXPORT_BHP": "BOZP - export BOZP",
+      "NOTIFY": "Oznámení ne pro roli Zaměstnanec"
+    }
+  },
+  "admin": {
+    "settings": {
+      "title": "Nastavení",
+      "subtitle": "Spravujte systém a konfiguraci"
+    },
+    "appConfig": {
+      "card": {
+        "title": "Konfigurace aplikace",
+        "subtitle": "Spravujte nastavení a překlady",
+        "open": "Otevřít"
+      }
+    },
+    "audit": {
+      "card": {
+        "title": "Auditní deník",
+        "subtitle": "Prohlížet historii operací",
+        "open": "Zobrazit deník"
+      }
+    },
+    "roles": {
+      "card": {
+        "title": "Role a oprávnění",
+        "subtitle": "Konfigurovat role uživatelů"
+      },
+      "manage": "Spravovat oprávnění"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "subtitle": "Nevratné smazání dat",
+      "tools": {
+        "title": "Nástroje",
+        "subtitle": "Vymazat databázi nástrojů"
+      },
+      "bhp": {
+        "title": "Vybavení BOZP",
+        "subtitle": "Vymazat databázi vybavení BOZP"
+      },
+      "service": {
+        "title": "Servisování",
+        "subtitle": "Vymazat databázi servisování"
+      },
+      "employees": {
+        "title": "Zaměstnanci",
+        "subtitle": "Vymazat databázi zaměstnanců"
+      }
+    },
+    "actions": {
+      "deleteIssues": "Smazat historii vydání",
+      "deleteReturns": "Smazat historii vrácení",
+      "deleteServiceHistory": "Smazat historii servisování",
+      "deleteEmployees": "Smazat data zaměstnanců"
+    },
+    "toast": {
+      "historyDeleted": "Historie vydání byla smazána",
+      "historyDeleteError": "Chyba při mazání historie",
+      "employeesDeleted": "Všichni zaměstnanci byli smazáni",
+      "employeesDeleteError": "Chyba při mazání zaměstnanců",
+      "serviceHistoryDeleted": "Historie servisování byla smazána",
+      "serviceHistoryDeleteError": "Chyba při mazání historie servisování",
+      "toolIssuesHistoryDeleted": "Historie VYDÁNÍ nástrojů byla smazána",
+      "toolIssuesHistoryDeleteError": "Chyba při mazání historie vydání nástrojů",
+      "toolReturnsHistoryDeleted": "Historie VRÁCENÍ nástrojů byla smazána",
+      "toolReturnsHistoryDeleteError": "Chyba při mazání historie vrácení nástrojů",
+      "bhpIssuesHistoryDeleted": "Historie VYDÁNÍ BOZP byla smazána",
+      "bhpIssuesHistoryDeleteError": "Chyba při mazání historie vydání BOZP",
+      "bhpReturnsHistoryDeleted": "Historie VRÁCENÍ BOZP byla smazána",
+      "bhpReturnsHistoryDeleteError": "Chyba při mazání historie vrácení BOZP"
+    },
+    "modals": {
+      "deleteAllIssues": {
+        "title": "Smazat historii všech vydání",
+        "message": "Opravdu chcete smazat celou historii vydávání nástrojů? Tato operace je nevratná a smaže všechna data o vydáních a vrácení nástrojů.",
+        "confirm": "Smazat historii"
+      },
+      "deleteServiceHistory": {
+        "title": "Smazat historii servisování",
+        "message": "Opravdu chcete smazat celou historii servisování nástrojů? Tato operace je nevratná a smaže všechny související záznamy.",
+        "confirm": "Smazat historii servisování"
+      },
+      "deleteToolIssues": {
+        "title": "Smazat historii vydání nástrojů",
+        "message": "Opravdu chcete smazat všechny záznamy o VYDÁNÍCH nástrojů? Operace je nevratná.",
+        "confirm": "Smazat historii vydání"
+      },
+      "deleteToolReturns": {
+        "title": "Smazat historii vrácení nástrojů",
+        "message": "Opravdu chcete smazat všechny záznamy o VRÁCENÍ nástrojů? Operace je nevratná.",
+        "confirm": "Smazat historii vrácení"
+      },
+      "deleteBhpIssues": {
+        "title": "Smazat historii vydání vybavení BOZP",
+        "message": "Opravdu chcete smazat všechny záznamy o VYDÁNÍCH vybavení BOZP? Operace je nevratná.",
+        "confirm": "Smazat historii vydání"
+      },
+      "deleteBhpReturns": {
+        "title": "Smazat historii vrácení vybavení BOZP",
+        "message": "Opravdu chcete smazat všechny záznamy o VRÁCENÍ vybavení BOZP? Operace je nevratná.",
+        "confirm": "Smazat historii vrácení"
+      },
+      "deleteEmployees": {
+        "title": "Smazat všechny zaměstnance",
+        "message": "Opravdu chcete smazat všechny zaměstnance z databáze? Tato operace je nevratná a smaže všechna data zaměstnanců.",
+        "confirm": "Smazat zaměstnance"
+      }
+    }
+  },
+  "BHP": {
+    "title": "Vybavení BOZP",
+    "subtitle": "Vymazat databázi vybavení BOZP",
+    "manageDescription": "Spravujte vybavení BOZP (vydání, vrácení, přezkoušení)",
+    "actions": {
+      "addEquipment": "Přidat vybavení",
+      "edit": "Upravit",
+      "delete": "Smazat",
+      "issue": "Vydat",
+      "return": "Vrátit",
+      "notifyReturn": "Upozornit na vrácení",
+      "noPermission": "Žádná oprávnění k akci"
+    },
+    "filters": {
+      "search": "Hledat BOZP",
+      "searchPlaceholder": "evid. č., výrobce, model, sériové...",
+      "status": "Stav",
+      "all": "Vše",
+      "sort": "Řazení",
+      "reviews": "Přezkoušení",
+      "nearestReview": "Nejbližší přezkoušení",
+      "farthestReview": "Nejvzdálenější přezkoušení"
+    },
+    "sort": {
+      "inspectionDate": "Datum přezkoušení",
+      "inventoryNumber": "Evidenční číslo"
+    },
+    "table": {
+      "inventoryShort": "Evid. č.",
+      "manufacturerModel": "Výrobce / Model",
+      "serialCatalog": "Sériové / Katalogové",
+      "inspection": "Přezkoušení",
+      "status": "Stav",
+      "actions": "Akce"
+    },
+    "set": {
+      "label": "Sada",
+      "shock": "tlumiče",
+      "srd": "Samočinné záchranné zařízení"
+    },
+    "labels": {
+      "assignedLabel": "Přiřazeno",
+      "catalogAbbrev": "Kat.",
+      "numberAbbrev": "č.",
+      "inventoryLabel": "Evidenční číslo",
+      "serialLabel": "Sériové",
+      "catalogLabel": "Katalogové",
+      "inspectionLabel": "Přezkoušení",
+      "inventoryNumber": "Evidenční číslo",
+      "manufacturer": "Výrobce",
+      "model": "Model",
+      "serialNumber": "Sériové číslo",
+      "catalogNumber": "Katalogové číslo",
+      "productionDate": "Datum výroby",
+      "inspectionDate": "Datum přezkoušení",
+      "status": "Stav",
+      "assignedFirstName": "Přiřazený (jméno)",
+      "assignedLastName": "Přiřazený (příjmení)",
+      "assigned": "Přiřazený",
+      "manufacturerAbbrev": "Výr.",
+      "modelAbbrev": "Model",
+      "snAbbrev": "S/N",
+      "productionShort": "Datum výr."
+    },
+    "status": {
+      "available": "Dostupné",
+      "issued": "Vydáno",
+      "unknown": "Neznámý"
+    },
+    "notify": {
+      "sent": "Upozornění na vrácení odesláno",
+      "error": "Nepodařilo se odeslat upozornění",
+      "upcoming7Days": "Přezkoušení do 7 dní: {number} (za {days} {unit})",
+      "upcoming30Days": "Přezkoušení do 30 dní: {number} (za {days} {unit})"
+    },
+    "modal": {
+      "editTitle": "Upravit položku BOZP",
+      "addTitle": "Přidat položku BOZP"
+    },
+    "form": {
+      "inventoryNumberRequired": "Evidenční číslo *",
+      "scanCode": "Skenovat kód",
+      "generateWithPrefix": "Generovat kód s předponou",
+      "manufacturer": "Výrobce",
+      "model": "Model",
+      "serialNumber": "Sériové číslo",
+      "catalogNumber": "Katalogové číslo",
+      "productionDateHarness": "Datum výroby (postroj)",
+      "harnessStartDate": "Datum začátku používání",
+      "set": "Sada",
+      "shock": "Tlumič",
+      "srd": "Samočinné záchranné zařízení"
+    },
+    "shock": {
+      "manufacturerLabel": "Tlumič: Výrobce",
+      "modelLabel": "Tlumič: Model",
+      "snLabel": "Tlumič: S/N",
+      "catalogAbbrevLabel": "Tlumič: Kat.",
+      "productionShortLabel": "Tlumič: Datum výr.",
+      "catalogLabel": "Tlumič: Katalogové číslo",
+      "productionLabel": "Tlumič: Datum výroby"
+    },
+    "srd": {
+      "manufacturerLabel": "SRD: Výrobce",
+      "modelLabel": "SRD: Model",
+      "snLabel": "SRD: S/N",
+      "catalogAbbrevLabel": "SRD: Kat.",
+      "productionShortLabel": "SRD: Datum výr.",
+      "catalogLabel": "SRD: Katalogové číslo",
+      "productionLabel": "SRD: Datum výroby"
+    },
+    "export": {
+      "field": "Pole",
+      "value": "Hodnota",
+      "detailsTitle": "Export BOZP — podrobnosti",
+      "detailsHeader": "Podrobnosti BOZP",
+      "generatedAt": "Vygenerováno",
+      "sheetName": "Podrobnosti"
+    },
+    "errors": {
+      "notFound": "Položka BOZP nenalezena",
+      "popupBlocked": "Vyskakovací okno zablokováno — povolte otevírání nových oken",
+      "qrGenerateFailed": "Chyba při generování štítku (QR)",
+      "barcodeGenerateFailed": "Chyba při generování štítku (čárový kód)",
+      "setMutualExclusive": "Nelze zaškrtnout současně \"Tlumič\" a \"Samočinné záchranné zařízení\" Vyberte jedno.",
+      "saveFailed": "Chyba při ukládání záznamu",
+      "detailsFetchFailed": "Nepodařilo se načíst podrobnosti",
+      "issueFailed": "Nepodařilo se vydat",
+      "returnDataFetchFailed": "Nepodařilo se načíst data vrácení",
+      "returnFailed": "Nepodařilo se vrátit",
+      "noActiveIssue": "Žádné aktivní vydání",
+      "deleteFailed": "Nepodařilo se smazat záznam BOZP",
+      "notifyFailed": "Nepodařilo se odeslat upozornění",
+      "fethingFailed": "Nepodařilo se načíst data",
+      "loadingConfig": "Chyba při načítání konfigurace",
+      "generic": "Došlo k chybě: {message}",
+      "overdueIssueBlocked": "Tuto položku nelze vydat, protože vyžaduje přezkoušení."
+    }
+  },
+  "confirmation": {
+    "title": "Potvrdit akci",
+    "message": "Opravdu chcete provést tuto operaci?",
+    "confirm": "Potvrdit",
+    "cancel": "Zrušit"
+  },
+  "userSettings": {
+    "title": "Nastavení uživatele",
+    "subtitle": "Spravujte bezpečnost svého účtu",
+    "tabs": {
+      "profile": "Data zaměstnance",
+      "security": "Bezpečnost",
+      "notifications": "Oznámení"
+    },
+    "profile": {
+      "title": "Osobní informace",
+      "labels": {
+        "username": "Login",
+        "firstName": "Jméno",
+        "lastName": "Příjmení",
+        "phone": "Telefon",
+        "email": "E-mail",
+        "department": "Oddělení",
+        "position": "Pozice",
+        "status": "Stav",
+        "createdAt": "Přijat",
+        "brandNumber": "Služební číslo",
+        "rfidUid": "UID karty RFID"
+      },
+      "statusLabels": {
+        "active": "Aktivní",
+        "inactive": "Neaktivní",
+        "suspended": "Pozastavený"
+      },
+      "validation": {
+        "phoneInvalid": "Neplatný formát telefonu",
+        "emailInvalid": "Neplatný formát e-mailu"
+      }
+    },
+    "changePassword": {
+      "title": "Změnit heslo",
+      "username": "Uživatelské jméno",
+      "current": "Aktuální heslo",
+      "new": "Nové heslo",
+      "confirm": "Potvrdit nové heslo",
+      "notice": "Heslo bude aktualizováno pro váš účet"
+    },
+    "toast": {
+      "passwordSaved": "Heslo bylo úspěšně uloženo!",
+      "passwordChanged": "Heslo bylo změněno"
+    },
+    "errors": {
+      "fillAllFields": "Vyplňte všechna pole",
+      "passwordTooShort": "Nové heslo musí mít alespoň 6 znaků",
+      "passwordMismatch": "Nové heslo a potvrzení nejsou shodné",
+      "changeFailed": "Nepodařilo se změnit heslo"
+    },
+    "notifications": {
+      "title": "Oznámení",
+      "enableSound": "Zvuk oznámení",
+      "playTest": "Test přehrávání",
+      "saved": "Nastavení oznámení uloženo",
+      "playFailed": "Nepodařilo se přehrát zvuk",
+      "errors": {
+        "invalidType": "Neplatný typ",
+        "invalidItemType": "Neplatný typ prvku",
+        "missingFilters": "Chybí filtry",
+        "deleteFailed": "Nepodařilo se smazat oznámení",
+        "missingIds": "Chybí identifikátory",
+        "historyInvalidType": "Neplatný typ historie",
+        "invalidId": "Neplatné ID oznámení",
+        "notFound": "Oznámení nenalezeno",
+        "subscribeInvalid": "Neplatné předplatné",
+        "subscribeFailed": "Nepodařilo se uložit předplatné",
+        "fetchFailed": "Nepodařilo se načíst oznámení",
+        "updateFailed": "Nepodařilo se aktualizovat oznámení",
+        "requiredFields": "Vyplňte povinná pole",
+        "pushConfigFailed": "Konfigurace push se nezdařila"
+      }
+    }
+  },
+  "analytics": {
+    "title": "Analytika",
+    "subtitle": "Přehled statistik a reportů systému",
+    "permissions": {
+      "title": "Žádná oprávnění",
+      "viewAnalyticsDenied": "Nemáte oprávnění k prohlížení analytiky (VIEW_ANALYTICS)."
+    },
+    "utilization": {
+      "title": "Využití zdrojů",
+      "tools": "Nástroje",
+      "bhp": "BOZP",
+      "inService": "V servisu",
+      "total": "Celkem",
+      "issued": "Vydáno"
+    },
+    "topEmployees": {
+      "title": "Top 5 zaměstnanců (aktivní nástroje)",
+      "activeTools": "Aktivní nástroje"
+    },
+    "popularTools": {
+      "title": "Nejpopulárnější nástroje",
+      "uses": "Vydání"
+    },
+    "trends": {
+      "title": "Trendy využití (posledních 30 dní)",
+      "count": "Počet vydání"
+    },
+    "categories": {
+      "title": "Nástroje podle kategorií",
+      "count": "Počet nástrojů"
+    },
+    "upcomingInspections": "Nadcházející přezkoušení",
+    "overdue": "Po termínu",
+    "upcomingUnder30": "Nadcházející (<30 dní)",
+    "bhpPermissionDenied": "Žádná oprávnění k sekci BOZP (VIEW_BHP). Zobrazujeme pouze data z modulu Nástroje.",
+    "loadingInspections": "Načítání dat přezkoušení...",
+    "loadingService": "Načítání dat servisu...",
+    "overdueTools": "Po termínu (nástroje)",
+    "noOverdueTools": "Žádná přezkoušení nástrojů po termínu.",
+    "overdueBhp": "Po termínu (BOZP)",
+    "noOverdueBhp": "Žádná přezkoušení BOZP po termínu.",
+    "upcoming": "Nadcházející (<30 dní)",
+    "noUpcoming": "Žádná nadcházející přezkoušení do 30 dní.",
+    "chip": {
+      "tools": "Nástroje",
+      "bhp": "BOZP"
+    },
+    "phrases": {
+      "daysOverdue": "{count} dní po termínu",
+      "inDays": "za {count} dní"
+    },
+    "serviceHistory": {
+      "title": "Historie servisování",
+      "inService": "Aktuálně v servisu",
+      "recentEvents": "Nedávné události",
+      "generatedAt": "Vygenerováno",
+      "exportPDF": "Exportovat PDF",
+      "exportXLSX": "Exportovat XLSX",
+      "rowsCount": "Počet řádků",
+      "total": "Celkem: {count}",
+      "headers": {
+        "tool": "Nástroj",
+        "sku": "SKU",
+        "action": "Akce",
+        "quantity": "Množství",
+        "orderNumber": "Číslo zakázky",
+        "date": "Datum",
+        "sent": "Odesláno"
+      },
+      "action": {
+        "sent": "Odesláno",
+        "received": "Přijato"
+      },
+      "noInService": "Žádné nástroje v servisu.",
+      "noRecentEvents": "Žádné nedávné události.",
+      "noData": "Žádná data"
+    },
+    "pagination": {
+      "prev": "Předchozí",
+      "page": "Stránka",
+      "of": "z",
+      "next": "Další",
+      "total": "Celkem:",
+      "range": "{start}–{end} / {total}"
+    }
+  },
+  "scanner": {
+    "title": "Skenovat čárový kód",
+    "close": "Zavřít",
+    "permissionDenied": "Žádný přístup k fotoaparátu. Povolte prosím přístup k fotoaparátu v nastavení prohlížeče.",
+    "browserNotSupported": {
+      "title": "Prohlížeč nepodporuje kameru",
+      "desc": "Váš prohlížeč nepodporuje skenování kódů.",
+      "message": "Váš prohlížeč nepodporuje skenování kódů.",
+      "tipsIntro": "Zkuste:",
+      "tipsTitle": "Zkuste:",
+      "tips": {
+        "update": "Použít novější verzi prohlížeče",
+        "switch": "Přepnout na Chrome, Firefox nebo Safari",
+        "https": "Zkontrolovat, zda používáte HTTPS (vyžadováno pro kameru)",
+        "manual": "Zadat kód ručně",
+        "useNewer": "Použijte novější verzi prohlížeče",
+        "switchBrowser": "Přepněte na Chrome, Firefox nebo Safari",
+        "useHttps": "Ujistěte se, že používáte HTTPS (vyžadováno pro kameru)",
+        "enterManually": "Zadejte kód ručně"
+      }
+    },
+    "permissionsDenied": {
+      "desc": "Přístup ke kameře byl odepřen. Prosím povolte přístup ke kameře v nastavení prohlížeče."
+    },
+    "buttons": {
+      "cancel": "Zrušit"
+    },
+    "overlay": {
+      "scanning": "Skenování...",
+      "ready": "Připraven ke skenování"
+    },
+    "lastCode": "Poslední kód:",
+    "quantity": "Množství:",
+    "torch": {
+      "enable": "Zapnout svítilnu",
+      "disable": "Vypnout svítilnu",
+      "on": "Zapnout svítilnu",
+      "off": "Vypnout svítilnu"
+    },
+    "tipsHeader": "Tipy ke skenování",
+    "tipsGeneral": {
+      "stable": "• Držte telefon stabilně nad kódem",
+      "light": "• Ujistěte se, že kód je dobře osvětlen",
+      "frame": "• Kód by měl vyplňovat rámec skenování",
+      "wait": "• Počkejte na automatické rozpoznání"
+    },
+    "tipsLabels": {
+      "title": "Nálepky z tiskárny štítků",
+      "avoidReflections": "• Vyhněte se odrazům světla — mírně nakloňte telefon",
+      "distance": "• Držte telefon blíže (5–10 cm od nálepky)",
+      "torch": "• Zapněte svítilnu pro lepší kontrast",
+      "recognize": "• Počkejte 2–3 sekundy na rozpoznání",
+      "checkDamage": "• Zkontrolujte, zda nálepka není poškozena"
+    },
+    "cta": "Namiřte kameru na čárový kód nebo QR kód",
+    "errors": {
+      "NotAllowedError": "Přístup ke kameře byl odepřen. Prosím povolte přístup ke kameře v nastavení prohlížeče.",
+      "NotFoundError": "Kamera nenalezena. Ujistěte se, že zařízení má kameru.",
+      "NotSupportedError": "Prohlížeč nepodporuje přístup ke kameře. Zkuste použít jiný prohlížeč.",
+      "NotReadableError": "Kamera je používána jinou aplikací. Zavřete ostatní aplikace používající kameru.",
+      "OverconstrainedError": "Kameru nelze spustit s vybranými nastaveními. Zkuste to znovu.",
+      "Generic": "Při spuštění kamery došlo k chybě: {message}",
+      "generic": "Došlo k chybě: {message}",
+      "permissionDenied": "Přístup ke kameře byl odepřen. Prosím povolte přístup ke kameře v nastavení prohlížeče.",
+      "notFound": "Kamera nenalezena. Ujistěte se, že zařízení má kameru.",
+      "notSupported": "Prohlížeč nepodporuje přístup ke kameře. Zkuste použít jiný prohlížeč.",
+      "notReadable": "Kamera je používána jinou aplikací. Zavřete ostatní aplikace používající kameru.",
+      "overconstrained": "Kameru nelze spustit s vybranými nastaveními. Zkuste to znovu."
+    },
+    "tips": {
+      "title": "Tipy ke skenování",
+      "holdSteady": "Držte telefon stabilně nad kódem",
+      "wellLit": "Ujistěte se, že kód je dobře osvětlen",
+      "fillFrame": "Kód by měl vyplňovat rámec skenování",
+      "waitRecognition": "Počkejte na automatické rozpoznání",
+      "labels": {
+        "title": "Nálepky z tiskárny štítků",
+        "avoidGlare": "Vyhněte se odrazům světla — mírně nakloňte telefon",
+        "closerDistance": "Držte telefon blíže (5–10 cm od nálepky)",
+        "useTorch": "Zapněte svítilnu pro lepší kontrast",
+        "waitSeconds": "Počkejte 2–3 sekundy na rozpoznání",
+        "checkSticker": "Zkontrolujte, zda nálepka není poškozena"
+      },
+      "finalInstruction": "Namiřte kameru na čárový kód nebo QR kód"
+    },
+    "noRecognition": {
+      "title": "Žádné rozpoznání — zkuste znovu",
+      "attempts": "Pokusy: {count}"
+    },
+    "notFound": {
+      "message": "Nenalezeno v databázi: {code}"
+    }
+  },
+  "tools": {
+    "errors": {
+      "noManagePermission": "Žádná oprávnění ke správě nástrojů (MANAGE_TOOLS)",
+      "deleteFailed": "Při mazání nástroje došlo k chybě",
+      "notFound": "Nástroj nenalezen",
+      "invalidCode": "Neplatný kód nástroje",
+      "copyFailed": "Nepodařilo se zkopírovat",
+      "indexTaken": "Tento index je již používán",
+      "taken": "Toto evidenční číslo je již používáno"
+    },
+    "actions": {
+      "return": "Vrátit",
+      "generateSku": "Generovat SKU",
+      "notifyReturn": "Upozornit na vrácení",
+      "notifyReturnDesc": "Odeslat připomínku zaměstnanci.",
+      "add": "Přidat nástroj",
+      "edit": "Upravit nástroj",
+      "delete": "Smazat",
+      "service": "Servis",
+      "receiveFromService": "Převzít ze servisu",
+      "serviceReceived": "Převzato"
+    },
+    "issues": {
+      "success": "Nástroj byl úspěšně vydán.",
+      "error": "Při vydávání nástroje došlo k chybě."
+    },
+    "return": {
+      "success": "Nástroj byl úspěšně vrácen.",
+      "error": "Při vracení nástroje došlo k chybě."
+    },
+    "issueModal": {
+      "title": "Vydat nástroj",
+      "selectEmployee": "Vyberte zaměstnance",
+      "searchPlaceholder": "Hledat zaměstnance (jméno, příjmení, číslo)...",
+      "available": "Dostupné",
+      "permanent": "Vydat trvale?"
+    },
+    "returnModal": {
+      "title": "Vrátit nástroj",
+      "selectEmployee": "Vyberte zaměstnance",
+      "noActiveIssues": "Žádná aktivní vydání pro tento nástroj."
+    },
+    "confirm": {
+      "deleteTool": "Opravdu chcete smazat tento nástroj?"
+    },
+    "suggestions": {
+      "loadFailed": "Nepodařilo se načíst návrhy z backendu, používám lokální data"
+    },
+    "prefix": {
+      "loadFailed": "Nepodařilo se načíst předponu nástrojů"
+    },
+    "service": {
+      "chooseQty": "Vyberte množství od 1 do",
+      "sendSuccess": "Nástroje byly odeslány do servisu",
+      "sendFailed": "Nepodařilo se odeslat do servisu",
+      "receiveNone": "Žádné kusy v servisu k převzetí",
+      "receiveSuccess": "Převzato ze servisu",
+      "receiveFailed": "Nepodařilo se převzít ze servisu",
+      "modal": {
+        "title": "Odeslat do servisu"
+      },
+      "modalDescription": "Odeslat nástroj do servisu: vyberte množství a zadejte číslo zakázky.",
+      "available": "Dostupné pro servis",
+      "quantityLabel": "Množství pro servis",
+      "orderNumberLabel": "Číslo servisní zakázky",
+      "orderNumberPlaceholder": "Např. SER-2025-00123",
+      "sendButton": "Odeslat",
+      "markAsDamagedWarning": "Označit jako poškozené? (Tip: pokud je nástroj poškozen, měl by být označen jako poškozený.)"
+    },
+    "labels": {
+      "employee": "Zaměstnanec",
+      "productionYear": "Rok výroby",
+      "productionDate": "Datum výroby",
+      "generateError": "Při generování štítku došlo k chybě",
+      "generateQrError": "Při generování štítku (QR) došlo k chybě",
+      "generateBarcodeError": "Při generování štítku (čárový kód) došlo k chybě",
+      "sku": "SKU",
+      "scanPrompt": "Naskenujte kód pro kontrolu stavu",
+      "filenameLabel": "štítek",
+      "filenameQr": "štítek-qr",
+      "filenameBarcode": "štítek-carovy-kod"
+    },
+    "validation": {
+      "duplicate": "Nástroj s tímto kódem již existuje",
+      "nameRequired": "Název je povinný",
+      "categoryRequired": "Kategorie je povinná",
+      "quantityMin": "Množství musí být větší než 0",
+      "inventoryInUse": "Evidenční číslo je již používáno",
+      "skuExists": "Nástroj s tímto SKU již existuje",
+      "minStockInvalid": "Neplatný minimální stav (číslo ≥ 0)",
+      "maxStockInvalid": "Neplatný maximální stav (číslo ≥ 0)",
+      "maxLessThanMin": "Maximální stav nemůže být menší než minimální"
+    },
+    "save": {
+      "updateSuccess": "Data nástroje byla úspěšně aktualizována",
+      "error": "Při ukládání nástroje došlo k chybě"
+    },
+    "weldInspection": {
+      "title": "Přezkoušení svářečky: ",
+      "in": " za ",
+      "days": " dní",
+      "lessEqual30": " (<=30 dní)"
+    },
+    "notify": {
+      "sent": "Upozornění na vrácení odesláno",
+      "deleted": "Úspěšně smazáno",
+      "deleteError": "Chyba mazání",
+      "error": "Nepodařilo se odeslat upozornění",
+      "modalDescription": "Odeslat připomínku o vrácení pro vybraný nástroj."
+    },
+    "notifications": {
+      "updateSuccess": "Úspěšně aktualizováno",
+      "addSuccess": "Úspěšně přidáno",
+      "error": "Došlo k chybě"
+    },
+    "edit": {
+      "modalDescription": "Vyplňte data nástroje; povinná pole jsou označena."
+    },
+    "common": {
+      "tool": "Nástroj",
+      "toolIssued": "Nástroj vydán"
+    },
+    "header": {
+      "title": "Správa nástrojů",
+      "subtitle": "Přidávejte, upravujte a sledujte nástroje v systému"
+    },
+    "search": {
+      "label": "Vyhledat nástroj",
+      "placeholder": "Název, SKU, kategorie, evidenční číslo..."
+    },
+    "filters": {
+      "category": {
+        "label": "Kategorie"
+      },
+      "status": {
+        "label": "Stav"
+      },
+      "allCategories": "Všechny kategorie",
+      "allStatuses": "Všechny stavy",
+      "saved": {
+        "available": "Dostupné",
+        "issued": "Vydáno",
+        "partially_issued": "Vydáno - částečně",
+        "permanent": "Vydáno - trvale",
+        "service": "Servis",
+        "damaged": "Poškozeno"
+      }
+    },
+    "export": {
+      "pdf": "Exportovat jako PDF",
+      "xlsx": "Exportovat jako EXCEL"
+    },
+    "loading": {
+      "title": "Načítání nástrojů...",
+      "subtitle": "Čekejte prosím..."
+    },
+    "empty": {
+      "title": "Žádné nástroje",
+      "descDefault": "Přidejte první nástroj pro zahájení správy.",
+      "descFiltered": "Nebyly nalezeny nástroje splňující kritéria vyhledávání."
+    },
+    "table": {
+      "headers": {
+        "inventoryNumberShort": "Evid. č.",
+        "name": "Název",
+        "serialNumber": "Výrobní číslo",
+        "category": "Kategorie",
+        "location": "Umístění",
+        "sku": "SKU",
+        "actions": "Akce",
+        "status": "Stav"
+      },
+      "unreadableSerial": "nečitelné"
+    },
+    "mobile": {
+      "labels": {
+        "inventoryNumber": "Evidenční číslo",
+        "serialNumber": "Výrobní číslo",
+        "category": "Kategorie",
+        "location": "Umístění"
+      }
+    },
+    "qr": {
+      "title": "QR kód",
+      "generating": "Generování QR kódu...",
+      "downloadLabel": "Stáhnout štítek (pouze QR)",
+      "generateError": "Chyba generování QR kódu"
+    },
+    "barcode": {
+      "title": "Čárový kód",
+      "generating": "Generování čárového kódu...",
+      "downloadLabel": "Stáhnout štítek (pouze čárový kód)",
+      "generateError": "Chyba generování čárového kódu"
+    },
+    "details": {
+      "title": "Podrobnosti nástroje",
+      "infoTitle": "Informace o nástroji",
+      "name": "Název",
+      "inventoryNumber": "Evidenční číslo",
+      "serialNumber": "Výrobní číslo",
+      "unreadable": "nečitelné",
+      "sku": "SKU",
+      "category": "Kategorie",
+      "techData": "Technická data",
+      "manufacturer": "Výrobce",
+      "model": "Model",
+      "productionYear": "Rok výroby",
+      "inspectionDate": "Datum přezkoušení",
+      "overdue": "Po termínu",
+      "inspectionDueIn": "Přezkoušení za",
+      "location": "Umístění",
+      "status": "Stav",
+      "unknown": "neznámý",
+      "quantity": "Množství",
+      "description": "Popis",
+      "serviceTitle": "Servis",
+      "inService": "V servisu",
+      "pieces": "ks",
+      "orderNumber": "Č. zakázky",
+      "sentDate": "Datum odeslání",
+      "issuesTitle": "Vydání",
+      "issued": "Vydáno",
+      "unknownUser": "Neznámý",
+      "consumable": "Spotřební nástroj?",
+      "stockLimits": "Nastavte min/max pro sledování nedostatku materiálů.",
+      "minStock": "Minimální množství",
+      "maxStock": "Maximální množství",
+      "placeholders": {
+        "name": "Název nástroje",
+        "SKU": "Zadejte index SKU nástroje nebo vygenerujte",
+        "inventoryNumber": "Zadejte evidenční číslo nástroje, např. NE-000123",
+        "category": "Vyberte kategorii nástroje",
+        "location": "Zadejte umístění nástroje",
+        "selectCategory": "Vyberte kategorii nástroje",
+        "description": "Popis nástroje"
+      }
+    },
+    "returnRequests": {
+      "title": "Historie odesílání žádostí o vrácení",
+      "empty": "Žádná historie"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "search": "Hledat konverzace",
+    "noConversations": "Žádné konverzace",
+    "me": "Ty",
+    "startConversation": "Nová konverzace",
+    "messagePlaceholder": "Napište zprávu…",
+    "emojiInsert": "Emoji",
+    "emojiInsertTooltip": "Vložit emoji",
+    "fileTypeNotAllowed": "Nepovolen typ souboru",
+    "fileTooLarge": "Soubor je příliš velký (max 25 MB)",
+    "noValidFiles": "Žádné platné soubory k odeslání",
+    "markUnread": "Označit jako nepřečtené",
+    "block": "Blokovat",
+    "mute": "Ztlumit",
+    "archive": "Archivovat",
+    "delete": "Smazat chat",
+    "deleted": "Konverzace smazána",
+    "readAt": "Zobrazeno",
+    "unavailable": "Konverzace nedostupná",
+    "jumpToFirstUnread": "Přejít na první nepřečtenou",
+    "attachTooltip": "Vložit přílohu",
+    "send": "Odeslat",
+    "sendTooltip": "Odeslat",
+    "defaultPrompt": "Vyberte konverzaci nebo začněte novou",
+    "deleteError": "Nepodařilo se smazat konverzaci",
+    "reply": "Odpovědět",
+    "more": "Více",
+    "edit": "Upravit",
+    "unsend": "Odvolat odeslání",
+    "confirmDelete": "Opravdu chcete smazat tuto zprávu?",
+    "deleteMessageError": "Chyba mazání zprávy",
+    "editing": "Upravujete zprávu",
+    "replyingTo": "Odpovídáte na"
+  },
+  "slings": {
+    "foundItems": "Nalezeno: {count} podpoložek",
+    "editor": {
+      "title": "Podpoložky (podrobná evidence)",
+      "kind": "Druh",
+      "serialNumber": "Výrobní číslo",
+      "sku": "SKU",
+      "productionDate": "Datum výroby",
+      "productionYear": "Rok",
+      "productionMonth": "Měsíc",
+      "add": "Přidat položku",
+      "addTitle": "Přidat podpoložku",
+      "remove": "Odebrat",
+      "generateSku": "Generovat SKU",
+      "generateSkuAll": "Generovat SKU pro všechny",
+      "kindPlaceholder": "např. 3 m 2 t",
+      "validation": {
+        "kindRequired": "Druh je povinný",
+        "skuRequired": "SKU je povinné",
+        "dateRequired": "Datum výroby je povinné"
+      }
+    },
+    "details": {
+      "slingsItemsTable": "Upravte podrobné informace o podpoložkách pro tento nástroj.",
+      "slingsEditor": "Identifikace závěsů probíhá na úrovni podpoložek. Hlavní SKU se generuje automaticky a není operačně využíváno."
+    },
+    "validation": {
+      "minItems": "Přidejte alespoň jeden prvek do podpoložek"
+    },
+    "issue": {
+      "title": "Vydat označené",
+      "confirm": "Opravdu chcete vydat označené položky ({count})?",
+      "success": "Úspěšně vydáno"
+    },
+    "return": {
+      "title": "Vrátit označené",
+      "confirm": "Opravdu chcete vrátit označené položky ({count})?",
+      "success": "Úspěšně vráceno"
+    },
+    "table": {
+      "sku": "SKU",
+      "kind": "Druh",
+      "serialNumber": "Výr. číslo",
+      "production": "Datum výr.",
+      "status": "Stav",
+      "location": "Umístění",
+      "employee": "Zaměstnanec"
+    },
+    "errors": {
+      "noItems": "Žádné podpoložky",
+      "itemsFailed": "Nástroj byl vytvořen, ale při přidávání podpoložek došlo k chybě."
+    }
+  },
+  "sockets": {
+    "foundItems": "Nalezeno: {count} podpoložek (nástavce)",
+    "editor": {
+      "title": "Podpoložky (rázové nástavce)",
+      "sku": "SKU",
+      "kind": "Druh",
+      "size": "Velikost",
+      "quantity": "Množství",
+      "kindPlaceholder": "např. 6-hranná, dlouhá",
+      "sizePlaceholder": "např. 24 mm",
+      "generateSkuAll": "Generovat SKU pro všechny",
+      "jsonModalTitle": "Úprava / vkládání JSON (nástavce)",
+      "jsonModalHint": "Můžete vložit nebo upravit data ve formátu JSON. Podporován je formát pole nebo objektu s polem \"items\".",
+      "jsonModalError": "Chyba JSON",
+      "empty": "Žádné podpoložky. Přidejte řádek.",
+      "add": "Přidat nástavec"
+    },
+    "add": {
+      "title": "Přidat podpoložky (nástavce)"
+    },
+    "details": {
+      "itemsTable": "Upravte podrobné informace o podpoložkách pro tento nástroj.",
+      "editor": "Identifikace nástavců probíhá na úrovni podpoložek. Množství se počítá z podpoložek."
+    },
+    "actions": {
+      "addItems": "Přidat podpoložky"
+    },
+    "issue": {
+      "title": "Vydat označené nástavce"
+    },
+    "return": {
+      "title": "Vrátit označené nástavce"
+    },
+    "table": {
+      "sku": "SKU",
+      "kind": "Druh",
+      "size": "Velikost",
+      "quantity": "Množství",
+      "issued": "Vydáno",
+      "available": "Dostupné"
+    },
+    "modal": {
+      "qty": "Množství"
+    },
+    "errors": {
+      "noItems": "Žádné podpoložky (nástavce)"
+    }
+  },
+  "detectors": {
+    "foundItems": "Nalezeno: {count} podpoložek (detektory)",
+    "editor": {
+      "title": "Podpoložky (detektory)",
+      "addTitle": "Přidat podpoložky (detektory)",
+      "sku": "SKU",
+      "type": "Typ",
+      "inventoryNumber": "Evid. číslo",
+      "serialNumber": "Výr. číslo",
+      "calibrationDate": "Datum kalibrace",
+      "nextCalibrationDate": "Datum příští kalibrace",
+      "generateSku": "Generovat SKU",
+      "generateSkuAll": "Generovat SKU pro všechny",
+      "empty": "Žádné podpoložky. Přidejte řádek.",
+      "add": "Přidat detektor"
+    },
+    "details": {
+      "itemsTable": "Upravte podrobné informace o podpoložkách pro tento nástroj.",
+      "editor": "Identifikace detektorů probíhá na úrovni podpoložek. Vydání/vrácení probíhá na úrovni podpoložek."
+    },
+    "issue": {
+      "title": "Vydat označené detektory",
+      "success": "Úspěšně vydáno"
+    },
+    "return": {
+      "title": "Vrátit označené detektory",
+      "confirm": "Opravdu chcete vrátit označené položky ({count})?",
+      "success": "Úspěšně vráceno"
+    },
+    "table": {
+      "sku": "SKU",
+      "type": "Typ",
+      "inventoryNumber": "Evid. číslo",
+      "serialNumber": "Výr. číslo",
+      "calibrationDate": "Kalibrace",
+      "nextCalibrationDate": "Příští kalibrace",
+      "status": "Stav",
+      "employee": "Zaměstnanec"
+    },
+    "errors": {
+      "noItems": "Žádné podpoložky (detektory)"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+logowanie dla administratora:
+
+login: admintest
+pass: admin
