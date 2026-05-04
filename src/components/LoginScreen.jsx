@@ -293,7 +293,7 @@ const LoginScreen = ({ onLogin }) => {
             </div>
           </form>
           <div className="text-center">
-            <p className="text-xs text-slate-400 font-mono">ver. 2.6.5 • © 2026 Equipr</p>
+            <p className="text-xs text-slate-400 font-mono">ver. 1.0.1 • © 2026 Equipr</p>
           </div>
         </div>
       </div>

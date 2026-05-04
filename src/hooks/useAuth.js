@@ -109,24 +109,60 @@ export const useAuth = (options = {}) => {
   const login = useCallback(async (credentials) => {
     try {
       if (IS_SUPABASE_MODE && supabase) {
+        const rawIdentity = String(credentials?.username || credentials?.email || '').trim();
+        const edgeUsername = rawIdentity.replace(/@zarzadzanie\.local$/i, '');
         try {
-          let loginEmail = credentials.email || credentials.username;
-          // Auto-append domain if username is provided without @
-          // Only if it doesn't look like an email already
-          if (loginEmail && !loginEmail.includes('@')) {
-             loginEmail += '@zarzadzanie.local';
-          }
-
-          console.log('[Auth] Attempting Supabase login for:', loginEmail);
-          const { data, error } = await supabase.auth.signInWithPassword({
-            email: loginEmail,
-            password: credentials.password
+          const { data: funcData, error: funcError } = await supabase.functions.invoke('login', {
+            body: {
+              username: edgeUsername,
+              password: credentials.password
+            }
           });
-          
-          if (!error && data?.session) {
-             console.log('[Auth] Supabase login successful', data.user);
-             const session = data.session;
-             const userObj = {
+
+          if (!funcError && funcData && !funcData.error) {
+            if (funcData.supabase_token) {
+              const { error: sessionError } = await supabase.auth.setSession({
+                access_token: funcData.supabase_token,
+                refresh_token: funcData.supabase_token
+              });
+              if (sessionError) console.warn('[Auth] Failed to set session from Edge Function token', sessionError);
+            }
+
+            const userObj = {
+              id: funcData.id,
+              email: funcData.email,
+              role: funcData.role,
+              full_name: funcData.full_name,
+              username: funcData.username,
+              token: funcData.supabase_token || funcData.token,
+              refresh_token: null,
+              supabase_token: funcData.supabase_token
+            };
+
+            setUser(userObj);
+            localStorage.setItem('user', JSON.stringify(userObj));
+            api.setToken(userObj.token);
+            await loadRolePermissions();
+            await addAuditLog(userObj, AUDIT_ACTIONS.LOGIN, 'Użytkownik zalogował się do systemu (Edge Function)');
+            notifyInfo(t('dashboard.welcome', { name: userObj.full_name || userObj.username }));
+            return;
+          }
+        } catch (edgeErr) {
+          console.warn('[Auth] Edge Function login failed, fallback to Supabase Auth', edgeErr?.message || edgeErr);
+        }
+
+        const emailIdentity = String(credentials?.email || '').trim() || (rawIdentity.includes('@') ? rawIdentity : '');
+        const shouldTryPasswordGrant = !!emailIdentity && !/@zarzadzanie\.local$/i.test(emailIdentity);
+        if (shouldTryPasswordGrant) {
+          try {
+            const { data, error } = await supabase.auth.signInWithPassword({
+              email: emailIdentity,
+              password: credentials.password
+            });
+
+            if (!error && data?.session) {
+              const session = data.session;
+              const userObj = {
                 id: session.user.id,
                 email: session.user.email,
                 role: session.user.app_metadata?.role || 'user',
@@ -135,77 +171,18 @@ export const useAuth = (options = {}) => {
                 token: session.access_token,
                 refresh_token: session.refresh_token,
                 supabase_token: session.access_token
-             };
-             setUser(userObj);
-             localStorage.setItem('user', JSON.stringify(userObj));
-             api.setToken(session.access_token);
-             await loadRolePermissions();
-             await addAuditLog(userObj, AUDIT_ACTIONS.LOGIN, 'Użytkownik zalogował się do systemu (Supabase)');
-             notifyInfo(t('dashboard.welcome', { name: userObj.full_name || userObj.username }));
-             return;
-          } else {
-             console.warn('[Auth] Supabase Auth login failed, trying Edge Function login...', error?.message);
-             
-             // Try Edge Function login
-             try {
-                let funcUsername = credentials.username || credentials.email;
-                // Strip domain if present to ensure we match the 'username' column in users table
-                // The users table stores raw usernames (e.g. 'admintest'), but user might enter email
-                if (funcUsername && typeof funcUsername === 'string') {
-                    funcUsername = funcUsername.replace('@zarzadzanie.local', '');
-                }
-
-                const { data: funcData, error: funcError } = await supabase.functions.invoke('login', {
-                    body: { 
-                        username: funcUsername, 
-                        password: credentials.password 
-                    }
-                });
-
-                if (!funcError && funcData && !funcData.error) {
-                     console.log('[Auth] Edge Function login successful', funcData);
-                     
-                     // If we have a valid JWT signed with project secret, we can set it as session
-                     if (funcData.supabase_token) {
-                         const { error: sessionError } = await supabase.auth.setSession({
-                            access_token: funcData.supabase_token,
-                            refresh_token: funcData.supabase_token
-                         });
-                         if (sessionError) console.warn('[Auth] Failed to set session from Edge Function token', sessionError);
-                     }
-
-                     const userObj = {
-                        id: funcData.id,
-                        email: funcData.email,
-                        role: funcData.role,
-                        full_name: funcData.full_name,
-                        username: funcData.username,
-                        token: funcData.supabase_token || funcData.token,
-                        refresh_token: null,
-                        supabase_token: funcData.supabase_token
-                     };
-                     
-                     setUser(userObj);
-                     localStorage.setItem('user', JSON.stringify(userObj));
-                     api.setToken(userObj.token);
-                     await loadRolePermissions();
-                     await addAuditLog(userObj, AUDIT_ACTIONS.LOGIN, 'Użytkownik zalogował się do systemu (Edge Function)');
-                     notifyInfo(t('dashboard.welcome', { name: userObj.full_name || userObj.username }));
-                     return;
-                } else {
-                     const errorMsg = funcData?.error || funcError?.message || 'Błąd logowania (Edge Function)';
-                     console.warn('[Auth] Edge Function login failed:', errorMsg);
-                     throw new Error(errorMsg);
-                }
-             } catch (edgeErr) {
-                console.error('[Auth] Edge Function invocation exception:', edgeErr);
-                throw edgeErr;
-             }
-             
-             // Fallback to backend API if Supabase login fails (e.g. user not in Auth yet)
+              };
+              setUser(userObj);
+              localStorage.setItem('user', JSON.stringify(userObj));
+              api.setToken(session.access_token);
+              await loadRolePermissions();
+              await addAuditLog(userObj, AUDIT_ACTIONS.LOGIN, 'Użytkownik zalogował się do systemu (Supabase)');
+              notifyInfo(t('dashboard.welcome', { name: userObj.full_name || userObj.username }));
+              return;
+            }
+          } catch (sbError) {
+            console.warn('[Auth] Supabase password login failed', sbError?.message || sbError);
           }
-        } catch (sbError) {
-           console.error('[Auth] Supabase login exception:', sbError);
         }
       }
 

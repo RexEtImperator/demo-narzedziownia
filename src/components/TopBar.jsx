@@ -571,8 +571,6 @@ const TopBar = ({ user, onLogout, onToggleSidebar, isSidebarCollapsed, onToggleS
       // controller.abort();
       try { navigator.serviceWorker && navigator.serviceWorker.removeEventListener('message', onSwMessage); } catch (_) { /* noop */ }
       try { window.removeEventListener('notifications:refresh', onWindowRefresh); } catch (_) { /* noop */ }
-      notifCacheRef.current = { ts: 0, data: [] };
-      overdueCacheRef.current = { ts: 0, data: [] };
     };
   }, [user, t]);
 

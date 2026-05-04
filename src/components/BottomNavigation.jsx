@@ -8,11 +8,9 @@ import {
   FlagIcon
 } from '@heroicons/react/24/outline';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useAuth } from '../hooks/useAuth';
 
-const BottomNavigation = ({ onMenuToggle }) => {
+const BottomNavigation = ({ onMenuToggle, user }) => {
   const { t } = useLanguage();
-  const { user } = useAuth({ enableGlobalListeners: false });
   const isEmployee = String(user?.role) === 'employee';
 
   const navItems = [

@@ -15,7 +15,6 @@ import {
   FlagIcon
 } from '@heroicons/react/24/outline';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useAuth } from '../hooks/useAuth';
 import { PERMISSIONS, hasPermission } from '../constants';
 
 const CommandPalette = ({ 
@@ -24,10 +23,10 @@ const CommandPalette = ({
   tools = [], 
   employees = [], 
   bhpItems = [], 
+  user,
   onNavigate 
 }) => {
   const { t } = useLanguage();
-  const { user } = useAuth({ enableGlobalListeners: false });
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const inputRef = useRef(null);

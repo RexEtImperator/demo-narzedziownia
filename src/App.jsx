@@ -278,6 +278,7 @@ function AppImpl() {
               tools={tools}
               employees={hasPermission(user, PERMISSIONS.VIEW_EMPLOYEES) ? employees : []}
               bhpItems={bhpItems}
+              user={user}
               onNavigate={handleNavigation}
             />
           </Suspense>
@@ -481,7 +482,7 @@ function AppImpl() {
           />
         </div>
         
-        <BottomNavigation onMenuToggle={toggleMobileMenu} />
+        <BottomNavigation onMenuToggle={toggleMobileMenu} user={user} />
       </div>
   );
 }

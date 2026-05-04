@@ -27,7 +27,8 @@ function buildMapSrcDoc({ canManage, reporterName }) {
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"/>
     <style>
-      html, body { height: 100%; margin: 0; padding: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
       #wrap { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 14px; border: 1px solid rgba(148,163,184,0.45); background: #fff; }
       #map { width: 100%; height: 100%; }
       #addBtn {

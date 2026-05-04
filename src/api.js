@@ -25,15 +25,9 @@ let _handleSupabaseRequest = null;
 const getHandleSupabaseRequest = async () => {
   if (_handleSupabaseRequest) return _handleSupabaseRequest;
   if (!IS_SUPABASE_MODE) return null;
-  try {
-    const modulePath = './api/supabase/index.js';
-    const mod = await import(/* @vite-ignore */ modulePath);
-    _handleSupabaseRequest = mod?.handleSupabaseRequest || null;
-    return _handleSupabaseRequest;
-  } catch (_) {
-    _handleSupabaseRequest = null;
-    return null;
-  }
+  const mod = await import('./api/supabase/index.js');
+  _handleSupabaseRequest = mod?.handleSupabaseRequest || null;
+  return _handleSupabaseRequest;
 };
 
 class ApiClient {
@@ -42,6 +36,7 @@ class ApiClient {
     this.token = null;
     this.csrfToken = null;
     this._refreshInFlight = null;
+    this._inFlightGet = new Map();
   }
 
   setToken(token) {
@@ -167,20 +162,40 @@ class ApiClient {
     }
 
     if (IS_SUPABASE_MODE && supabase) {
-      if (!config.skipAuth && url !== '/api/login') {
-        await this.ensureToken();
+      const reqMethod = String(config.method || 'GET').toUpperCase();
+      const canDedupeGet = reqMethod === 'GET' && !config.signal && !config.noDedupe;
+      const dedupeKey = canDedupeGet ? finalUrl : null;
+
+      if (dedupeKey && this._inFlightGet.has(dedupeKey)) {
+        return await this._inFlightGet.get(dedupeKey);
       }
-      const headers = { ...config.headers };
-      if (this.token) {
-        headers['Authorization'] = `Bearer ${this.token}`;
+
+      const runRequest = async () => {
+        if (!config.skipAuth && url !== '/api/login') {
+          await this.ensureToken();
+        }
+        const headers = { ...config.headers };
+        if (this.token) {
+          headers['Authorization'] = `Bearer ${this.token}`;
+        }
+        const fn = await getHandleSupabaseRequest();
+        if (typeof fn !== 'function') {
+          throw new Error('Supabase mapping is not available (missing handleSupabaseRequest export)');
+        }
+        return await fn(finalUrl, reqMethod, config.body, headers, supabase);
+      };
+
+      if (!dedupeKey) {
+        return await runRequest();
       }
-      // Pass the original body object (not stringified)
-      // Use handleSupabaseRequest for all requests in Supabase mode, including login
-      const fn = await getHandleSupabaseRequest();
-      if (typeof fn !== 'function') {
-        throw new Error('Supabase mapping is not available (missing handleSupabaseRequest export)');
+
+      const promise = runRequest();
+      this._inFlightGet.set(dedupeKey, promise);
+      try {
+        return await promise;
+      } finally {
+        this._inFlightGet.delete(dedupeKey);
       }
-      return await fn(finalUrl, config.method || 'GET', config.body, headers, supabase);
     }
 
     let fullUrl = `${this.baseURL}${finalUrl}`;
