@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import api from '../../api';
 import { notifySuccess, notifyError } from '../../utils/notify';
 import { ArrowDownTrayIcon, ArrowPathIcon, ArrowUturnLeftIcon, ArrowUturnRightIcon, PencilIcon, XMarkIcon, CheckIcon, QrCodeIcon, PrinterIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import QRCode from 'qrcode';
 import ToolsSlingsEditor from './ToolsSlingsEditor';
+import { useNavigate } from 'react-router-dom';
 
-const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPrintBatch, highlightSku, onDownloadLabel, hideDelete = false, hideEdit = false, onPrintLabel }) => {
+const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPrintBatch, highlightSku, autoAction, onDownloadLabel, hideDelete = false, hideEdit = false, onPrintLabel }) => {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
@@ -26,6 +28,12 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
   const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
   const [searchEmployee, setSearchEmployee] = useState('');
 
+  const goToEmployeeSearch = useCallback((fullName) => {
+    const q = String(fullName || '').trim();
+    if (!q) return;
+    navigate(`/employees?q=${encodeURIComponent(q)}`);
+  }, [navigate]);
+
   const fetchItems = useCallback(async () => {
     if (!toolId) return;
     setLoading(true);
@@ -41,6 +49,33 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
       setLoading(false);
     }
   }, [toolId, t]);
+
+  const fetchEmployees = useCallback(async () => {
+    setLoadingEmployees(true);
+    try {
+      const res = await api.get('/api/employees');
+      
+      let data = res;
+      if (data && typeof data === 'object' && !Array.isArray(data)) {
+         if (Array.isArray(data.data)) data = data.data;
+         else if (Array.isArray(data.items)) data = data.items;
+         else if (Array.isArray(data.rows)) data = data.rows;
+      }
+      
+      const loadedEmployees = Array.isArray(data) ? data : [];
+      setEmployees(loadedEmployees);
+      
+      if (loadedEmployees.length === 0) {
+        console.warn('No employees found via API');
+      }
+    } catch (_err) {
+      console.error('Error fetching employees:', _err);
+      notifyError('Failed to fetch employees');
+      setEmployees([]);
+    } finally {
+      setLoadingEmployees(false);
+    }
+  }, []);
 
   useEffect(() => {
     fetchItems();
@@ -58,6 +93,40 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
       } catch (_) { void 0; }
     }
   }, [items, highlightSku, toolId]);
+
+  const autoActionRef = useRef(null);
+  useEffect(() => {
+    const action = String(autoAction || '').trim().toLowerCase();
+    if (action !== 'issue' && action !== 'return') return;
+    const sku = String(highlightSku || '').trim();
+    if (!sku) return;
+    const match = (items || []).find(i => String(i?.sku || '').trim() === sku);
+    if (!match) return;
+    const key = `${toolId}|${action}|${sku}`;
+    if (autoActionRef.current === key) return;
+    autoActionRef.current = key;
+    if (action === 'issue') {
+      setSelectedIds([match.id]);
+      setIssueModalOpen(true);
+      fetchEmployees();
+      setSelectedEmployeeId('');
+      setSearchEmployee('');
+      return;
+    }
+
+    const confirmText = t?.('slings.return.confirm', { count: 1 }) || 'Czy na pewno chcesz zwrócić zaznaczone pozycje (1)?';
+    if (!window.confirm(confirmText)) return;
+    Promise.resolve()
+      .then(async () => {
+        await api.post('/api/slings/return', { item_ids: [match.id] });
+        notifySuccess(t?.('slings.return.success') || t?.('common.saved') || 'Zapisano');
+        fetchItems();
+        window.dispatchEvent(new CustomEvent('tools:list:changed'));
+      })
+      .catch((err) => {
+        notifyError(err?.response?.data?.message || err?.message || 'Failed to return items');
+      });
+  }, [autoAction, highlightSku, items, toolId, t, fetchEmployees, fetchItems]);
 
   const handleSelectAll = (e) => {
     if (e.target.checked) {
@@ -144,35 +213,6 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
       notifyError(msg);
     } finally {
       setSavingNew(false);
-    }
-  };
-
-  const fetchEmployees = async () => {
-    setLoadingEmployees(true);
-    try {
-      // Fetch without pagination params to get all employees (backend returns all if page is missing)
-      const res = await api.get('/api/employees');
-      
-      let data = res;
-      // Handle various pagination structures if they appear
-      if (data && typeof data === 'object' && !Array.isArray(data)) {
-         if (Array.isArray(data.data)) data = data.data;
-         else if (Array.isArray(data.items)) data = data.items;
-         else if (Array.isArray(data.rows)) data = data.rows;
-      }
-      
-      const loadedEmployees = Array.isArray(data) ? data : [];
-      setEmployees(loadedEmployees);
-      
-      if (loadedEmployees.length === 0) {
-        console.warn('No employees found via API');
-      }
-    } catch (_err) {
-      console.error('Error fetching employees:', _err);
-      notifyError('Failed to fetch employees');
-      setEmployees([]);
-    } finally {
-      setLoadingEmployees(false);
     }
   };
 
@@ -579,7 +619,21 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
                   </span>
                 </td>
                 <td className="p-3">
-                  {item.employee_name ? item.employee_name : (item.employee_id || '-')}
+                  {item.employee_name ? (
+                    <button
+                      type="button"
+                      onClick={() => goToEmployeeSearch(item.employee_name)}
+                      className="text-left inline-flex items-center gap-2 text-base font-medium text-slate-900 dark:text-slate-100 font-mono sharp-text cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      title={t('employees.navigateToEmployeeIndex') || 'Przejdź do kartoteki pracownika'}
+                    >
+                      {(item.employee_brand_number !== null && item.employee_brand_number !== undefined && String(item.employee_brand_number).trim() !== '') ? (
+                        <span className="inline-flex items-center justify-center min-w-8 px-2 py-0.5 rounded-full text-xs font-semibold bg-indigo-600 text-white dark:bg-indigo-500">
+                          {String(item.employee_brand_number).trim()}
+                        </span>
+                      ) : null}
+                      <span>{item.employee_name}</span>
+                    </button>
+                  ) : (item.employee_id || '-')}
                 </td>
                 
                 {canManage && (
@@ -662,12 +716,12 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[60]">
           <div className="bg-white dark:bg-slate-800 rounded-lg shadow-xl w-full max-w-md p-6">
             <h3 className="text-lg font-bold mb-4 text-slate-900 dark:text-slate-100">
-              {t('slings.issue.title')} ({selectedIds.length})
+              {t('slings.issue.title') || 'Wydaj zaznaczone'} ({selectedIds.length})
             </h3>
             
             <div className="mb-4">
               <label htmlFor="search-employee" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
-                {t('tools.labels.employee')}
+                {t('tools.labels.employee') || 'Pracownik'}
               </label>
               <input
                 type="text"
@@ -687,13 +741,15 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
                     <div
                       key={emp.id}
                       onClick={() => setSelectedEmployeeId(emp.id)}
-                      className={`p-2 cursor-pointer text-sm text-slate-900 dark:text-slate-100 ${selectedEmployeeId === emp.id ? 'bg-blue-100 dark:bg-blue-900 dark:text-white' : 'hover:bg-slate-50 dark:hover:bg-slate-700'}`}
+                      className={`p-2 cursor-pointer text-sm text-slate-900 dark:text-slate-100 ${
+                        selectedEmployeeId === emp.id ? 'bg-blue-100 dark:bg-blue-900 dark:text-white' : 'hover:bg-slate-50 dark:hover:bg-slate-700'
+                      }`}
                     >
-                      {emp.first_name} {emp.last_name} {emp.brand_number ? `[${emp.brand_number}]` : ''}
+                      {emp.brand_number ? `[${emp.brand_number}]` : ''} {emp.first_name} {emp.last_name}
                     </div>
                   ))}
                   {filteredEmployees.length === 0 && (
-                    <div className="p-2 text-slate-500 dark:text-slate-400 text-sm">No employees found</div>
+                    <div className="p-2 text-slate-500 dark:text-slate-400 text-sm">{t?.('common.noResults') || 'Brak wyników'}</div>
                   )}
                 </div>
               )}
@@ -705,7 +761,7 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
                 onClick={() => setIssueModalOpen(false)}
                 className="px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
               >
-                {t('common.cancel')}
+                {t('common.cancel') || 'Anuluj'}
               </button>
               <button
                 type="button"
@@ -713,7 +769,7 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
                 disabled={!selectedEmployeeId}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
               >
-                {t('common.issue')}
+                {t('common.issue') || 'Wydaj'}
               </button>
             </div>
           </div>

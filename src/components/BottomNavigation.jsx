@@ -5,7 +5,6 @@ import {
   WrenchIcon,
   ShieldCheckIcon,
   UserGroupIcon,
-  Bars3Icon,
   FlagIcon
 } from '@heroicons/react/24/outline';
 import { useLanguage } from '../contexts/LanguageContext';

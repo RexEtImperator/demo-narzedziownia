@@ -113,6 +113,14 @@ const ToolsFilter = ({
   const searchContainerRef = useRef(null);
 
   useEffect(() => {
+    const next = (searchTerm || '').trim();
+    const handle = setTimeout(() => {
+      setDebouncedSearch(next);
+    }, 350);
+    return () => clearTimeout(handle);
+  }, [searchTerm, setDebouncedSearch]);
+
+  useEffect(() => {
     localStorage.setItem('tools_filters_open', isFiltersOpen);
   }, [isFiltersOpen]);
 
@@ -188,6 +196,7 @@ const ToolsFilter = ({
                     e.preventDefault(); 
                     e.stopPropagation(); 
                     setSearchTerm(''); 
+                    setDebouncedSearch('');
                     setIsSearchFocused(false);
                     return; 
                   }
@@ -206,7 +215,10 @@ const ToolsFilter = ({
                   type="button"
                   aria-label={t('common.clearInput')}
                   title={t('common.clearInput')}
-                  onClick={() => setSearchTerm('')}
+                  onClick={() => {
+                    setSearchTerm('');
+                    setDebouncedSearch('');
+                  }}
                   className="absolute right-2 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-500 dark:text-slate-300"
                 >
                   <svg
@@ -337,7 +349,7 @@ const ToolsFilter = ({
           <button
             type="button"
             onClick={exportListToPDF}
-            className="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg hover:opacity-90 sharp-text text-sm font-medium"
+            className="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white rounded-lg dark:text-slate-700 hover:opacity-70 sharp-text text-sm font-medium"
           >
             {t('common.export.PDF')}
           </button>

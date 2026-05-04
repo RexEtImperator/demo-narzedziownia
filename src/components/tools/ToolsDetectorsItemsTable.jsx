@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import api from '../../api';
 import { notifyError, notifySuccess } from '../../utils/notify';
+import { useNavigate } from 'react-router-dom';
 import {
   ArrowDownTrayIcon,
   ArrowPathIcon,
@@ -42,7 +43,8 @@ const daysToDate = (dateStr) => {
   return Math.ceil(diffMs / 86400000);
 };
 
-const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, onPrintLabel, onPrintBatch, onDownloadLabel, hideDelete = false, hideEdit = false }) => {
+const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, autoAction, onPrintLabel, onPrintBatch, onDownloadLabel, hideDelete = false, hideEdit = false }) => {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
@@ -59,6 +61,12 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, onPrintL
   const [searchEmployee, setSearchEmployee] = useState('');
   const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
   const [issueModalOpen, setIssueModalOpen] = useState(false);
+
+  const goToEmployeeSearch = useCallback((fullName) => {
+    const q = String(fullName || '').trim();
+    if (!q) return;
+    navigate(`/employees?q=${encodeURIComponent(q)}`);
+  }, [navigate]);
 
   const fetchItems = useCallback(async () => {
     if (!toolId) return;
@@ -77,6 +85,25 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, onPrintL
     }
   }, [toolId, t]);
 
+  const fetchEmployees = useCallback(async () => {
+    setLoadingEmployees(true);
+    try {
+      const res = await api.get('/api/employees');
+      let data = res;
+      if (data && typeof data === 'object' && !Array.isArray(data)) {
+        if (Array.isArray(data.data)) data = data.data;
+        else if (Array.isArray(data.items)) data = data.items;
+        else if (Array.isArray(data.rows)) data = data.rows;
+      }
+      setEmployees(Array.isArray(data) ? data : []);
+    } catch (err) {
+      notifyError(err?.message || 'Nie udało się pobrać pracowników');
+      setEmployees([]);
+    } finally {
+      setLoadingEmployees(false);
+    }
+  }, []);
+
   useEffect(() => {
     fetchItems();
   }, [fetchItems]);
@@ -93,6 +120,40 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, onPrintL
       } catch (_) { void 0; }
     }
   }, [items, highlightSku, toolId]);
+
+  const autoActionRef = useRef(null);
+  useEffect(() => {
+    const action = String(autoAction || '').trim().toLowerCase();
+    if (action !== 'issue' && action !== 'return') return;
+    const sku = String(highlightSku || '').trim();
+    if (!sku) return;
+    const match = (items || []).find(i => String(i?.sku || '').trim() === sku);
+    if (!match) return;
+    const key = `${toolId}|${action}|${sku}`;
+    if (autoActionRef.current === key) return;
+    autoActionRef.current = key;
+    if (action === 'issue') {
+      setSelectedIds([match.id]);
+      setIssueModalOpen(true);
+      setSelectedEmployeeId('');
+      setSearchEmployee('');
+      fetchEmployees();
+      return;
+    }
+
+    const confirmText = t?.('detectors.return.confirm', { count: 1 }) || 'Czy na pewno chcesz zwrócić zaznaczoną pozycję (1)?';
+    if (!window.confirm(confirmText)) return;
+    Promise.resolve()
+      .then(async () => {
+        await api.post('/api/detectors/return', { item_ids: [match.id] });
+        notifySuccess(t?.('detectors.return.success') || t?.('common.saved') || 'Zapisano');
+        fetchItems();
+        window.dispatchEvent(new CustomEvent('tools:list:changed'));
+      })
+      .catch((err) => {
+        notifyError(err?.response?.data?.message || err?.message || 'Nie udało się zwrócić');
+      });
+  }, [autoAction, highlightSku, items, toolId, t, fetchEmployees, fetchItems]);
 
   const handleSelectAll = (e) => {
     if (e.target.checked) setSelectedIds(items.map((i) => i.id));
@@ -168,25 +229,6 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, onPrintL
       notifyError(err?.response?.data?.message || err?.message || 'Nie udało się dodać podpozycji');
     } finally {
       setSavingNew(false);
-    }
-  };
-
-  const fetchEmployees = async () => {
-    setLoadingEmployees(true);
-    try {
-      const res = await api.get('/api/employees');
-      let data = res;
-      if (data && typeof data === 'object' && !Array.isArray(data)) {
-        if (Array.isArray(data.data)) data = data.data;
-        else if (Array.isArray(data.items)) data = data.items;
-        else if (Array.isArray(data.rows)) data = data.rows;
-      }
-      setEmployees(Array.isArray(data) ? data : []);
-    } catch (err) {
-      notifyError(err?.message || 'Nie udało się pobrać pracowników');
-      setEmployees([]);
-    } finally {
-      setLoadingEmployees(false);
     }
   };
 
@@ -440,7 +482,7 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, onPrintL
                 <tr
                   key={item.id}
                   id={isHighlighted ? `detectors-highlight-${toolId}-${item.id}` : undefined}
-                  className={`bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 ${isHighlighted ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-900/20' : ''}`}
+                  className={` ${isHighlighted ? 'bg-white hover:bg-slate-50 dark:hover:bg-slate-700 bg-indigo-50 dark:bg-indigo-900/60' : 'bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
                 >
                   <td className="p-3">
                     <input
@@ -542,7 +584,23 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, onPrintL
                       {t?.(`common.status.${item.status}`) || item.status}
                     </span>
                   </td>
-                  <td className="p-3">{item.employee_name ? item.employee_name : (item.employee_id || '-')}</td>
+                  <td className="p-3">
+                    {item.employee_name ? (
+                      <button
+                        type="button"
+                        onClick={() => goToEmployeeSearch(item.employee_name)}
+                        className="text-left inline-flex items-center gap-2 text-base font-medium text-slate-900 dark:text-slate-100 font-mono sharp-text cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        title={t('employees.navigateToEmployeeIndex') || 'Przejdź do kartoteki pracownika'}
+                      >
+                        {(item.employee_brand_number !== null && item.employee_brand_number !== undefined && String(item.employee_brand_number).trim() !== '') ? (
+                          <span className="inline-flex items-center justify-center min-w-8 px-2 py-0.5 rounded-full text-xs font-semibold bg-indigo-600 text-white dark:bg-indigo-500">
+                            {String(item.employee_brand_number).trim()}
+                          </span>
+                        ) : null}
+                        <span>{item.employee_name}</span>
+                      </button>
+                    ) : (item.employee_id || '-')}
+                  </td>
 
                   {canManage && (
                     <td className="p-3">
@@ -650,7 +708,7 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, onPrintL
                         selectedEmployeeId === emp.id ? 'bg-blue-100 dark:bg-blue-900 dark:text-white' : 'hover:bg-slate-50 dark:hover:bg-slate-700'
                       }`}
                     >
-                      {emp.first_name} {emp.last_name} {emp.brand_number ? `[${emp.brand_number}]` : ''}
+                      {emp.brand_number ? `[${emp.brand_number}]` : ''} {emp.first_name} {emp.last_name} 
                     </div>
                   ))}
                   {filteredEmployees.length === 0 && (

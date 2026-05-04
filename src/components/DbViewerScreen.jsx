@@ -378,9 +378,9 @@ const DbViewerScreen = ({ user }) => {
       });
   }, [rows, selectedRowIds, getRowId, columns]);
 
-  const quoteIdent = (name) => `"${String(name).replaceAll('"', '""')}"`;
+  const quoteIdent = useCallback((name) => `"${String(name).replaceAll('"', '""')}"`, []);
 
-  const sqlValueFor = (col, value) => {
+  const sqlValueFor = useCallback((col, value) => {
     if (value === null || typeof value === 'undefined') return 'NULL';
     const colType = String(columnTypes[col] || '').toUpperCase();
     if (typeof value === 'number') return Number.isFinite(value) ? String(value) : 'NULL';
@@ -393,7 +393,7 @@ const DbViewerScreen = ({ user }) => {
       try { return JSON.stringify(value); } catch { return String(value); }
     })();
     return `'${str.replaceAll("'", "''")}'`;
-  };
+  }, [columnTypes]);
 
   const exportJsonText = useMemo(() => JSON.stringify(selectedRows, null, 2), [selectedRows]);
 
@@ -420,7 +420,7 @@ const DbViewerScreen = ({ user }) => {
       .map(r => `(${columns.map(c => sqlValueFor(c, r[c])).join(', ')})`)
       .join(',\n');
     return `INSERT INTO ${quoteIdent(selectedTable)} (${cols}) VALUES\n${values};`;
-  }, [selectedRows, columns, selectedTable]);
+  }, [selectedRows, columns, selectedTable, quoteIdent, sqlValueFor]);
 
   const copyToClipboard = async (text) => {
     try {
@@ -429,7 +429,7 @@ const DbViewerScreen = ({ user }) => {
         toast.success('Skopiowano do schowka');
         return;
       }
-    } catch (_) {}
+    } catch (_) { void 0; }
 
     try {
       const el = document.createElement('textarea');

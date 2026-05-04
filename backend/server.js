@@ -6,6 +6,7 @@ const https = require('https');
 const { PORT, JWT_SECRET, ROOT_DIR, START_DELAY_MS } = require('./config/constants');
 const runMigrations = require('./database/migrate');
 const { initBackupScheduler, initTokenCleanupScheduler } = require('./services/scheduler');
+const { initFullTextSearch } = require('./services/search');
 const logger = require('./logger');
 const db = require('./database/db');
 
@@ -113,6 +114,11 @@ runMigrations()
     await syncDbSourceFromEnv();
     initBackupScheduler();
     initTokenCleanupScheduler();
+    try {
+      initFullTextSearch();
+    } catch (e) {
+      logger.warn('FTS init failed', { error: e?.message });
+    }
   })
   .catch((e) => {
     logger.error('Database migration failed', { error: e.message });

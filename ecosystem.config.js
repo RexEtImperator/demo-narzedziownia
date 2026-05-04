@@ -11,12 +11,10 @@ module.exports = {
     {
       name: "frontend",
       script: "npm",
-      args: "start",
+      args: "run start:prod",
       env: {
         PORT: 3001,
-        HTTPS: 'true',
-        SSL_CRT_FILE: 'ssl\\localhost.crt',
-        SSL_KEY_FILE: 'ssl\\localhost.key',
+        NODE_ENV: "production",
         BROWSER: "none"
       },
       watch: false

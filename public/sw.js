@@ -47,6 +47,10 @@ self.addEventListener('fetch', (event) => {
     return; 
   }
 
+  if (event.request.url.includes('/src/')) {
+    return;
+  }
+
   event.respondWith(
     fetch(event.request)
       .then((response) => {

@@ -528,6 +528,19 @@ router.get('/', authenticateToken, requirePermission('VIEW_TOOLS'), cacheMiddlew
   const whereParams = [];
   let subMatchCteSql = '';
   let subMatchParams = [];
+  let searchClauseNoFts = null;
+  let searchHasFts = false;
+
+  const isFtsFailure = (err) => {
+    const msg = String(err?.message || '');
+    return (
+      msg.includes('tools_fts') ||
+      msg.includes('vtable constructor failed') ||
+      err?.code === 'SQLITE_CORRUPT' ||
+      err?.code === 'SQLITE_NOTADB' ||
+      (err?.code === 'SQLITE_ERROR' && msg.toLowerCase().includes('no such table') && msg.includes('tools_fts'))
+    );
+  };
 
   if (search) {
     const ftsQuery = buildFtsSearchPattern(search);
@@ -542,19 +555,19 @@ router.get('/', authenticateToken, requirePermission('VIEW_TOOLS'), cacheMiddlew
         FROM (
           SELECT tool_id, sku AS matched_sku, NULL AS matched_inventory_number
           FROM tools_slings_items
-          WHERE LOWER(sku) LIKE LOWER(?) OR LOWER(serial_number) LIKE LOWER(?) OR LOWER(kind) LIKE LOWER(?)
+          WHERE LOWER(sku) LIKE LOWER(?) OR LOWER(serial_number) LIKE LOWER(?) OR LOWER(kind) LIKE LOWER(?) OR LOWER(category) LIKE LOWER(?)
           
           UNION ALL
           
           SELECT tool_id, sku AS matched_sku, NULL AS matched_inventory_number
           FROM tools_impact_sockets_1_items
-          WHERE LOWER(sku) LIKE LOWER(?) OR LOWER(kind) LIKE LOWER(?)
+          WHERE LOWER(sku) LIKE LOWER(?) OR LOWER(kind) LIKE LOWER(?) OR LOWER(size) LIKE LOWER(?)
           
           UNION ALL
           
           SELECT tool_id, sku AS matched_sku, NULL AS matched_inventory_number
           FROM tools_impact_sockets_12_items
-          WHERE LOWER(sku) LIKE LOWER(?) OR LOWER(kind) LIKE LOWER(?)
+          WHERE LOWER(sku) LIKE LOWER(?) OR LOWER(kind) LIKE LOWER(?) OR LOWER(size) LIKE LOWER(?)
           
           UNION ALL
           
@@ -567,9 +580,9 @@ router.get('/', authenticateToken, requirePermission('VIEW_TOOLS'), cacheMiddlew
     `.trim();
 
     subMatchParams = [
+      likePattern, likePattern, likePattern, likePattern,
       likePattern, likePattern, likePattern,
-      likePattern, likePattern,
-      likePattern, likePattern,
+      likePattern, likePattern, likePattern,
       likePattern, likePattern, likePattern, likePattern
     ];
     
@@ -594,10 +607,14 @@ router.get('/', authenticateToken, requirePermission('VIEW_TOOLS'), cacheMiddlew
       likePattern
     ];
 
+    const searchClauseNoFtsLocal = `(${conditions.join(' OR ')})`;
+
     if (ftsQuery) {
       // Hybrid search: FTS OR direct column matches
       conditions.unshift(`t.id IN (SELECT rowid FROM tools_fts WHERE tools_fts MATCH ?)`);
       params.unshift(ftsQuery);
+      searchHasFts = true;
+      searchClauseNoFts = searchClauseNoFtsLocal;
     }
       
     whereClauses.push(`(${conditions.join(' OR ')})`);
@@ -628,10 +645,98 @@ router.get('/', authenticateToken, requirePermission('VIEW_TOOLS'), cacheMiddlew
         if (!empRow || !empRow.id) {
           return res.json(formatPaginatedResponse([], 0, page, limit));
         }
-        const whereParts = [];
-        if (employeeJoinClause) whereParts.push(employeeJoinClause);
-        if (whereClauses.length) whereParts.push(whereClauses.join(' AND '));
-        const whereSql = whereParts.length ? `WHERE ${whereParts.join(' AND ')}` : '';
+        const runQueries = () => {
+          const whereParts = [];
+          if (employeeJoinClause) whereParts.push(employeeJoinClause);
+          if (whereClauses.length) whereParts.push(whereClauses.join(' AND '));
+          const whereSql = whereParts.length ? `WHERE ${whereParts.join(' AND ')}` : '';
+
+          const countQuery = `
+            ${subMatchCteSql ? `WITH ${subMatchCteSql}` : ''}
+            SELECT COUNT(*) as total
+            FROM tools t
+            ${whereSql}
+          `;
+
+          const dataQuery = `
+            WITH ${subMatchCteSql ? `${subMatchCteSql},` : ''} ti_agg AS (
+              SELECT tool_id, COALESCE(SUM(CASE WHEN LOWER(status) IN ('issued','partially_issued','permanent') THEN quantity ELSE 0 END), 0) AS issued_qty
+              FROM tool_issues
+              GROUP BY tool_id
+            ),
+            tsi_agg AS (
+              SELECT 
+                tool_id,
+                COALESCE(SUM(CASE WHEN status = 'issued' THEN 1 ELSE 0 END), 0) AS sl_issued,
+                COALESCE(SUM(CASE WHEN status = 'available' THEN 1 ELSE 0 END), 0) AS sl_available,
+                COUNT(*) AS sl_total
+              FROM tools_slings_items
+              GROUP BY tool_id
+            )
+            SELECT 
+              t.*,
+              ${subMatchCteSql ? 'COALESCE(sm.matched_sku, t.sku)' : 't.sku'} AS display_sku,
+              ${subMatchCteSql ? 'COALESCE(sm.matched_inventory_number, t.inventory_number)' : 't.inventory_number'} AS display_inventory_number,
+              CASE 
+                WHEN LOWER(t.category) IN ('zawiesia pasowe', 'zawiesia łańcuchowe') THEN 
+                   COALESCE(tsi_agg.sl_issued, 0)
+                ELSE
+                   COALESCE(ti_agg.issued_qty, 0)
+              END AS issued_quantity,
+              CASE 
+                WHEN LOWER(t.category) IN ('zawiesia pasowe', 'zawiesia łańcuchowe') THEN 
+                   COALESCE(tsi_agg.sl_available, 0)
+                ELSE
+                   (COALESCE(t.quantity, 0) - COALESCE(ti_agg.issued_qty, 0))
+              END AS available_quantity,
+              CASE 
+                WHEN LOWER(t.category) IN ('zawiesia pasowe', 'zawiesia łańcuchowe') THEN 
+                   COALESCE(tsi_agg.sl_total, 0)
+                ELSE
+                   COALESCE(t.quantity, 0)
+              END AS quantity
+            FROM tools t
+            LEFT JOIN ti_agg ON ti_agg.tool_id = t.id
+            LEFT JOIN tsi_agg ON tsi_agg.tool_id = t.id
+            ${subMatchCteSql ? 'LEFT JOIN sub_match sm ON sm.tool_id = t.id' : ''}
+            ${whereSql}
+            ${orderSql}
+            LIMIT ? OFFSET ?
+          `;
+
+          const paramsBase = employeeJoinClause ? [empRow.id, ...whereParams] : whereParams;
+          const paramsBaseWithCte = subMatchCteSql ? [...subMatchParams, ...paramsBase] : paramsBase;
+
+          db.get(countQuery, paramsBaseWithCte, (err, countResult) => {
+            if (err) return handleDbError(err);
+            const total = countResult.total;
+            db.all(dataQuery, [...paramsBaseWithCte, limit, offset], (err2, rows) => {
+              if (err2) return handleDbError(err2);
+              return res.json(formatPaginatedResponse(rows, total, page, limit));
+            });
+          });
+        };
+
+        const handleDbError = (dbErr) => {
+          if (searchHasFts && isFtsFailure(dbErr)) {
+            logger.warn('FTS query failed, retrying without tools_fts', { error: dbErr?.message });
+            searchHasFts = false;
+            if (searchClauseNoFts) {
+              whereClauses[0] = searchClauseNoFts;
+              whereParams.shift();
+            }
+            return runQueries();
+          }
+          logger.error('Error counting tools:', { error: dbErr?.message });
+          return sendDomainError(res, 'INTERNAL_SERVER_ERROR', dbErr?.message);
+        };
+
+        return runQueries();
+    });
+    }
+
+    const runQueries = () => {
+      const whereSql = whereClauses.length ? `WHERE ${whereClauses.join(' AND ')}` : '';
 
       const countQuery = `
         ${subMatchCteSql ? `WITH ${subMatchCteSql}` : ''}
@@ -639,7 +744,6 @@ router.get('/', authenticateToken, requirePermission('VIEW_TOOLS'), cacheMiddlew
         FROM tools t
         ${whereSql}
       `;
-
       const dataQuery = `
         WITH ${subMatchCteSql ? `${subMatchCteSql},` : ''} ti_agg AS (
           SELECT tool_id, COALESCE(SUM(CASE WHEN LOWER(status) IN ('issued','partially_issued','permanent') THEN quantity ELSE 0 END), 0) AS issued_qty
@@ -686,95 +790,32 @@ router.get('/', authenticateToken, requirePermission('VIEW_TOOLS'), cacheMiddlew
         LIMIT ? OFFSET ?
       `;
 
-      const paramsBase = employeeJoinClause ? [empRow.id, ...whereParams] : whereParams;
-      const paramsBaseWithCte = subMatchCteSql ? [...subMatchParams, ...paramsBase] : paramsBase;
-
-      db.get(countQuery, paramsBaseWithCte, (err, countResult) => {
-        if (err) {
-          logger.error('Error counting tools:', { error: err.message });
-          return sendDomainError(res, 'INTERNAL_SERVER_ERROR', err.message);
-        }
+      const whereParamsWithCte = subMatchCteSql ? [...subMatchParams, ...whereParams] : whereParams;
+      db.get(countQuery, whereParamsWithCte, (err, countResult) => {
+        if (err) return handleDbError(err);
         const total = countResult.total;
-        db.all(dataQuery, [...paramsBaseWithCte, limit, offset], (err2, rows) => {
-          if (err2) {
-            logger.error('Error fetching tools:', { error: err2.message });
-            return sendDomainError(res, 'INTERNAL_SERVER_ERROR', err2.message);
-          }
+        db.all(dataQuery, [...whereParamsWithCte, limit, offset], (err2, rows) => {
+          if (err2) return handleDbError(err2);
           return res.json(formatPaginatedResponse(rows, total, page, limit));
         });
       });
-    });
-    }
+    };
 
-    const whereSql = whereClauses.length ? `WHERE ${whereClauses.join(' AND ')}` : '';
-
-  const countQuery = `
-    ${subMatchCteSql ? `WITH ${subMatchCteSql}` : ''}
-    SELECT COUNT(*) as total
-    FROM tools t
-    ${whereSql}
-  `;
-  const dataQuery = `
-    WITH ${subMatchCteSql ? `${subMatchCteSql},` : ''} ti_agg AS (
-      SELECT tool_id, COALESCE(SUM(CASE WHEN LOWER(status) IN ('issued','partially_issued','permanent') THEN quantity ELSE 0 END), 0) AS issued_qty
-      FROM tool_issues
-      GROUP BY tool_id
-    ),
-    tsi_agg AS (
-      SELECT 
-        tool_id,
-        COALESCE(SUM(CASE WHEN status = 'issued' THEN 1 ELSE 0 END), 0) AS sl_issued,
-        COALESCE(SUM(CASE WHEN status = 'available' THEN 1 ELSE 0 END), 0) AS sl_available,
-        COUNT(*) AS sl_total
-      FROM tools_slings_items
-      GROUP BY tool_id
-    )
-    SELECT 
-      t.*,
-      ${subMatchCteSql ? 'COALESCE(sm.matched_sku, t.sku)' : 't.sku'} AS display_sku,
-      ${subMatchCteSql ? 'COALESCE(sm.matched_inventory_number, t.inventory_number)' : 't.inventory_number'} AS display_inventory_number,
-      CASE 
-        WHEN LOWER(t.category) IN ('zawiesia pasowe', 'zawiesia łańcuchowe') THEN 
-           COALESCE(tsi_agg.sl_issued, 0)
-        ELSE
-           COALESCE(ti_agg.issued_qty, 0)
-      END AS issued_quantity,
-      CASE 
-        WHEN LOWER(t.category) IN ('zawiesia pasowe', 'zawiesia łańcuchowe') THEN 
-           COALESCE(tsi_agg.sl_available, 0)
-        ELSE
-           (COALESCE(t.quantity, 0) - COALESCE(ti_agg.issued_qty, 0))
-      END AS available_quantity,
-      CASE 
-        WHEN LOWER(t.category) IN ('zawiesia pasowe', 'zawiesia łańcuchowe') THEN 
-           COALESCE(tsi_agg.sl_total, 0)
-        ELSE
-           COALESCE(t.quantity, 0)
-      END AS quantity
-    FROM tools t
-    LEFT JOIN ti_agg ON ti_agg.tool_id = t.id
-    LEFT JOIN tsi_agg ON tsi_agg.tool_id = t.id
-    ${subMatchCteSql ? 'LEFT JOIN sub_match sm ON sm.tool_id = t.id' : ''}
-    ${whereSql}
-    ${orderSql}
-    LIMIT ? OFFSET ?
-  `;
-
-    const whereParamsWithCte = subMatchCteSql ? [...subMatchParams, ...whereParams] : whereParams;
-    db.get(countQuery, whereParamsWithCte, (err, countResult) => {
-      if (err) {
-        logger.error('Error counting tools', { error: err.message });
-        return sendDomainError(res, 'INTERNAL_SERVER_ERROR', err.message);
-      }
-      const total = countResult.total;
-      db.all(dataQuery, [...whereParamsWithCte, limit, offset], (err2, rows) => {
-        if (err2) {
-          logger.error('Error fetching tools', { error: err2.message });
-          return sendDomainError(res, 'INTERNAL_SERVER_ERROR', err2.message);
+    const handleDbError = (dbErr) => {
+      if (searchHasFts && isFtsFailure(dbErr)) {
+        logger.warn('FTS query failed, retrying without tools_fts', { error: dbErr?.message });
+        searchHasFts = false;
+        if (searchClauseNoFts) {
+          whereClauses[0] = searchClauseNoFts;
+          whereParams.shift();
         }
-        return res.json(formatPaginatedResponse(rows, total, page, limit));
-      });
-    });
+        return runQueries();
+      }
+      logger.error('Error counting tools', { error: dbErr?.message });
+      return sendDomainError(res, 'INTERNAL_SERVER_ERROR', dbErr?.message);
+    };
+
+    runQueries();
   });
 });
 

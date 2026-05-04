@@ -135,13 +135,6 @@ function AppImpl() {
   }, [handleNavigation]);
 
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-        .catch(err => console.error('Service Worker registration failed:', err));
-    }
-  }, []);
-
-  useEffect(() => {
     const onRateLimit = (event) => {
       toast.warn(event.detail?.message || 'Zbyt wiele zapytań');
     };
@@ -205,6 +198,7 @@ function AppImpl() {
   }, [user]);
 
   useEffect(() => {
+    if (!user) return;
     const run = () => {
       const loaders = [];
 

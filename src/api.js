@@ -24,9 +24,16 @@ const IS_SUPABASE_MODE = typeof import.meta !== 'undefined' && import.meta.env &
 let _handleSupabaseRequest = null;
 const getHandleSupabaseRequest = async () => {
   if (_handleSupabaseRequest) return _handleSupabaseRequest;
-  const mod = await import('./api/supabaseMapping');
-  _handleSupabaseRequest = mod?.handleSupabaseRequest || null;
-  return _handleSupabaseRequest;
+  if (!IS_SUPABASE_MODE) return null;
+  try {
+    const modulePath = './api/supabase/index.js';
+    const mod = await import(/* @vite-ignore */ modulePath);
+    _handleSupabaseRequest = mod?.handleSupabaseRequest || null;
+    return _handleSupabaseRequest;
+  } catch (_) {
+    _handleSupabaseRequest = null;
+    return null;
+  }
 };
 
 class ApiClient {

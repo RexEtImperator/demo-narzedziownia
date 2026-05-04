@@ -261,7 +261,7 @@ const ToolRow = React.memo(({
 });
 
 // Memoized Mobile Row Component
-const MobileToolRow = React.memo(({ tool, t, handleRowClick }) => {
+const MobileToolRow = React.memo(({ tool, t, handleRowClick, openToolWithHighlight }) => {
   const { statusBorderColor } = getToolStatusInfo(tool);
   return (
     <div
@@ -295,6 +295,67 @@ const MobileToolRow = React.memo(({ tool, t, handleRowClick }) => {
           <span className="text-slate-900 dark:text-slate-100 sharp-text">{tool.location || '-'}</span>
         </div>
       </div>
+
+      {Array.isArray(tool.search_matches) && tool.search_matches.length > 0 ? (
+        <div className="mt-3 space-y-2" onClick={(e) => e.stopPropagation()}>
+          {tool.search_matches.slice(0, 10).map((m, idx) => {
+            const sku = String(m?.sku || '').trim();
+            const inv = String(m?.inventory_number || '').trim();
+            const sn = String(m?.serial_number || '').trim();
+            const kind = String(m?.kind || '').trim();
+            const size = String(m?.size || '').trim();
+            const type = String(m?.type || '').trim();
+            const status = String(m?.status || '').trim().toLowerCase();
+            const issuedQty = Number(m?.issued_quantity || 0) || 0;
+            const isIssued = status === 'issued' || issuedQty > 0;
+            const text = sku || inv || sn || '';
+            const detail = [type, kind, size].filter(Boolean).join(' • ');
+            if (!text && !detail) return null;
+            return (
+              <div
+                key={`${tool.id}-m-${idx}-${text || detail}`}
+                className="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600"
+                title={String(m?.source || '')}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="font-mono text-xs text-slate-800 dark:text-slate-100">{text || '-'}</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-300">{String(m?.source || '').replace(/_/g, ' ')}</span>
+                </div>
+                {detail ? (
+                  <div className="text-xs text-slate-600 dark:text-slate-200 mt-1 sharp-text">{detail}</div>
+                ) : null}
+                <div className="mt-2 flex items-center gap-3">
+                  {isIssued ? (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (typeof openToolWithHighlight === 'function') openToolWithHighlight(tool, sku, 'return');
+                      }}
+                      className="px-3 py-1.5 text-xs font-medium rounded-md transition-all shadow-sm bg-gradient-to-r text-white from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 border border-amber-600/20"
+                    >
+                      {t?.('tools.actions.return') || 'Zwróć'}
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (typeof openToolWithHighlight === 'function') openToolWithHighlight(tool, sku, 'issue');
+                      }}
+                      className="px-3 py-1.5 text-xs font-medium rounded-md transition-all shadow-sm bg-gradient-to-r text-white from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 border border-emerald-700/20"
+                    >
+                      {t?.('common.issue') || 'Wydaj'}
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
     </div>
   );
 });
@@ -312,6 +373,7 @@ const ToolsTable = ({
   sortConfig,
   handleSort,
   handleRowClick,
+  setHighlightSku,
   canManageTools,
   openNotify,
   handleServiceReceiveFor,
@@ -429,6 +491,172 @@ const ToolsTable = ({
     if (typeof onActionsLeave === 'function') onActionsLeave();
   }, [onActionsLeave]);
 
+  const openToolWithHighlight = React.useCallback((tool, sku, action) => {
+    try {
+      handleRowClick(tool);
+    } catch (_) { void 0; }
+    const s = String(sku || '').trim();
+    if (typeof setHighlightSku === 'function' && s) {
+      try {
+        setHighlightSku(s, action);
+      } catch (_) { void 0; }
+    }
+  }, [handleRowClick, setHighlightSku]);
+
+  const renderSubItemRow = React.useCallback((tool, m, idx) => {
+    const sku = String(m?.sku || '').trim();
+    const inv = String(m?.inventory_number || '').trim();
+    const sn = String(m?.serial_number || '').trim();
+    const kind = String(m?.kind || '').trim();
+    const size = String(m?.size || '').trim();
+    const type = String(m?.type || '').trim();
+    const source = String(m?.source || '').trim();
+    const status = String(m?.status || '').trim().toLowerCase();
+    const issuedQty = Number(m?.issued_quantity || 0) || 0;
+    const isIssued = status === 'issued' || issuedQty > 0;
+
+    const isSockets = source === 'nasadki_1' || source === 'nasadki_12';
+    const isSlings = source === 'zawiesia łańcuchowe' || source === 'zawiesia pasowe';
+    
+    const totalQty = Math.max(0, Number(m?.quantity ?? 0) || 0);
+    const availableQty = Math.max(0, Number(m?.available_quantity ?? (totalQty - issuedQty)) || 0);
+
+    const invCell = inv || '-';
+    const serialCell = sn || '-';
+    const nameLine = (type || kind) ? [type, kind].filter(Boolean).join(' • ') : (t?.('tools.details.subItem') || 'Podpozycja');
+    const detailLine = [source ? source.replace(/_/g, ' ') : '', size].filter(Boolean).join(' • ');
+    const statusForBadge = status || (isIssued ? 'issued' : 'available');
+    const statusBadgeClass = statusForBadge === 'available'
+      ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
+      : statusForBadge === 'issued'
+        ? 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-100'
+        : 'bg-slate-100 text-slate-800 dark:bg-slate-700 dark:text-slate-300';
+
+    return (
+      <tr
+        key={`${tool.id}-sub-${idx}-${sku || inv || sn || source}`}
+        className="bg-slate-50/70 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openToolWithHighlight(tool, sku);
+        }}
+      >
+        <td className="p-4 text-slate-600 dark:text-slate-300 font-mono text-sm sharp-text">{isSockets ? '-' : invCell}</td>
+        <td className="p-4">
+          <div className="font-medium text-slate-800 dark:text-slate-100 sharp-text">
+            {isSockets ? (kind || t?.('tools.details.subItem') || 'Podpozycja') : nameLine}
+          </div>
+          <div className="text-sm text-slate-500 dark:text-slate-400 sharp-text">
+            {isSockets ? (size || (source ? source.replace(/_/g, ' ') : '')) : (detailLine || '')}
+          </div>
+        </td>
+        <td className="p-4 text-slate-600 dark:text-slate-300 font-mono text-sm sharp-text">
+          {isSockets ? (
+            <div className="flex flex-col">
+              <span className="text-[11px] text-slate-500 dark:text-slate-300 sharp-text">{t?.('tools.details.totalQty') || 'Ogółem'}</span>
+              <span className="font-mono text-sm text-slate-700 dark:text-slate-200">{totalQty}</span>
+            </div>
+          ) : (
+            serialCell
+          )}
+        </td>
+        <td className="p-4 text-slate-600 dark:text-slate-300 sharp-text">
+          {isSockets || isSlings ? (
+            <div className="flex flex-col">
+              <span className="text-[11px] text-slate-500 dark:text-slate-300 sharp-text">{t?.('tools.details.issuedQty') || 'Wydane'}</span>
+              <span className="font-mono text-sm text-slate-700 dark:text-slate-200">{issuedQty}</span>
+            </div>
+          ) : (
+            <span className={`px-2 py-1 rounded-full text-xs font-medium ${statusBadgeClass}`}>
+              {t?.(`common.status.${statusForBadge}`) || statusForBadge}
+            </span>
+          )}
+        </td>
+        <td className="p-4 text-slate-600 dark:text-slate-300 sharp-text">
+          {isSockets ? (
+            <div className="flex flex-col">
+              <span className="text-[11px] text-slate-500 dark:text-slate-300 sharp-text">{t?.('tools.details.availableQty') || 'Dostępne'}</span>
+              <span className="font-mono text-sm text-slate-700 dark:text-slate-200">{availableQty}</span>
+            </div>
+          ) : (
+            '-'
+          )}
+        </td>
+        <td className="p-4 text-slate-600 dark:text-slate-300 font-mono text-sm sharp-text">{sku || '-'}</td>
+        <td className="p-4">
+          {(() => {
+            const canReturn = isSockets ? issuedQty > 0 : isIssued;
+            const canIssue = isSockets ? availableQty > 0 : !isIssued;
+
+            if (canIssue && canReturn) {
+              return (
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      openToolWithHighlight(tool, sku, 'issue');
+                    }}
+                    className="px-3 py-1.5 text-xs font-medium rounded-md transition-all shadow-sm bg-gradient-to-r text-white from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 border border-emerald-700/20"
+                  >
+                    {t?.('common.issue') || 'Wydaj'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      openToolWithHighlight(tool, sku, 'return');
+                    }}
+                    className="px-3 py-1.5 text-xs font-medium rounded-md transition-all shadow-sm bg-gradient-to-r text-white from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 border border-amber-600/20"
+                  >
+                    {t?.('tools.actions.return') || 'Zwróć'}
+                  </button>
+                </div>
+              );
+            }
+
+            if (canReturn) {
+              return (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openToolWithHighlight(tool, sku, 'return');
+                  }}
+                  className="px-3 py-1.5 text-xs font-medium rounded-md transition-all shadow-sm bg-gradient-to-r text-white from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 border border-amber-600/20"
+                >
+                  {t?.('tools.actions.return') || 'Zwróć'}
+                </button>
+              );
+            }
+
+            if (canIssue) {
+              return (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openToolWithHighlight(tool, sku, 'issue');
+                  }}
+                  className="px-3 py-1.5 text-xs font-medium rounded-md transition-all shadow-sm bg-gradient-to-r text-white from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 border border-emerald-700/20"
+                >
+                  {t?.('common.issue') || 'Wydaj'}
+                </button>
+              );
+            }
+
+            return null;
+          })()}
+        </td>
+      </tr>
+    );
+  }, [openToolWithHighlight, t]);
+
   return (
     <>
       <div className="hidden md:block bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
@@ -518,29 +746,33 @@ const ToolsTable = ({
           </thead>
           <tbody className="divide-y divide-slate-200 dark:divide-slate-600">
             {tools.map((tool) => (
-              <ToolRow 
-                key={tool.id} 
-                tool={tool}
-                t={t}
-                handleRowClick={handleRowClick}
-                onToolHover={safeOnToolHover}
-                onToolLeave={safeOnToolLeave}
-                onActionsHover={safeOnActionsHover}
-                onActionsLeave={safeOnActionsLeave}
-                canManageTools={canManageTools}
-                openNotify={openNotify}
-                handleServiceReceiveFor={handleServiceReceiveFor}
-                handleOpenServiceModal={handleOpenServiceModal}
-                handleOpenModal={handleOpenModal}
-                openDeleteConfirm={openDeleteConfirm}
-                handleCopySku={handleCopySku}
-                handleIssue={handleIssue}
-                handleReturn={handleReturn}
-                openDropdownId={openDropdownId}
-                toggleDropdown={toggleDropdown}
-                dropdownPosition={dropdownPosition}
-                dropdownRef={dropdownRef}
-              />
+              <React.Fragment key={tool.id}>
+                <ToolRow 
+                  tool={tool}
+                  t={t}
+                  handleRowClick={handleRowClick}
+                  onToolHover={safeOnToolHover}
+                  onToolLeave={safeOnToolLeave}
+                  onActionsHover={safeOnActionsHover}
+                  onActionsLeave={safeOnActionsLeave}
+                  canManageTools={canManageTools}
+                  openNotify={openNotify}
+                  handleServiceReceiveFor={handleServiceReceiveFor}
+                  handleOpenServiceModal={handleOpenServiceModal}
+                  handleOpenModal={handleOpenModal}
+                  openDeleteConfirm={openDeleteConfirm}
+                  handleCopySku={handleCopySku}
+                  handleIssue={handleIssue}
+                  handleReturn={handleReturn}
+                  openDropdownId={openDropdownId}
+                  toggleDropdown={toggleDropdown}
+                  dropdownPosition={dropdownPosition}
+                  dropdownRef={dropdownRef}
+                />
+                {Array.isArray(tool.search_matches) && tool.search_matches.length > 0 ? (
+                  tool.search_matches.slice(0, 20).map((m, idx) => renderSubItemRow(tool, m, idx))
+                ) : null}
+              </React.Fragment>
             ))}
           </tbody>
         </table>
@@ -554,6 +786,7 @@ const ToolsTable = ({
               tool={tool}
               t={t}
               handleRowClick={handleRowClick}
+              openToolWithHighlight={openToolWithHighlight}
             />
           ))
         ) : (

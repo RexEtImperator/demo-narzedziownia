@@ -7,6 +7,7 @@ import { notifyError, notifySuccess, notifyInfo } from '../utils/notify';
 import ToolsForm from './tools/ToolsForm';
 import { PERMISSIONS, hasPermission } from '../constants';
 import Preloader from './Preloader';
+import { WrenchScrewdriverIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const ToolsEditorScreen = ({ user }) => {
   const { id } = useParams();
@@ -101,40 +102,54 @@ const ToolsEditorScreen = ({ user }) => {
   }
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-        <div className="mb-6 flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
+    <div className="max-w-6xl mx-auto">
+      {/* HEADER */}
+      <div className="rounded-lg shadow-xl dark:border-slate-700 bg-white dark:bg-slate-800">
+        <div className="flex items-start justify-between gap-4 p-6">
+          <div className="flex items-center gap-4">
+            <div className="h-14 w-14 rounded-2xl bg-blue-600/10 flex items-center justify-center">
+              <WrenchScrewdriverIcon className="h-7 w-7 text-blue-600" />
+            </div>
+            <div>
+              <h2 id="edit-title" className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
                 {id ? (t('tools.actions.edit') || 'Edytuj narzędzie') : (t('tools.actions.add') || 'Dodaj narzędzie')}
-            </h1>
-            <button
-                onClick={() => navigate('/tools')}
-                className="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-600 dark:hover:bg-slate-700 transition-colors"
-            >
-                {t('common.cancel') || 'Anuluj'}
-            </button>
+              </h2>
+              <p id="edit-desc" className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                {t('tools.edit.modalDescription')}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => navigate('/tools')}
+            className="flex items-center gap-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-5 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
+          >
+            <XMarkIcon className="h-5 w-5" />
+            {t('common.cancel') || 'Anuluj'}
+          </button>
         </div>
+      </div>
 
-        <ToolsForm
-            isOpen={true}
-            isPage={true}
-            onClose={() => navigate('/tools')}
-            editingTool={id ? toolDetails : null}
-            formData={formData}
-            errors={errors}
-            isSubmitting={isSubmitting}
-            handleSubmit={handleSubmit}
-            handleInputChange={handleInputChange}
-            availableCategories={availableCategories}
-            suggestions={suggestions}
-            t={t}
-            generateSkuWithPrefix={generateSkuWithPrefix}
-            slingItems={slingItems}
-            setSlingItems={setSlingItems}
-            socketItems={socketItems}
-            setSocketItems={setSocketItems}
-            detectorsItems={detectorsItems}
-            setDetectorsItems={setDetectorsItems}
-        />
+      <ToolsForm
+        isOpen={true}
+        isPage={true}
+        onClose={() => navigate('/tools')}
+        editingTool={id ? toolDetails : null}
+        formData={formData}
+        errors={errors}
+        isSubmitting={isSubmitting}
+        handleSubmit={handleSubmit}
+        handleInputChange={handleInputChange}
+        availableCategories={availableCategories}
+        suggestions={suggestions}
+        t={t}
+        generateSkuWithPrefix={generateSkuWithPrefix}
+        slingItems={slingItems}
+        setSlingItems={setSlingItems}
+        socketItems={socketItems}
+        setSocketItems={setSocketItems}
+        detectorsItems={detectorsItems}
+        setDetectorsItems={setDetectorsItems}
+      />
     </div>
   );
 };

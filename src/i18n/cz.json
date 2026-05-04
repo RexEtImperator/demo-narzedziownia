@@ -875,6 +875,7 @@
     "subtitle": "Spravujte data zaměstnanců v systému",
     "add": "Přidat zaměstnance",
     "search": "Hledat",
+    "navigateToEmployeeIndex": "Navigovat k kartoteki zaměstnance",
     "searchPlaceholder": "Jméno, příjmení, služební číslo...",
     "department": "Oddělení",
     "position": "Pozice",
@@ -1128,7 +1129,7 @@
   "appConfig": {
     "header": {
       "title": "Konfigurace aplikace",
-      "subtitle": "Spravujte nastavení systému"
+      "subtitle": "Spravujte nastavení systému a překlady"
     },
     "validation": {
       "errorsFound": "Ve formuláři byly nalezeny chyby"
@@ -2493,7 +2494,7 @@
       "error": "Došlo k chybě"
     },
     "edit": {
-      "modalDescription": "Vyplňte data nástroje; povinná pole jsou označena."
+      "modalDescription": "Vyplňte data nástroje. Povinní pole jsou označena."
     },
     "common": {
       "tool": "Nástroj",
@@ -2597,7 +2598,7 @@
       "pieces": "ks",
       "orderNumber": "Č. zakázky",
       "sentDate": "Datum odeslání",
-      "issuesTitle": "Vydání",
+      "issuesTitle": "Aktuální v vydání",
       "issued": "Vydáno",
       "unknownUser": "Neznámý",
       "consumable": "Spotřební nástroj?",
@@ -2612,7 +2613,10 @@
         "location": "Zadejte umístění nástroje",
         "selectCategory": "Vyberte kategorii nástroje",
         "description": "Popis nástroje"
-      }
+      },
+      "totalQty": "Celkem množství",
+      "issuedQty": "Vydáno",
+      "availableQty": "Dostupné"
     },
     "returnRequests": {
       "title": "Historie odesílání žádostí o vrácení",
@@ -2745,8 +2749,8 @@
       "kind": "Druh",
       "size": "Velikost",
       "quantity": "Množství",
-      "issued": "Vydáno",
-      "available": "Dostupné"
+      "available": "Dostupné",
+      "employee": "Zaměstnanec"
     },
     "modal": {
       "qty": "Množství"

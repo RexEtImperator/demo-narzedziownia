@@ -895,18 +895,18 @@ function BhpScreen({ employees = [], user, initialSearchTerm = '' }) {
           </div>
         </div>
         {canExportBhp && (
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="mt-4 flex flex-wrap gap-3 border-t border-slate-100 dark:border-slate-700 pt-4">
             <button
               type="button"
               onClick={() => exportListToPDF(filteredItems || [], t)}
-              className="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg hover:opacity-90"
+              className="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white rounded-lg dark:text-slate-700 hover:opacity-70 sharp-text text-sm font-medium"
             >
               {t('common.export.PDF')}
             </button>
             <button
               type="button"
               onClick={() => exportListToXLSX(filteredItems || [], t)}
-              className="px-4 py-2 bg-emerald-600 dark:bg-emerald-700 text-white rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-800"
+              className="px-4 py-2 bg-emerald-600 dark:bg-emerald-700 text-white rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-800 sharp-text text-sm font-medium"
             >
               {t('common.export.EXCEL')}
             </button>
@@ -1261,13 +1261,13 @@ function BhpScreen({ employees = [], user, initialSearchTerm = '' }) {
                   <>
                     <button
                       onClick={() => exportDetailsToPDF(detailsItem, detailsData, t)}
-                      className="px-3 py-1.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg text-sm hover:opacity-90"
+                      className="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white rounded-lg dark:text-slate-700 hover:opacity-90 sharp-text text-sm font-medium"
                     >
                       {t('common.export.PDF')}
                     </button>
                     <button
                       onClick={() => exportDetailsToXLSX(detailsItem, detailsData, t)}
-                      className="px-3 py-1.5 bg-emerald-600 dark:bg-emerald-700 text-white rounded-lg text-sm hover:bg-emerald-700 dark:hover:bg-emerald-800"
+                      className="px-4 py-2 bg-emerald-600 dark:bg-emerald-700 text-white rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-800 sharp-text text-sm font-medium"
                     >
                       {t('common.export.EXCEL')}
                     </button>

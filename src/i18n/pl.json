@@ -857,6 +857,7 @@
     "subtitle": "Zarządzaj danymi pracowników w systemie",
     "add": "Dodaj pracownika",
     "search": "Wyszukaj",
+    "navigateToEmployeeIndex": "Przejdź do kartoteki pracownika",
     "searchPlaceholder": "Imię, nazwisko, numer służbowy...",
     "department": "Dział",
     "position": "Stanowisko",
@@ -1050,7 +1051,7 @@
   "appConfig": {
     "header": {
       "title": "Konfiguracja aplikacji",
-      "subtitle": "Zarządzaj ustawieniami systemu"
+      "subtitle": "Zarządzaj ustawieniami systemu i tłumaczeniami"
     },
     "validation": {
       "errorsFound": "Znaleziono błędy w formularzu."
@@ -2388,7 +2389,7 @@
       "error": "Wystąpił błąd"
     },
     "edit": {
-      "modalDescription": "Uzupełnij dane narzędzia; pola wymagane są oznaczone."
+      "modalDescription": "Uzupełnij dane narzędzia. Pola oznaczone * są wymagane."
     },
     "common": {
       "tool": "Narzędzie",
@@ -2488,7 +2489,7 @@
       "pieces": "szt.",
       "orderNumber": "Nr zlecenia",
       "sentDate": "Data wysłania",
-      "issuesTitle": "Wydania",
+      "issuesTitle": "Aktualne wydania",
       "issued": "Wydane",
       "unknownUser": "Nieznany",
       "consumable": "Narzędzie zużywalne?",
@@ -2503,7 +2504,10 @@
         "location": "Wpisz lokalizację narzędzia",
         "selectCategory": "Wybierz kategorię narzędzia",
         "description": "Opis narzędzia"
-      }
+      },
+      "totalQty": "Ogółem",
+      "issuedQty": "Wydane",
+      "availableQty": "Dostępne"
     },
     "returnRequests": {
       "title": "Historia wysyłania prośby zwrotu",
@@ -2637,7 +2641,8 @@
       "size": "Rozmiar",
       "quantity": "Ilość",
       "issued": "Wydane",
-      "available": "Dostępne"
+      "available": "Dostępne",
+      "employee": "Pracownik"
     },
     "modal": {
       "qty": "Ilość"

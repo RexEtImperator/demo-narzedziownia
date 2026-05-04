@@ -82,7 +82,7 @@ npm run dev
 Alternatywnie osobno:
 ```bash
 npm run server   # backend (PORT=3000) (trzeba parę razy uruchomić aby poprawnie wrzuciło tabele, kolumny i przykładowe wiersze)
-npm start        # frontend (PORT=3001)
+npm start        # frontend (PORT=3001) (najlepiej użyć komendy "npm run start:prod")
 ```
 
 ### Wymagania środowiskowe

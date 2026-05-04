@@ -1,22 +1,21 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import api from '../../api';
 import { notifyError, notifySuccess } from '../../utils/notify';
 import { ArrowDownTrayIcon, ArrowPathIcon, ArrowUturnLeftIcon, ArrowUturnRightIcon, CheckIcon, PencilIcon, PlusIcon, PrinterIcon, QrCodeIcon, TrashIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import QRCode from 'qrcode';
 import ToolsImpactSocketsEditor from './ToolsImpactSocketsEditor';
+import { useNavigate } from 'react-router-dom';
 
-const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintLabel, onPrintBatch, onDownloadLabel, hideDelete = false, hideEdit = false, highlightSku }) => {
+const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintLabel, onPrintBatch, onDownloadLabel, hideDelete = false, hideEdit = false, highlightSku, autoAction }) => {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
-
   const [isAdding, setIsAdding] = useState(false);
   const [newItems, setNewItems] = useState([]);
   const [savingNew, setSavingNew] = useState(false);
-
   const [editingId, setEditingId] = useState(null);
   const [editValues, setEditValues] = useState({});
-
   const [employees, setEmployees] = useState([]);
   const [loadingEmployees, setLoadingEmployees] = useState(false);
   const [searchEmployee, setSearchEmployee] = useState('');
@@ -25,6 +24,12 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
   const [returnModalOpen, setReturnModalOpen] = useState(false);
   const [qtyMap, setQtyMap] = useState({});
   const [savingIssue, setSavingIssue] = useState(false);
+
+  const goToEmployeeSearch = useCallback((fullName) => {
+    const q = String(fullName || '').trim();
+    if (!q) return;
+    navigate(`/employees?q=${encodeURIComponent(q)}`);
+  }, [navigate]);
 
   const fetchItems = useCallback(async () => {
     if (!toolId) return;
@@ -72,6 +77,32 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
       } catch (_) { void 0; }
     }
   }, [items, highlightSku, toolId]);
+
+  const autoActionRef = useRef(null);
+  useEffect(() => {
+    const action = String(autoAction || '').trim().toLowerCase();
+    if (action !== 'issue' && action !== 'return') return;
+    const sku = String(highlightSku || '').trim();
+    if (!sku) return;
+    const match = (items || []).find(i => String(i?.sku || '').trim() === sku);
+    if (!match) return;
+    const key = `${toolId}|${action}|${sku}`;
+    if (autoActionRef.current === key) return;
+    autoActionRef.current = key;
+    setSelectedIds([match.id]);
+    setSelectedEmployeeId('');
+    setSearchEmployee('');
+    setQtyMap({ [match.id]: 1 });
+    if (action === 'issue') {
+      setIssueModalOpen(true);
+      setReturnModalOpen(false);
+      Promise.resolve(fetchEmployees()).catch(() => {});
+    } else {
+      setReturnModalOpen(true);
+      setIssueModalOpen(false);
+      Promise.resolve(fetchEmployees()).catch(() => {});
+    }
+  }, [autoAction, highlightSku, items, toolId, fetchEmployees]);
 
   const handleSelectAll = (e) => {
     if (e.target.checked) setSelectedIds(items.map(i => i.id));
@@ -395,6 +426,7 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
               <th className="p-3">{t('sockets.table.quantity')}</th>
               <th className="p-3">{t('sockets.table.issued')}</th>
               <th className="p-3">{t('sockets.table.available')}</th>
+              <th className="p-3">{t('sockets.table.employee')}</th>
               {canManage && <th className="p-3 w-20">{t('common.actions')}</th>}
             </tr>
           </thead>
@@ -474,6 +506,43 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
                   </td>
                   <td className="p-3">
                     <span className="sharp-text">{item.available_quantity ?? item.quantity}</span>
+                  </td>
+                  <td className="p-3">
+                    {Array.isArray(item.issued_to) && item.issued_to.length > 0 ? (
+                      <div className="space-y-1">
+                        {item.issued_to.map((h) => {
+                          const fullName = `${h.employee_first_name || ''} ${h.employee_last_name || ''}`.trim();
+                          const brandValue = h.employee_brand_number;
+                          const hasBrand = brandValue !== null && brandValue !== undefined && String(brandValue).trim() !== '';
+                          const qty = Number(h.quantity || 0) || 0;
+
+                          return (
+                            <div key={`${item.id}-${h.employee_id || ''}-${h.employee_brand_number || ''}-${fullName || 'unknown'}`} className="flex items-center justify-between gap-3">
+                              {fullName ? (
+                                <button
+                                  type="button"
+                                  onClick={() => goToEmployeeSearch(fullName)}
+                                  className="text-left inline-flex items-center gap-2 text-base font-medium text-slate-900 dark:text-slate-100 font-mono sharp-text cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                  title={t('employees.navigateToEmployeeIndex') || 'Przejdź do kartoteki pracownika'}
+                                >
+                                  {hasBrand ? (
+                                    <span className="inline-flex items-center justify-center min-w-8 px-2 py-0.5 rounded-full text-xs font-semibold bg-indigo-600 text-white dark:bg-indigo-500">
+                                      {String(brandValue).trim()}
+                                    </span>
+                                  ) : null}
+                                  <span>{fullName}</span>
+                                </button>
+                              ) : (
+                                <span className="text-sm text-slate-600 dark:text-slate-300 font-mono">{h.employee_id || '-'}</span>
+                              )}
+                              <span className="text-sm text-slate-600 dark:text-slate-300 font-medium">{qty}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      '-'
+                    )}
                   </td>
                   {canManage && (
                     <td className="p-3">
@@ -566,8 +635,8 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
                 {issueModalOpen ? t('sockets.issue.title') : t('sockets.return.title')}
               </div>
               <button
-                    type="button"
-                onClick={() => {
+                  type="button"
+                  onClick={() => {
                   setIssueModalOpen(false);
                   setReturnModalOpen(false);
                 }}
@@ -601,7 +670,7 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
                       key={emp.id}
                       onClick={() => {
                         setSelectedEmployeeId(emp.id);
-                        setSearchEmployee(`${emp.first_name || ''} ${emp.last_name || ''}${emp.brand_number ? ` [${emp.brand_number}]` : ''}`.trim());
+                        setSearchEmployee(`${emp.brand_number ? `[${emp.brand_number}]` : ''} ${emp.first_name || ''} ${emp.last_name || ''} `.trim());
                       }}
                       className={`p-2 cursor-pointer text-sm text-slate-900 dark:text-slate-100 ${
                         selectedEmployeeId === emp.id
@@ -609,7 +678,7 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
                           : 'hover:bg-slate-50 dark:hover:bg-slate-700'
                       }`}
                     >
-                      {emp.first_name} {emp.last_name} {emp.brand_number ? `[${emp.brand_number}]` : ''}
+                      {emp.brand_number ? `[${emp.brand_number}]` : ''} {emp.first_name} {emp.last_name}
                     </div>
                   ))}
                   {filteredEmployees.length === 0 && (

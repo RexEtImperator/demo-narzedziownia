@@ -875,6 +875,7 @@
     "subtitle": "Manage employee data in the system",
     "add": "Add employee",
     "search": "Search",
+    "navigateToEmployeeIndex": "Navigate to employee index",
     "searchPlaceholder": "First name, last name, brand number...",
     "department": "Department",
     "position": "Position",
@@ -1128,7 +1129,7 @@
   "appConfig": {
     "header": {
       "title": "Application Configuration",
-      "subtitle": "Manage system settings"
+      "subtitle": "Manage system settings and translations"
     },
     "validation": {
       "errorsFound": "Znaleziono błędy w formularzu."
@@ -2493,7 +2494,7 @@
       "error": "Wystąpił błąd"
     },
     "edit": {
-      "modalDescription": "Fill in tool details; required fields are marked."
+      "modalDescription": "Fill in tool details. Required fields marked with * are required."
     },
     "common": {
       "tool": "Tool",
@@ -2597,7 +2598,7 @@
       "pieces": "pcs.",
       "orderNumber": "Order Number",
       "sentDate": "Sent Date",
-      "issuesTitle": "Issues",
+      "issuesTitle": "Current Issues",
       "issued": "Issued",
       "unknownUser": "Unknown",
       "consumable": "Consumable tool?",
@@ -2612,7 +2613,10 @@
         "location": "Enter the location of the tool",
         "selectCategory": "Select the category of the tool",
         "description": "Enter the description of the tool"
-      }
+      },
+      "totalQty": "Total",
+      "issuedQty": "Issued",
+      "availableQty": "Available"
     },
     "returnRequests": {
       "title": "Return request history",
@@ -2745,8 +2749,8 @@
       "kind": "Kind",
       "size": "Size",
       "quantity": "Quantity",
-      "issued": "Issued",
-      "available": "Available"
+      "available": "Available",
+      "employee": "Employee"
     },
     "modal": {
       "qty": "Quantity"

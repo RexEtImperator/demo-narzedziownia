@@ -225,10 +225,17 @@ router.get('/by-tool/:toolId', authenticateToken, async (req, res) => {
 
     const itemIds = (items || []).map(i => i.id);
     const issuedMap = {};
+    const issuedByEmployee = {};
     if (itemIds.length > 0) {
       const placeholders = itemIds.map(() => '?').join(',');
       const issues = await all(
-        `SELECT item_id, quantity, status FROM ${issuesTable} WHERE tool_id = ? AND item_id IN (${placeholders})`,
+        `SELECT i.item_id, i.employee_id, i.quantity, i.status,
+                e.first_name as employee_first_name,
+                e.last_name as employee_last_name,
+                e.brand_number as employee_brand_number
+         FROM ${issuesTable} i
+         LEFT JOIN employees e ON e.id = i.employee_id
+         WHERE i.tool_id = ? AND i.item_id IN (${placeholders}) AND i.status IN ('issued','returned')`,
         [toolId, ...itemIds]
       );
       (issues || []).forEach(row => {
@@ -237,6 +244,21 @@ router.get('/by-tool/:toolId', authenticateToken, async (req, res) => {
         if (!issuedMap[key]) issuedMap[key] = 0;
         if (row.status === 'issued') issuedMap[key] += qty;
         if (row.status === 'returned') issuedMap[key] -= qty;
+
+        const empId = row.employee_id;
+        if (!empId) return;
+        if (!issuedByEmployee[key]) issuedByEmployee[key] = {};
+        if (!issuedByEmployee[key][empId]) {
+          issuedByEmployee[key][empId] = {
+            employee_id: empId,
+            employee_first_name: row.employee_first_name,
+            employee_last_name: row.employee_last_name,
+            employee_brand_number: row.employee_brand_number,
+            quantity: 0
+          };
+        }
+        if (row.status === 'issued') issuedByEmployee[key][empId].quantity += qty;
+        if (row.status === 'returned') issuedByEmployee[key][empId].quantity -= qty;
       });
     }
 
@@ -244,7 +266,21 @@ router.get('/by-tool/:toolId', authenticateToken, async (req, res) => {
       const issuedQty = Math.max(0, Number(issuedMap[i.id] || 0));
       const totalQty = Math.max(0, Number(i.quantity || 0));
       const availableQty = Math.max(0, totalQty - issuedQty);
-      return { ...i, issued_quantity: issuedQty, available_quantity: availableQty };
+      const holdersRaw = issuedByEmployee[i.id] ? Object.values(issuedByEmployee[i.id]) : [];
+      const issued_to = (holdersRaw || [])
+        .map(h => ({ ...h, quantity: Math.max(0, Number(h.quantity || 0)) }))
+        .filter(h => h.quantity > 0)
+        .sort((a, b) => {
+          const ba = String(a.employee_brand_number || '');
+          const bb = String(b.employee_brand_number || '');
+          const byBrand = ba.localeCompare(bb, undefined, { numeric: true });
+          if (byBrand !== 0) return byBrand;
+          const na = `${a.employee_last_name || ''} ${a.employee_first_name || ''}`.trim();
+          const nb = `${b.employee_last_name || ''} ${b.employee_first_name || ''}`.trim();
+          return na.localeCompare(nb, undefined, { sensitivity: 'base' });
+        });
+
+      return { ...i, issued_quantity: issuedQty, available_quantity: availableQty, issued_to };
     });
 
     res.json(out);

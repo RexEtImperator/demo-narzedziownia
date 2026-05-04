@@ -1074,7 +1074,7 @@ function LabelsManager({ tools = [], user }) {
         // but keep codeText (SKU) for the QR code.
         const isSlingSubItem = !name && tool.serial_number;
         const fallbackIndexText = isSlingSubItem ? tool.serial_number : codeText;
-        const indexPrefix = (tool && typeof tool.index_prefix === 'string') ? tool.index_prefix : 'index:';
+        const indexPrefix = (tool && typeof tool.index_prefix === 'string') ? tool.index_prefix : 'sku:';
         const indexText = (tool && typeof tool.index_text === 'string') ? tool.index_text : fallbackIndexText;
         const indexLine = indexPrefix ? `${indexPrefix}${indexText ? ` ${indexText}` : ''}` : (indexText || '');
 
@@ -1138,7 +1138,7 @@ function LabelsManager({ tools = [], user }) {
                     </div>
                     <div class="qr-right">
                         <div class="tool-name-qr">${name}</div>
-                        <div class="code-text-qr">sku: ${indexLine}</div>
+                        <div class="code-text-qr">${indexLine}</div>
                     </div>
                 </div>
             `;

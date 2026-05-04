@@ -23,10 +23,10 @@ const ToolsIssueModal = ({ isOpen, onClose, tool, employees, onConfirm, showQuan
         const fullName = `${emp.first_name} ${emp.last_name}`.toLowerCase();
         const brandNumber = emp.brand_number ? String(emp.brand_number) : '';
         // Allow matching the full formatted string too
-        const formatted = `${emp.first_name} ${emp.last_name}${emp.brand_number ? ` [${emp.brand_number}]` : ''}`.toLowerCase();
+        const formatted = `${emp.brand_number ? ` [${emp.brand_number}]` : ''} ${emp.first_name} ${emp.last_name}`.toLowerCase();
         
-        return fullName.includes(lowerSearch) || 
-               brandNumber.includes(lowerSearch) ||
+        return brandNumber.includes(lowerSearch) || 
+               fullName.includes(lowerSearch) ||
                formatted.includes(lowerSearch);
       });
     }
@@ -47,13 +47,13 @@ const ToolsIssueModal = ({ isOpen, onClose, tool, employees, onConfirm, showQuan
 
   const handleSelectEmployee = (emp) => {
     setSelectedEmployeeId(emp.id);
-    setSearchTerm(`${emp.first_name} ${emp.last_name}${emp.brand_number ? ` [${emp.brand_number}]` : ''}`);
+    setSearchTerm(`${emp.brand_number ? ` [${emp.brand_number}]` : ''} ${emp.first_name} ${emp.last_name}`);
     setShowDropdown(false);
   };
 
   const handleSubmit = () => {
     if (!selectedEmployeeId) {
-      toast.error('Wybierz pracownika');
+      toast.error(t('tools.issueModal.selectEmployee'));
       return;
     }
     const q = Math.min(Math.max(1, Number(quantity) || 1), maxQuantity);
@@ -95,11 +95,16 @@ const ToolsIssueModal = ({ isOpen, onClose, tool, employees, onConfirm, showQuan
                       onClick={() => handleSelectEmployee(emp)}
                       className="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer text-slate-700 dark:text-slate-200"
                     >
-                      {emp.brand_number && <span className="text-slate-800 dark:text-slate-400">[{emp.brand_number}]</span>} {emp.first_name} {emp.last_name} 
+                      {(emp.brand_number !== null && emp.brand_number !== undefined && String(emp.brand_number).trim() !== '') ? (
+                        <span className="inline-flex items-center justify-center min-w-8 px-2 py-0.5 rounded-full text-xs font-semibold bg-indigo-600 text-white dark:bg-indigo-500 mr-2">
+                          {String(emp.brand_number).trim()}
+                        </span>
+                      ) : null}
+                      {emp.first_name} {emp.last_name}
                     </li>
                   ))
                 ) : (
-                  <li className="px-4 py-2 text-slate-500 dark:text-slate-400">Brak wyników</li>
+                  <li className="px-4 py-2 text-slate-500 dark:text-slate-400">{t('common.noResults')}</li>
                 )}
               </ul>
             )}
@@ -107,7 +112,7 @@ const ToolsIssueModal = ({ isOpen, onClose, tool, employees, onConfirm, showQuan
           {showQuantity && maxQuantity > 1 && (
             <div>
               <label htmlFor="issueToolQuantity" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                Ilość
+                {t('common.quantity')}
               </label>
               <div className="flex items-center gap-3">
                 <input

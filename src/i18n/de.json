@@ -875,6 +875,7 @@
     "subtitle": "Verwalten Sie Mitarbeiterdaten im System",
     "add": "Mitarbeiter hinzufügen",
     "search": "Suchen",
+    "navigateToEmployeeIndex": "Naviere zu Karte des Mitarbeiters",
     "searchPlaceholder": "Vorname, Nachname, Dienstausweisnummer...",
     "department": "Abteilung",
     "position": "Position",
@@ -1128,7 +1129,7 @@
   "appConfig": {
     "header": {
       "title": "Anwendungskonfiguration",
-      "subtitle": "Systemeinstellungen verwalten"
+      "subtitle": "Systemeinstellungen und Übersetzungen verwalten"
     },
     "validation": {
       "errorsFound": "Znaleziono błędy w formularzu."
@@ -2493,7 +2494,7 @@
       "error": "Wystąpił błąd"
     },
     "edit": {
-      "modalDescription": "Werkzeugdaten ausfüllen; Pflichtfelder sind gekennzeichnet."
+      "modalDescription": "Werkzeugdaten ausfüllen. Die gekzeichnet mit * sind Pflichtfelder."
     },
     "common": {
       "tool": "Werkzeug",
@@ -2597,7 +2598,7 @@
       "pieces": "Stk.",
       "orderNumber": "Auftragsnummer",
       "sentDate": "Versanddatum",
-      "issuesTitle": "Ausgaben",
+      "issuesTitle": "Aktuelle Ausgabenen",
       "issued": "Ausgegeben",
       "unknownUser": "Unbekannt",
       "consumable": "Narzędzie zużywalne?",
@@ -2612,7 +2613,10 @@
         "location": "Standort des Werkzeugs eingeben",
         "selectCategory": "Kategorie des Werkzeugs auswählen",
         "description": "Beschreibung des Werkzeugs eingeben"
-      }
+      },
+      "totalQty": "Gesamtmenge",
+      "issuedQty": "Ausgegeben",
+      "availableQty": "Verfügbar"
     },
     "returnRequests": {
       "title": "Verlauf der Rückgabeanfragen",
@@ -2744,9 +2748,8 @@
       "sku": "SKU",
       "kind": "Typ",
       "size": "Größe",
-      "quantity": "Menge",
-      "issued": "Ausgegeben",
-      "available": "Verfügbar"
+      "available": "Verfügbar",
+      "employee": "Mitarbeiter"
     },
     "modal": {
       "qty": "Menge"

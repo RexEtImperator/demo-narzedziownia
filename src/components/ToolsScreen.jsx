@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 import { notifyError, notifySuccess, notifyInfo, notifyWarn } from '../utils/notify.jsx';
@@ -70,6 +70,33 @@ function ToolsScreen({ initialSearchTerm = '', user }) {
       return null;
     }
   }, [location.search]);
+
+  const subActionFromUrl = useMemo(() => {
+    try {
+      const params = new URLSearchParams(location.search);
+      const v = params.get('subAction');
+      if (!v) return null;
+      const norm = String(v).trim().toLowerCase();
+      if (norm === 'issue' || norm === 'return') return norm;
+      return null;
+    } catch (_) {
+      return null;
+    }
+  }, [location.search]);
+
+  const setHighlightSku = useCallback((sku, action) => {
+    try {
+      const params = new URLSearchParams(location.search);
+      const s = String(sku || '').trim();
+      if (s) params.set('highlightSku', s);
+      else params.delete('highlightSku');
+      const a = String(action || '').trim().toLowerCase();
+      if (a === 'issue' || a === 'return') params.set('subAction', a);
+      else params.delete('subAction');
+      const nextSearch = params.toString();
+      navigate(nextSearch ? `${location.pathname}?${nextSearch}` : location.pathname, { replace: true });
+    } catch (_) { void 0; }
+  }, [location.pathname, location.search, navigate]);
 
   useEffect(() => {
     try {
@@ -497,6 +524,7 @@ function ToolsScreen({ initialSearchTerm = '', user }) {
               handleSort={handleSort}
               t={t}
               handleRowClick={handleOpenDetailsModal}
+              setHighlightSku={setHighlightSku}
               onToolHover={handleToolHover}
               onToolLeave={handleToolLeave}
               onActionsHover={handleActionsHover}
@@ -575,6 +603,7 @@ function ToolsScreen({ initialSearchTerm = '', user }) {
             const params = new URLSearchParams(location.search);
             if (params.has('highlightSku')) {
               params.delete('highlightSku');
+              if (params.has('subAction')) params.delete('subAction');
               const nextSearch = params.toString();
               navigate(nextSearch ? `${location.pathname}?${nextSearch}` : location.pathname, { replace: true });
             }
@@ -583,6 +612,7 @@ function ToolsScreen({ initialSearchTerm = '', user }) {
         }}
         selectedTool={selectedTool}
         highlightSku={highlightSkuFromUrl}
+        subAction={subActionFromUrl}
         canExportTools={canExportTools}
         canManageTools={canManageTools}
         handleServiceReceive={handleServiceReceive}

@@ -63,7 +63,7 @@ const updateMainToolStatus = async (toolId) => {
 router.get('/by-tool/:toolId', authenticateToken, async (req, res) => {
   try {
     const items = await all(
-      `SELECT tsi.*, e.first_name || ' ' || e.last_name as employee_name 
+      `SELECT tsi.*, e.first_name || ' ' || e.last_name as employee_name, e.brand_number as employee_brand_number
        FROM tools_slings_items tsi 
        LEFT JOIN employees e ON tsi.employee_id = e.id 
        WHERE tsi.tool_id = ? 
