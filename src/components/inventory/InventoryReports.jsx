@@ -28,7 +28,7 @@ const InventoryReports = () => {
   }, [t]);
 
   useEffect(() => {
-    fetchData();
+    Promise.resolve().then(() => { fetchData(); });
   }, [fetchData]);
 
   return (

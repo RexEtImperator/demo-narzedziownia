@@ -30,6 +30,9 @@ export const buildToolPayloadForApi = (formData, toolsCodePrefix) => {
     }
   }
 
+  payload.barcode = payload.sku;
+  payload.qr_code = payload.sku;
+
   const cat = String(payload.category || '').trim().toLowerCase();
   const isSlings = ['zawiesia pasowe', 'zawiesia łańcuchowe'].includes(cat);
   const isSockets = ['nasadki 1"', 'nasadki 1/2"'].includes(cat);

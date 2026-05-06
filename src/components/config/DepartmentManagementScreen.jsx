@@ -81,8 +81,10 @@ const DepartmentManagementScreen = ({ apiClient }) => {
   }, [apiClient, t]);
 
   useEffect(() => {
-    fetchDepartments();
-    fetchEmployees();
+    Promise.resolve().then(() => {
+      fetchDepartments();
+      fetchEmployees();
+    });
   }, [fetchDepartments, fetchEmployees]);
 
   // After downloading the data from the DB and employees, prepare a list to display with the missing departments
@@ -129,7 +131,7 @@ const DepartmentManagementScreen = ({ apiClient }) => {
       }
     });
 
-  setDepartments(merged);
+    Promise.resolve().then(() => { setDepartments(merged); });
   }, [dbDepartments, employees]);
 
   const handleAdd = () => {

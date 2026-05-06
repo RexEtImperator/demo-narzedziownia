@@ -78,7 +78,7 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
   }, []);
 
   useEffect(() => {
-    fetchItems();
+    Promise.resolve().then(() => { fetchItems(); });
   }, [fetchItems]);
 
   useEffect(() => {
@@ -106,11 +106,13 @@ const ToolsSlingsItemsTable = ({ toolId, category, t, canManage, onPrintQr, onPr
     if (autoActionRef.current === key) return;
     autoActionRef.current = key;
     if (action === 'issue') {
-      setSelectedIds([match.id]);
-      setIssueModalOpen(true);
-      fetchEmployees();
-      setSelectedEmployeeId('');
-      setSearchEmployee('');
+      Promise.resolve().then(() => {
+        setSelectedIds([match.id]);
+        setIssueModalOpen(true);
+        fetchEmployees();
+        setSelectedEmployeeId('');
+        setSearchEmployee('');
+      });
       return;
     }
 

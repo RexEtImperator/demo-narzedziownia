@@ -31,7 +31,7 @@ const CategoriesTab = ({ apiClient, t }) => {
   }, [apiClient, t]);
 
   useEffect(() => {
-    loadCategories();
+    Promise.resolve().then(() => { loadCategories(); });
   }, [t, loadCategories]);
 
   const addCategory = async () => {

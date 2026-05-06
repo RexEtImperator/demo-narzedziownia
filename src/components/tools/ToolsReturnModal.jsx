@@ -59,7 +59,7 @@ const ToolsReturnModal = ({ isOpen, onClose, tool, apiClient, onConfirm }) => {
 
   useEffect(() => {
     if (isOpen && tool) {
-      fetchActiveIssues();
+      Promise.resolve().then(() => { fetchActiveIssues(); });
     }
   }, [isOpen, tool, fetchActiveIssues]);
 

@@ -404,13 +404,15 @@ const AppConfigScreen = ({ apiClient, user }) => {
   }, [apiClient, t]);
 
   useEffect(() => {
-    loadConfig();
-    if (isAdmin) loadEmailConfig();
-    try {
-      const rawChat = localStorage.getItem('feature.chat.enabled');
-      const chatEnabled = rawChat == null ? false : (String(rawChat).trim().toLowerCase() === 'true' || String(rawChat).trim() === '1');
-      setConfig(prev => ({ ...prev, features: { ...prev.features, enableRealtimeChat: !!chatEnabled } }));
-    } catch (_) { /* noop */ }
+    Promise.resolve().then(() => {
+      loadConfig();
+      if (isAdmin) loadEmailConfig();
+      try {
+        const rawChat = localStorage.getItem('feature.chat.enabled');
+        const chatEnabled = rawChat == null ? false : (String(rawChat).trim().toLowerCase() === 'true' || String(rawChat).trim().toLowerCase() === '1');
+        setConfig(prev => ({ ...prev, features: { ...prev.features, enableRealtimeChat: !!chatEnabled } }));
+      } catch (_) { /* noop */ }
+    });
   }, [loadConfig, loadEmailConfig, isAdmin]);
 
   const renderTabContent = () => {

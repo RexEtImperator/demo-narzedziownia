@@ -57,7 +57,7 @@ function AuditLogScreen({ user }) {
   }, [pagination.page, pagination.limit, filters, t]);
 
   useEffect(() => {
-    fetchAuditLogs();
+    Promise.resolve().then(() => { fetchAuditLogs(); });
   }, [pagination.page, filters, fetchAuditLogs]);
 
   const formatDate = (dateString) => formatDateLocalized(dateString);

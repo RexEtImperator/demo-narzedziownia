@@ -28,42 +28,43 @@ const EmployeeModal = ({
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (employee) {
-      // Helper to find ID by name if ID is missing
-      const findIdByName = (list, name) => {
-        if (!name) return '';
-        const found = list.find(item => item.name === name);
-        return found ? String(found.id) : '';
-      };
+    Promise.resolve().then(() => {
+      if (employee) {
+        const findIdByName = (list, name) => {
+          if (!name) return '';
+          const found = list.find(item => item.name === name);
+          return found ? String(found.id) : '';
+        };
 
-      const departmentId = employee.departmentId || findIdByName(departments, employee.department);
-      const positionId = employee.positionId || findIdByName(positions, employee.position);
+        const departmentId = employee.departmentId || findIdByName(departments, employee.department);
+        const positionId = employee.positionId || findIdByName(positions, employee.position);
 
-      setFormData({
-        firstName: employee.firstName || employee.first_name || '',
-        lastName: employee.lastName || employee.last_name || '',
-        phone: employee.phone || '',
-        email: employee.email || '',
-        departmentId: departmentId ? String(departmentId) : '',
-        positionId: positionId ? String(positionId) : '',
-        brandNumber: employee.brandNumber || employee.brand_number || '',
-        status: employee.status || 'active',
-        rfidUid: employee.rfidUid || employee.rfid_uid || ''
-      });
-    } else {
-      setFormData({
-        firstName: '',
-        lastName: '',
-        phone: '',
-        email: '',
-        departmentId: '',
-        positionId: '',
-        brandNumber: '',
-        status: 'active',
-        rfidUid: ''
-      });
-    }
-    setErrors({});
+        setFormData({
+          firstName: employee.firstName || employee.first_name || '',
+          lastName: employee.lastName || employee.last_name || '',
+          phone: employee.phone || '',
+          email: employee.email || '',
+          departmentId: departmentId ? String(departmentId) : '',
+          positionId: positionId ? String(positionId) : '',
+          brandNumber: employee.brandNumber || employee.brand_number || '',
+          status: employee.status || 'active',
+          rfidUid: employee.rfidUid || employee.rfid_uid || ''
+        });
+      } else {
+        setFormData({
+          firstName: '',
+          lastName: '',
+          phone: '',
+          email: '',
+          departmentId: '',
+          positionId: '',
+          brandNumber: '',
+          status: 'active',
+          rfidUid: ''
+        });
+      }
+      setErrors({});
+    });
   }, [employee, isOpen, departments, positions]);
 
   const handleChange = (e) => {

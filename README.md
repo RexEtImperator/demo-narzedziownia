@@ -154,7 +154,6 @@ HTTPS dla frontendu (dev):
 │       ├── ci.yml             # CI: build/test/lint
 │       └── release.yml        # Publikacja wydań
 ├── backend/
-│   ├── backups/               
 │   ├── config/
 │   │   ├── constants.js
 │   │   ├── errorCodes.js
@@ -425,17 +424,6 @@ Kluczowe zasady:
   - Tylko frontend: `npm start`
   - Build produkcyjny frontendu: `npm run build` (wynik w katalogu `dist/`)
 
-## Deployment lokalny
-
-- Docker (zalecane do uruchomień „na gotowo”):
-  - `docker compose up --build`
-  - Backend: `http://localhost:3000`
-  - Frontend (Nginx): `http://localhost:3001`
-
-- Bez Dockera (frontend hostowany osobno):
-  - Zbuduj frontend: `npm run build` (katalog `dist/`)
-  - Hostuj `dist/` dowolnym serwerem statycznym (np. Nginx) i ustaw `VITE_API_BASE_URL=http://localhost:3000` jeśli nie korzystasz z proxy.
-
 ## Funkcjonalności
 
 ### Analityka
@@ -526,7 +514,6 @@ flowchart LR
 
 ### Skaner kodów
 - Skanowanie kodów QR i kreskowych (kamera urządzenia)
-- Generowanie i wykorzystanie kodów w procesach wydań
 - Zlokalizowane komunikaty o zgodności przeglądarki, dostępie do kamery i stanie skanowania.
 - Wskazówki skanowania dostosowane językowo; obsługa latarki (torch) tam gdzie wspierane.
 - Czytelne komunikaty przy odmowie uprawnień kamery oraz bezpieczne wyłączenie strumienia.
@@ -557,11 +544,10 @@ flowchart LR
 - Konfiguracja: flaga `enableRealtimeChat` w `app_config` (Konfiguracja → Ogólne).
 
 ### Języki (i18n)
-- Obsługa wielu języków interfejsu: polski (`pl`), angielski (`en`) i niemiecki (`de`).
+- Obsługa wielu języków interfejsu: polski (`pl`), angielski (`en`), niemiecki (`de`) i czeski (`cz`).
 - Kontekst języka: `src/contexts/LanguageContext.jsx` z metodą `t(key, params)` i wyborem języka.
-- Słowniki: `src/i18n/pl.json`, `src/i18n/en.json`, `src/i18n/de.json` — dodawaj nowe klucze według konwencji kropkowej.
-- Zakładka „Tłumaczenie” pozwala edytować tłumaczenia dla języków `PL/EN/DE`.
-- Przełącznik języka na górze (PL/EN/DE) — edycja dotyczy tylko wybranego języka.
+- Słowniki: `src/i18n/pl.json`, `src/i18n/en.json`, `src/i18n/de.json`, `src/i18n/cz.json` — dodawaj nowe klucze według konwencji kropkowej.
+- Zakładka „Tłumaczenie” pozwala edytować tłumaczenia dla języków `PL/EN/DE/CZ`.
 - Wyszukiwanie po kluczu, szybkie edytowanie i zapis zmian (`Zapisz zmiany`).
 - Dodawanie nowych tłumaczeń przez „Dodaj tłumaczenie” (modal: pola `Klucz`, `PL`, `EN`, `DE`, `CZ`).
 - Walidacja kolizji klucza — ostrzeżenie i zablokowanie dodania, jeśli klucz już istnieje.
@@ -572,21 +558,6 @@ flowchart LR
 - Prefiks dla narzędzi (`toolsCodePrefix`).
 - Prefiksy per kategoria narzędzia (`toolCategoryPrefixes`).
 - Logika w UI: prefiks kategorii ma pierwszeństwo nad prefiksem narzędzi.
-
-### API — endpoint sugestii (Elektronarzędzia)
-- `GET /api/tools/suggestions?category=Elektronarzędzia`
-  - Zwraca:
-    - `manufacturers`: tablica unikalnych producentów
-    - `models`: tablica unikalnych modeli
-    - `years`: tablica unikalnych lat produkcji (liczby)
-  - Przykład odpowiedzi:
-    ```json
-    {
-      "manufacturers": ["Bosch", "Makita"],
-      "models": ["GSR 12V", "DHP482"],
-      "years": [2020, 2021, 2022]
-    }
-    ```
 
 ## Testy i jakość
 - Lint: `npm run lint`.

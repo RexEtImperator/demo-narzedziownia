@@ -20,17 +20,19 @@ const LoginScreen = ({ onLogin }) => {
     try {
       const savedMode = localStorage.getItem('lowPerformanceMode');
       if (savedMode) {
-        setLowPerformanceMode(JSON.parse(savedMode));
+        Promise.resolve().then(() => { setLowPerformanceMode(JSON.parse(savedMode)); });
       }
       const savedUsername = localStorage.getItem('rememberedUsername');
       if (savedUsername) {
-        setCredentials(prev => ({ ...prev, username: savedUsername }));
-        setRememberMe(true);
+        Promise.resolve().then(() => {
+          setCredentials(prev => ({ ...prev, username: savedUsername }));
+          setRememberMe(true);
+        });
       }
       const savedProfilesRaw = localStorage.getItem('rememberedProfiles');
       if (savedProfilesRaw) {
         const list = JSON.parse(savedProfilesRaw);
-        if (Array.isArray(list)) setRememberedProfiles(list.filter(Boolean));
+        if (Array.isArray(list)) Promise.resolve().then(() => { setRememberedProfiles(list.filter(Boolean)); });
       }
     } catch (_) {
       // graceful no-op if localStorage is unavailable
@@ -293,7 +295,7 @@ const LoginScreen = ({ onLogin }) => {
             </div>
           </form>
           <div className="text-center">
-            <p className="text-xs text-slate-400 font-mono">ver. 1.0.1 • © 2026 Equipr</p>
+            <p className="text-xs text-slate-400 font-mono">ver. 2.6.5 • © 2026 Equipr</p>
           </div>
         </div>
       </div>

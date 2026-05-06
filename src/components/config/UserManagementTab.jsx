@@ -115,7 +115,7 @@ const UserManagementTab = ({ user, apiClient }) => {
   }, [apiClient, t, user, addAuditLog]);
 
   useEffect(() => {
-    fetchUsers();
+    Promise.resolve().then(() => { fetchUsers(); });
   }, [fetchUsers]);
 
   useEffect(() => {
@@ -304,8 +304,10 @@ const UserManagementTab = ({ user, apiClient }) => {
   }, [apiClient]);
 
   useEffect(() => {
-    fetchEmployees();
-    fetchRolesMeta();
+    Promise.resolve().then(() => {
+      fetchEmployees();
+      fetchRolesMeta();
+    });
   }, [fetchEmployees, fetchRolesMeta]);
 
   const handleDeleteUser = async (userId, username) => {
@@ -413,7 +415,7 @@ const UserManagementTab = ({ user, apiClient }) => {
   );
 
   useEffect(() => {
-    setCurrentPage(1);
+    Promise.resolve().then(() => { setCurrentPage(1); });
   }, [searchTerm]);
 
   const sortedUsers = [...filteredUsers].sort((a, b) => {
@@ -432,7 +434,7 @@ const UserManagementTab = ({ user, apiClient }) => {
 
   useEffect(() => {
     if (currentPage > totalPages) {
-      setCurrentPage(totalPages);
+      Promise.resolve().then(() => { setCurrentPage(totalPages); });
     }
   }, [totalPages, currentPage]);
 

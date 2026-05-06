@@ -1,6 +1,6 @@
 {
   "name": "system-zarzadzania-narzedziownia-frontend",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Frontend dla systemu zarządzania narzędziownią",
   "main": "app.js",
   "type": "module",

@@ -696,7 +696,7 @@
   },
   "labelsManager": {
     "title": "Labels",
-    "subtitle": "Generate and print labels for tools",
+    "subtitle": "Download and print labels with QR barcode codes",
     "tabs": {
       "tools": "Tools",
       "bhp": "BHP",

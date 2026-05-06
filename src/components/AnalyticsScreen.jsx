@@ -25,8 +25,10 @@ function AnalyticsScreen({ tools, user }) {
   useEffect(() => {
     const svcTotal = Math.max(1, Math.ceil((serviceSummary.in_service?.length || 0) / pageSize));
     const evTotal = Math.max(1, Math.ceil((serviceSummary.recent_events?.length || 0) / pageSize));
-    setSvcPage(p => Math.min(Math.max(1, p), svcTotal));
-    setEventsPage(p => Math.min(Math.max(1, p), evTotal));
+    Promise.resolve().then(() => {
+      setSvcPage(p => Math.min(Math.max(1, p), svcTotal));
+      setEventsPage(p => Math.min(Math.max(1, p), evTotal));
+    });
   }, [serviceSummary, pageSize]);
 
   const exportServiceHistoryToPDF = () => {

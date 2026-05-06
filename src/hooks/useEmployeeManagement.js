@@ -40,7 +40,7 @@ export const useEmployeeManagement = (employees, setEmployees, user, t) => {
     try {
       const params = new URLSearchParams(location.search || '');
       const q = params.get('q');
-      if (q) setSearchTerm(q);
+      if (q) Promise.resolve().then(() => { setSearchTerm(q); });
     } catch (_) { /* noop */ }
   }, [location.search]);
 
@@ -110,8 +110,10 @@ export const useEmployeeManagement = (employees, setEmployees, user, t) => {
   }, [t]);
 
   useEffect(() => {
-    fetchDepartments();
-    fetchPositions();
+    Promise.resolve().then(() => {
+      fetchDepartments();
+      fetchPositions();
+    });
   }, [fetchDepartments, fetchPositions]);
 
   const refreshEmployees = useCallback(async () => {

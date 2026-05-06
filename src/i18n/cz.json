@@ -696,7 +696,7 @@
   },
   "labelsManager": {
     "title": "Štítky",
-    "subtitle": "Generovat a tisknout štítky pro nástroje",
+    "subtitle": "Stahovat a tisknout štítky s kódem QR/čárovým kód",
     "tabs": {
       "tools": "Nástroje",
       "bhp": "BOZP",

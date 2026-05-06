@@ -148,19 +148,21 @@ const BarcodeScannerComponent = ({
 
     if (isOpen) {
       const supported = checkBrowserSupport();
-      setIsSupported(supported);
+      Promise.resolve().then(() => { setIsSupported(supported); });
     }
   }, [isOpen, onError, t]);
 
   useEffect(() => {
     if (isOpen) {
-      setStopStream(false);
-      setIsScanning(true);
-      setScanningAnimation(true);
-      setTorchEnabled(false);
-      setInstanceKey(k => k + 1);
-      setRecognitionAttempts(0);
-      setNoRecognition(false);
+      Promise.resolve().then(() => {
+        setStopStream(false);
+        setIsScanning(true);
+        setScanningAnimation(true);
+        setTorchEnabled(false);
+        setInstanceKey(k => k + 1);
+        setRecognitionAttempts(0);
+        setNoRecognition(false);
+      });
       const detect = async () => {
         try {
           if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -210,8 +212,10 @@ const BarcodeScannerComponent = ({
       setTimeout(() => { if (!canceled) tryFocus(); }, 2400);
       return () => { canceled = true; };
     } else {
-      setIsScanning(false);
-      setScanningAnimation(false);
+      Promise.resolve().then(() => {
+        setIsScanning(false);
+        setScanningAnimation(false);
+      });
     }
   }, [isOpen]);
 

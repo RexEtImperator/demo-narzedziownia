@@ -696,7 +696,7 @@
   },
   "labelsManager": {
     "title": "Etiketten",
-    "subtitle": "Etiketten für Werkzeuge generieren und drucken",
+    "subtitle": "QR-/Barcode-Etiketten herunterladen und ausdrucken",
     "tabs": {
       "tools": "Werkzeuge",
       "bhp": "BHP",

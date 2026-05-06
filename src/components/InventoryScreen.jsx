@@ -143,31 +143,37 @@ function InventoryScreen({ tools = [], user }) {
 
   // Pre-restore the selected session from localStorage before we fetch the session list
   useEffect(() => {
-    try {
-      const sid = localStorage.getItem('inventorySelectedSessionId');
-      if (sid) {
-        const parsed = Number(sid);
-        setSelectedSessionId(Number.isNaN(parsed) ? sid : parsed);
-      }
-    } catch (_) { void 0; }
+    Promise.resolve().then(() => {
+      try {
+        const sid = localStorage.getItem('inventorySelectedSessionId');
+        if (sid) {
+          const parsed = Number(sid);
+          setSelectedSessionId(Number.isNaN(parsed) ? sid : parsed);
+        }
+      } catch (_) { void 0; }
+    });
   }, []);
 
   // Reading auto-commit setting from localStorage
   useEffect(() => {
-    try {
-      const v = localStorage.getItem('inventoryAutoAcceptDisabled');
-      setAutoAcceptDisabled(v === '1' || v === 'true');
-    } catch (_) { void 0; }
+    Promise.resolve().then(() => {
+      try {
+        const v = localStorage.getItem('inventoryAutoAcceptDisabled');
+        setAutoAcceptDisabled(v === '1' || v === 'true');
+      } catch (_) { void 0; }
+    });
   }, []);
   const canViewInventory = hasPermission(user, PERMISSIONS.VIEW_INVENTORY);
 
   useEffect(() => {
     if (!canViewInventory) {
-      setSessions([]);
-      setSelectedSessionId(null);
+      Promise.resolve().then(() => {
+        setSessions([]);
+        setSelectedSessionId(null);
+      });
       return;
     }
-    fetchSessions();
+    Promise.resolve().then(() => { fetchSessions(); });
   }, [canViewInventory, fetchSessions]);
 
   // Download tools on demand when screen active
@@ -232,7 +238,7 @@ function InventoryScreen({ tools = [], user }) {
       try {
         setDiffsLoading(true);
         setDiffsError('');
-        const data = await api.get(`/api/inventory/sessions/${selectedSessionId}/differences?t=${Date.now()}`);
+        const data = await api.get(`/api/inventory/sessions/${selectedSessionId}/differences`);
         setDifferences(Array.isArray(data) ? data : []);
       } catch (err) {
         setDiffsError(err?.message || t('inventory.diffs.errors.fetchFailed'));
@@ -338,11 +344,11 @@ function InventoryScreen({ tools = [], user }) {
         }
       }
       try {
-        const diffs = await api.get(`/api/inventory/sessions/${selectedSessionId}/differences?t=${Date.now()}`);
+        const diffs = await api.get(`/api/inventory/sessions/${selectedSessionId}/differences`);
         setDifferences(Array.isArray(diffs) ? diffs : []);
       } catch (_) { void 0; }
       try {
-        const hist = await api.get(`/api/inventory/sessions/${selectedSessionId}/history?t=${Date.now()}`);
+        const hist = await api.get(`/api/inventory/sessions/${selectedSessionId}/history`);
         const corr = Array.isArray(hist?.corrections) ? hist.corrections : Array.isArray(hist) ? hist : [];
         setCorrections(corr);
       } catch (_) { void 0; }
@@ -548,11 +554,11 @@ function InventoryScreen({ tools = [], user }) {
       await api.post(`/api/inventory/corrections/${corr.id}/accept`, {});
       // Refresh the differences and history after the action
       try {
-        const diffs = await api.get(`/api/inventory/sessions/${selectedSessionId}/differences?t=${Date.now()}`);
+        const diffs = await api.get(`/api/inventory/sessions/${selectedSessionId}/differences`);
         setDifferences(Array.isArray(diffs) ? diffs : []);
       } catch (_) { void 0; }
       try {
-        const data = await api.get(`/api/inventory/sessions/${selectedSessionId}/history?t=${Date.now()}`);
+        const data = await api.get(`/api/inventory/sessions/${selectedSessionId}/history`);
         const corrList = Array.isArray(data?.corrections) ? data.corrections : Array.isArray(data) ? data : [];
         setCorrections(corrList);
       } catch (_) { void 0; }
@@ -585,11 +591,11 @@ function InventoryScreen({ tools = [], user }) {
       await api.delete(`/api/inventory/corrections/${corr.id}`);
       // Refresh the differences and history after the action
       try {
-        const diffs = await api.get(`/api/inventory/sessions/${selectedSessionId}/differences?t=${Date.now()}`);
+        const diffs = await api.get(`/api/inventory/sessions/${selectedSessionId}/differences`);
         setDifferences(Array.isArray(diffs) ? diffs : []);
       } catch (_) { void 0; }
       try {
-        const data = await api.get(`/api/inventory/sessions/${selectedSessionId}/history?t=${Date.now()}`);
+        const data = await api.get(`/api/inventory/sessions/${selectedSessionId}/history`);
         const corrList = Array.isArray(data?.corrections) ? data.corrections : Array.isArray(data) ? data : [];
         setCorrections(corrList);
       } catch (_) { void 0; }

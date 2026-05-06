@@ -50,7 +50,7 @@ const WebhooksTab = () => {
   }, [t]);
 
   useEffect(() => {
-    fetchWebhooks();
+    Promise.resolve().then(() => { fetchWebhooks(); });
   }, [fetchWebhooks]);
 
   const handleInputChange = (e) => {

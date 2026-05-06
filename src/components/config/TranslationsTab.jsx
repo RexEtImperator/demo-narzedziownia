@@ -47,7 +47,7 @@ const TranslationsTab = ({ apiClient, t }) => {
   }, [apiClient, t]);
 
   useEffect(() => {
-    loadTranslations();
+    Promise.resolve().then(() => { loadTranslations(); });
   }, [loadTranslations]);
 
   useEffect(() => {

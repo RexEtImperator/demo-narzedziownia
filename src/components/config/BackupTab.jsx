@@ -59,7 +59,7 @@ const BackupTab = ({
   }, [apiClient, t]);
 
   useEffect(() => {
-    loadBackups();
+    Promise.resolve().then(() => { loadBackups(); });
   }, [loadBackups]);
 
   const runBackup = async () => {

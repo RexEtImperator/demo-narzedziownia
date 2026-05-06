@@ -113,9 +113,11 @@ const PositionManagementScreen = ({ apiClient }) => {
   }, [apiClient, t]);
 
   useEffect(() => {
-    fetchPositions();
-    fetchDepartments();
-    fetchEmployees();
+    Promise.resolve().then(() => {
+      fetchPositions();
+      fetchDepartments();
+      fetchEmployees();
+    });
   }, [fetchPositions, fetchDepartments, fetchEmployees]);
 
   // After downloading the positions from the DB and employee data, merge the missing positions
@@ -160,7 +162,7 @@ const PositionManagementScreen = ({ apiClient }) => {
       }
     });
 
-    setPositions(merged);
+    Promise.resolve().then(() => { setPositions(merged); });
   }, [dbPositions, employees, departments]);
 
   const handleAdd = () => {

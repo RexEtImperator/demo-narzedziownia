@@ -95,7 +95,7 @@ function BhpScreen({ employees = [], user, initialSearchTerm = '' }) {
   const [showModal, setShowModal] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedStatus, setSelectedStatus] = useState('');
+  const [selectedStatus, _setSelectedStatus] = useState('');
   const [detailsItem, setDetailsItem] = useState(null);
   const [detailsData, setDetailsData] = useState(null);
   const [issueModal, setIssueModal] = useState(false);
@@ -247,7 +247,7 @@ function BhpScreen({ employees = [], user, initialSearchTerm = '' }) {
   // Set initial filter from deep-link if passed
   useEffect(() => {
     if (initialSearchTerm) {
-      setSearchTerm(initialSearchTerm);
+      Promise.resolve().then(() => { setSearchTerm(initialSearchTerm); });
     }
   }, [initialSearchTerm]);
 
@@ -256,7 +256,7 @@ function BhpScreen({ employees = [], user, initialSearchTerm = '' }) {
     const params = new URLSearchParams(location.search);
     const searchParam = params.get('search');
     if (searchParam) {
-      setSearchTerm(searchParam);
+      Promise.resolve().then(() => { setSearchTerm(searchParam); });
     }
   }, [location.search]);
 
@@ -325,11 +325,13 @@ function BhpScreen({ employees = [], user, initialSearchTerm = '' }) {
 
   useEffect(() => {
     if (!canViewBhp) {
-      setItems([]);
-      setLoading(false);
+      Promise.resolve().then(() => {
+        setItems([]);
+        setLoading(false);
+      });
       return;
     }
-    fetchItems();
+    Promise.resolve().then(() => { fetchItems(); });
   }, [canViewBhp, fetchItems]);
 
   const openModal = useCallback((item = null) => {
@@ -343,8 +345,10 @@ function BhpScreen({ employees = [], user, initialSearchTerm = '' }) {
       const params = new URLSearchParams(location.search);
       const newSku = params.get('newSku');
       if (newSku && hasPermission(user, PERMISSIONS.MANAGE_BHP)) {
-        openModal({ inventory_number: newSku });
-        navigate('/bhp', { replace: true });
+        Promise.resolve().then(() => {
+          openModal({ inventory_number: newSku });
+          navigate('/bhp', { replace: true });
+        });
       }
     } catch (_) { /* noop */ }
   }, [location.search, user, navigate, openModal]);

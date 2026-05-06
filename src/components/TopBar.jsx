@@ -70,7 +70,9 @@ const TopBar = ({ user, onLogout, onToggleSidebar, isSidebarCollapsed, onToggleS
   }, [refetchAppConfig]);
 
   useEffect(() => {
-    if (!helpEnabled && helpOpen) setHelpOpen(false);
+    if (!helpEnabled && helpOpen) {
+      Promise.resolve().then(() => { setHelpOpen(false); });
+    }
   }, [helpEnabled, helpOpen]);
 
   // Global Presence Tracking

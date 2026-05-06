@@ -678,7 +678,7 @@
   },
   "labelsManager": {
     "title": "Etykiety",
-    "subtitle": "Generuj i drukuj etykiety dla narzędzi",
+    "subtitle": "Pobieraj i drukuj etykiety z kodem qr/kreskowym",
     "tabs": {
       "tools": "Narzędzia",
       "bhp": "BHP",

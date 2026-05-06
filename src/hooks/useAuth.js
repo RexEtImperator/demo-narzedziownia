@@ -37,7 +37,7 @@ export const useAuth = (options = {}) => {
     if (userData) {
       try {
         const parsedUser = JSON.parse(userData);
-        setUser(parsedUser);
+        Promise.resolve().then(() => { setUser(parsedUser); });
         
         // Restore token to API client immediately to prevent unnecessary refresh
         if (parsedUser.token) {

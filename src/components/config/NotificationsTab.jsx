@@ -70,7 +70,9 @@ const NotificationsTab = ({ apiClient, t, user }) => {
     }
   }, [apiClient, generalNotifType, generalItemType, generalPage, generalLimit, t]);
 
-  useEffect(() => { loadGeneralNotifications(); }, [loadGeneralNotifications]);
+  useEffect(() => {
+    Promise.resolve().then(() => { loadGeneralNotifications(); });
+  }, [loadGeneralNotifications]);
 
   const loadNotifUsers = useCallback(async () => {
     try {
@@ -122,11 +124,13 @@ const NotificationsTab = ({ apiClient, t, user }) => {
   }, [apiClient, t, notifSelPage, notifSelLimit, notifSelQuery]);
 
   useEffect(() => {
-    if (notifUsers.length === 0) {
-      loadNotifUsers();
-    }
-    loadNotifHistoryAll();
-    loadNotifHistorySelected();
+    Promise.resolve().then(() => {
+      if (notifUsers.length === 0) {
+        loadNotifUsers();
+      }
+      loadNotifHistoryAll();
+      loadNotifHistorySelected();
+    });
   }, [notifUsers.length, loadNotifUsers, loadNotifHistoryAll, loadNotifHistorySelected]);
 
   const toggleSelectUser = (id) => {

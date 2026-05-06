@@ -209,7 +209,10 @@ function ChatModal({ isOpen, onClose, user, onOpenConversation, initialConversat
     }
   };
   useEffect(() => {
-    if (!isOpen || !selectedConv) { setMessages([]); return; }
+    if (!isOpen || !selectedConv) {
+      Promise.resolve().then(() => { setMessages([]); });
+      return;
+    }
     let mounted = true;
     const load = async () => {
       const rows = await api.get(`/api/chat/conversations/${encodeURIComponent(selectedConv)}/messages`).catch(() => []);

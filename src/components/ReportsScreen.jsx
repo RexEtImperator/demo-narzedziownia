@@ -120,9 +120,11 @@ const ReportsScreen = ({ user, employees = [] }) => {
     if (employeeId) return;
     const matched = (Array.isArray(employees) ? employees : []).find(e => String(e.login || '') === String(user?.username || ''));
     if (matched?.id) {
-      setEmployeeId(String(matched.id));
-      const name = `${matched.first_name || ''} ${matched.last_name || ''}`.trim();
-      if (name) setEmployeeName(name);
+      Promise.resolve().then(() => {
+        setEmployeeId(String(matched.id));
+        const name = `${matched.first_name || ''} ${matched.last_name || ''}`.trim();
+        if (name) setEmployeeName(name);
+      });
     }
   }, [type, isEmployee, user, employees, employeeId]);
 
@@ -132,9 +134,11 @@ const ReportsScreen = ({ user, employees = [] }) => {
     if (employeeId) return;
     const matched = (Array.isArray(employees) ? employees : []).find(e => String(e.login || '') === String(user?.username || ''));
     if (matched?.id) {
-      setEmployeeId(String(matched.id));
-      const name = `${matched.first_name || ''} ${matched.last_name || ''}`.trim();
-      if (name) setEmployeeName(name);
+      Promise.resolve().then(() => {
+        setEmployeeId(String(matched.id));
+        const name = `${matched.first_name || ''} ${matched.last_name || ''}`.trim();
+        if (name) setEmployeeName(name);
+      });
     }
   }, [type, isEmployee, user, employees, employeeId]);
 

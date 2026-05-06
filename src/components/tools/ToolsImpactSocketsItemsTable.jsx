@@ -62,7 +62,7 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
   }, [t]);
 
   useEffect(() => {
-    fetchItems();
+    Promise.resolve().then(() => { fetchItems(); });
   }, [fetchItems]);
 
   useEffect(() => {
@@ -89,19 +89,21 @@ const ToolsImpactSocketsItemsTable = ({ toolId, category, t, canManage, onPrintL
     const key = `${toolId}|${action}|${sku}`;
     if (autoActionRef.current === key) return;
     autoActionRef.current = key;
-    setSelectedIds([match.id]);
-    setSelectedEmployeeId('');
-    setSearchEmployee('');
-    setQtyMap({ [match.id]: 1 });
-    if (action === 'issue') {
-      setIssueModalOpen(true);
-      setReturnModalOpen(false);
-      Promise.resolve(fetchEmployees()).catch(() => {});
-    } else {
-      setReturnModalOpen(true);
-      setIssueModalOpen(false);
-      Promise.resolve(fetchEmployees()).catch(() => {});
-    }
+    Promise.resolve().then(() => {
+      setSelectedIds([match.id]);
+      setSelectedEmployeeId('');
+      setSearchEmployee('');
+      setQtyMap({ [match.id]: 1 });
+      if (action === 'issue') {
+        setIssueModalOpen(true);
+        setReturnModalOpen(false);
+        Promise.resolve(fetchEmployees()).catch(() => {});
+      } else {
+        setReturnModalOpen(true);
+        setIssueModalOpen(false);
+        Promise.resolve(fetchEmployees()).catch(() => {});
+      }
+    });
   }, [autoAction, highlightSku, items, toolId, fetchEmployees]);
 
   const handleSelectAll = (e) => {

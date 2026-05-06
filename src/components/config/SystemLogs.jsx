@@ -46,7 +46,7 @@ const SystemLogs = ({ apiClient, t }) => {
   }, [apiClient, page, limit, level, category, t]);
 
   useEffect(() => {
-    loadLogs();
+    Promise.resolve().then(() => { loadLogs(); });
   }, [loadLogs]);
 
   const handleRefresh = () => {

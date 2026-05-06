@@ -1445,7 +1445,7 @@ router.put('/:id', authenticateToken, (req, res) => {
   }
   db.run(
     'UPDATE tools SET name = ?, sku = ?, quantity = ?, location = ?, category = ?, description = ?, barcode = ?, qr_code = ?, serial_number = ?, serial_unreadable = ?, inventory_number = ?, inspection_date = ?, min_stock = ?, max_stock = ?, is_consumable = ?, status = ?, manufacturer = ?, model = ?, production_year = ?, production_date = ?, nfc_tag_id = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?',
-    [name, safeSku, quantity || 1, location, category, description, barcode || safeSku, qr_code || safeSku, serialProvided ? serial_number : null, unreadableFlag ? 1 : 0, inventory_number || null, inspection_date || null, minStockSan, maxStockSan, is_consumable ? 1 : 0, status || 'available', manufacturer || null, model || null, prodYearSan, production_date || null, nfc_tag_id || null, id],
+    [name, safeSku, quantity || 1, location, category, description, safeSku, safeSku, serialProvided ? serial_number : null, unreadableFlag ? 1 : 0, inventory_number || null, inspection_date || null, minStockSan, maxStockSan, is_consumable ? 1 : 0, status || 'available', manufacturer || null, model || null, prodYearSan, production_date || null, nfc_tag_id || null, id],
     function(err) {
       if (err) {
         if (err.message.includes('UNIQUE constraint failed: tools.inventory_number')) return res.status(400).json({ message: 'Tool with this inventory number already exists' });

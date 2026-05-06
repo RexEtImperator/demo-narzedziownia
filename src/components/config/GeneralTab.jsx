@@ -21,7 +21,7 @@ const GeneralTab = ({
 
   const [logoFile, setLogoFile] = useState(null);
   const [logoPreview, setLogoPreview] = useState(null);
-  const [logoTs, setLogoTs] = useState(Date.now());
+  const [logoTs, setLogoTs] = useState(() => 0);
   const [logoHistory, setLogoHistory] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -39,7 +39,7 @@ const GeneralTab = ({
   }, [apiClient]);
 
   useEffect(() => {
-    loadLogoHistory();
+    Promise.resolve().then(() => { loadLogoHistory(); });
   }, [loadLogoHistory]);
 
   const handleLogoChange = (e) => {

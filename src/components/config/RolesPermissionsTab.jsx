@@ -294,13 +294,15 @@ export default function RolesPermissionsTab({ apiClient }) {
   }, [apiClient, t]);
 
   useEffect(() => {
-    fetchRolePermissions();
-    fetchAvailablePermissions();
-    fetchRoleMeta();
+    Promise.resolve().then(() => {
+      fetchRolePermissions();
+      fetchAvailablePermissions();
+      fetchRoleMeta();
+    });
   }, [fetchRolePermissions, fetchAvailablePermissions, fetchRoleMeta]);
 
   useEffect(() => {
-    fetchRoleMeta();
+    Promise.resolve().then(() => { fetchRoleMeta(); });
   }, [fetchRoleMeta]);
 
   const handlePermissionToggle = useCallback((role, permission) => {

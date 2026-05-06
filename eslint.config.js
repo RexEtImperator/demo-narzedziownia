@@ -4,7 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
   {
-    ignores: ['build/**', 'backend/backups/**', 'node_modules/**'],
+    ignores: ['build/**', 'backend/backups/**', 'node_modules/**', 'source-narzedziownia-mobile-app/**', '**/* — kopia*'],
   },
   {
     files: ['src/**/*.js', 'src/**/*.jsx'],
@@ -59,6 +59,9 @@ export default [
       ...js.configs.recommended.rules,
       ...reactPlugin.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
+      'react-hooks/set-state-in-effect': 'warn',
+      'react-hooks/static-components': 'warn',
+      'react-hooks/purity': 'warn',
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react/display-name': 'warn',

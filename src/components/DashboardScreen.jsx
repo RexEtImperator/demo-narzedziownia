@@ -18,6 +18,97 @@ import { useDepartments } from '../hooks/useDepartments';
 import { usePositions } from '../hooks/usePositions';
 import { useIssuedTools } from '../hooks/useIssuedTools';
 
+const STAT_CARD_COLOR_VARIANTS = {
+  orange: {
+    gradient: 'to-orange-50/50',
+    text: 'text-orange-600',
+    darkText: 'dark:text-orange-400',
+    bg: 'bg-orange-50',
+    darkBg: 'dark:bg-orange-500/10',
+    ring: 'ring-orange-100',
+    darkRing: 'dark:ring-orange-500/20'
+  },
+  green: {
+    gradient: 'to-green-50/50',
+    text: 'text-green-600',
+    darkText: 'dark:text-green-400',
+    bg: 'bg-green-50',
+    darkBg: 'dark:bg-green-500/10',
+    ring: 'ring-green-100',
+    darkRing: 'dark:ring-green-500/20'
+  },
+  purple: {
+    gradient: 'to-purple-50/50',
+    text: 'text-purple-600',
+    darkText: 'dark:text-purple-400',
+    bg: 'bg-purple-50',
+    darkBg: 'dark:bg-purple-500/10',
+    ring: 'ring-purple-100',
+    darkRing: 'dark:ring-purple-500/20'
+  },
+  red: {
+    gradient: 'to-red-50/50',
+    text: 'text-red-600',
+    darkText: 'dark:text-red-400',
+    bg: 'bg-red-50',
+    darkBg: 'dark:bg-red-500/10',
+    ring: 'ring-red-100',
+    darkRing: 'dark:ring-red-500/20'
+  },
+  blue: {
+    gradient: 'to-blue-50/50',
+    text: 'text-blue-600',
+    darkText: 'dark:text-blue-400',
+    bg: 'bg-blue-50',
+    darkBg: 'dark:bg-blue-500/10',
+    ring: 'ring-blue-100',
+    darkRing: 'dark:ring-blue-500/20'
+  }
+};
+
+const StatCard = ({ title, value, icon, color = 'blue', tooltip, loading = false }) => {
+  const variant = STAT_CARD_COLOR_VARIANTS[color] || STAT_CARD_COLOR_VARIANTS.blue;
+
+  return (
+    <div className="relative bg-white dark:bg-gray-800 rounded-xl p-6 ring-1 ring-slate-200 dark:ring-white/10 shadow-lg dark:shadow-indigo-500/10 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl group">
+      <div className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none">
+        <div className={`absolute inset-0 bg-gradient-to-br from-white ${variant.gradient} dark:from-gray-800 dark:to-gray-900 opacity-100 transition-colors`} />
+        <div className="absolute right-4 top-4 opacity-[0.1] dark:opacity-[0.1] scale-150 group-hover:scale-[1.6] group-hover:opacity-10 transition-all duration-500 ease-out">
+          {React.cloneElement(icon, {
+            className: `w-24 h-24 ${variant.text} ${variant.darkText}`
+          })}
+        </div>
+      </div>
+      <div className="relative z-10 flex items-center justify-between">
+        <div>
+          <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 tracking-wide">{title}</p>
+          <div className="relative inline-block">
+            <p className="text-3xl font-bold text-slate-800 dark:text-white tracking-tight tabular-nums" aria-describedby={tooltip ? `${title}-tooltip` : undefined}>
+              {loading ? (
+                <span className="inline-block w-8 h-8 bg-slate-200 dark:bg-slate-700 rounded animate-pulse"></span>
+              ) : value}
+            </p>
+            {tooltip && (
+              <div
+                id={`${title}-tooltip`}
+                role="tooltip"
+                className="absolute left-1/2 -translate-x-1/2 mt-2 z-50 whitespace-nowrap rounded-md bg-slate-900 text-white text-xs px-3 py-2 shadow-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none transition-all duration-200"
+              >
+                {tooltip}
+              </div>
+            )}
+          </div>
+        </div>
+        <div className={`w-12 h-12 ${variant.bg} ${variant.darkBg} rounded-lg flex items-center justify-center ring-1 ${variant.ring} ${variant.darkRing} group-hover:scale-110 transition-transform duration-200`}>
+          {React.cloneElement(icon, {
+            className: `w-6 h-6 ${variant.text} ${variant.darkText}`
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const DashboardScreen = ({ user }) => {
   const { t } = useLanguage();
   const queryClient = useQueryClient();
@@ -374,100 +465,6 @@ const DashboardScreen = ({ user }) => {
     }
   };
 
-  const colorVariants = {
-    orange: {
-      gradient: 'to-orange-50/50',
-      text: 'text-orange-600',
-      darkText: 'dark:text-orange-400',
-      bg: 'bg-orange-50',
-      darkBg: 'dark:bg-orange-500/10',
-      ring: 'ring-orange-100',
-      darkRing: 'dark:ring-orange-500/20'
-    },
-    green: {
-      gradient: 'to-green-50/50',
-      text: 'text-green-600',
-      darkText: 'dark:text-green-400',
-      bg: 'bg-green-50',
-      darkBg: 'dark:bg-green-500/10',
-      ring: 'ring-green-100',
-      darkRing: 'dark:ring-green-500/20'
-    },
-    purple: {
-      gradient: 'to-purple-50/50',
-      text: 'text-purple-600',
-      darkText: 'dark:text-purple-400',
-      bg: 'bg-purple-50',
-      darkBg: 'dark:bg-purple-500/10',
-      ring: 'ring-purple-100',
-      darkRing: 'dark:ring-purple-500/20'
-    },
-    red: {
-      gradient: 'to-red-50/50',
-      text: 'text-red-600',
-      darkText: 'dark:text-red-400',
-      bg: 'bg-red-50',
-      darkBg: 'dark:bg-red-500/10',
-      ring: 'ring-red-100',
-      darkRing: 'dark:ring-red-500/20'
-    },
-    blue: {
-      gradient: 'to-blue-50/50',
-      text: 'text-blue-600',
-      darkText: 'dark:text-blue-400',
-      bg: 'bg-blue-50',
-      darkBg: 'dark:bg-blue-500/10',
-      ring: 'ring-blue-100',
-      darkRing: 'dark:ring-blue-500/20'
-    }
-  };
-
-  const StatCard = ({ title, value, icon, color = 'blue', tooltip }) => {
-    const variant = colorVariants[color] || colorVariants.blue;
-
-    return (
-      <div className="relative bg-white dark:bg-gray-800 rounded-xl p-6 ring-1 ring-slate-200 dark:ring-white/10 shadow-lg dark:shadow-indigo-500/10 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl group">
-        {/* Background Layer with Overflow Hidden */}
-        <div className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none">
-          {/* Gradient Background */}
-          <div className={`absolute inset-0 bg-gradient-to-br from-white ${variant.gradient} dark:from-gray-800 dark:to-gray-900 opacity-100 transition-colors`} />
-          {/* Watermark Icon */}
-          <div className="absolute right-4 top-4 opacity-[0.1] dark:opacity-[0.1] scale-150 group-hover:scale-[1.6] group-hover:opacity-10 transition-all duration-500 ease-out">
-            {React.cloneElement(icon, { 
-              className: `w-24 h-24 ${variant.text} ${variant.darkText}` 
-            })}
-          </div>
-        </div>
-        <div className="relative z-10 flex items-center justify-between">
-          <div>
-            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 tracking-wide">{title}</p>
-            <div className="relative inline-block">
-              <p className={`text-3xl font-bold text-slate-800 dark:text-white tracking-tight tabular-nums`} aria-describedby={tooltip ? `${title}-tooltip` : undefined}>
-                {statsLoading ? (
-                  <span className="inline-block w-8 h-8 bg-slate-200 dark:bg-slate-700 rounded animate-pulse"></span>
-                ) : value}
-              </p>
-              {tooltip && (
-                <div
-                  id={`${title}-tooltip`}
-                  role="tooltip"
-                  className="absolute left-1/2 -translate-x-1/2 mt-2 z-50 whitespace-nowrap rounded-md bg-slate-900 text-white text-xs px-3 py-2 shadow-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none transition-all duration-200"
-                >
-                  {tooltip}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className={`w-12 h-12 ${variant.bg} ${variant.darkBg} rounded-lg flex items-center justify-center ring-1 ${variant.ring} ${variant.darkRing} group-hover:scale-110 transition-transform duration-200`}>
-            {React.cloneElement(icon, { 
-              className: `w-6 h-6 ${variant.text} ${variant.darkText}` 
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   const getActionIcon = (action) => {
     if (action === 'wydanie_permanent') {
       return (
@@ -504,6 +501,7 @@ const DashboardScreen = ({ user }) => {
           icon={
             <WrenchScrewdriverIcon />
           }
+          loading={statsLoading}
           color="orange"
         />
         <StatCard
@@ -512,6 +510,7 @@ const DashboardScreen = ({ user }) => {
           icon={
             <InboxIcon />
           }
+          loading={statsLoading}
           color="green"
         />
         <StatCard
@@ -520,6 +519,7 @@ const DashboardScreen = ({ user }) => {
           icon={
             <UsersIcon />
           }
+          loading={statsLoading}
           color="purple"
         />
         <StatCard
@@ -528,6 +528,7 @@ const DashboardScreen = ({ user }) => {
           icon={
             <ClockIcon />
           }
+          loading={statsLoading}
           color="red"
           tooltip={
             <div>

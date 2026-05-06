@@ -9,7 +9,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const BottomNavigation = ({ onMenuToggle, user }) => {
+const BottomNavigation = ({ onMenuToggle: _onMenuToggle, user }) => {
   const { t } = useLanguage();
   const isEmployee = String(user?.role) === 'employee';
 

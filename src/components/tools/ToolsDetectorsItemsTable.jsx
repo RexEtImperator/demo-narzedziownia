@@ -105,7 +105,7 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, autoActi
   }, []);
 
   useEffect(() => {
-    fetchItems();
+    Promise.resolve().then(() => { fetchItems(); });
   }, [fetchItems]);
 
   useEffect(() => {
@@ -133,11 +133,13 @@ const ToolsDetectorsItemsTable = ({ toolId, t, canManage, highlightSku, autoActi
     if (autoActionRef.current === key) return;
     autoActionRef.current = key;
     if (action === 'issue') {
-      setSelectedIds([match.id]);
-      setIssueModalOpen(true);
-      setSelectedEmployeeId('');
-      setSearchEmployee('');
-      fetchEmployees();
+      Promise.resolve().then(() => {
+        setSelectedIds([match.id]);
+        setIssueModalOpen(true);
+        setSelectedEmployeeId('');
+        setSearchEmployee('');
+        fetchEmployees();
+      });
       return;
     }
 

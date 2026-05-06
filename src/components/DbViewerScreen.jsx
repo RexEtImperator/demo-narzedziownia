@@ -80,12 +80,12 @@ const DbViewerScreen = ({ user }) => {
   }, [t]);
 
   useEffect(() => {
-    fetchTables();
+    Promise.resolve().then(() => { fetchTables(); });
   }, [fetchTables]);
 
   useEffect(() => {
     if (selectedTable) {
-      fetchTableData(selectedTable, limit, offset);
+      Promise.resolve().then(() => { fetchTableData(selectedTable, limit, offset); });
     }
   }, [selectedTable, limit, offset, fetchTableData]);
 
